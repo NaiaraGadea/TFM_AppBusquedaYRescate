@@ -1,0 +1,209 @@
+\documentclass{pclass}
+\usepackage [spanish] {babel} 
+\usepackage[utf8]{inputenc}
+\usepackage{eurosym} % Simbolo del euro
+\usepackage{float}
+\usepackage{enumerate} 
+\usepackage{url}
+\usepackage{apacite}
+\usepackage{siunitx} % Simbolos
+\usepackage{amssymb, amsmath, amsbsy} % Simbolos matematicos
+\usepackage{pdfpages} % Para incluir otros pdf o paginas especificas de los pdf
+
+%-----------------
+% Paquetes y líneas añadidos por Naiara
+\usepackage{microtype}
+\usepackage{placeins}
+\usepackage{listings}
+\usepackage{sectsty}
+\usepackage{verbatim}
+
+\usepackage[style=numeric,sorting=none]{biblatex} % Para la bibliografia
+\addbibresource{bibliografia.bib} % Para la bibliografia
+\usepackage{geometry} 
+
+% Bibliografia
+\usepackage{apacite}
+\bibliographystyle{apacite} %Este da error
+%\bibliographystyle{apa}
+
+\bibliography{bibliografia} 
+
+%----------------
+
+
+
+\begin{document}
+\pagenumbering{arabic}
+\setlength{\parskip}{4ex}
+\tipo{Máster}   % Grado o M\'aster
+\titulopro{...Título del TFM... App de búsqueda y rescate de personas desaparecidas...}
+\tutor{Alejandro Fernández-Montes González \\
+Damián Fernández Cerero}
+\departamento{Nombre Departamento}
+%\autores{Nombre 1}{Nombre 2}  % Dos autores
+\autores{Naiara Gadea Rodríguez Gómez}{{\ }}   % Un autor
+\dia{\large \today}
+\titulacion{Máster Universitario en Ingeniería Biomédica y Salud Digital}
+
+\hacerportada
+
+	\input{tocdef}
+\frontmatter
+
+\cdpchapter{Agradecimientos}
+
+... agradecimientos ...
+
+Este trabajo sería imposible sin ...
+
+\cdpchapter{Resumen}
+
+... resumen en español ...
+
+Este trabajo se centra en ...
+
+{\centering \subsection*{Descriptores} }
+Personas desaparecidas, búsqueda, rescate, app, iOS, android, aplicación, coordinación, solución, mejora, necesidad, React Native, Node.js, Javascript.
+
+
+
+\cdpchapter{Abstract}
+
+... resumen en inglés ...
+
+{\centering \subsection*{Keywords} }
+
+Disappeared people, missing people, search, rescue, app, iOS, android, application, application, coordination, solution, improvement, need, React Native, Node.js, Javascript.
+
+\tableofcontents
+
+\listoffigures
+
+\listoftables
+
+\mainmatter  
+% En vez de escribir todo en el mismo documento.
+\include{tex/1_DescripcionProyecto}
+\include{tex/2_PlanificacionProyecto}
+\include{tex/3_EjecucionProyecto}
+\include{tex/4_Conclusiones}
+\include{tex/5_TrabajoFuturo}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{comment}
+\chapter{DESCRIPCIÓN DEL PROYECTO}
+    \section{Introducción}\label{intro}
+    
+
+    
+    \section{Conocimientos previos}\label{previos}
+    
+       
+
+    \section{Estado del arte}\label{estadoArte}
+    
+    
+
+    \section{Objetivos}\label{obj}
+    
+    En este trabajo, se parte de la hipótesis de que \emph{.....}.
+    
+    De acuerdo con ello, el objetivo principal de este trabajo es el de ..... Para conseguir dicho fin, son necesarios los subobjetivos que se detallan a continuación:
+    
+    \begin{itemize}
+        \item \textbf{Subobjetivo 1:}
+        ...
+        
+        \item \textbf{Subobjetivo 2:}
+        ...
+        
+        \item \textbf{Subobjetivo 3:}
+        ...
+
+    \end{itemize}
+
+
+    \section{Requisitos y Riesgos}\label{req}
+    
+\end{comment}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{comment}
+\chapter{PLANIFICACIÓN DEL PROYECTO}\label{planif}
+    \section{Planificación temporal}\label{ptemp}
+    
+
+
+    \section{Planificación financiera}\label{pfin}
+
+
+
+    \section{Estudio de Mercado}\label{merca}
+       
+\end{comment}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{comment}
+\chapter{EJECUCIÓN DEL PROYECTO}\label{ejecucion}
+    \section{Descripción general}\label{descrip}
+    
+
+
+    \section{Tecnologías empleadas}\label{tec}
+
+
+    
+    \section{Implementación}\label{desa}
+
+
+
+    \section{Pruebas}\label{pru}
+    
+\end{comment}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{comment}
+\chapter{CONCLUSIONES}
+
+\end{comment}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{comment}
+\chapter{TRABAJO FUTURO}
+
+\end{comment}
+
+
+
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{BIBLIOGRAFÍA}
+
+
+\printbibliography
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{ANEXOS}
+
+    \begin{enumerate}[a)]
+	    
+	\item Anexo A
+        \item Anexo B
+        \item Anexo C
+        \item Anexo D
+        \item Anexo E
+
+    \end{enumerate}
+    
+    \include{tex/anexos/A_InstalacionHerramientas}
+    \include{tex/anexos/B_DespliegueGithub}
+    \include{tex/anexos/C_GuiasBusquedaYRescate}
+    \include{tex/anexos/D_Codigo}
+    \include{tex/anexos/E_CuestionarioUsabilidad}
+
+
+
+
+    
+\end{document}
