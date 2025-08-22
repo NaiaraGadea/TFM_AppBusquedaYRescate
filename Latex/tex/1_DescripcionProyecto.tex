@@ -1,22 +1,80 @@
 \chapter{DESCRIPCIÓN DEL PROYECTO}
+
     \section{Introducción}\label{intro}
-    \textcolor{red}{En esta sección debes presentar el contexto y la motivación detrás del proyecto. Algunos puntos clave son:}
+
+    https://www.revistas.uma.es/index.php/boletin-criminologico/article/view/6833/6361
+    
+    \textcolor{red}{El contexto y la motivación detrás del proyecto.}
+
+    En el mundo desaparecen miles personas al año, por causas cómo desastres naturales, conflictos armados, aumento del envejecimiento de la población y enfermedades de salud mental. En España, en el año 2024 hubo unas 16.000 denuncias. Actualmente siguen activas, solo del año pasado, unas 700 denuncias, más de 700 familias que conviven constantemente con la incertidumbre y la angustia de no saber el paradero de su ser querido. \cite{DatosDesaparecidos2024}
+    
+    Por estas cifras y porque todas las personas tienen derecho a su búsqueda y localización, la búsqueda de personas desaparecidas supone un reto y un esfuerzo actual relevante de carácter social y humanitario\cite{garcia2019personas}. Es por esto que si puedo ayudar a mejorar un poquito el mundo en este ámbito con mis conocimientos de Ingeniería Biomédica quiero aportar mi granito de arena.
+
+    En la sociedad en la que vivimos tenemos a disposición multitud de herramientas tecnológicas que permiten localizar a una persona. Existen drones con visión artificial y sistemas GPS, además de aplicaciones como AlertCops que facilita la seguridad ciudadana y pueden ser de gran ayuda en las búsquedas. Aunque estas tecnologías salvan vidas y dan esperanza, todavía hay espacios de la búsqueda que son bastante deficientes, cómo el hecho de que la mayoría de estos sistemas se basan en la idea de que la persona desaparecida lleve consigo algún tipo de dispositivo electrónico .
+
+    Es vital llenar los huecos que quedan en términos de búsquedas de personas desaparecidas, para minimizar la gravedad de estos sucesos y favorecer una mayor seguridad de nuestra sociedad y país.
+
+    \textcolor{red}{Relación con la ingeniería biomédica con la problemática de las personas desaparecidas}
+
+    \textcolor{red}{¿Incluir esta parte en motivación?}
+
+    La ingeniería biomédica combina conocimientos de salud y tecnología para mejorar la vida y la salud de las personas mediante el uso y desarrollo de soluciones innovadoras. Permite desarrollar desde tratamientos o diagnósticos personalizados, hasta dispositivos de asistencia. Pero no solo eso, la ingeniería biomédica también ocupa la gestión y tratamiento seguro y ético de los datos personales, garantizando la privaciad y confidencialidad de la información. Por todo ello la ingeniería biomédica puede ser una estrategia poderosa para proteger y salvar vidas.
+
+    Respecto a la problemática que nos ocupa, la de las personas desaparecidas, puede abordarse desde diferentes puntos de vista de la ingeniería biomédica. Desde la creación de dispositivos para geolocalizar y monitorizar a una persona en tiempo real, usando, por ejemplo, su información fisiológica; hasta el uso de algoritmos para identificar patrones para la localización de las personas desaparecidas. Asimismo, la correcta integración de los datos de las desapariciones es clave para mejorar la coordinación de los operativos de búsqueda.
+
+    En este trabajo me centraré en usar mis conocimientos para definir una app que permita gestionar y coordinar a las diferentes personas o  equipos que participan en la búsqueda de una persona desaparecida, gestionar toda la información de la búsqueda y donde se recopilen datos para que se pueda trabajar con algoritmos predictivos de localización de la persona en base al resultado de otras búsquedas y la información propia de la persona desaparecida. Este último punto en principio será teórico puesto que no puedo acceder a los datos.
+
+
+    \textcolor{red}{En este documento se prentende realizar una revisión bibliográfica de los casos de personas desaparecidas en España, un prototipo sencillo de la aplicación de apoyo a la gestión y búsqueda de personas desaparecidas y todo lo relacionado con su desarrollo. Con el objetivo de obtener al final un PMV con el que realizar una validación realista de su posible incorporcación al mercado.}
+
+
+    \textcolor{red}{Tambien se pretende explorar las posibilidades de usar algoritmos de predicción de la localización de la persona desparecida en base a los datos médicos o fisiológicos de la persona desaparecida.}
+
     
     \begin{itemize}
     
-    \item  \textcolor{red}{Contexto del problema: Explica la relevancia social y humanitaria de la búsqueda de personas desaparecidas. Menciona estadísticas, ejemplos reales y por qué resulta vital contar con herramientas tecnológicas que optimicen la coordinación de las búsquedas.}
-    
     \item  \textcolor{red}{Justificación del proyecto: Relaciona tu formación en ingeniería biomédica con la problemática, resaltando cómo los enfoques tecnológicos, de sensorización o integración de datos pueden aportar a soluciones eficientes.}
+
+
+La app de búsqueda y rescate de personas desaparecidas que se presenta en este trabajo requiere de la gestión y análisis de datos de personas desaparecidas, grupos de rescate, voluntarios e instituciones, y en el caso de personas desparecidas también se puede trabajar con sus datos médicos como información de enfermedades o trastornos. Además, gracias a los conocimeintos de ingeniería biomédica se pueden aplicar técnicas de análisis predictivo para el apoyo en las desapariciones, y tambien identificar patrones y factores de riesgo y de esta forma mejorar la efectividad de las búsquedas. Los conocimientos en ingeniería biomédica permiten integrar los distintos sistemas de información para que los datos sean accesibles, sean compartidos de forma segura y eficiente entre los involucrados y responsables. 
+
+Como la mayoría de datos que se van a tratar en la app son datos sensibles, como información médica y personal, requiere tener muy en cuenta la protección de esos datos y la privacidad.
+
+Incluso se podría llegar a asociar a dispositivos con sensores que monitoricen a los participantes u otros elementos como drones.
+
+En esta app, su enfoque en la gestión y análisis de datos, la predicción de patrones y la protección de la información la conectan con principios y técnicas de la ingeniería biomédica. Aunque la app no esté enfocado en dispositivos médicos o tratamientos, su uso de tecnologías de datos y su contribución a la seguridad y bienestar de las personas conectan este trabao con los principios de la ingeniería biomédica.
+
+
+
+La automatización de alertas en aplicaciones de seguridad y de colaboración ciudadana, pueden transformar la forma en que los organismos de rescate gestionan los recursos y aumentan las probabilidades de éxito en situaciones críticas para poder salvar vidas. 
     
     \item  \textcolor{red}{Objetivos generales y específicos: Define qué se pretende lograr con el desarrollo de la app, tanto a nivel funcional (gestión, búsqueda y coordinación) como en términos de impacto social.}
+
+    El desarrollo de la app pretende mejorar la gestión y coordinación de  los operativos de búsqueda de personas desaparecidas. 
+    Proporcionando a los profesionales herramientas que faciliten su trabajo. 
+
+    Además, gracias a la herramienta que se pretende desarrollar se promueve la colaboración entre los distintos organismos, grupos de rescate, asociaciones y civiles en general.
     
     \item  \textcolor{red}{Alcance y limitaciones: Describe brevemente qué aspectos cubrirá el proyecto y establece los límites de la misma investigación y desarrollo.} 
+
+    
     
     \end{itemize}
     
     \textcolor{red}{Contexto: Expón brevemente cómo se abordan los casos de personas desaparecidas en la práctica. Describe el flujo convencional, iniciando con la denuncia, la acción inmediata de las autoridades, la movilización de unidades y la difusión a través de medios y redes sociales.}
+    
+MODIFICAR
+
+El proceso para abordar casos de personas desaparecidas sigue un flujo estructurado y coordinado entre diferentes organismos. Todo comienza con la denuncia, que puede ser presentada por familiares, testigos o autoridades ante la policía, sin necesidad de esperar un plazo específico. A partir de ese momento, se activa un protocolo de actuación inmediata, en el que las fuerzas de seguridad recaban información clave como última ubicación, características físicas y posibles circunstancias de la desaparición.
+
+Luego, se movilizan unidades de búsqueda especializadas, como equipos de rescate, fuerzas policiales y voluntarios, que utilizan herramientas tecnológicas como GPS, drones y análisis de datos para delimitar áreas de búsqueda. Paralelamente, la difusión del caso es crucial: las autoridades emiten alertas oficiales, mientras que los familiares y la sociedad amplifican la información a través de medios de comunicación y redes sociales, lo que aumenta la probabilidad de recibir pistas valiosas. Este proceso se complementa con bases de datos nacionales e internacionales y el apoyo de organizaciones dedicadas a la localización de personas desaparecidas. La combinación de tecnología, rapidez y coordinación resulta vital para resolver estos casos con éxito.
+
+Actualmente en España, existe una institución que se encarga de todos estos casos de personas desaparecidas, el Centro Nacional de Desaparecidos (CNDES). Fue creado en 2018 y actúa como un órgano de gestión de coordinación del sistema de personas desaparecidas utilizado por las Fuerzas y Cuerpos de Seguridad del estado. También desarrollan medidas de cooperación entre instituciones y organizaciones, se encargan de analizar y valorar propuestas de familiares de personas desaparecidas, y es el punto de contacto entre cuerpos policiales y servicios públicos. \cite{garcia2019personas}
+
+Por otro lado, la Fundación ANAR fundada en 2017 por el ministerio del interior se encarga de menores desaparecidos.
 
     \textcolor{red}{Procedimientos Actuales:}
+    Actualmente, ante una desaparición el tiempo es clave, no hay que esperar 24 horas para denunciar.
     
     \begin{itemize}
     \item \textcolor{red}{Notificación y denuncia: Menciona que en muchos países (por ejemplo, en España) se puede denunciar desde el primer momento ante la policía (Policía Nacional, Guardia Civil, etc.), sin esperar el plazo de 24 horas en casos evidentes.}
@@ -37,13 +95,159 @@
     Respecto a la ayuda logística de la búsqueda, se podrán definir los distintos perfiles necesarios o las tareas a realizar, colocar puntos de control y ofrecer retroalimentación basada en estadísticas de desapariciones anteriores y la información del desaparecido, como puede ser edad o enfermedades, por ejemplo, si desaparece en la montaña una persona de mediana edad con diabetes la apliación indicaría que algunos de los puntos de control deben de ser zonas con alguna fuente de agua ya que está demostrado que las personas con diabetes suelen tener mucha sed y por supervivencia se acercarán a esas fuentes de agua.
     
     Se ha utilizado la herramienta Github \cite{GitHub} para llevar un control de todo el proyecto. Se puede acceder a la información del mismo en el siguiente repositorio: ...
+
+    
+
     
     \subsection{Motivación}
+    REPASAR Y MODIFICAR PALABRAS
+    
+    Desde hace unos pocos meses soy voluntaria en el GREM (Grupo de Rescate Espeleológico y de Montaña) de Burgos. Entre la multitud de tareas que realizan, trabajan en colaboración con profesionales de las Fuerzas y Cuerpos de seguridad del Estado en la búsqueda de personas desaparecidas. La idea de la aplicación surgió por un vídeo suyo de instagram donde se explicaba que cuanta más gente participase en las búsquedas más probabilidades habría de encontrar a la persona con vida.
 
+    La app pretende reunir a la mayor cantidad de personas posibles a esas búsquedas, además de difundir de forma optimizada las alertas de personas desaparecidas que en muchos casos nos llegan a través de personas desaparecidas. Además, se pretende usar la app para la mejora de la gestión de las búsquedas con distintos elementos, con el objetivo de optimizar recursos. 
+
+    Pero sobretodo, se pretende que la app sea una ayuda para los profesionales, los grupos, las asociaciones, los familiares de las personas desaparecidas y los propios desaparecidos. Se trata de optimizar los recursos para poder salvar vidas.
+
+
+    \textcolor{red}{OTRO APARTADO?, RESPONDER A ESA PREGUNTA:}
+
+    Probablemente muchos se pregunten de qué forma se asocia la ingeniería biomédica con un softare de gestión y coordinación de personas desaparecidas. 
+    
 %%%%%%%%%%%%%%%%%%%%%%%%% CONOCIMIENTOS PREVIOS %%%%%%%%%%%%%%%%%%%%%%%%%
     \section{Conocimientos previos}\label{previos}
 
-    \textcolor{red}{ Esta sección sirve para sentar las bases teóricas y técnicas en las que se apoya tu aplicación:}
+    \textcolor{red}{ Sentar las bases teóricas y técnicas en las que se apoya la aplicación.}
+
+    Antes de adentrarnos en el el estado del arte y el desarrollo de la aplicación, nos adrentarmos en los fundamentos biológicos y teóricos en los que nos apoyaremos para el desarrollo de nuestro trabajo.
+
+    \subsection{GPS cerebral}
+    Se puede decir que la orientación es el resulatado de la actividad neuronal de regiones específicas.
+
+    \textcolor{red}{Buscar un poco más del premio Nobel para confirmar que la frase está correctamente dicha y ampliar información}
+
+    El GPS Interno del que constan todas las personas fue descubierto y definido por el premio Nobel John O'Keele y May-Britt Moser y Eduard I.Moser. 
+
+    El GPS interno sería el sistema de posicionamiento que tiene el cerebro para conocer las posiciones de la persona y de otros objetos o lugares. En el GPS interno se ven implicados los sentidos y dos zonas del cerebro, el hipocampo donde formamos los mapas y la corteza entorrinal donde se tomarán las decisiones, que se encuentra muy cercana al hipocampo. 
+
+    \textcolor{red}{El mapa cognitivo se trata de una representación del entorno que se genera en el hipocampo, se codificarían señales visuales, auditivas y somato sensoriales.}
+    
+    \textcolor{red}{Incluir una imagen del cerebro donde se encuentre marcado el hipocampo y la corteza entorrinal}
+
+    El hipocampo forma parte del sistema límbico (hipocampo+amígdala), que se trata del sustrato morfológico de la memoria, aprendizaje, motivación y las emociones. 
+
+    En el mapa cognitivo también influye la memoria declarativa, es decir, nuestros recuerdos. 
+    
+    \textcolor{red}{(La memoria declarativa se divide en episodica y semántica.)} 
+
+    Hay estudios que demuestran que si una persona se encuentra en constante uso de la orientación, como los taxistas, tienen un hipocampo más activo que las personas que no hacen tanto uso de la orientación. También existe una correlación entre la buena orientación y la cantidad de sustancia gris en la zona.
+
+    El hipocampo se divide en 4 regiones CA1, CA2, CA3 y CA4.
+    %https://www.kenhub.com/es/library/anatomia-es/hipocampo
+
+    En estos tejidos encontramos 4 tipos de células implicadas en el GPS Interno. Las células de lugar, las células de red, las células de dirección y las células de límite.
+    
+    \subsubsection{Células nerviosas de lugar o de posicionamiento}
+    Se trata de neuronas que se encuentran en el hipocampo que responden selectivamente al lugar donde se encuentra la persona. Forman sistemas de navegación alocéntricos de detección entre objetos. Por decirlo de otra forma, se podría decir que se trata de los puntos de refernecia que utilizamos para saber donde nos encontramos.
+    
+
+    Estas células se activan cuando se está en un lugar específico.
+
+    Dan información sobre la posición de objetos alrededor, de partes del propio cuerpo o de lugares y permiten un desplazamiento sin errores.
+
+    Se cree que las células de lugar tambien son las células de tiempo, aquellas que codifican la percepción del tiempo. Se desconoce su potencial de acción.
+
+    \subsubsection{Células de red}
+    Son neuronas que se encuentran en el córtex entoriinal. Se llaman células de red porque se organizan en patrones de células en hexágonos o triángulos. Actualmente su uso es desconocido pero se sabe que se encuentran relacionadas con las células de lugar. Se cree que podrían funcionar cómo la triangulación de telefonía, para poder conocer las coordenadas. 
+
+    La combinación del mapa cognitivo, las células de lugar y estas mismas permitirían crear el mapa cerebral.
+
+    \subsubsection{Células de dirección}
+    Estas neuronas permitirían conocer la dirección en la que se mueve el sujeto. 
+    
+
+    \subsubsection{Células de límite}
+    Son neuronas que se encuentran en el subículum del hipocampo. Estas neuronas experimentan una mayora activación cuando el sujeto se encuentra cerca de algún límite, cómo puede ser una pared o un precipicio.
+
+    
+    
+    
+    Existen numerosas enfermedades y trastornos que pueden afectar a nuestro GPS cerebral como la hipoglucemia, hiperglucemia, hipotermia, hipertermia, demencia, enfermedad mental, discapacidad mental y autismo.
+
+    Por ejemplo, con la hipoxia se disminuye la irrigación a esas zonas del cerebro. Y con la edad se ve afectada la memoria a corto plazo por lo que para intentar mantenerla hay que ejercitarla lo máximo posible.
+    
+
+    \subsection{GPS cerebral: Alzheimer}
+    Se ve afectado el hipocampo y la corteza entorrinal, de hecho es una de las primeras estructuras del cerebro que se deteriora, por lo que se produce una pérdida del sentido de la orientación, como uno de los primeros síntomas. Su causa es la acumulación de proteínas tau y de placas de proteína beta-amiloide que destruyen las neuronas. 
+    
+    En concreto, unas de las primeras zonas que se ven afectadas son la corteza entorrinal por la acumulación de proteína Tau y la región CA1 por la acumulación de péptido amiloide que provoca poco a poco la desconexión entre las neuronas, por lo que se va perdiendo memoria a corto plazo y existe una deficiencia en la activación de las células de red. 
+    
+    Es una de las enfemedades con más incidencia y por el momento no tiene cura.
+    
+    La enfermedad de Alhzéimer se caracteriza por una memoria deteriorada, dificultad para calcular el tiempo y las distancias. En definitiva, de una pérdida de las habilidades viso-espaciales. Actualmente no existe cura alguna.
+
+    Las personas con Alzhéimer avanzado son incapaces de crear un mapa cognitivo, se encuentran perdidas todo el tiempo y su orientación y puntos de referencia se basan en todo lo que vivieron en el pasado, en la información que tienen almacenada a largo plazo.
+    
+    
+
+    \subsection{GPS cerebral: Otras}
+    Personas con demencia, discapacidad intelectual o enfermedad mental tienen disminuida también la capacidad de generar mapas cofnitivos.
+
+    Sin embargo cabe destacar que las personas con discapacidad intelectual tienen una mejor capacidad que las personas cuya edad se les ha atribuido puesto que cuentan con la años de experiencia. Principalmente se basan en rutinas que si llegan a cambiar pueden impedir que consturyan impediatamente el nuevo mapa cognitivo.
+
+    Los niños todavía no son capaces de generar mapas cognitivos completos puesto que no han desarollado completamente esa habilidad. Normalmente se empieza a desarrollar a partir de los 8-9 años. De hecho los niños pequeños tampoco suelen tener metaconocimiento de sus habilidades espaciales, por lo que pueden perderse con mayor facilidad.
+
+    \subsection{GPS cerebral: Emociones}
+    Como se ha mencionado antes, las emociones también juegan un papel principal en la orientación de las personas.
+
+    Por ejemplo, una persona con una alta excitación percibe menor cantidad de señales ambientales, mientras que una persona con poca excitación puede incurrir en pensamientos difusos. Por lo que como en todo en esta vida, se busca el equilibrio.
+
+    Y no solo la excitación, el miedo también influye, interfiere en el funcionamiento normal mental, en la concentración y en la capacidad de resolver problemas. Además, una persona que siente miedo busca la auto-preservación por lo que se produce una mayor adrenalina y mayor cantidad de sangre en las piernas por lo que su impulso normalmente será moverse.
+
+    Por otro lado, también se debe tener en cuenta si una persona desaparece sola o en grupo, puesto que las personas actúan diferente y suelen sentir menos miedo y siguen comportamientos más racionales. De hecho, lo normal es que si desaparece un grupo estas personas se queden en grupo o algunas vayan a buscar ayuda.
+
+    \subsection{Persona desorientada, perdida y desaparecida}
+
+    \textcolor{red}{Definir Persona desorientada y perdida}
+
+    Se define como "Persona desaparecida la persona ausente de su residencia habitual sin motivo conocido o aparente, cuya existencia es motivo de inquietud o bien que su nueva residencia se ignora, dando lugar a la búsqueda en el interés de su propia seguridad y sobre la base del interés familiar o social”.  (Consejo de Europa, 2009)
+    
+    % https://cndes-web.ses.mir.es/publico/Desaparecidos/Primeros-Pasos.html
+    
+    % https://rm.coe.int/16806da843
+
+    % https://sosdesaparecidos.es/como-actuar/#1568743348168-892fd5e6-ad94
+
+    Según los datos proporcionados por el ministerio del interior y el Centro Nacional de Desaparecidos la cifra de desaparecidos en 2024 sube hasta 16.147. \cite{DatosDesaparecidos2024}
+
+    De hecho las estadísticas muestran que... (indicar el porcentaje hombres/ mujeres y por edades, si me puedo centrar en las desapariciones involuntarias mejor.)
+    
+    Las personas desaparecen en la actualidad por multitud de causas cómo puede ser ...
+    
+    \subsubsection{Clasificación de casos de desapariciones} 
+    Aunque existen distintas formas de clasificar las desapariciones, nosotros las clasificaremos con la clasificación actual propuesta desde el Ministerio del Interior las desapariciones se clasifican en:
+        \begin{itemize}
+            \item \textbf{Desapariciones Voluntarias}: en el caso en el que una persona decide ausentarse de su residencia habitual por voluntad propia, sin informar a ningún conocido o familiar.
+            \item \textbf{Desapariciones Involuntarias}: en el caso en el por accidente, desorientación o distintas situaciones la persona desaparece sin intención de hacerlo. 
+            \item \textbf{Desapariciones Forzosas}: en el caso de que la desaparición se deba por acciones deliberadas, como es el caso de secuestros, violencia o conflictos armados. Es un crimen de la humanidad y está prohibida por el derecho internacional.
+        \end{itemize}
+
+    Existen disitnos posibles escenarios para los casos de personas desaparecidas según Charles Twardy: avalancha, criminal, abatido, evadido, investigación, perdido, médico, ahogamiento, retrasado, varado o atrapado y trauma.  
+
+        
+    \subsubsection{Tipos de información a tratar}
+    \textcolor{red}{Tipo de información con la que se trata en las desapariciones.}
+    % Guía breve para familiares y organizacioens de la sociedad civil sobre la recolección de información sobre personas desaparecidas. Comisión Internacional sobre Personas Desaparecidas (ICMP)
+    
+    En los casos de personas desaparecidas se trata con distintos tipos de información en concreto podemos dividir entre\cite{GuiaFamiliaresICMP}:
+    \begin{itemize}
+        \item Información personal de la persona desaparecida: incluye datos básicos como nombre, fecha de nacimiento, características físicas y última localización conocida.
+        \item Información acerca de la desaparición: fecha, lugar o circunstancias asociadas a la desaparición.
+        \item Información personal de la persona que reporta la desaparición: nombre e información de contacto.
+        \item Información personal de familiares: nombres, información de contacto y relación de parentesco.
+        \item Información de personal de búsqueda o voluntarios.
+    \end{itemize}
+
+     
 
     \textcolor{red}{Bases tecnológicas:}
     
@@ -76,13 +280,25 @@
     Durante el trabajo he tenido que aprender JavaScript y Node.js para poder implementar el código de la aplicación híbrida en React Native.
 
     He consultado detalles de las caracteristicas de la aplicación y la usabiliad de la aplicación con el grupo GREM (Grupo de Rescate Espeleológico y de Montaña) de Burgos.
-       
+
+    \subsection{Dispositivos de búsqueda}
+    Un dispositvio de búsqueda es multidisciplinar, como la ingeniería biomédica, aunque normalmente los casos de desapariciones los llevan a cabo FFCC de seguridad o bomberos coordinados por el 112, pueden intervenir distintso grupos desde bomberos, guardia civil, policía protección civil, sanitarios, agentes de medioambiente, organicaciones de voluntarios...
+
+    Todos los equipos durante una búsqueda se encuentran comunicados con el MANDO.
+
+    Se suelen realizar difusiónd e alertas por redes sociales y/o medios de comunciación. También el sistema es-alert. \textcolor{red}{Incluir en algún parrafo o subsección el sistema es-alert, quizás en el estado del arte.} 
+
+    Normalmente todos los participantes en una búsqueda se encuentran divididos en equipos de búsqueda y en cada equipo habrá un jefe de equipo que cuenta con formación específica en búsqueda de personas desaparecidas.
+
+    En una búsqueda podemos encontrar 3 perfiles diferentes:
+    \begin{itemize}
+        \item Buscador
+        \item Jefe de equipo
+        \item Planificador
+    \end{itemize}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%% ESTADO DEL ARTE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     \section{Estado del arte}\label{estadoArte}
     \textcolor{red}{Aquí debes analizar y comparar las soluciones actuales, destacando sus fortalezas y limitaciones:}
-    
-    Actualmente en caso de desaparición se realiza el siguiente procedimiento:
-
     
     
 
@@ -92,7 +308,22 @@
     
     Algunas de las aplicaciones y sistemas que se utilizan en la gestión y búsqueda de personas desaparecidas son:
     \begin{itemize}
-        \item xx
+        \item Alerthor: https://www.alerthor.com/pagComercial
+        
+        https://k9rescate.com/alerthor-espana/
+        
+        \item Alertcops: Es una aplicación móvil gratuita dependiente creada por el Ministerio del Interior español cuyo objetivo es aumentar la seguridad ciudadana. Es una herramienta que permite a cualquier persona comunicar cualquier información, noticia, dato o alertar sobre un delito o incidencia de seguridad. Es un canal complementario de contacto rápido, discreto y directo con la Guardia Civil o la Policía Nacional. https://alertcops.ses.mir.es/publico/alertcops/
+
+
+        \item Desaparecido: Se trata de un software de apoyo a los equipos de emergencias para que las búsquedas de personas desaparecidas sean más eficientes. Entre las utilidades que ofrece incluye el monitoreo y control en tiempo real de los datos de los casos de personas desaparecidas, se basa en los procesos estandarizados, permite documentar y coordinar los planes de los equipos, permite monitorizar . Se trata de un software seguro que proriza la provacidad de los datos.  https://desaparecido.app/
+        
+        \item SIGPAC: mapas https://sigpac.mapa.es/fega/visor/
+        \item IGME: mapas https://info.igme.es/cartografiadigital/portada/default.aspx?mensaje=true
+        \item DroneFinder: https://itg.es/dronefinder-plenamente-operativaermite-localizar-personas-desaparecidas-con-drones-ia/
+        \item Lost Person Behaviour: https://lpb.findsar.com/
+        \item Sistema es-alert
+        \item Database ISRID: recoge los escenearios de las desapariciones
+        \item Win CASIE III: es una de las herramientas para la gestión de incidentes de búsqueda.
     \end{itemize}
     
     \textcolor{red}{- Comparación de enfoques utilizados en otros proyectos (por ejemplo, sistemas de alerta ciudadana, plataformas gubernamentales y redes sociales especializadas).}
@@ -204,30 +435,6 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% REQUISITOS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     \subsection{Requisitos}
     \textcolor{red}{REVISAR LOS PUNTOS DE ESTE APARTADO}
-    
-    \textcolor{red}{Se distinguen dos grandes grupos de requisitos: los funcionales y los no funcionales, además de consideraciones del entorno técnico y la integración con otros sistemas.}
-    
-    \subsubsection{Requisitos Funcionales}
-    \begin{itemize}
-        \item \textbf{Registro y gestión de usuarios:} \textcolor{red}{La aplicación debe permitir el registro de diferentes roles (administrador, coordinador, operador, usuario afectado, etc.) para gestionar el flujo de trabajo y responsables.}
-        \item \textbf{Comunicación y notificaciones:} \textcolor{red}{Debe incluir mecanismos para el envío de alertas en tiempo real, notificaciones push y sistemas de actualización continua del estado de los casos.}
-        \item \textbf{Visualización geográfica:} \textcolor{red}{Integración con mapas que muestre en tiempo real la ubicación de las personas desaparecidas y las zonas de búsqueda, utilizando capas informativas.}
-        \item \textbf{Historial y seguimiento:} \textcolor{red}{Registro detallado y seguimiento de cada caso con cronologías, evidencias y reportes para análisis posterior.}
-    \end{itemize}
-    
-    \subsubsection{Requisitos No Funcionales}
-    \begin{itemize}
-        \item \textbf{Seguridad y privacidad:} \textcolor{red}{Implementación de mecanismos de cifrado y autenticación robusta, asegurando el cumplimiento de normativas sobre manejo de datos sensibles (por ejemplo, GDPR).}
-        \item \textbf{Fiabilidad y robustez:} \textcolor{red}{El sistema debe estar preparado para funcionar en condiciones de alta demanda o con conectividad limitada, garantizando la disponibilidad continua.}
-        \item \textbf{Escalabilidad:} \textcolor{red}{Capacidad para adaptarse al crecimiento en la cantidad de usuarios y en el volumen de datos gestionados.}
-        \item \textbf{Usabilidad y rendimiento:} \textcolor{red}{Interfaz intuitiva y optimizada para dispositivos móviles, con tiempos de respuesta rápidos y una experiencia de usuario accesible.}
-    \end{itemize}
-    
-    \subsubsection{Requisitos del Sistema y Técnicos}
-    \begin{itemize}
-        \item Definición del entorno de desarrollo, plataformas soportadas y compatibilidades.
-        \item Integraciones con APIs externas y otros sistemas que puedan aportar datos o funcionalidades complementarias.
-    \end{itemize}
     
     \subsection{Riesgos}
     El uso de una herramienta de estas características en el entorno de emergencias de personas desaparecidas conlleva varios riesgos, que se deberán intentar minimizar siguiendo las legislaciones vigentes, con buenos planes de formación de la herramienta, con planes de actuación frente a incidentes y revisando regularmente la herramienta. 
