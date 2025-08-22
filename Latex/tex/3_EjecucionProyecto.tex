@@ -1,34 +1,480 @@
+
 \chapter{EJECUCIÓN DEL PROYECTO}\label{ejecucion}
+%%%%%%%%%%%%%%%%%%-------------- DESCRIPCION --------------%%%%%%%%%%%%%%%%%%
     \section{Descripción general}\label{descrip}
     
 
-
+%%%%%%%%%%%%%%%%%%-------------- TECNOLOGIAS --------------%%%%%%%%%%%%%%%%%%
     \section{Tecnologías empleadas}\label{tec}
 
     %\section{Herramientas empleadas y recursos utilizados}\label{herramientas}
     
+%%%%%%%%%%%%%%%%%%-------------- ARQUITECTURA --------------%%%%%%%%%%%%%%%%%%
     \section{Arquitectura y análisis}\label{arq_ana}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% REQUISITOS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
         \subsection{Requisitos}
+        
+En esta sección definiremos varios requisitos funcionales y no funcionales que nos ayudarán a definir el proyecto. Se ha de aclarar que aunque no se cumplan con todos los requisitos al desarrollar el prototipo de la aplicación, cuantos más requisitos cumpla el prototipo más exitoso será.
+
+Se ha de destacar que en el futuro, cuando se encuentre desarrollada y validada la aplicación, se tendrá que definir el entorno de desarrollo, las plataformas soportades y la compatibilidad con APIs externas y otros sistemas de datos o funcionalidades complementarias.
+    
+    \subsubsection{Requisitos Funcionales}
+Se van a presentar distintas tablas correspondientes a los requisitos funcionales de la aplicación que se pretende desarrollar. Estos requisitos corresponden a aquellos que nuestra aplicación debe poder realizar.
+
+\textcolor{red}{REVISAR}
+
+% ----------------------------------------------------
+% Requisito 1
+
+\begin{table}[h!]
+\begin{tabular}{|
+>{\columncolor[HTML]{EFEFEF}}c |l|}
+\hline
+\cellcolor[HTML]{B9E3F0}\textbf{RF-01} & \multicolumn{1}{c|}{\cellcolor[HTML]{B9E3F0}\textbf{Registro e Identificación de perfiles}} \\ 
+
+\hline Descripción & \begin{tabular}{p{10.5cm}}La solución deberá ser capaz de diferenciar entre distintos tipos de perfiles, grupos de rescate/asociaciones/instituciones, miembros de esos grupos de rescate/asociaciones/instituciones y población voluntaria. Para ello es necesario diferenciar a la hora de registrarse como usuario y en caso de ser grupo de rescate/asociación/institución realizar el procedimiento de autentificación necesario para mantener la seguridad de la aplicación.\end{tabular} \\ 
+
+\hline Importancia & \cellcolor[HTML]{FFFFFF}\begin{tabular}{p{10.5cm}}Alta, es la base para permitir distintas funcionalidades en funcion de los perfiles y mantener la seguridad.\end{tabular} \\ 
+
+\hline Prioridad & \multicolumn{1}{c|}{Alta} \\ 
+
+\hline
+\end{tabular}
+\caption{Requisito Funcional 1 Identificación de perfiles}
+\label{RF_01}
+\end{table}
+
+% ----------------------------------------------------
+% Requisito 2
+
+\begin{table}[h!]
+\begin{tabular}{|
+>{\columncolor[HTML]{EFEFEF}}c |l|}
+\hline
+\cellcolor[HTML]{B9E3F0}\textbf{RF-02} & \multicolumn{1}{c|}{\cellcolor[HTML]{B9E3F0}\textbf{Transmisión de avisos}} \\ 
+
+\hline Descripción & \begin{tabular}{p{10.5cm}}La solución deberá ser capaz de comunicar a los usuarios especificados, mediante su sistema de avisos, una búsqueda que se va a llevar a cabo transmitiendo el punto de encuentro y una pregunta de confirmación de asistencia o el aviso de una persona desaparecida en su zona. También podrá enviar alertas en tiempo real, notificaciones push y actualizaciones del estado de los casos.\end{tabular} \\ 
+
+\hline Importancia & \cellcolor[HTML]{FFFFFF}\begin{tabular}{p{10.5cm}}Alta, es una de las funcionalidades clave.\end{tabular} \\ 
+
+\hline Prioridad & \multicolumn{1}{c|}{Alta} \\ 
+
+\hline
+\end{tabular}
+\caption{Requisito Funcional 2 Transmisión de avisos}
+\label{RF_02} 
+\end{table}
+
+% ----------------------------------------------------
+% Requisito 3
+
+\begin{table}[h!]
+\begin{tabular}{|
+>{\columncolor[HTML]{EFEFEF}}c |l|}
+\hline
+\cellcolor[HTML]{B9E3F0}\textbf{RF-03} & \multicolumn{1}{c|}{\cellcolor[HTML]{B9E3F0}\textbf{Comunicación de persona desaparecida-Implícito antes}} \\ 
+
+\hline Descripción & \begin{tabular}{p{10.5cm}}La solución deberá permitir a cualquier usuario autorizado comunicar la desaparición de una persona, incluyendo datos relevantes como nombre, edad, última ubicación conocida, descripción física, circunstancias de la desaparición y contacto del denunciante. Esta información será validada por las instituciones correspondientes antes de ser difundida.\end{tabular} \\ 
+
+\hline Importancia & \cellcolor[HTML]{FFFFFF}\begin{tabular}{p{10.5cm}}Alta. Es el punto de partida de cualquier operativo de búsqueda y debe garantizar la veracidad y rapidez en la difusión de la información.\end{tabular} \\ 
+
+\hline Prioridad & \multicolumn{1}{c|}{Alta} \\ 
+
+\hline
+\end{tabular}
+\caption{Requisito funcional 3 Comunicación de persona desaparecida}
+\label{RF_01}
+\end{table}
+
+% ----------------------------------------------------
+% Requisito 4
+
+\begin{table}[h!]
+\begin{tabular}{|
+>{\columncolor[HTML]{EFEFEF}}c |l|}
+\hline
+\cellcolor[HTML]{B9E3F0}\textbf{RF-04} & \multicolumn{1}{c|}{\cellcolor[HTML]{B9E3F0}\textbf{Documentación de la búsqueda}} \\ 
+
+\hline Descripción & \begin{tabular}{p{10.5cm}} La solución deberá poder recopilar y almacenar la información de la persona desaparecida, del lugar de búsqueda y de los usuarios participantes en una búsqueda, siguiendo las pautas de los protocolos actuales. Esto incluye fotos, rutas recorridas, hallazgos, tiempos de búsqueda y observaciones relevantes.\end{tabular} \\ 
+
+\hline Importancia & \cellcolor[HTML]{FFFFFF}\begin{tabular}{p{10.5cm}}Alta. Es esencial para mantener un registro ordenado y útil para futuras búsquedas o análisis.
+
+\end{tabular} \\ 
+
+\hline Prioridad & \multicolumn{1}{c|}{Alta} \\ 
+
+\hline
+\end{tabular}
+\caption{Requisito Funcional 4 Documentación de la búsqueda}
+\label{RF_01}
+\end{table}
+
+% ----------------------------------------------------
+% Requisito 5
+
+\begin{table}[h!]
+\begin{tabular}{|
+>{\columncolor[HTML]{EFEFEF}}c |l|}
+\hline
+\cellcolor[HTML]{B9E3F0}\textbf{RF-05} & \multicolumn{1}{c|}{\cellcolor[HTML]{B9E3F0}\textbf{Gestión de la búsqueda}} \\ 
+
+\hline Descripción & \begin{tabular}{p{10.5cm}}La solución deberá permitir a los usuarios autorizados solicitar voluntarios o recursos a otros grupos de la zona, crear puntos de control de las búsquedas, asignar zonas específicas a grupos o individuos, y coordinar las acciones en tiempo real. También deberá permitir la modificación dinámica del plan de búsqueda según los avances. \end{tabular} \\ 
+
+\hline Importancia & \cellcolor[HTML]{FFFFFF}\begin{tabular}{p{10.5cm}}Alta. Es clave para garantizar una búsqueda organizada, eficiente y segura.\end{tabular} \\ 
+
+\hline Prioridad & \multicolumn{1}{c|}{Alta} \\ 
+
+\hline
+\end{tabular}
+\caption{Requisito Funcional 5 Gestión de la búsqueda.}
+\label{RF_01}
+\end{table}
+
+% ----------------------------------------------------
+% Requisito 6
+
+\begin{table}[h!]
+\begin{tabular}{|
+>{\columncolor[HTML]{EFEFEF}}c |l|}
+\hline
+\cellcolor[HTML]{B9E3F0}\textbf{RF-06} & \multicolumn{1}{c|}{\cellcolor[HTML]{B9E3F0}\textbf{Almacenamiento e historial}} \\ 
+
+\hline Descripción & \begin{tabular}{p{10.5cm}}Tendrá un registro detallado y seguimiento de cada caso con cronologías, evidencias y reportes para su posterior análisis. Permitirá consultar el historial de búsquedas anteriores, comparar patrones y generar estadísticas que ayuden a mejorar futuras operaciones.\end{tabular} \\ 
+
+\hline Importancia & \cellcolor[HTML]{FFFFFF}\begin{tabular}{p{10.5cm}}Alta. Facilita el aprendizaje continuo y la mejora de los protocolos de búsqueda.\end{tabular} \\ 
+
+\hline Prioridad & \multicolumn{1}{c|}{Alta} \\ 
+
+\hline
+\end{tabular}
+\caption{Requisito Funcional 6 Almacenamiento e historial.}
+\label{RF_01}
+\end{table}
+
+% ----------------------------------------------------
+% Requisito 7
+
+\begin{table}[h!]
+\begin{tabular}{|
+>{\columncolor[HTML]{EFEFEF}}c |l|}
+\hline
+\cellcolor[HTML]{B9E3F0}\textbf{RF-07} & \multicolumn{1}{c|}{\cellcolor[HTML]{B9E3F0}\textbf{Geolocalización}} \\ 
+
+\hline Descripción & \begin{tabular}{p{10.5cm}}La solución deberá ser capaz de integrar mapas en tiempo real y mostrar zonas de búsqueda y puntos de interés. Además, deberá poder realizar un seguimiento de los asistentes en las búsquedas y funcionar tanto en zonas con internet como sin él, mediante sincronización posterior.\end{tabular} \\ 
+
+\hline Importancia & \cellcolor[HTML]{FFFFFF}\begin{tabular}{p{10.5cm}}AAlta. Es necesario para llevar el correcto seguimiento de las personas que asisten a la búsqueda y de las zonas que se han o no recorrido.\end{tabular} \\ 
+
+\hline Prioridad & \multicolumn{1}{c|}{Media} \\ 
+
+\hline
+\end{tabular}
+\caption{Requisito Funcional 7 Geolocalización. }
+\label{RF_01}
+\end{table}
+
+
+% ----------------------------------------------------
+% Requisito 8
+
+\begin{table}[h!]
+\begin{tabular}{|
+>{\columncolor[HTML]{EFEFEF}}c |l|}
+\hline
+\cellcolor[HTML]{B9E3F0}\textbf{RF-07} & \multicolumn{1}{c|}{\cellcolor[HTML]{B9E3F0}\textbf{Predicción de posible localización}} \\ 
+
+\hline Descripción & \begin{tabular}{p{10.5cm}}La solución dispondrá de la posibilidad de, en base a los datos introducidos de la persona desaparecida y de los datos de búsquedas anteriores, predecir los lugares donde haya más posibilidad de encontrar a la persona. Esto se podrá realizar mediante algoritmos de inteligencia artificial y análisis de patrones. \end{tabular} \\ 
+
+\hline Importancia & \cellcolor[HTML]{FFFFFF}\begin{tabular}{p{10.5cm}}Alta. Aumenta la eficiencia de los operativos al priorizar zonas con mayor probabilidad de éxito.\end{tabular} \\ 
+
+\hline Prioridad & \multicolumn{1}{c|}{Alta} \\ 
+
+\hline
+\end{tabular}
+\caption{Requisito Funcional 8 Predicción de posible localización. }
+\label{RF_01}
+\end{table}
+
+
+% ----------------------------------------------------
+% Requisito 9
+
+\begin{table}[h!]
+\begin{tabular}{|
+>{\columncolor[HTML]{EFEFEF}}c |l|}
+\hline
+\cellcolor[HTML]{B9E3F0}\textbf{RF-07} & \multicolumn{1}{c|}{\cellcolor[HTML]{B9E3F0}\textbf{Manual de usuario}} \\ 
+
+\hline Descripción & \begin{tabular}{p{10.5cm}}La solución deberá incluir un manual de usuario accesible desde la aplicación, que explique de forma clara y sencilla cómo utilizar cada funcionalidad. Este manual deberá estar adaptado a los distintos perfiles (civil voluntario, institución, miembro de grupo de rescate) e incluir guías paso a paso, vídeos explicativos y preguntas frecuentes.\end{tabular} \\ 
+
+\hline Importancia & \cellcolor[HTML]{FFFFFF}\begin{tabular}{p{10.5cm}}Alta. Es fundamental para garantizar que todos los usuarios, independientemente de su nivel técnico, puedan utilizar la aplicación correctamente.\end{tabular} \\ 
+
+\hline Prioridad & \multicolumn{1}{c|}{Media} \\ 
+
+\hline
+\end{tabular}
+\caption{Requisito Funcional 9 Manual de usuario. }
+\label{RF_01}
+\end{table}
+
+% ----------------------------------------------------
+% Requisito 10
+
+\begin{table}[h!]
+\begin{tabular}{|
+>{\columncolor[HTML]{EFEFEF}}c |l|}
+\hline
+\cellcolor[HTML]{B9E3F0}\textbf{RF-10} & \multicolumn{1}{c|}{\cellcolor[HTML]{B9E3F0}\textbf{Verificación de organización}} \\ 
+
+\hline Descripción & \begin{tabular}{p{10.5cm}}Deberá existir la función para comprobar que una organización existe y tiene autoridad para avisar de una persona desaparecida y de la realización de una búsqueda. Esto se realizará mediante un sistema de validación documental y/o verificación por parte de administradores de la plataforma.\end{tabular} \\ 
+
+\hline Importancia & \cellcolor[HTML]{FFFFFF}\begin{tabular}{p{10.5cm}}Alta. Es necesaria para evitar casos falsos o que cualquiera pueda colocar avisos de búsqueda, lo que podría comprometer la credibilidad y seguridad del sistema.\end{tabular} \\ 
+
+\hline Prioridad & \multicolumn{1}{c|}{Baja, prioritaria si se saca a mercado, pero no para el trabajo} \\ 
+
+\hline
+\end{tabular}
+\caption{Requisito Funcional 10 Verificación de organización. }
+\label{RF_01}
+\end{table}
+
+% ----------------------------------------------------
+% Requisito 11
+
+\begin{table}[h!]
+\begin{tabular}{|
+>{\columncolor[HTML]{EFEFEF}}c |l|}
+\hline
+\cellcolor[HTML]{B9E3F0}\textbf{RF-11} & \multicolumn{1}{c|}{\cellcolor[HTML]{B9E3F0}\textbf{Consultar historial}} \\ 
+
+\hline Descripción & \begin{tabular}{p{10.5cm}}La solución deberá permitir a los usuarios autorizados consultar el historial de búsquedas anteriores, incluyendo detalles como fechas, participantes, zonas recorridas, resultados obtenidos y evidencias registradas. Esta funcionalidad será clave para análisis posteriores y mejora de protocolos.\end{tabular} \\ 
+
+\hline Importancia & \cellcolor[HTML]{FFFFFF}\begin{tabular}{p{10.5cm}}Alta. Permite el aprendizaje continuo y la optimización de futuras búsquedas.\end{tabular} \\ 
+
+\hline Prioridad & \multicolumn{1}{c|}{Alta} \\ 
+
+\hline
+\end{tabular}
+\caption{Requisito Funcional 11 Consultar historial. }
+\label{RF_01}
+\end{table}
+% ----------------------------------------------------
+% Requisito 12
+
+\begin{table}[h!]
+\begin{tabular}{|
+>{\columncolor[HTML]{EFEFEF}}c |l|}
+\hline
+\cellcolor[HTML]{B9E3F0}\textbf{RF-12} & \multicolumn{1}{c|}{\cellcolor[HTML]{B9E3F0}\textbf{Sistema de mensajería interna}} \\ 
+
+\hline Descripción & \begin{tabular}{p{10.5cm}}La solución deberá permitir la comunicación directa entre usuarios dentro de la aplicación, ya sea entre civiles voluntarios, miembros de grupos de rescate o instituciones. Esta mensajería podrá ser individual o grupal, y estará sujeta a permisos según el tipo de perfil. Deberá incluir funciones básicas como envío de texto, archivos, ubicación y mensajes rápidos.\end{tabular} \\ 
+
+\hline Importancia & \begin{tabular}{p{10.5cm}}Alta. Facilita la coordinación en tiempo real y mejora la eficiencia de los operativos de búsqueda.\end{tabular} \\ 
+
+\hline Prioridad & \multicolumn{1}{c|}{Alta} \\ 
+
+\hline
+\end{tabular}
+\caption{Requisito Funcional 12 Sistema de mensajería interna. }
+\label{RF_12}
+\end{table}
+
+% ----------------------------------------------------
+% Requisito 13
+
+\begin{table}[h!]
+\begin{tabular}{|
+>{\columncolor[HTML]{EFEFEF}}c |l|}
+\hline
+\cellcolor[HTML]{B9E3F0}\textbf{RF-13} & \multicolumn{1}{c|}{\cellcolor[HTML]{B9E3F0}\textbf{Gestión de permisos y roles}} \\ 
+
+\hline Descripción & \begin{tabular}{p{10.5cm}}La solución deberá permitir asignar y gestionar permisos según el tipo de usuario. Cada perfil tendrá acceso únicamente a las funcionalidades que le corresponden, y las instituciones podrán definir qué miembros tienen acceso a funciones avanzadas como creación de alertas, consulta de datos o gestión de búsquedas.\end{tabular} \\ 
+
+\hline Importancia & \begin{tabular}{p{10.5cm}}Alta. Es esencial para garantizar la seguridad, privacidad y correcto funcionamiento de la aplicación.\end{tabular} \\ 
+
+\hline Prioridad & \multicolumn{1}{c|}{Alta} \\ 
+
+\hline
+\end{tabular}
+\caption{Requisito Funcional 13 Gestión de permisos y roles. }
+\label{RF_13}
+\end{table}
+
+% ----------------------------------------------------
+% Requisito 14
+
+\begin{table}[h!]
+\begin{tabular}{|
+>{\columncolor[HTML]{EFEFEF}}c |l|}
+\hline
+\cellcolor[HTML]{B9E3F0}\textbf{RF-14} & \multicolumn{1}{c|}{\cellcolor[HTML]{B9E3F0}\textbf{Validación de datos introducidos}} \\ 
+
+\hline Descripción & \begin{tabular}{p{10.5cm}}La solución deberá implementar mecanismos de validación automática de los datos introducidos por los usuarios, como formatos de fecha, ubicación, duplicados, campos obligatorios y coherencia entre datos. Esto ayudará a evitar errores que puedan afectar la calidad de la información y la efectividad de los operativos.\end{tabular} \\ 
+
+\hline Importancia & \begin{tabular}{p{10.5cm}}Media. Mejora la fiabilidad del sistema y reduce el riesgo de errores humanos.\end{tabular} \\ 
+
+\hline Prioridad & \multicolumn{1}{c|}{Media} \\ 
+
+\hline
+\end{tabular}
+\caption{Requisito Funcional 14 Validación de datos introducidos. }
+\label{RF_14}
+\end{table}
+
+
+\newpage
+
+    \subsubsection{Requisitos No Funcionales}
+En este apartado se presentan los requisitos no funcionales que corresponden a la calidad del funcionamiento, correspondientes a cómo debe de ser la aplicación para ofrecer la mejor experiencia.
+
+    
+    \begin{itemize}
+        \item \textbf{Seguridad}: La información almacenada y manejada en la aplicación debe estar protegida, mediante mecanismos de autentificación y/o cifrado, cumpliendo con todas las normativas de manejo de datos sensibles.
+        
+        \item \textbf{Usabilidad}: la aplicación debe poder usarse de forma intuitiva, por lo que requerirá de una interfaz sencilla de utilizar.
+        
+        \item \textbf{Memorabilidad}: el funcionamiento de la aplicación deberá ser fácil de recordar tras no haberla utilizado durante un periodo de tiempo.
+
+        \item \textbf{Accesibilidad}: la aplicación debe poder ser accesible tanto para personas con algún tipo de discapacidad como para las que no. 
+        
+        \item \textbf{Compatibilidad}: la aplicación debe ser compatible con distintos dispositivos y sistemas operativos.
+        
+        \item \textbf{Eficiencia}: debe lograr cumplir los objetivos del usuario, con el menor coste comutacional y temporal. Además el sistema debe estar preparado para funcionar bajo condiciones de alta demanda, con conectividad limitada y garantizando su disponibilidad continuada.
+        
+        \item \textbf{Escalabilidad}: el sistema debe estar diseñado para poder adaptarse al crecimiento en la cantidad de usuarios y el volumen de datos gestionados.
+        
+        \item \textbf{Efectividad}: se deben cumplir con exactitud con los requisitos funcionales.
+        
+        \item \textbf{Errores}: la aplicación debe tener una tasa de error baja y en caso de errores proponer posibles soluciones a esos problemas.
+        
+        \item \textbf{Satisfacción}: se deberá conseguir que el usuario se encuentre satisfecho de forma general con la aplicación.
+        
+    \end{itemize}
+
+
+        \newpage
+         
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% CASOS DE USO %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
         \subsection{Casos de uso}
+        En esta sección del trabajo se exponen los diferentes casos de uso de la aplicación propuesta. Se muestra el diagrama de casos de uso en la siguiente imagen y las distintas tablas donde se define cada uno de los casos de uso. Cuanto mayor número de casos de uso cumpla nuestro prototipo más exitosa será la solución creada.
+
+        \textcolor{red}{INSERTAR DIAGRAMA DE CASOS DE USO}
+        
+        %\begin{document}
+        \input{tex/CasosDeUso}
+        %\end{document}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% ROLES Y PERFILES %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
         \subsection{Roles/Perfiles}
+\textcolor{red}{}
+% ----------------------------------------------------
+% Rol 1
+
+\begin{table}[h!]
+\begin{tabular}{|
+>{\columncolor[HTML]{EFEFEF}}c |l|}
+\hline
+\cellcolor[HTML]{B9E3F0}\textbf{ROL-01} & \multicolumn{1}{c|}{\cellcolor[HTML]{B9E3F0}\textbf{Civil Voluntario}} \\ 
+
+\hline Descripción & \begin{tabular}{p{10.5cm}}Los civiles voluntarios son personas que, sin pertenecer a ninguna institución oficial de rescate, participan activamente en los operativos de búsqueda. A través de la aplicación, pueden recibir alertas de desapariciones, compartir información relevante, colaborar en la localización de personas y coordinarse con grupos de rescate. Su participación es clave para ampliar el alcance de los operativos y fomentar la colaboración ciudadana.\end{tabular} \\ 
+
+\hline Importancia & \cellcolor[HTML]{FFFFFF}\begin{tabular}{p{10.5cm}}Alta. Representan una red de apoyo fundamental que permite una rápida difusión de información y una mayor cobertura territorial en los operativos de búsqueda. Su implicación puede marcar la diferencia en la efectividad de las acciones de rescate.\end{tabular} \\ 
+
+\hline Prioridad & \multicolumn{1}{c|}{Media} \\ 
+
+\hline
+\end{tabular}
+\caption{Rol Civil voluntario. }
+\label{ROL_01}
+\end{table}
+
+% ----------------------------------------------------
+% Rol 2
+
+\begin{table}[h!]
+\begin{tabular}{|
+>{\columncolor[HTML]{EFEFEF}}c |l|}
+\hline
+\cellcolor[HTML]{B9E3F0}\textbf{ROL-02} & \multicolumn{1}{c|}{\cellcolor[HTML]{B9E3F0}\textbf{Institución o Grupo de rescate}} \\ 
+
+\hline Descripción & \begin{tabular}{p{10.5cm}}Las instituciones o grupos de rescate son entidades organizadas, como cuerpos de seguridad, protección civil, ONGs o brigadas especializadas, que lideran y coordinan los operativos de búsqueda. Utilizan la aplicación para gestionar recursos, planificar rutas, asignar tareas, recibir reportes y comunicarse con otros actores involucrados.\end{tabular} \\ 
+
+\hline Importancia & \cellcolor[HTML]{FFFFFF}\begin{tabular}{p{10.5cm}}Muy alta. Son los responsables de la toma de decisiones estratégicas, la coordinación de esfuerzos y la validación de información. Su participación garantiza que las acciones se realicen de forma organizada, segura y efectiva.\end{tabular} \\ 
+
+\hline Prioridad & \multicolumn{1}{c|}{Alta} \\ 
+
+\hline
+\end{tabular}
+\caption{Rol Institución o Grupo de rescate. }
+\label{ROL_02}
+\end{table}
+
+% ----------------------------------------------------
+% Rol 3
+
+\begin{table}[h!]
+\begin{tabular}{|
+>{\columncolor[HTML]{EFEFEF}}c |l|}
+\hline
+\cellcolor[HTML]{B9E3F0}\textbf{ROL-03} & \multicolumn{1}{c|}{\cellcolor[HTML]{B9E3F0}\textbf{Miembro de grupo de rescate o institución}} \\ 
+
+\hline Descripción & \begin{tabular}{p{10.5cm}}Son los integrantes individuales de las instituciones o grupos de rescate. Pueden ser profesionales o voluntarios capacitados que participan directamente en las labores de búsqueda. A través de la aplicación, reciben instrucciones, reportan hallazgos, actualizan el estado de las operaciones y colaboran con otros miembros y voluntarios.\end{tabular} \\ 
+
+\hline Importancia & \cellcolor[HTML]{FFFFFF}\begin{tabular}{p{10.5cm}}Alta. Son quienes ejecutan las acciones en el terreno, por lo que su acceso a información actualizada y su capacidad de comunicación son esenciales para el éxito de los operativos.\end{tabular} \\ 
+
+\hline Prioridad & \multicolumn{1}{c|}{Alta} \\ 
+
+\hline
+\end{tabular}
+\caption{Rol Miembro de grupo de rescate o institución. }
+\label{ROL_03}
+\end{table}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% D. SECUENCIA %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
         \subsection{Diagramas de secuencia}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% D. COMPONENTES %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
         \subsection{Diagramas de componentes}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% BBDD %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
         \subsection{Bases de datos}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% ESTRUCTURA APP %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
         \subsection{Estructura de la aplicación}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% SEGURIDAD %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
         \subsection{Sistema de seguridad}
     
-
+%%%%%%%%%%%%%%%%%%-------------- DISEÑO USUARIO
     \section{Diseño de interfaces de usuario y funcionalidades}\label{dise_fun}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% PANTALLAS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
         \subsection{Distintas pantallas y botones. Diseño base}
         
-    
+%%%%%%%%%%%%%%%%%%-------------- IMPLEMENTACION  --------------%%%%%%%%%%%%%%%%%%
     \section{Implementación}\label{desa}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% PANTALLAS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
         \subsection{Distintas pantallas y botones}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% INTERACCIONES %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
         \subsection{Interacción con la base de datos}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% D. DE USO %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
         \subsection{Navegación. Diagramas de uso}    
 
+
+%%%%%%%%%%%%%%%%%%-------------- PRUEBAS --------------%%%%%%%%%%%%%%%%%%
     \section{Pruebas}\label{pru}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% INSTALACIÓN %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
         \subsection{Instalación}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% PRUEBAS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
         \subsection{Pruebas de base de datos}
         \subsection{Pruebas API(servidor)}
         \subsection{Pruebas de la aplicación móvil}
