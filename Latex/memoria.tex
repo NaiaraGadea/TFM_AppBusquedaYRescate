@@ -1,6 +1,6 @@
 \documentclass{pclass}
 \usepackage [spanish] {babel} 
-\usepackage[utf8]{inputenc}
+\usepackage[utf8]{inputenc} 
 \usepackage{eurosym} % Simbolo del euro
 \usepackage{float}
 \usepackage{enumerate} 
@@ -22,12 +22,17 @@
 \addbibresource{bibliografia.bib} % Para la bibliografia
 \usepackage{geometry} 
 
-% Bibliografia
-\usepackage{apacite}
-\bibliographystyle{apacite} %Este da error
-%\bibliographystyle{apa}
+\RequirePackage{booktabs}
+\RequirePackage[table]{xcolor}
+\RequirePackage{xtab}
+\RequirePackage{multirow}
+\usepackage{markdown}
 
-\bibliography{bibliografia} 
+% Bibliografia
+%\usepackage{apacite}
+%\bibliographystyle{apacite} %Este da error
+%\bibliographystyle{apa}
+%\bibliography{bibliografia} 
 
 %----------------
 
@@ -37,7 +42,7 @@
 \pagenumbering{arabic}
 \setlength{\parskip}{4ex}
 \tipo{Máster}   % Grado o M\'aster
-\titulopro{...Título del TFM... App de búsqueda y rescate de personas desaparecidas...}
+\titulopro{...Título del TFM... AlertRes: App de búsqueda y rescate de personas desaparecidas.}
 \tutor{Alejandro Fernández-Montes González \\
 Damián Fernández Cerero}
 \departamento{Nombre Departamento}
@@ -53,15 +58,15 @@ Damián Fernández Cerero}
 
 \cdpchapter{Agradecimientos}
 
-... agradecimientos ...
+\textcolor{red}{REVISAR}
 
-Este trabajo sería imposible sin ...
+Este trabajo sería imposible sin el apoyo de mi familia y mis amigos. Agradecer también la colaboración del Grupo de Rescate Espeleológico y de Montaña (GREM). Gracias a mis tutores Alejandro Fernández-Montes González y Damián Fernández Cerero por la paciencia, la confianza y recursos que me han proporcionado para poder llegar a realizar el trabajo. Gracias también al programa de Santander X Explorer, que me ha permitido confiar más en mi idea y ayudar a validarla en el mercado real.
 
 \cdpchapter{Resumen}
 
-... resumen en español ...
+\textcolor{red}{REVISAR}
 
-Este trabajo se centra en ...
+En este trabajo se presenta la creación e implementación de una aplicación multiplataforma que sirve de apoyo en la búsqueda y rescate de personas desaparecidas. Desde la aplicación se fomenta la mejora de la gestión de los operativos de búsqueda y la colaboración ciudadana y entre los distintos grupos de búsqueda. (Para el desarrollo de la app se ha empleado React Native, Node.js, Javascript). Además, se presenta (de forma teórica) una pequeña mejora donde utilizar los datos de las personas desaparecidas recogidos con la app para predecir las zonas donde se podrían encontrar a futuras víctimas.
 
 {\centering \subsection*{Descriptores} }
 Personas desaparecidas, búsqueda, rescate, app, iOS, android, aplicación, coordinación, solución, mejora, necesidad, React Native, Node.js, Javascript.
@@ -87,8 +92,9 @@ Disappeared people, missing people, search, rescue, app, iOS, android, applicati
 \include{tex/1_DescripcionProyecto}
 \include{tex/2_PlanificacionProyecto}
 \include{tex/3_EjecucionProyecto}
-\include{tex/4_Conclusiones}
-\include{tex/5_TrabajoFuturo}
+\include{tex/4_Resultados}
+\include{tex/5_Conclusiones}
+\include{tex/6_TrabajoFuturo}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{comment}
@@ -178,10 +184,9 @@ Disappeared people, missing people, search, rescue, app, iOS, android, applicati
 
  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \chapter{BIBLIOGRAFÍA}
-
-
-\printbibliography
-
+%\printbibliography
+\printbibliography[heading=subbibliography]
+%\bibliography{bibliografia} 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \chapter{ANEXOS}

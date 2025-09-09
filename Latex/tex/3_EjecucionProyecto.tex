@@ -356,9 +356,12 @@ En este apartado se presentan los requisitos no funcionales que corresponden a l
          
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% CASOS DE USO %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
         \subsection{Casos de uso}
-        En esta sección del trabajo se exponen los diferentes casos de uso de la aplicación propuesta. Se muestra el diagrama de casos de uso en la siguiente imagen y las distintas tablas donde se define cada uno de los casos de uso. Cuanto mayor número de casos de uso cumpla nuestro prototipo más exitosa será la solución creada.
+        En esta sección del trabajo se exponen los diferentes casos de uso de la aplicación propuesta basándose en los requisitos previamente mencionados. En la siguiente imagen\ref{diagramaCasosDeUso} podemos ver el diagrama de casos de uso en la siguiente imagen y las distintas tablas donde se define cada uno de los casos de uso. Cuanto mayor número de casos de uso cumpla nuestro prototipo más exitosa será la solución creada.
 
         \textcolor{red}{INSERTAR DIAGRAMA DE CASOS DE USO}
+        
+        \figura{1}{img/DiseñosDePantallas.png}{Diagrama de Casos de Uso}{diagramaCasosDeUso}{keepaspectratio}
+        
         
         %\begin{document}
         \input{tex/CasosDeUso}
@@ -366,22 +369,25 @@ En este apartado se presentan los requisitos no funcionales que corresponden a l
 
 
 
+\clearpage
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% ROLES Y PERFILES %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
         \subsection{Roles/Perfiles}
+En este apartado encontraremos en las siguientes tablas la descripción de los tres roles principales que serán usuarios de la aplicación: civiles voluntarios, instituciones o grupos de rescate y los miembros de esas instituciones o grupos.
 \textcolor{red}{}
 % ----------------------------------------------------
 % Rol 1
 
-\begin{table}[h!]
+\begin{table}[h!] %[htbp]
+\centering
 \begin{tabular}{|
 >{\columncolor[HTML]{EFEFEF}}c |l|}
 \hline
 \cellcolor[HTML]{B9E3F0}\textbf{ROL-01} & \multicolumn{1}{c|}{\cellcolor[HTML]{B9E3F0}\textbf{Civil Voluntario}} \\ 
 
-\hline Descripción & \begin{tabular}{p{10.5cm}}Los civiles voluntarios son personas que, sin pertenecer a ninguna institución oficial de rescate, participan activamente en los operativos de búsqueda. A través de la aplicación, pueden recibir alertas de desapariciones, compartir información relevante, colaborar en la localización de personas y coordinarse con grupos de rescate. Su participación es clave para ampliar el alcance de los operativos y fomentar la colaboración ciudadana.\end{tabular} \\ 
+\hline Descripción & \begin{tabular}{p{11.5cm}}Los civiles voluntarios son personas que, sin pertenecer a ninguna institución oficial de rescate, participan activamente en los operativos de búsqueda. A través de la aplicación, pueden recibir alertas de desapariciones, compartir información relevante, colaborar en la localización de personas y coordinarse con grupos de rescate. Su participación es clave para ampliar el alcance de los operativos y fomentar la colaboración ciudadana.\end{tabular} \\ 
 
-\hline Importancia & \cellcolor[HTML]{FFFFFF}\begin{tabular}{p{10.5cm}}Alta. Representan una red de apoyo fundamental que permite una rápida difusión de información y una mayor cobertura territorial en los operativos de búsqueda. Su implicación puede marcar la diferencia en la efectividad de las acciones de rescate.\end{tabular} \\ 
+\hline Importancia & \cellcolor[HTML]{FFFFFF}\begin{tabular}{p{11.5cm}}Alta. Representan una red de apoyo fundamental que permite una rápida difusión de información y una mayor cobertura territorial en los operativos de búsqueda. Su implicación puede marcar la diferencia en la efectividad de las acciones de rescate.\end{tabular} \\ 
 
 \hline Prioridad & \multicolumn{1}{c|}{Media} \\ 
 
@@ -394,15 +400,16 @@ En este apartado se presentan los requisitos no funcionales que corresponden a l
 % ----------------------------------------------------
 % Rol 2
 
-\begin{table}[h!]
+\begin{table}[h!] %[htbp]
+\centering
 \begin{tabular}{|
 >{\columncolor[HTML]{EFEFEF}}c |l|}
 \hline
 \cellcolor[HTML]{B9E3F0}\textbf{ROL-02} & \multicolumn{1}{c|}{\cellcolor[HTML]{B9E3F0}\textbf{Institución o Grupo de rescate}} \\ 
 
-\hline Descripción & \begin{tabular}{p{10.5cm}}Las instituciones o grupos de rescate son entidades organizadas, como cuerpos de seguridad, protección civil, ONGs o brigadas especializadas, que lideran y coordinan los operativos de búsqueda. Utilizan la aplicación para gestionar recursos, planificar rutas, asignar tareas, recibir reportes y comunicarse con otros actores involucrados.\end{tabular} \\ 
+\hline Descripción & \begin{tabular}{p{11.5cm}}Las instituciones o grupos de rescate son entidades organizadas, como cuerpos de seguridad, protección civil, ONGs o brigadas especializadas, que lideran y coordinan los operativos de búsqueda. Utilizan la aplicación para gestionar recursos, planificar rutas, asignar tareas, recibir reportes y comunicarse con otros actores involucrados.\end{tabular} \\ 
 
-\hline Importancia & \cellcolor[HTML]{FFFFFF}\begin{tabular}{p{10.5cm}}Muy alta. Son los responsables de la toma de decisiones estratégicas, la coordinación de esfuerzos y la validación de información. Su participación garantiza que las acciones se realicen de forma organizada, segura y efectiva.\end{tabular} \\ 
+\hline Importancia & \cellcolor[HTML]{FFFFFF}\begin{tabular}{p{11.5cm}}Muy alta. Son los responsables de la toma de decisiones estratégicas, la coordinación de esfuerzos y la validación de información. Su participación garantiza que las acciones se realicen de forma organizada, segura y efectiva.\end{tabular} \\ 
 
 \hline Prioridad & \multicolumn{1}{c|}{Alta} \\ 
 
@@ -415,15 +422,16 @@ En este apartado se presentan los requisitos no funcionales que corresponden a l
 % ----------------------------------------------------
 % Rol 3
 
-\begin{table}[h!]
+\begin{table}[h!] %[htbp]
+\centering
 \begin{tabular}{|
 >{\columncolor[HTML]{EFEFEF}}c |l|}
 \hline
 \cellcolor[HTML]{B9E3F0}\textbf{ROL-03} & \multicolumn{1}{c|}{\cellcolor[HTML]{B9E3F0}\textbf{Miembro de grupo de rescate o institución}} \\ 
 
-\hline Descripción & \begin{tabular}{p{10.5cm}}Son los integrantes individuales de las instituciones o grupos de rescate. Pueden ser profesionales o voluntarios capacitados que participan directamente en las labores de búsqueda. A través de la aplicación, reciben instrucciones, reportan hallazgos, actualizan el estado de las operaciones y colaboran con otros miembros y voluntarios.\end{tabular} \\ 
+\hline Descripción & \begin{tabular}{p{11.5cm}}Son los integrantes individuales de las instituciones o grupos de rescate. Pueden ser profesionales o voluntarios capacitados que participan directamente en las labores de búsqueda. A través de la aplicación, reciben instrucciones, reportan hallazgos, actualizan el estado de las operaciones y colaboran con otros miembros y voluntarios.\end{tabular} \\ 
 
-\hline Importancia & \cellcolor[HTML]{FFFFFF}\begin{tabular}{p{10.5cm}}Alta. Son quienes ejecutan las acciones en el terreno, por lo que su acceso a información actualizada y su capacidad de comunicación son esenciales para el éxito de los operativos.\end{tabular} \\ 
+\hline Importancia & \cellcolor[HTML]{FFFFFF}\begin{tabular}{p{11.5cm}}Alta. Son quienes ejecutan las acciones en el terreno, por lo que su acceso a información actualizada y su capacidad de comunicación son esenciales para el éxito de los operativos.\end{tabular} \\ 
 
 \hline Prioridad & \multicolumn{1}{c|}{Alta} \\ 
 
@@ -434,8 +442,119 @@ En este apartado se presentan los requisitos no funcionales que corresponden a l
 \end{table}
 
 
+
+\clearpage
+%%%%%%%%%%%%%%%%%%-------------- DISEÑO USUARIO
+% No se si hacerlo como subsección de Arquitectura y análisis o una nueva sección...
+    \subsection{Diseño de interfaces de usuario y funcionalidades}\label{diseñoInterfaces}
+    Se ha realizado el diseño de una posible interfaz de la aplicación. En concreto, se han diseñado doce de las principales pantallas que serán necesarias en la aplicación utilizando de referencia los requisitos y los casos de uso definidos previamente. Es necesario mencionar que no se han incluido pantallas como la de inicio de sesión puesto que no se diferenciaría notablemente del inicio de sesión de otras aplicaciones. Además, es posible que al realizar la propia aplicación con Visual Studio se añadan o eliminen elementos y pantallas.
+
+    Este diseño se realizó inicialmente como boceto hecho a mano de todas las pantallas que podemos ver en la imagen \ref{bocetosPantallas}, y después se utilizó la herramienta de inteligencia artificial Copilot de Microsoft \cite{copilot2025} para convertir esos bocetos en diseños más profesionales utilizando la imagen del boceto de cada pantalla y una descripción de los principales elementos de la pantalla específica.
+
+    \figura{0.6}{img/bocetos.jpg}{Bocetos a mano de las principales pantallas de la aplicación}{bocetosPantallas}{keepaspectratio}
+
+    En la imagen \ref{diagramaPantallas} se pueden ver todas las pantallas principales que se han obtenido. Además, se va ha realizar una breve descripción y explicación de cada una de las doce pantallas. Estas descripciones se han utilizado como base del prompt de entrada en la inteligencia artificial (Copilot). 
+
+    \figura{1}{img/DiseñosDePantallas.png}{Principales pantallas de la aplicación}{diagramaPantallas}{keepaspectratio}
+
+
+    \subsubsection{Pantalla de creación del perfil}
+    Esta pantalla de la aplicación corresponde con la creación del perfil, será de las primeras en aparecer tras la instalación de la aplicación. Aquí el usuario creará un perfil en la aplicación que se guardará en la base de datos rellenando varios campos con información personal como nombre, apellidos o correo electrónico. Además, desde esta pantalla el usuario podrá indicar su rol, para conocer si es un civil voluntario, un profesional de una institución verificada o el propio responsable de la institución. En caso de ser el responsable de una institución deberá seguir ciertos pasos para verificar la organización.
+    
+    
+    \figura{0.33}{img/DiseñoPantalla_CrearPerfil.png}{Diseño de la pantalla de creación del perfil.}{DiseñoP_CrearPerfil}{keepaspectratio}
+
+    \vspace{3cm}
+
+    \subsubsection{Pantalla de Inicio}
+    En la pantalla de inicio de la aplicación, aquella que se abrirá una vez se tenga un usuario registrado, encontraremos la lista con las alertas activas públicas de desaparecidos. Estas alertas estarán dispuestas en dos columnas con información como su foto o su nombre y un botón donde contactar con los responsables de la alerta. Se podrá acceder al resto de información relevante (por ejemplo, descripción física) pulsando sobre la alerta. 
+
+    Debajo podremos encontrar el menú que nos llevará a las distintas pantallas como la de perfil, los ajustes, la pantalla de búsqueda (se encontrará activa si se ha aceptado la participación en una búsqueda), la pantalla de profesionales disponible solo para aquellos miembros e instituciones verificados, no para civiles, desde dónde se podrán crear nuevas alertas nuevas y búsquedas, y se podrá volver a la pantalla de inicio con el botón central.
+
+    \figura{0.35}{img/DiseñoPantalla_Inicio.png}{Diseño de la pantalla de inicio.}{DiseñoP_Inicio}{keepaspectratio}
+
+    \vspace{6cm}
+    
+    \subsubsection{Pantalla de Información del desaparecido}
+    En esta pantalla encontraremos la ficha del desaparecido. Aquí encontraremos la información básica relevante del desaparecido y dos botones principales para contactar con los responsables o compartir la alerta por redes sociales u otros medios. En la parte baja encontraremos de nuevo el menú de navegación.
+
+    \figura{0.33}{img/DiseñoPantalla_Desaparecido.png}{Diseño de la pantalla de información de una persona desaparecida.}{DiseñoP_Desaparecido}{keepaspectratio}
+
+    %\vspace{20cm}
+
+    \subsubsection{Pantalla de Perfil de usuario}
+    La pantalla de perfil del usuario donde el usuario podrá consultar sus datos y preferencias y modificarlos en caso necesario. Además tendrá la opción de añadir su foto de perfil. Por otro lado se ha incluido un contador de participación en búsquedas para generar un sentido de orgullo y compromiso y así promover una mayor participación. Entre los datos que se pueden consultar o modificar se podrá encontrar, el gmail, el número de teléfono, dni, institución a la que pertenece (en caso de pertenecer a alguno verificado) o las tareas en las que prefiere ayudar (p.e. conductor, alimentación u otra logística o participar en el terreno). En la parte baja encontraremos de nuevo el menú de navegación.
+    
+
+    \figura{0.35}{img/DiseñoPantalla_Perfil.png}{Diseño de la pantalla de perfil.}{DiseñoP_Perfil}{keepaspectratio}
+
+    \subsubsection{Pantalla de Ajustes}
+
+    El acceso al tutorial o poder contactar con el centro de ayuda en caso de necesitar ayudar se hará principalmente desde esta pantalla de ajustes, además se podrán activar o desactivar las notificaciones y personalizar el tipo de alertas a recibir, por ejemplo, en función de la localización o urgencia. Se podrá gestionar la privacidad de tu cuenta o el idioma. También se encontrarán los términos y condiciones de uso de la aplicación. Además, se podrá cerrar sesión o eliminar la cuenta si el usuario lo desea. En la parte baja encontraremos el menú de navegación.
+
+
+    \figura{0.33}{img/DiseñoPantalla_Ajustes.png}{Diseño de la pantalla de ajustes.}{DiseñoP_Ajustes}{keepaspectratio}
+
+    \vspace{3cm}
+    
+
+    \subsubsection{Pantalla de Alerta de Búsqueda}
+    Esta pantalla recoge la alerta de apoyo en búsqueda, podemos ver un mensaje con información básica de la búsqueda como la fecha y la localización donde se llevará a cabo, incluyendo opcionalmente las tareas en las que se necesita apoyo. Este mensaje deberá ser aceptado o rechazado por el usuario utilizando los botones correspondientes. En la parte baja encontraremos de nuevo el menú de navegación.
+     
+
+    \figura{0.35}{img/DiseñoPantalla_Alerta.png}{Diseño de pantalla de una alerta.}{DiseñoP_Alerta}{keepaspectratio}
+
+    \subsubsection{Pantalla de Búsqueda}
+    La pantalla de búsqueda recogerá de forma resumida la información necesaria en la búsqueda. Se ha de reseñar que esta pantalla solo se encontrará activa en caso de haber aceptado la participación en la búsqueda. Encontraremos la información del desaparecido con su fotografía, los compañeros o grupo con el que se ha asociado al usuario y su función de apoyo en la búsqueda. Desde esta pantalla se podrá acceder a todas las recomendaciones a tener en cuenta antes, durante y después del operativo. Además, dispondrá del acceso al mapa donde poder ubicarse y encontrar los puntos de control establecidos. El menú de navegación lo encontraremos en la parte baja de la pantalla.
+    
+
+    \figura{0.33}{img/DiseñoPantalla_Busqueda.png}{Diseño de la pantalla de una búsqueda activa.}{DiseñoP_Busqueda}{keepaspectratio}
+
+    \subsubsection{Pantalla de Mapa durante la Búsqueda}
+    En esta nueva pantalla encontraremos el mapa que se usará para que el usuario pueda ubicarse e ubicar los puntos de control sobre el terreno. En esta pantalla encontraremos una pequeña brújula de apoyo y puntos de control como puede ser la ubicación del PMA (Punto de Mando Avanzado). Desde aquí el usuario podrá poner fin a su participación en la búsqueda o aplazarla, volver a leer las recomendaciones o acceder a las advertencias o mensajes dados por los responsables del operativo o de su equipo, además existirá un botón para poder contactar con los responsables ante cualquier indicio. El menú de navegación se mantiene en la parte baja de la pantalla.
+    
+
+    \figura{0.32}{img/DiseñoPantalla_Mapa.png}{Diseño de la pantalla del mapa durante una búsqueda.}{DiseñoP_Mapa}{keepaspectratio}
+
+    \subsubsection{Pantalla de Mensaje asociado a una Búsqueda}
+    En la siguiente pantalla podremos visualizar como se recibiría un nuevo mensaje durante una búsqueda. En el mensaje podrán incluirse información relevante de la búsqueda o utilizarlo para indicar a todos los participantes que, por ejemplo, se da por finalizado el opertativo por el día de hoy y se retoma otro día o que se han hallado indicios en cierta zona por lo que se reestablecen nuevos puntos de control. 
+
+    \figura{0.31}{img/DiseñoPantalla_Mensaje.png}{Diseño de pantalla de un mensaje.}{DiseñoP_Mensaje}{keepaspectratio}
+
+    \subsubsection{Pantalla de miembros o grupos profesionales}
+    Esta pantalla estará disponible solo para los profesionales o instituciones verificadas y autorizadas, pero es posible que no todas las funcionalidades estén activas. En caso de que todas las funcionalidades se encuentren activas desde esta pantalla se podrán gestionar los miembros del grupo, las alertas o los operativos de búsqueda y se podrá consultar al resto de miembros del grupo autorizando o no funcionalidades para cada miembro. También podrá crear nuevas alertas o búsquedas de personas desaparecidas y consultar el historial de las mismas.  
+  
+    \figura{0.35}{img/DiseñoPantalla_Profesionales.png}{Diseño de la pantalla de creación del perfil}{DiseñoP_Profesionales}{keepaspectratio}
+
+    \subsubsection{Pantalla de Nueva Alerta}
+    En el diseño de la pantalla de creación de nuevas alertas encontraremos una especie de cuestionario desde donde se podrá añadir una imagen y toda la información relevante de la persona desaparecida, como su nombre y apellidos, la fecha y lugar de desaparición, edad, enfermedades y medicamentos o información de contacto de familiares. En este formulario se podrá indicar si se trata de una alerta pública o reservada a los miembros de la institución que crea la alerta, además se podrá seleccionar los campos que serán visibles en la alerta de desaparición de la pantalla de inicio. 
+    
+
+    \figura{0.35}{img/DiseñoPantalla_CrearAlerta.png}{Diseño de la pantalla de creación de una alerta de persona desaparecida.}{DiseñoP_CrearAlerta}{keepaspectratio}
+
+    \vspace{3cm}
+
+
+    \subsubsection{Pantalla de Nueva Búsqueda}
+    La creación de las búsquedas estará asociada a una alerta de persona desaparecida y así se reflejará en el diseño de la pantalla de creación de nuevas búsquedas. Desde esta pantalla se podrá gestionar todo lo relacionado con la búsqueda, por ejemplo, colocar la localización central de la búsqueda sobre un mapa, colocar puntos de control sobre el mismo o coordinar a los participantes en la búsqueda seleccionando número de efectivos o voluntarios necesitados y las tareas donde se les pueda necesitar. También se podrá gestionar el mensaje que aparecerá en la alerta de búsqueda en los dispositivos de los usuarios. 
+
+    Por otro lado, aunque esta sería una de las últimas funcionalidades por su complejidad, desde esta pantalla se podrá permitir realizar una predicción de la localización de la persona desaparecida en base a las características recogidas en la alerta y a un algoritmo de predicción que actualmente no se encuentra desarrollado.
+    
+    Al igual que las alertas, las búsquedas tendrán la opción de ser privadas para los miembros de la organización responsable de la alerta, semiprivada para otras organizaciones o entidades o pública para permitir la colaboración civil.
+
+    \figura{0.35}{img/DiseñoPantalla_CrearBusqueda.png}{Diseño de la pantalla de creación del perfil}{DiseñoP_CrearBusqueda}{keepaspectratio}
+
+    
+
+    
+    
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% PANTALLAS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+        \subsection{Distintas pantallas y botones. Diseño base}
+
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% D. SECUENCIA %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-        \subsection{Diagramas de secuencia}
+        %\subsection{Diagramas de secuencia}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% D. COMPONENTES %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -449,35 +568,6 @@ En este apartado se presentan los requisitos no funcionales que corresponden a l
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% SEGURIDAD %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
         \subsection{Sistema de seguridad}
-    
-%%%%%%%%%%%%%%%%%%-------------- DISEÑO USUARIO
-    \section{Diseño de interfaces de usuario y funcionalidades}\label{dise_fun}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% PANTALLAS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-        \subsection{Distintas pantallas y botones. Diseño base}
         
-%%%%%%%%%%%%%%%%%%-------------- IMPLEMENTACION  --------------%%%%%%%%%%%%%%%%%%
-    \section{Implementación}\label{desa}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% PANTALLAS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-        \subsection{Distintas pantallas y botones}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% INTERACCIONES %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-        \subsection{Interacción con la base de datos}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% D. DE USO %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-        \subsection{Navegación. Diagramas de uso}    
-
-
-%%%%%%%%%%%%%%%%%%-------------- PRUEBAS --------------%%%%%%%%%%%%%%%%%%
-    \section{Pruebas}\label{pru}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% INSTALACIÓN %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-        \subsection{Instalación}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% PRUEBAS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-        \subsection{Pruebas de base de datos}
-        \subsection{Pruebas API(servidor)}
-        \subsection{Pruebas de la aplicación móvil}
-            \subsubsection{Android}
-            \subsubsection{iOS}
             

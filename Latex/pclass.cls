@@ -216,8 +216,8 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-\addto\captionsspanish{\renewcommand{\tablename}{Cuadro}}
-\addto\captionsspanish{\renewcommand{\listtablename}{{\'I}ndice de cuadros}}
+\addto\captionsspanish{\renewcommand{\tablename}{Tabla}}
+\addto\captionsspanish{\renewcommand{\listtablename}{{\'I}ndice de tablas}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -236,7 +236,7 @@
 % 4 --> Etiqueta (label) para referencias
 % 5 --> Opciones que queramos pasarle al \includegraphics
 \newcommand{\figura}[5]{
-  \begin{figure}[hbtp]
+  \begin{figure}[htb]
     \begin{center}
     \includegraphics[width=#1\textwidth,#5]{#2}%
     \caption{#3}
