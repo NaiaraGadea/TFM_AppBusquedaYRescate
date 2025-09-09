@@ -1,4 +1,4 @@
-<image src="/img/us.jpg">
+<image src="/Latex/img/us.jpg">
 
 # AlertRes: App de Búsqueda y Rescate de Personas Desaparecidas (2025)
 ### Alumna: **Naiara Gadea Rodríguez Gómez**  
