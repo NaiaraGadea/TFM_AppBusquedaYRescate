@@ -1,8 +1,10 @@
 \chapter{PLANIFICACIÓN DEL PROYECTO}\label{planif}
     \section{Planificación temporal}\label{ptemp}
     Para el desarrollo del proyecto se ha dividido el mismo en distintos hitos y se ha seguido la planificación por semanas que se puede observar en la siguiente ilustración. 
-    
 
+    \textcolor{red}{INSERTAR IMAGEN DE LA PLANIFICACIÓN}
+    
+    \vspace{3cm}
 
     \section{Planificación financiera}\label{pfin}
 
@@ -10,7 +12,7 @@
 
     La planificación económica se basa en la identificación de los costes personales, costes materiales, costes de desarrollo e ingresos del prototipo.
 
-    En concreto los costes personales se van a calcular en base al salario medio de un Ingeniero de la Salud con menos de 3 años de experiencia laboral, que ronda los  1400\euro\ al mes en modalidad de jornada completa. La duración será durante el periodo aproximado de 8 meses con un contrato a media jornada (La media jornada constará de unas 4 horas al día durante 5 días a la semana, es decir, 20 horas semanales.). En total se trata de unas XX horas de trabajo totales. Teniendo en cuenta que serían unos 700\euro\  por media jornada. El resumen de los costes personales se pueden observar en la siguiente tabla.
+    En concreto los costes personales se van a calcular en base al salario medio de un Ingeniero de la Salud con menos de 3 años de experiencia laboral, que ronda los  1400\euro\ al mes en modalidad de jornada completa, y por lo tanto unos 700\euro\ por media jornada. La duración será durante el periodo aproximado de 8 meses con un contrato a media jornada (La media jornada constará de unas 4 horas al día durante 5 días a la semana, es decir, 20 horas semanales.). Teniendo en cuenta que en esos 8 meses podría se tienen unos 25 días de vacaciones, en total tendremos que unas 600 horas de trabajo totales. El resumen de los costes personales se pueden observar en la siguiente tabla.
 
     % Tabla del desglose económico de costes personales.
     \begin{table}[h!]
@@ -23,7 +25,9 @@
     
     Sueldo bruto mensual                & {799,79€}\\
     \hline
-    \cellcolor[HTML]{EFEFEF}\textbf{Total en los 6 meses}                & \cellcolor[HTML]{EFEFEF}{4798,74€} \\
+    \cellcolor[HTML]{EFEFEF}\textbf{Total neto en los 8 meses}                & \cellcolor[HTML]{EFEFEF}{5.571,2€} \\
+    
+    \cellcolor[HTML]{EFEFEF}\textbf{Total bruto en los 8 meses}                & \cellcolor[HTML]{EFEFEF}{6.398,32€} \\
     \hline
     \end{tabular}
     \caption{Resumen de costes personales.}
@@ -41,15 +45,17 @@
     
     Ordenador ASUS           & {700\euro } & {105\euro }\\
     
-    Office 365 personal anual              & {69\euro } & {10,35\euro }\\
+    Office 365 personal anual              & {99\euro } & {14,85\euro }\\
+
+    Overleaf Study 8 meses              & {64\euro } & {9,6\euro }\\
     \hline
-    \cellcolor[HTML]{EFEFEF}\textbf{Total en los 6 meses}                & \cellcolor[HTML]{EFEFEF}{769\euro } & \cellcolor[HTML]{EFEFEF}{115,35\euro } \\
+    \cellcolor[HTML]{EFEFEF}\textbf{Total en los 8 meses}                & \cellcolor[HTML]{EFEFEF}{863\euro } & \cellcolor[HTML]{EFEFEF}{129,45\euro } \\
     \hline
     \end{tabular}
     \caption{Resumen de costes de equipos de desarrollo amortizados en 4 años.}
     \end{table}
 
-    Sin embargo, en el futuro se deberá incluir el precio de sacar una app al mercado...
+    \textcolor{red}{Sin embargo, en el futuro se deberá incluir el precio de sacar una app al mercado...}
 
 
 
@@ -72,35 +78,67 @@
     
        
     \section{Estudio legal}\label{legal}
-    Para poder conseguir llevar a mecado nuestra aplicación es necesario tener en cuenta las distintas legislaciones de nuestro país. 
+
+    Aunque en este documento se presenta únicamente el diseño, el objetivo final de todo el trabajo es la creación de un software especializado destinado al apoyo en la búsqueda y rescate de personas desaparecidas. Por ello, es necesario que el producto cumpla en todo momento con la legislación y normativa de nuestro país que afecte a su desarrollo y salida a mercado.
+    
+    En este apartado se recogen la mayoría de estas legislaciones, ya sea en materia de personas desaparecidas y sus derechos fundamentales, como de seguridad o a nivel administrativo y comercial.
 
     
     \subsection{Legislación relativa a las personas desaparecidas}
-    En esta subsección se realizará una recopilación de la legislación relativa a los casos de personas desaparecidas en España.
+    El ordenamiento jurídico español y el europeo reconocen de forma prioritaria la protección de la vida y la seguridad de las personas, algo relacionado directamente con los casos de personas desaparecidas. 
 
-    \textcolor{red}{Buscar las referencias}
+    En la Constitución Española \cite{constitucion1978} se recogen distintos artículos relacionados:
+
     \begin{itemize}
-        \item Artículo 15 de la Constitución Española, derecho a la vida e integridad física.
-        \item Artículo 92 de la Constitución Española, las autoridades públicas deben garantizar el derecho a la vida.
-        \item Principalmente los casos de personas desaparecidas son competencia de las fuerzas de seguridad o bomberos, coordinados por el 112. Si embargo, en una búsqueda pueden intervenir bomberos, guardia civil, policía, protección civil, sanitarios, agentes de medioambiente... \textcolor{red}{AQUÍ NO, FUERA}
-        \item 
+        \item Artículo 15, es el primer artículo referente a los derechos fundamentales y libertades públicas, donde se establece que "todos tienen derecho a la vida y a la integridad física y moral".
+        \item Artículo 18, donde "se garantiza el derecho al honor, a la intimidad personal y familiar y a la propia imagen", lo que se vincula directamente con la protección de los datos personales de las víctimas y sus familias. 
+        \item Artículo 53 que establece que los derechos y libertades deben ser protegidos por todos los poderes públicos, donde se garantice su protección jurídica y la posibilidad de interponer recursos en defensa de los mismos. El desarrollo de un software como el que se propone en este documento puede reforzar el marco legal de aplicación de estos derechos.
+        \item En caso de desapariciones voluntarias se podría aplicar el Artículo 19 que reconoce que "Los españoles tienen derecho a elegir libremente su residencia y a circular por el territorio nacional",en relación con la libertad de movimiento.
         
     \end{itemize}
+    Por otro lado, y enlazado con la legislación de protección de datos, es relevante la Ley Orgánica 7/2021 \cite{ley_organica_7_2021}, de protección de datos tratados para fines de prevención, detección, investigación y enjuiciamiento de infracciones penales; ya que al utilizar la aplicación de colaboración con Fuerzas y Cuerpos de Seguridad en investigaciones para localizar a una persona desparecida, aunque no haya delito confirmado. Esta ley exige medidas de seguridad, trazabilidad y supervisión de los datos para evitar abusos. Además, también se ampara el uso de tecnología como el uso de geolocalización en contextos de emergencia, siempre que se actúe en colaboración con las autoridades competentes. Es un marco legal sólido para el tratamiento de datos en contextos de búsqueda.
 
-
-    \section{ODS}
-
-    REVISAR
+    Asimismo, aunque no afecta directamente al diseño de la aplicación, debe considerarse la Ley de 8 de septiembre de 1939 (rectificada) \cite{ley_ausencia_1939},  que modificó el Título octavo del Libro primero del Código Civil. Esta ley regula las situaciones jurídicas derivadas de las desapariciones y sirve como base para proteger los derechos de una persona desaparecida.
     
-    Esta aplicación de apoyo en la búsqueda y rescate de personas desaparecidas se alinea con varios Objetivos de Desarrollo Sostenible de la agenda 2030. En concreto:
+    \subsection{Legislación de protección de datos}
+    Uno de los aspectos más sensibles de la aplicación es el tratamiento de la información personal, no solo porque se trabaja con datos personales de las personas desaparecidas sino porque también se almacena información sobre las organizaciones, voluntarios y familiares. Por ello, es necesario conocer el marco regulador que se centra en la protección de la privacidad y la seguridad digital:
+    \begin{itemize}
+        \item Ley Orgánica 3/2018, de Protección de Datos Personales y Garantía de los Derechos Digitales (LOPDGDD)\cite{ley_organica_3_2018}, que regula el tratamiento de datos de caracter personal y la circulación de estos datos, estableciendo los derechos de los ususarios a la información clara, el consentiemiento informado y el control sobre sus datos personales.
+        
+        \item Reglamento (UE) 2016/679 (RGPD) \cite{rgpd_eurlex}, que regula la gestión de los datos peronales en toda la Unión Europea y es la normativa de referencia en materia de protección de datos. Este reglamento garantiza a los ciudadanos derechos fundamentales como el acceso, la rectificación, la supresión y la portabilidad de sus datos. Además establece la obligación de las organizaciones de notificar cualquier brecha de seguridad y de informar de manera transparente a los usuarios en caso de exposición indebida de su información personal.
+
+        \item Real Decreto-ley 12/2018, de seguridad de las redes y sistemas de información \cite{RD_ley_12_2018}, establece medidas para garantizar un nivel elevado de ciberseguridad en servicios digitales y esenciales. Este marco legal refuerza la obligación de aplicar medidas técnicas y organizativas que aseguren la integridad, disponibilidad y confidencialidad de los datos tratados por la aplicación, especialmente en contextos de colaboración con autoridades o en situaciones de emergencia, como el de la búsqueda de personas desparecidas. 
+        
+        \item Ley de Propiedad Intelectual (Real Decreto Legislativo 1/1996) \cite{RD_leyPropiedadIntelectual}, que protege los derechos de autor sobre el software desarrollado. 
+    \end{itemize}
+
+    El cumplimiento de estas normativas, asegurará que el software no solo cumpla con su función social y de apoyo, sino que también respete la privacidad y los derechos fundamentales de los ciudadanos.
+
+    
+    \subsection{Legislación comercial y administrativa}
+    Aunque en el futuro pueda ser replanteado, el diseño propuesto en este trabajo contempla su uso por parte de administraciones públicas, como las Fuerzas y Cuerpos de Seguridad del Estado. Por lo tanto se ven afectadas las relaciones entre administraciones y los ciudadanos y es necesario tener en cuenta las siguientes leyes:
+    \begin{itemize}
+        \item Ley 39/2015, del Procedimiento Administrativo Común de las Administraciones Públicas\cite{ley_39_2015}, que regula las interacciones y relaciones de los ciudadanos con la administración pública. 
+        \item Ley 40/2015, de Régimen Jurídico del Sector Público\cite{ley_40_2015}, que establece el marco de interacciones entre las distintas administraciones. 
+    \end{itemize}
+
+    Además, en el caso en el que la aplicación salga a mercado, es necesario tener en cuenta la legislación relativa a la comercialización en internet y servicios digitales como la Ley 34/2002 de Servicios de la Sociedad de la Información y de Comercio Electrónico (LSSI-CE)\cite{ley_34_2002}. 
+
+    En conclusión, el conjunto de estas normativas aseguran que la aplicación pueda ser distribuida en el mercado nacional y europeo bajo condiciones de transparencia, seguridad y protección de los usuarios, respetando los criterios básicos de las administraciones públicas.
+
+    
+
+    \section{Contribución a los Objetivos de Desarrollo Sostenible}
+    
+    Además del cumplimiento normativo es interesante enmarcar la aplicación que se está diseñando en este trabajo en la Agenda 2030\cite{onu_ODS,moncloa_agenda2030} para el Desarrollo Sostenible, puesto que se alínea con varios de sus objetivos:
     \begin{itemize}
         \item \textbf{ODS 3, Salud y Bienestar}. La aplicación contribuye a garantizar la seguridad y el bienestar de las personas desaparecidas y sus familiares al facilitar la búsqueda y el rescate.
         \item \textbf{ODS 11, Ciudades y Comunidades Sostenibles}. Esta app mejora la seguridad en las comunidades al involucrar voluntarios y profesionales promoviendo la colaboración y una respuesta comunitaria organizada.
         \item \textbf{ODS 16, Paz, Justicia e Instituciones Sólidas}. Al apoyar la coordinación entre los profesionales de ese tipo de emergenicas y personas voluntarias, la app fortalece la respuesta ante emergencias de personas desaparecidas de forma efectiva y transparente. Reforzando la capacidad institucional, la confianza de la ciudadanía y la respuesta a emergencias.
-        \item \textbf{ODS 17, Alianzas para lograr los objetivos}. La colaboración que fomenta la aplicación es un ejemplo de cómo las alianzas pueden mejorar la respuesta ante problemas complejos.
+        \item \textbf{ODS 17, Alianzas para lograr los objetivos}. La colaboración entre administraciones públicas, cuerpos de seguridad, profesionales y ciudadanía que fomenta la aplicación es un ejemplo de cómo las alianzas pueden mejorar la respuesta ante problemas complejos.
         
     \end{itemize}
 
-    Este proyecto tiene un impacto significativo en el desarrollo sostenble, contribuyendo a la seguridad y bienestar de las personas y comunidades.
+    Sintetizando, esta aplicación si se llega a desarrollar con éxito constituiría una herramienta tecnológica con un alto impacto social y sostenible, que estaría al servicio de la protección de los derechos fundamentales y de la mejora de la seguridad de las personas y comunidades.
 
     

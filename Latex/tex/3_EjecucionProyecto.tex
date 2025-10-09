@@ -1,21 +1,48 @@
 
 \chapter{EJECUCIÓN DEL PROYECTO}\label{ejecucion}
 %%%%%%%%%%%%%%%%%%-------------- DESCRIPCION --------------%%%%%%%%%%%%%%%%%%
-    \section{Descripción general}\label{descrip}
+    %\section{Descripción general}\label{descrip}
     
 
 %%%%%%%%%%%%%%%%%%-------------- TECNOLOGIAS --------------%%%%%%%%%%%%%%%%%%
     \section{Tecnologías empleadas}\label{tec}
+    
+    \textcolor{red}{REVISAR}
+    
+    Para el desarrollo he utilizado distintas herramientas y recursos. Voy a dividir entre las tecnologías empleadas en el desarrollo de la memoria y las utilizadas en el desarrollo del prototipo.
+
+    En el desarrollo de la memoria he utilizado:
+    \begin{itemize}
+        \item Overleaf: para escribir toda la memoria utilizando la plantilla proporcionada por la universidad y compilar los ficheros para obtener el documento PDF final.\cite{Overleaf}
+        \item Draw.io: Para realizar algunos de los diagramas. \cite{Diagrams.net}
+        \item Github: Para recopilar todo el proyecto realizado y todos los ficheros en un único lugar desde donde poder ir viendo el avance del proyecto.\cite{github}
+        \item Microsoft Office 365: principalmente como un apoyo más, utilizando documentos de Word para recopilar información, Excel para la planificación temporal o PowerPoint para arreglar o retocar imágenes creadas y realizar la presentación de la defensa del trabajo.\cite{microsoft365} 
+        \item Inteligencia artificial copilot: como una herramienta más para conseguir imágenes de las pantallas, obtener la bibliografía en LaTeX de forma automatizada u obtener una organización inicial de los apartados del documento, aunque luego todo ello ha sido modificado por mí a mi gusto y necesidades.\cite{copilot2025}
+        \item Leguajes de programación: LaTeX, .
+    \end{itemize}
+
+    Para el desarrollo del prototipo:
+    \begin{itemize}
+        \item Visual Studio: para la creación y modificación de todos los ficheros necesarios para el funcionamiento de la aplicación.
+        \item Expo.dev: en concreto usar los snacks (https://snack.expo.dev/), para ir visualizando el frontend y poder realizar modificaciones, de forma más sencilla, indicando además las versiones necesarias de cada paquete y luego pasar todo a Visual Studio. 
+        \item MariaDB: base de datos utilizada en el prototipo.
+        \item HeidiSQL: como interfaz gráfica de MariaDB. Para crear la base de datos de AlertRes y las diferentes tablas, además de visualizar los datos recogidos en cada una de las tablas.
+        \item Lenguajes de programación: Javascript, Node.js y SQL. He de decir que, menos SQL, he tenido que aprender desde cero lo necesario de esos lenguajes para poder desarrollar el prototipo.
+        \item Plataformas de aprendizaje ... donde he aprendido esos lenguajes.
+    \end{itemize}
+
+    
 
     %\section{Herramientas empleadas y recursos utilizados}\label{herramientas}
     
 %%%%%%%%%%%%%%%%%%-------------- ARQUITECTURA --------------%%%%%%%%%%%%%%%%%%
     \section{Arquitectura y análisis}\label{arq_ana}
+    En este aparatado encontramos los requisitos funcionales y no funcionales, los riesgos a los que se expone la aplicación, los casos de uso y el digrama de componentes necesaroi para el desarrollo de la aplicación.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% REQUISITOS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
         \subsection{Requisitos}
-        
-En esta sección definiremos varios requisitos funcionales y no funcionales que nos ayudarán a definir el proyecto. Se ha de aclarar que aunque no se cumplan con todos los requisitos al desarrollar el prototipo de la aplicación, cuantos más requisitos cumpla el prototipo más exitoso será.
+
+En esta sección definiremos varios requisitos funcionales y no funcionales que nos ayudarán a definir el proyecto. Se ha de aclarar que aunque no se cumplan con todos los requisitos al desarrollar el prototipo de la aplicación, se considerará que cuantos más requisitos cumpla el prototipo más exitoso será. Respecto a los riesgos asociados al proyecto y sus estrategias de mitigación se verán de forma breve en la siguiente subsección.
 
 Se ha de destacar que en el futuro, cuando se encuentre desarrollada y validada la aplicación, se tendrá que definir el entorno de desarrollo, las plataformas soportades y la compatibilidad con APIs externas y otros sistemas de datos o funcionalidades complementarias.
     
@@ -322,7 +349,7 @@ Se van a presentar distintas tablas correspondientes a los requisitos funcionale
 \end{table}
 
 
-\newpage
+\clearpage
 
     \subsubsection{Requisitos No Funcionales}
 En este apartado se presentan los requisitos no funcionales que corresponden a la calidad del funcionamiento, correspondientes a cómo debe de ser la aplicación para ofrecer la mejor experiencia.
@@ -352,17 +379,38 @@ En este apartado se presentan los requisitos no funcionales que corresponden a l
     \end{itemize}
 
 
-        \newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% RIESGOS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    
+    \subsection{Riesgos}
+    
+    El uso de una herramienta de estas características, destinada al apoyo de la búsqueda y rescate de personas desaparecidas, conlleva una serie de riesgos que se deberán intentar minimizar. Al tratarse de una herramienta que gestiona información sensible en un entorno de emergencia, es fundamental que su desarrollo y utilización se ajusten a la legislación vigente, se acompañen de planes de formación adecuados, protocolos de actuación ante incidentes y revisiones periódicas que garanticen su fiabilidad y seguridad.
+
+    Uno de los principales riesgos está relacionado con la seguridad y la privacidad de los datos. La exposición a vulnerabilidades técnicas puede derivar en fugas de información o ciberataques que comprometen la integridad del sistema, y una gestión inadecuada de los datos puede acarrear consecuencias éticas graves y sanciones legales.
+
+    Durante el desarrollo y despliegue de la aplicación pueden surgir problemas técnicos como la conectividad limitada, que afectaría directamente a la comunicación y a la geolocalización en tiempo real. Además, un uso inapropiado por parte de usuarios no capacitados o en contextos no previstos puede tener consecuencias graves, incluso fatales, por lo que es imprescindible diseñar la herramienta contemplando una amplia variedad de escenarios operativos y establecer límites claros en sus funcionalidades para evitar el problema. También se debe considerar que algunos frupos de rescate pueden contar con sus propios dispositivos o sistemas, lo que podría dificultar la adopción de la aplicación si no se prevé una integración adecuada con otras plataformas y tecnologías.
+
+    Por otro lado, como se proponen a futuro algunas funcionalidades basadas en inteligencia artificial, como las herramientas de predicción, es importante tener en cuenta que también pueden derivar en riesgos. Por ello, deben entenderse como apoyo complementario y no como sustituto del criterio profesional,ya que en ningún caso deben reemplazar la valoración experta de los equipos de rescate.
+    
+    Para minimizar el impacto de todos estos riesgos, es necesario definir estrategias específicas que refuercen la seguridad, la fiabilidad y la ética del sistema. Algunas de estas estrategias pueden contemplar desde la verificación de usuarios hasta la implementación de protocolos de respuesta ante incidentes, pasando por la formación continua y la evaluación constante de la herramienta en su contexto operativo.
+
+    \textcolor{red}{Incluir un párrafo con las distintas normas ISO para disminuir riesgos: ISO/IEC 27032:2012, ISO/IEC 38500:2013, ISO/IEC 27014:2013, ISO/IEC 27001:2022, ¿9001?}
+
+    \textcolor{red}{Añadir los pasos para el análisis de riesgos y la evaluación de vulnerabilidad. (si queda tiempo)}
+
          
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% CASOS DE USO %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
         \subsection{Casos de uso}
-        En esta sección del trabajo se exponen los diferentes casos de uso de la aplicación propuesta basándose en los requisitos previamente mencionados. En la siguiente imagen\ref{diagramaCasosDeUso} podemos ver el diagrama de casos de uso en la siguiente imagen y las distintas tablas donde se define cada uno de los casos de uso. Cuanto mayor número de casos de uso cumpla nuestro prototipo más exitosa será la solución creada.
+        En esta sección del trabajo se exponen los diferentes casos de uso de la aplicación propuesta basándose en los requisitos previamente mencionados. En las siguientes figuras \ref{diagramaCasosDeUso1} y \ref{diagramaCasosDeUso2} podemos ver los diagramas de casos de uso y el su relación con cada rol, y más abajo, las distintas tablas donde se define cada uno de los casos de uso. Estos casos de uso son guías para poder crear la aplicación y cuanto mayor número de casos de uso cumpla nuestro prototipo más exitosa será la solución creada.
 
-        \textcolor{red}{INSERTAR DIAGRAMA DE CASOS DE USO}
         
-        \figura{1}{img/DiseñosDePantallas.png}{Diagrama de Casos de Uso}{diagramaCasosDeUso}{keepaspectratio}
-        
-        
+\figura{0.95}{img/DiagCasosUso_Generales.png}{Diagrama de casos de uso generales a todos los roles. \textit{Fuente propia.}}{diagramaCasosDeUso1}{keepaspectratio}
+
+
+\vspace{10 cm}
+
+\figura{1.06}{img/Diag_CasosUso_InstitucionesProfesionales.png}{Diagrama de casos de uso para instituciones y miembros de las instituciones. \textit{Fuente propia.}}{diagramaCasosDeUso2}{keepaspectratio}
+
+
         %\begin{document}
         \input{tex/CasosDeUso}
         %\end{document}
@@ -446,7 +494,7 @@ En este apartado encontraremos en las siguientes tablas la descripción de los t
 \clearpage
 %%%%%%%%%%%%%%%%%%-------------- DISEÑO USUARIO
 % No se si hacerlo como subsección de Arquitectura y análisis o una nueva sección...
-    \subsection{Diseño de interfaces de usuario y funcionalidades}\label{diseñoInterfaces}
+    \subsection{Diseño de interfaz de usuario}\label{diseñoInterfaces}
     Se ha realizado el diseño de una posible interfaz de la aplicación. En concreto, se han diseñado doce de las principales pantallas que serán necesarias en la aplicación utilizando de referencia los requisitos y los casos de uso definidos previamente. Es necesario mencionar que no se han incluido pantallas como la de inicio de sesión puesto que no se diferenciaría notablemente del inicio de sesión de otras aplicaciones. Además, es posible que al realizar la propia aplicación con Visual Studio se añadan o eliminen elementos y pantallas.
 
     Este diseño se realizó inicialmente como boceto hecho a mano de todas las pantallas que podemos ver en la imagen \ref{bocetosPantallas}, y después se utilizó la herramienta de inteligencia artificial Copilot de Microsoft \cite{copilot2025} para convertir esos bocetos en diseños más profesionales utilizando la imagen del boceto de cada pantalla y una descripción de los principales elementos de la pantalla específica.
@@ -545,12 +593,10 @@ En este apartado encontraremos en las siguientes tablas la descripción de los t
     \figura{0.35}{img/DiseñoPantalla_CrearBusqueda.png}{Diseño de la pantalla de creación del perfil}{DiseñoP_CrearBusqueda}{keepaspectratio}
 
     
-
+\vspace{3cm}
     
     
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% PANTALLAS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-        \subsection{Distintas pantallas y botones. Diseño base}
-
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% D. SECUENCIA %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -561,13 +607,13 @@ En este apartado encontraremos en las siguientes tablas la descripción de los t
         \subsection{Diagramas de componentes}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% BBDD %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-        \subsection{Bases de datos}
+        %\subsection{Bases de datos}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% ESTRUCTURA APP %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-        \subsection{Estructura de la aplicación}
+        %\subsection{Estructura de la aplicación}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% SEGURIDAD %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-        \subsection{Sistema de seguridad}
+        %\subsection{Sistema de seguridad}
         
 
             

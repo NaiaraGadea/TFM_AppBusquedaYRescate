@@ -2,7 +2,7 @@
 
     \section{Introducción}\label{intro}
 
-    En el mundo desaparecen miles personas al año, por causas cómo desastres naturales, conflictos armados, aumento del envejecimiento de la población y enfermedades de salud mental. En España, en el año 2024 hubo unas 16.000 denuncias. Actualmente siguen activas, solo del año pasado, unas 700. 700 familias que conviven constantemente con la incertidumbre y la angustia de no saber el paradero de su ser querido. \cite{DatosDesaparecidos2024} Quizás es difícil acabar con las causas de las desapariciones, pero sí que podemos intentar prevenir que una persona llegue a encontrarse en esa situación o que el operativo de búsqueda de esa persona sea lo más efectivo posible, sobretodo si se trata de desapariciones involuntarias. 
+    En el mundo desaparecen miles personas al año, por causas cómo desastres naturales, conflictos armados, aumento del envejecimiento de la población y enfermedades de salud mental. En España, en el año 2024 hubo unas 16.000 denuncias. Actualmente siguen activas, solo del año pasado, unas 2.000\textcolor{red}. 2.000 familias que conviven constantemente con la incertidumbre y la angustia de no saber el paradero de su ser querido. \cite{DatosDesaparecidos2024, InformeCNDES2025} Quizás es difícil acabar con las causas de las desapariciones, pero sí que podemos intentar prevenir que una persona llegue a encontrarse en esa situación o que el operativo de búsqueda de esa persona sea lo más efectivo posible, sobretodo si se trata de desapariciones involuntarias. 
     
     Aunque existen distintos tipos de desapariciones, como veremos más adelante, todas las personas tienen derecho a su búsqueda y localización. La búsqueda de personas desaparecidas en la actualidad supone un reto y un esfuerzo notable de carácter social y humanitario\cite{garcia2019personas}. Es por ello que si puedo ayudar a mejorar un poquito el mundo gracias a mis conocimientos de Ingeniería Biomédica quiero aportar mi granito de arena.
 
@@ -30,148 +30,243 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%% CONOCIMIENTOS PREVIOS %%%%%%%%%%%%%%%%%%%%%%%%%
     \section{Conocimientos previos I. Contexto}\label{contexto}
-
-    https://interior.gob.es/opencms/pdf/archivos-y-documentacion/documentacion-y-publicaciones/publicaciones-descargables/seguridad-ciudadana/Atencion_proteccion_orientacion_familias_personas_desaparecidas_folleto_web_126190813.pdf
-            
-    \textcolor{red}{Contexto: Expón brevemente cómo se abordan los casos de personas desaparecidas en la práctica. Describe el flujo convencional, iniciando con la denuncia, la acción inmediata de las autoridades, la movilización de unidades y la difusión a través de medios y redes sociales.}
-
-Antes de adentrarse de lleno en el la solución que se propone en este documento, se debe conocer un poco su contexto, conociendo de forma resumida el proceso que se lleva a cabo ante una desaparición y las instituciones responsables. 
-
-El abordaje de los casos de personas desaparecidas sigue un flujo bastante complejo, estructurado y coordinado entre distintos organismos. Este proceso comienza con la denuncia de la desaparición de una persona ante fuerzas de seguridad del estado como Policía o Guardia Civil. Estas denuncias son normalmente interpuestas por los familiares, testigos o autoridades. A modo informativo, se ha de añadir que para presentar la denuncia de desaparición no es necesario esperar que pase un plazo específico de tiempo, de hecho cuanto antes se denuncie antes se puede actuar.
-
-Tras interponer la denuncia, los responsables, que normalmente son las fuerzas de seguridad del estado recopilan toda la información que pudiera ser de interés en la búsqueda. Ejemplos de esta infomación son su última ubicación, sus características físicas, circunstancias de desaparición o información médica. Un ejemplo de cuestionario es el que podemos observar en la siguiente imagen \textcolor{red}{INCLUIR IMAGEN/TABLA} y en el Anexo C podemos conocer el flujo de preguntas que normalmente se realiza en estas situaciones.
-
-Una vez recopilada la información se movilizan las unidades de búsqueda especializadas, en estas unidades pueden incluirse grupos ajenos a las fuerzas de seguridad del estado como grupos caninos como el GREM \cite{GREM}. Paralelamente, en algunos casos en los que no entorpezca la búsqueda o investigación del caso, la difusión de estas desapariciones en medios de comunicación o redes sociales puede ser crucial para recibir nuevas pistas. Todo este procese se puede complementar con información de bases de datos nacionales e internacionales.
-
-Es importante reseñar que la combinación de tecnología, rapidez y coordinación es vital para resolver los casos de desapariciones con éxito. Para que estas acciones sean efectivas, se requiere la participación de instituciones sólidas, especializadas y bien estructuradas  que faciliten la labor de los profesionales implicados en las búsquedas. Estas entidades no solo aportan recursos técnicos y humanos, sino que también establecen protocolos de actuación, canalizan la información y garantizan una respuesta organizada ante situaciones de emergencia.
-
-
-Actualmente en España, existe una institución principal que se encarga de todos estos casos de personas desaparecidas, el Centro Nacional de Desaparecidos (CNDES) \cite{CNDES}. Fue creado en 2018 y actúa como un órgano de gestión de coordinación del sistema de personas desaparecidas utilizado por las Fuerzas y Cuerpos de Seguridad del estado. También desarrollan medidas de cooperación entre instituciones y organizaciones, se encargan de analizar y valorar propuestas de familiares de personas desaparecidas, y es el punto de contacto entre cuerpos policiales y servicios públicos. \cite{garcia2019personas}
-
-Por otro lado, también tenemos instituciones especializadas, como la Fundación ANAR \cite{F_ANAR} fundada en 2017 por el ministerio del interior se encarga de menores desaparecidos.
     
-%\textcolor{red}{Mencionar brevemente las normativas legales y protocolos internos que orientan la actuación de las autoridades, poniendo de relieve la importancia de la coordinación y el manejo sensible de datos.}
-    
-%\textcolor{red}{Exponer las deficiencias o limitaciones de los procesos actuales, lo que permitirá justificar la creación de la app como una herramienta que mejora la coordinación, agilidad y seguridad en el manejo de la información.}
-    
-    
+%%%%%%%% INTRODUCCIÓN AL CONTEXTO
+Antes de adentrarse de lleno en el la solución que se propone en este documento, es necesario conocer un poco el ámbito de aplicación, comprendiendo de forma general el proceso que se lleva a cabo ante una desaparición, las instituciones responsables y las principales dinámicas de coordinación. 
+
+%%%%%%%% CASOS DE PERSONAS DESAPARECIDAS
+El abordaje de los casos de personas desaparecidas es un proceso bastante complejo, estructurado y coordinado entre distintos organismos, donde la cooperación y comunicación son imprescindibles. Se debe tener en cuenta que todas las actuaciones policiales van se orientan a recopilar información que permita determinar la situación y el estado de la persona desaparecida.
+
+Ante la sospecha de una desaparición en nuestro entorno, lo primero esque se debe realizar es una búsqueda inmediata en el entorno habitual de la persona, en base a su rutina y lugares que frecuentaba. Seguidamente se debe presentar una denuncia\footnote{Denuncia: declaración emitida, verbal o escrita que pone en conocimiento el hecho de una desaparición ante miembros de las Fuerzas y Cuerpos de Seguridad del Estado.} ante las Fuerzas y Cuerpos de Seguridad del Estado (FFCCS) con los datos básicos (nombre, edad, última ubicación, características físicas, circunstancias de desaparición, información médica...). En base a esa denuncia, los equipos recogen y consolidan toda la información disponible incluyendola en un nuevo registro en las bases de datos y así poder avanzar a las siguientes fases de la búsqueda. 
+
+Tras recopilar la información, las fuerzas responsables planifican y activan un operativo con el objetivo de encontrar a la persona desaparecida en el menor tiempo posible. Si la persona es localizada durante el operativo se dará por finalizado y se cerrará el caso. Si por el contrario no se llega a localizar la investigación se mantendrá activa y se adoptarán medidas adicionales hasta lograr su localización.
+
+Es importante reseñar que la combinación de tecnología, rapidez de actuación y coordinación interinstitucional es vital para resolver los casos de desapariciones con éxito. Las instituciones no solo aportan recursos técnicos y humanos, sino que también establecen protocolos de actuación, canalizan la información y garantizan una respuesta organizada ante situaciones de emergencia, para poder facilitar el trabajo de los profesionales implicados.
+
+%%%%%%% INSTITUCIONES
+% CNDES
+Actualmente en España, existe una institución principal que es referente a nivel internacional que se encarga de todos los casos de personas desaparecidas, el Centro Nacional de Desaparecidos (CNDES) \cite{CNDES}. Fue creado en 2018 y actúa como un órgano de gestión de coordinación del sistema de personas desaparecidas utilizado por las Fuerzas y Cuerpos de Seguridad del estado. También promueve la cooperación entre instituciones y organizaciones, evalúa propuestas de familiares y funciona como el punto de contacto entre cuerpos policiales y servicios públicos\cite{garcia2019personas}. De hecho desde el CNDES se realiza un informe estadístico anual sobre los casos de personas desaparecidas en base a los datos del año anterior. Desde la web del CNDES se publica información sobre casos de personas desaparecidas\footnote{El CNDES dispone de un correo electrónico de comunicación directa con la ciudadanía para la transmisión de información vital de los casos que se encuentran actualmente en investigación (colaboracion-cndes@interior.es).} y recursos de interés acerca de este tipo de casos. 
+
+% Fundación ANAR
+Por otro lado, también existen instituciones especializadas, como la Fundación ANAR \cite{F_ANAR} fundada en 2017 por el ministerio del interior que se centra en los casos de menores desaparecidos y gestiona el servicio telefónico 116000 para este tipo de situaciones. A nivel europeo existe la Red Oficial Policial Europea de Personas Desaparecidas (PEN-MP)\cite{PEN-MP} formada por expertos policiales que busca mejorar la cooperación transfronteriza en casos de personas desaparecidas, promueve el intercambio de información entre los distintos cuerpos, ofrece asesoramiento y formación especializada y desarrollan guías y protocolos comunes que agilicen la respuesta cuando existe la posibilidad de que la persona haya cruzado la frontera.
+
+%%%%%%% PLAN DE DESAPARECIDOS 2022-2024
+En España, el I Plan Estratégico en Materia de Personas Desaparecidas (2022-2024) \cite{plan_desaparecidos_2022} impulsado por el CNDES busca impulsar actividades de prevención, sensibilización, formación, nuevas medidas tecnológicas y mejorar la atención a familias y tercer sector. El plan propone cuatro líneas de acción, catorce objetivos y caso cien medidas orientas a reducir el sufrimiento de familiares, mejorar la respuesta de las FFCCS y afianzar el papel de las fundaciones y asociaciones representativas de personas desaparecidas. Estas líneas de acción y sus objetivos son:
+\begin{enumerate}
+  \item[I.] Prevención y sensibilización.
+  \begin{enumerate}
+    \item [1.] Planes operativos y protocolo de actuación de FFCCS.
+    \item [2.] Campañas de prevención y sensibilización.
+    \item [3.] Herramientas preventivas.
+  \end{enumerate}
+  
+  \item[II.] Formación.
+  \begin{enumerate}
+    \item [4.] Formación integral de las FFCCS.
+    \item [5.] Formación de otros organismos públicos y corporaciones de derecho público.
+    \item [6.] Organizaciones internacionales.
+    \item [7.] Intercambio de experiencias con el tercer sector social.
+  \end{enumerate}
+  
+  \item[III.] Medidas a nivel tecnológico para la investigación y resolución de casos.
+  \begin{enumerate}
+    \item [8.] Herramientas específicas para la investigación y resolución de casos.
+    \item [9.] Alertas.
+    \item [10.] Coordinación entre FFCCS, Policía Local y Seguridad Privada.
+    \item [11.] Explotación de las bases de datos.
+  \end{enumerate}
+  
+  \item[IV.] Atención a familiares/allegados y al tercer sector social.
+  \begin{enumerate}
+    \item [12.] Comunicación y atención de las FFCCS.
+    \item [13.] Desapariciones de larga duración.
+    \item [14.] Colaboración con el tercer sector social.
+  \end{enumerate}
+\end{enumerate}
+
+Aunque el período formal del plan ha concluido, muchas de sus medidas se han implementado y otras siguen en desarrollo y supongo que se está realizando un nuevo plan de actuación. resultan relevantes para esta aplicación. Entre las medidas que se encuentran todavía en desarrollo o que todavía no se han llegado a realizar, existen algunas que están muy alineadas con mi trabajo y que corresponden con algunas de las funcionalidades que propongo. Destacan los distintos estudios para conocer las causas de desaparición de personas mayores (Medida 1.2.5) y el desarrollo de herramientas predictivas para estimar el escenario más probable (Medida 3.8.1), de forma muy curiosa la medida 3. 10.7 busca actualizar la aplicación AlertCops para poder incorporar un registro policial de participantes y voluntarios activables ante dispositivos de búsqueda con fichas normalizadas, idea que coincide con uno de los objetivos principales de la aplicación que propongo en este documento para fomentar la colaboración entre instituciones y ciudadanía.
+
+
+%%%%%%% RELEVANCIA DE LA POSIBLE APP, JUSTIFICACIÓN SOCIAL Y OBJETIVOS DEL APARTADO.  
 
     
-    \subsection{Persona desorientada, perdida y desaparecida}
+    \subsection{Personas desaparecidas}
 
-    \textcolor{red}{Definir Persona desorientada y perdida}
-    Persona desorientada es una persona que desconoce la posición que ocupa geográficamente. https://dle.rae.es/desorientar
 
-    Una persona perdida es aquella que tiene una idea de donde se encuentra pero desconoce la forma de llegar a su destino. https://dle.rae.es/perdido?m=form
 
-    La RAE define como persona desaparecida aquella que se haya en paradero desconocido. Se define como "Persona desaparecida la persona ausente de su residencia habitual sin motivo conocido o aparente, cuya existencia es motivo de inquietud o bien que su nueva residencia se ignora, dando lugar a la búsqueda en el interés de su propia seguridad y sobre la base del interés familiar o social”.  (Consejo de Europa, 2009)
     
-    % https://cndes-web.ses.mir.es/publico/Desaparecidos/Primeros-Pasos.html
+    Para comprender bien el término de persona desaparecida es útil poder diferenciarlo entre persona desorientada y una persona perdida, que se encuentran relacionados pero no equivalentes. Además es interesante conocer también las cifras actuales para poder dimensionar el impacto social y orientar las soluciones tecnológicas.
     
-    % https://rm.coe.int/16806da843
-
-    % https://sosdesaparecidos.es/como-actuar/#1568743348168-892fd5e6-ad94
-
-    Según los datos proporcionados por el ministerio del interior y el Centro Nacional de Desaparecidos la cifra de desaparecidos en 2024 sube hasta 16.147. \cite{DatosDesaparecidos2024}
-
-    De hecho las estadísticas muestran que... (indicar el porcentaje hombres/ mujeres y por edades, si me puedo centrar en las desapariciones involuntarias mejor.)
+    Una persona desorientada es quien desconoce su posición geográfica, y suele ser incapaz, de forma temporal, de orientarse respecto a su entorno por diferentes condiciones cognitivas, médicas o por un sufrimiento agudo. \cite{RAEdesorientar}
+       
+    Una persona perdida es aquella que tiene una idea aproximada de dónde se encuentra, pero que desconoce cómo llegar a su destino, muchas veces se trata de alguien que se ha alejado de su entorno habitual sin intención aparente de ponerse en riesgo. \cite{RAEperdido}
     
-    Las personas desaparecen en la actualidad por multitud de causas cómo puede ser ...
+    Mientras que una \textbf{persona desaparecida} es aquella cuyo paradero es desconocido. En el Consejo de Europa se definió en 2009 a una persona desaparecida como "la persona ausente de su residencia habitual sin motivo conocido o aparente, cuya existencia es motivo de inquietud o bien que su nueva residencia se ignora, dando lugar a la búsqueda en el interés de su propia seguridad y sobre la base del interés familiar o social". En el ámbito operativo policial se considera a una persona desaparecida a quien familiares, amigos o conocidos no tienen noticias de su paradero ni de su situación personal, sin que ello dependa de la edad, sexo, condición o nacionalidad. El 9 de marzo se conmemora el Día de las Personas Desaparecidas sin Causa Aparente, fecha que visibiliza precisamente los casos en los que no hay una explicación inmediata para la ausencia.\cite{CNDES, ConsejoEuropaDesaparicion2016, cndesprotocoloFFCC, plan_desaparecidos_2022, SOSDesaparecidosActuar}
     
-    \subsubsection{Clasificación de casos de desapariciones} 
-    Aunque existen distintas formas de clasificar las desapariciones, nosotros las clasificaremos con la clasificación actual propuesta desde el Ministerio del Interior las desapariciones se clasifican en\cite{CNDES,FolletoInfo_personasDes}:
+    Existen múltiples razones por las que una persona puede llegar a desaparecer: pérdidas de orientación o incidentes médicos, episodios de crisis o problemas de salud mental que llevan a la persona a desorientarse, voluntades de alejarse o fugarse, situaciones de riesgo derivadas de delincuencia organizada o violencia, accidentes en entorno urbano o natural, trata de personas o migración irregular, y factores sociales o económicos. Esta diversidad de causas obliga a que las respuestas sean flexibles, se integren enfoques preventivos y de atención social y sanitaria, y se enfoque tanto la investigación policial como el apoyo a familias y allegados durante todo el proceso.
+    
+    En cuanto a cifras recientes, los datos oficiales muestran que en 2024 se registraron 26.345 denuncias de desapariciones, de las cuales 4.595 personas fueron reincidentes, lo que deja un total de 16.147 casos de personas desaparecidas, de los cuales 2.272 siguen activos. La distribución por edad y sexo refleja que en 2024 el 50.6\% de las denuncias correspondían a adultos y, por tanto, un 49.4\% correspondía a menores; del total de desapariciones, un 63\% las personas desaparecidas eran hombres mientras que un 37\% fueron mujeres. Respecto a su nacionalidad el 63.8\% de los desaparecidos correspondían con la nacionalidad española. El grupo de edad con mayor incidencia fue el de jóvenes entre 13 y 17 años. Aunque muchas de los casos se resolvieron con éxito y la persona se localizó con vida se registraron alrededor de 450 personas desaparecidas localizadas sin vida.\cite{DatosDesaparecidos2024, InformeCNDES2025}    
+
+
+    
+    
+    \subsection{Clasificación de casos de desapariciones} 
+    
+    %%%%%%%% Desapariciones voluntarias, involuntarias y forzosas.
+    Como existen múltiples causas y factores que pueden originar una desaparición, es necesario establecer clasificaciones que ayuden a comprender el fenómeno y a orientar las actuaciones de búsqueda y rescate. Existen distintas formas de clasificar las desapariciones. En este trabajo utilizaré la clasificación vigente recomendada por el Ministerio del Interior, donde quedan tres categorías: desapariciones voluntarias, desapariciones involuntarias y desapariciones forzosas. Es necesario mencionar que en esta clasificación se exluyen casos de sustracción de recién nacidos, supuestos recogidos en la Ley de Memoria Histótica y casos con Orden de Búsqueda y Captura a nivel nacional o internacional.\cite{CNDES,FolletoInfo_personasDes,cndesprotocoloFFCC,SOSDesaparecidosActuar}. 
         \begin{itemize}
-            \item \textbf{Desapariciones Voluntarias}: en el caso en el que una persona decide ausentarse de su residencia habitual por voluntad propia, sin informar a ningún conocido o familiar.
-            \item \textbf{Desapariciones Involuntarias}: en el caso en el por accidente, desorientación o distintas situaciones la persona desaparece sin intención de hacerlo. 
-            \item \textbf{Desapariciones Forzosas}: en el caso de que la desaparición se deba por acciones deliberadas, como es el caso de secuestros, violencia o conflictos armados. Es un crimen de la humanidad y está prohibida por el derecho internacional.
-        \end{itemize}
+            \item \textbf{Desapariciones Voluntarias}: en el caso en el que una persona decide ausentarse de su residencia habitual por voluntad propia, sin ningún condicionante externo, y sin informar a ningún conocido o familiar, con la intención de no ser localizada o no facilitar datos sobre su vida privada. Algunas de las motivaciones pueden ser: circunstancias familiares, personales, sentimentales, laborales o económicas. Esta categoría se subdivide en: fugas de menores, fugas de menores de edad de los centros de protección y desapariciones intencionadas de mayores de edad con plena capacidad jurídica y de obrar.
 
-    Existen disitnos posibles escenarios para los casos de personas desaparecidas según Charles Twardy: avalancha, criminal, abatido, evadido, investigación, perdido, médico, ahogamiento, retrasado, varado o atrapado y trauma.  
+            \item \textbf{Desapariciones Involuntarias}: en estos casos la persona desaparece por causas externas a su voluntad como accidentes, desorientación u otras situaciones externas que impiden su regreso o comunicación. Una desaparición no se considera involuntaria si existen indicios de criminalidad. Esta categoría se subdivide cuatro subtipos: personas desaparecidas sin causa aparente, personas desaparecidas con deterioros cognitivos, trastornos mentales, enfermedades neurodegenerativas o personas con discapacidad; personas desaparecidas debido a algún accidente y personas desaparecidas por catástrofes naturales o humanas.
+
+            \item \textbf{Desapariciones Forzosas}: derivan de acciones deliberadas por parte de terceros, como secuestros, violencia o conflictos armados. Constituyen una violación de los derechos humanos y está prohibida por el derecho internacional. Se trata de hechos delictivos que suelen requerir de una alta coordinación entre fuerzas de seguridad y otros organismos. Este grupo se subdivide en desapariciones de personas fundadas en un entorno o ámbito delictivo (secuestros, redes criminales, adhesión a sectas...), desapariciones por sustracción parental de menores de edad y personas desaparecidas por ser expulsadas de su hogar.
+        \end{itemize}    
+
+    Las cifras recogidas en el informe estadístico 2025\cite{InformeCNDES2025} indican que en 2024 en España se registraron 115 desapariciones forzosas, 16.408 desapariciones voluntarias y 1.334 desapariciones involuntarias, además de 8.488 desapariciones sin catalogar. Centrándonos en las involuntarias, que son las de interés principal para este trabajo 893 fueron sin causa aparente, 268 personas con deterioro cognitivo, 114 a causa de catástrofes\footnote{Opinión: Creo que en esta cifra no se engloban los datos de la DANA de valencia porque hubo un total de 159 denuncias, supongo que estas cifras se habrán englobado en las desapariciones sin catalogar.} y 59 por accidentes.
+
+    %%%%%%% Clasificación según el tipo de escenario (Clasificación según Charles Twardy).
+    Otro tipo de clasificación sería en base a los distintos escenarios típicos en los que se producen las desapariciones, este modelo fue propuesto por Charles Twardy donde se clasifican los casos en: avalancha, criminal, abatido, evadido, investigación, perdido, médico, ahogamiento, retrasado, varado o atrapado y trauma; y cada escenario tiene implicaciones prácticas para la búsqueda diferentes. Esta clasificación es interesante porque identificar el escenario probable permite ajustar tácticas como rastreo en terreno, revisión de infraestructuras, análisis forense o coordinación con servicios sanitarios y de emergencias.
 
     
+    %%%%%% Clasificación por vulnerabilidad.
+    
+    La vulnerabilidad de la persona desaparecida es otro criterio esencial a considerar: menores de edad, personas mayores con deterioro cognitivo, personas con enfermedad mental, aquellas con dependencia de medicación y población migrante requieren una priorización y un enfoque distinto en la búsqueda y la comunicación con las familias. Estos grupos suelen necesitar atención urgente, protocolos de protección específicos y, en muchos casos, contactos con servicios sociales y sanitarios.
 
 
+    
     \subsection{Dispositivos de búsqueda}
-    Un dispositvio de búsqueda es multidisciplinar, como la ingeniería biomédica, aunque normalmente los casos de desapariciones los llevan a cabo FFCC de seguridad o bomberos coordinados por el 112, pueden intervenir distintso grupos desde bomberos, guardia civil, policía protección civil, sanitarios, agentes de medioambiente, organizaciones de voluntarios... \cite{ManualDeBusquedayRescate}
+    %%%%%%%% ¿Qué grupos suelen intervenir?
+    Un dispositivo de búsqueda es multidisciplinar, como la ingeniería biomédica, aunque normalmente los casos de desapariciones los llevan a cabo FFCCS, pueden intervenir otros grupos distintos como bomberos, protección civil, sanitarios, agentes de medioambiente y organizaciones de voluntarios como SOSDesaparecidos o el GREM. \cite{ManualDeBusquedayRescate}
 
-    Todos los equipos durante una búsqueda se encuentran comunicados con el MANDO.
+    %%%%%%%% CASOS DE PERSONAS DESAPARECIDAS
+    Las investigaciones se clasifican para orientar recursos y prioridades en: investigaciones activas, en caso de que exista denuncia y la investigación policial está en vigor; casos de menores ausentados, que incluyen fugas voluntarias como de menores extranjeros no acompañados; y casos cerrados o cesados, en los que la investigación ha finalizado. 
+    
+    % Desde la denuncia
+    El proceso completo de la búsqueda de una persona desaparecida arranca con la presentación de la denuncia ante las FFCCS como Policía o Guardia Civil generalmente realizada por familiares, testigos o autoridades. Por otro lado, es importante conocer que no existe un plazo específico de tiempo para presentar la denuncia y se debe hacer con la mayor brevedad posible, justo después de realizar una primera búsqueda en el domicilio o en el último lugar conocido. Al presentar la denuncia se facilitan datos básicos personales y de identificación de la persona desaparecida y datos de contacto de los denunciantes. En caso de necesitarlo, las fuerzas de seguridad pueden requerir información complementaria relevante para la investigación.\cite{FolletoInfo_personasDes,SOSDesaparecidosActuar}
+    
+    Toda la información recogida durante la denuncia se registra en la base de datos PDyRH para permitir el intercambio de información y la activación de alertas si fuera necesario. Aunque en caso de desapariciones involuntarias por catástrofes la inclusión de los datos en el sistema PDyRH no se realiza hasta 15 días después. Además, en el momento de la denuncia se informará de forma expresa a los denunciantes o familiares sobre el tratamiento de datos personales de la persona desaparecida para poder activar alertas o solicitudes de colaboración.
+    
+    % recopilación de información
+    Tras interponer la denuncia, los responsables, que normalmente son las fuerzas de seguridad del estado recopilan toda la información que pudiera ser de interés en la búsqueda como su última ubicación, sus características físicas, circunstancias de desaparición o información médica. Para homogeneizar esta recogida se emplean normalmente cuestionarios, un ejemplo es la ficha para personas mayores desaparecidas \ref{img_fichaMayorDesaparecido} \textcolor{red}{ y en el Anexo C podemos conocer el flujo de preguntas que normalmente se realiza en estas situaciones}.
+    
+\figura{0.5}{img/FichaMayorDesaparecido.jpg}{Ficha de información sobre mayor desaparecido. \textit{Fuente: recursos CNDES.}}{img_fichaMayorDesaparecido}{keepaspectratio}
+    
+    
 
-    Se suelen realizar difusiónd e alertas por redes sociales y/o medios de comunciación. También el sistema es-alert. 
+    % movilización de las unidades de búsqueda
+    Es interesante saber que un dispositivo de búsqueda inicialmente se realiza con los recursos disponibles de la unidad policial responsable.
+    
+    Tras la denuncia, la recopilación de información y su registro en la base de datos PDyRH, se realiza la planificación del operativo, su activación y el despliegue de las unidades sobre el terreno con el objetivo de localizar a la persona desaparecida en el menor tiempo posible. 
+    
+    El primer paso que realizan las FFCCS es realizar una serie de actuaciones básicas como la comprobación en el domicilio, verificación de hospitales cercanos, contactar con familiares o amigos, tomar las declaraciones de testigos o incluso recoger medios tecnológicos. Cuando la situación lo aconseje se puede solicitar el apoyo de otras unidades para realizar comprobaciones complementarias como unidades cinológicas, unidades de rescate de montaña, grupos de actividades subacuáticas, helicópteros o incluso grupos ajenos a las FFCCS como protección civil, grupos de voluntarios y asociaciones especializados (p.e.: GREM\cite{GREM}) o apoyo sanitario.
+    
+    La movilización de unidades especializadas se hace siempre atendiendo a criterios de coordinación y seguridad, por lo que en caso de solicitar apoyo de voluntarios o expertos en búsquedas sobre el terreno la unidad responsable del caso puede establecer ciertos requisitos mínimos para poder participar, todo ello con el fin de evitar que se entorpezca la búsqueda o investigación del caso y de garantizar la integridad de todos los participantes. En casos donde se solicite el apoyo ciudadano, para coordinar a todos los participantes, el mando del operativo suele establecer un canal específico para poder comunicarse, puede ser correo electrónico, número de teléfono...
+    
+    Paralelamente, siempre que no se entorpezca la investigación la difusión pública de la desaparición puede ser crucial. Se puede recurrir a la difusión en las webs oficiales, sistemas de difusión específicos como es-alert, medios de comunicación o redes sociales, incluir el caso en bases de datos internacionales.  
+    
+    Cuando la situación supone un peligro para la vida o integridad de la persona desaparecida, o cuando se trata de casos especialmente vulnerables (menores, mayores con alguna enfermedad neurodegenerativa, deterioro cognitivo, personas con discapacidad...), se valora la activación de sistemas de alertas específicos como Alerta Menor Desaparecido, Alerta Amber en Europa o la Alerta Mayor Desaparecido que ofrecen una difusión rápida y masiva con gran repercusión mediática en poco tiempo. 
+    
+    En el último año en la web del CNDES se publicaron 844 alertas con información sobre datos identificativos y fotografía, para buscar una mayor colaboración ciudadana. Pero no hay que olvidar que estas alertas están condicionadas por los criterios operativos y de protección de datos. De esas 844 alertas, unas 113 alertas permanecen activas actualmente puesto que no se ha llegado a localizar a la persona o todavía no se ha cerrado la investigación.
+  
+ 
+    
+    % desarrollo de la búsqueda 
+    
+    Durante el desarrollo de la búsqueda la dirección del operativo es asumida por representantes de las fuerzas y cuerpos de seguridad (FFCCS), que actúan como autoridad única para coordinar recursos humanos y materiales. Se establece un Puesto de Mando desde el que se organizan los distintos equipos, se gestionan las comunicaciones oficiales y se habilita un canal único para centralizar la recepción y coordinación de la colaboración voluntaria. El Puesto de Mando registra a todos los participantes y voluntarios, indicando los datos relevantes de cada persona, comunica el inicio de la búsqueda y el final de las jornadas y decide la asignación y redistribución de efectivos. Cuando existe colaboración con otros organismos expertos, desde el mando se aceptará el asesoramiento técnico y el apoyo organizativo para mejorar la eficacia de la FFCCS sin sustituir su dirección operativa.
+    
+    Se realiza una sectorización del terreno y se calculan las probabilidades de localización para cada zona, esto se calcula obteniendo distintos parámetros en base a distintas variables como condiciones meteorológicas, topografía, edad y otras características de la persona o la desaparición. Estas estimaciones orientan la planificación de batidas y la priorización de recursos. Las batidas sobre el terreno se realizan en grupos, cada grupo será liderado por un jefe de equipo perteneciente a las FFCCS con competencias específicas y que aporta los medios técnicos necesarios, instruye al equipo sobre criterios de búsqueda y los indicios a detectar, vela por la seguridad de los miembros de su equipo y mantiene comunicación continua con el Puesto de Mando. Durante la búsqueda los voluntarios tienen prohibido realizar fotografías, vídeos o declaraciones a los medios de comunicación para preservar la integridad operativa y la investigación.
+    
+    En lo relativo a la atención a familiares o allegados se realiza mediante canales de comunicación habilitados por las FFCCS, siempre que no interfieran en la investigación. Desde las FFCCS se tratará de empatizar y escuchar a los familiares y se proporcionará información veraz y real para evitar falsas expectativas, además se facilitará orientación sobre recursos de apoyo profesional (psicólogos, trabajadores sociales...). Desde el inicio se les informará del procedimiento general establecido ante desapariciones, y se les irá informando sobre el estado de la investigación sin comprometerla.
 
-    Normalmente todos los participantes en una búsqueda se encuentran divididos en equipos de búsqueda y en cada equipo habrá un jefe de equipo que cuenta con formación específica en búsqueda de personas desaparecidas.
 
-    En una búsqueda podemos encontrar 3 perfiles diferentes:
-    \begin{itemize}
-        \item Buscador
-        \item Jefe de equipo
-        \item Planificador
-    \end{itemize}
+	% y el desenlace y cierre del caso (Comunicación con las familias, documentación, actuaciones forenses, registro en base de datos)
 
+    Si la localización de la persona se produce con vida, será trasladada a un lugar seguro y adecuado (p.e.: un hospital) y se comunicará de inmediato la finalización del dispositivo a todos los participantes y se esperará el retorno de todos los equipos al punto de encuentro. 
+
+\figura{0.8}{img/EsquemaDeFlujoDeDesaparición.png}{Esquema general del flujo de actuación ante una desaparición. \textit{Fuente propia.}}{img_EsquemaDesaparicion}{keepaspectratio}
+    
+    Todo este proceso de búsqueda se puede ver modificado en función de cada situación y entorno, ya que, por ejemplo, las operaciones en zonas urbanas requieren procedimientos distintos a las rurales en aspectos de movilidad, acceso y seguridad.
+    
+        
+    Transcurridos 15 días desde la desaparición sin haber localizado a la persona, los responsables de las FFCCS elaborarán un informe Ante Mortem y tomarán muestras de ADN para facilitar la identificación posterior. Aunque en casos de desaparición forzosa o con indicios de criminalidad, estas actuaciones se realizan de forma inmediata tras interponer la denuncia. La denuncia se dará por cesada cuando la persona sea localizada con el consecuente caso resuelto y se documente el motivo del cese en el sistema PDyRH. En casos excepcionales donde pasan 110 años sin localizar a la persona se realiza un cierre administrativo del caso.
+
+    
+        
+    %%%%%%% Evaluación post-operativa. 
+
+    Una vez cerrado el operativo y todos los resultados, actuaciones y evidencias se han registrado en la base de datos, se realiza una evaluación post-operativa para mejorar la planificación y respuesta en futuras intervenciones.
+    
     
 
 %%%%%%%%%%%%%%%%%%%%%%%%% CONOCIMIENTOS PREVIOS %%%%%%%%%%%%%%%%%%%%%%%%%
     \section{Conocimientos previos II. GPS Cerebral.}\label{previos}
-    \textcolor{red}{LA MAYOR PARTE DE LA INFO DE AQUÍ ES DEL PRIMER MANUAL DE BÚSQUEDA Y RESCATE DE PERSONAS DESAPARECIDAS EN CASTELLANO.} \cite{ManualDeBusquedayRescate}
 
-    \textcolor{red}{ Sentar las bases teóricas y técnicas en las que se apoya la aplicación.}
-
-    Antes de adentrarnos en el el estado del arte y el desarrollo de la aplicación, nos adrentarmos en los fundamentos biológicos y teóricos en los que nos apoyaremos para el desarrollo de nuestro trabajo.
-
-    \subsection{GPS cerebral}
-    Se puede decir que la orientación es el resulatado de la actividad neuronal de regiones específicas.
-
-    \textcolor{red}{Buscar un poco más del premio Nobel para confirmar que la frase está correctamente dicha y ampliar información} \cite{GPSCerebral_MOSER,GPS_Cerebral_O_KEEFE}
-
-    El GPS Interno del que constan todas las personas fue descubierto y definido por los premios Nobel John O'Keele, May-Britt Moser y Eduard I.Moser. El GPS interno es el sistema de posicionamiento que tiene el cerebro para conocer las posiciones de la persona y de otros objetos o lugares. En el GPS interno se ven implicados los sentidos y dos zonas del cerebro, el hipocampo donde formamos los mapas y la corteza entorrinal donde se tomarán las decisiones, que se encuentra muy cercana al hipocampo. 
-
-    \textcolor{red}{El mapa cognitivo se trata de una representación del entorno que se genera en el hipocampo, se codificarían señales visuales, auditivas y somato sensoriales.}
+    Antes de adentrarnos en el el estado del arte y el desarrollo de la aplicación, me enfocaré en los fundamentos biológicos y teóricos en los que nos apoyaremos para el desarrollo de nuestro trabajo. De esta forma se podrá comprender cómo el cerebro representa el espacio y por qué ciertas enfermedades neurodegenerativas, trastornos psiquiátricos, o incluso estados emocionales intensos alteran la percepción del entorno y la capacidad de orientación. \cite{ManualDeBusquedayRescate}
     
-    \textcolor{red}{Incluir una imagen del cerebro donde se encuentre marcado el hipocampo y la corteza entorrinal}
-
-    El hipocampo forma parte del sistema límbico (hipocampo+amígdala), que se trata del sustrato morfológico de la memoria, aprendizaje, motivación y las emociones. 
-
-    En el mapa cognitivo también influye la memoria declarativa, es decir, nuestros recuerdos. 
     
-    \textcolor{red}{(La memoria declarativa se divide en episodica y semántica.)} 
 
-    Hay estudios que demuestran que si una persona se encuentra en constante uso de la orientación, como los taxistas, tienen un hipocampo más activo que las personas que no hacen tanto uso de la orientación. También existe una correlación entre la buena orientación y la cantidad de sustancia gris en la zona.
-
-    El hipocampo se divide en 4 regiones CA1, CA2, CA3 y CA4. \cite{AnatomiaHipocampo}
-    %https://www.kenhub.com/es/library/anatomia-es/hipocampo
-
-    En estos tejidos encontramos 4 tipos de células implicadas en el GPS Interno. Las células de lugar, las células de red, las células de dirección y las células de límite.
     
+%%%%%%%%%%% GENERAL DEL GPS CEREBRAL
+    \subsection{GPS cerebral y el hipocampo}
+
+   El GPS interno humano fue identificado y descrito gracias al trabajo de John O'Keefe, May Britt Moser y Edvard Moser, los cuales recibieron el premio nobel en 2014\cite{PrensaNobel_GPSCerebral}. O'Keefe propuso en 1978 la teoría del mapa cognitivo\cite{MapaCognitivo_O_KEEFE,GPS_Cerebral_O_KEEFE}, que plantea que el cerebro construye una representación interna del espacio; años más tarde los Moser caracterizaron con más detalle las interacciones entre las células implicadas en ese sistema\cite{GPSCerebral_MOSER,TiposCelulas_GPSCerebral}.
+   
+    El GPS interno es el sistema de posicionamiento cerebral e integra señales sensoriales (visuales, auditivas y somato sensoriales) y no sensoriales junto con procesos de memoria para generar un mapa cognitivo del entorno donde conocer las posiciones de la persona y de otros objetos o lugares. Las estructuras claves de este sistema son el hipocampo, donde se construyen y almacenan las representaciones espaciales, y la corteza entorrinal que actúa como el enlace entre el hipocampo y el resto del córtex y contribuyendo a la toma de decisiones.
+
+\figura{0.6}{img/Cerebro_CortezaEntoHipotalamo.jpg}{Diagrama del cerebro con localización de la corteza entorrinal, el hipocampo y otros\cite{img_diagramaCerebro}.}{img_diagramaCerebro}{keepaspectratio}
+    
+    El hipocampo puede entenderse como un sistema de navegación interno que permite orientarse, recordar ubicaciones y planificar rutas, y participa también en la codificación y almacenamiento de recuerdos episódicos. El hipocampo junto con la amígdala forma parte del sistema límbico, que es sustrato de la memoria, el aprendizaje, la motivación y las emociones. Está dividido en subregiones (CA1, CA2, CA3 y CA4)\cite{AnatomiaHipocampo}, siendo CA1 y CA3 especialmente relevantes en los procesos de representación y recuperación espacial. La representación de un lugar no depende de una única neurona, sino que se distribuye a lo largo de toda la superficie del hipocampo formando diferentes patrones de activación y cada patrón codificará distintos lugares o contextos.
+
+\figura{0.7}{img/AnatomiaHipocampo.png}{Diagrama de la anatomía del hipocampo\cite{img_anatomiaHipocampo}.}{img_anatomiaHipocampo}{keepaspectratio}
+    
+    Tanto en el hipocampo como en la corteza entorrinal media se observan agrupaciones de células que conforman la arquitectura funcional del GPS cerebral. Las principales clases celulares implicadas en el sistema de orientación son las células de lugar (place cells), las células de red (grid cells), las células de dirección (head direction cells) y las células de límite. 
+    
+    La experiencia y el uso constante de la orientación modulan y refinan estas representaciones, de hecho, a mayor activación y mejor conectividad entre neuronas en las áreas implicadas, y por lo tanto más precisa y rápida será la identificación de un lugar.  Existen estudios en personas que usan habitualmente la navegación espacial (p.e. Taxistas) muestran mayor activación y volumen de sustancia gris en zonas relacionadas, lo que sugiere una plasticidad dependiente del uso. Aunque todo este ámbito todavía se encuentra en estudio, se espera que la navegación espacial sea una de las primeras funciones cognitivas no sensoriales en ser comprendida a nivel de microcircuitos neuronales.
+
+    Las lesiones o alteraciones en el hipocampo y estructuras asociadas reducen la precisión de las representaciones espaciales y dificultan la recuperación y manipulación de la memoria. De hecho, si se produce un daño, los recuerdos más recientes suelen ser los más vulnerables, mientras que los más antiguos permanecen más resistentes. Esto ocurre porque ante una lesión o alteración el hipocampo será más selectivo a la hora de almacenar recuerdos nuevos. En este sentido existen múltiples condiciones fisiológicas, alteraciones y patologías (hipoglucemia, hiperglucemia, hipoxia, hipotermia, hipertermia, demencias, trastornos neuropsiquiátricos, discapacidad intelectual, autismo…) que pueden ver afectada la funcionalidad del GPS cerebral al alterar la irrigación, la actividad neuronal o la integridad estructural de estos tejidos. No obstante, es necesario mencionar que este GPS interno no se encuentra desarrollado en los niños pequeños, puesto que se empieza a desarrollar a partir de los 8 o 9 años; y que con la edad se va a ir viendo afectada la memoria a corto plazo por lo que también se irá viendo afectado su GPS interno. 
+
+    En el contexto de personas desaparecidas, las alteraciones del GPS cerebral pueden influir en el comportamiento de la persona perdida, ya que pueden traducirse en comportamientos desorientados, dificultad para localizar puntos de referencia o protegerse, y en cambios en la capacidad de recordar rutas o situaciones recientes. Comprender estos mecanismos y sus vulnerabilidades es esencial al diseñar aplicaciones como la que se expone en este trabajo, porque permite anticipar patrones de comportamiento, adaptar estrategias de localización y priorizar intervenciones según el estado cognitivo y fisiológico de la persona desaparecida. \cite{ManualDeBusquedayRescate}
+
+    
+
+    
+%%%%%%%%%% TIPOS DE CÉLULAS
     \subsubsection{Células nerviosas de lugar o de posicionamiento}
-    Se trata de neuronas que se encuentran en el hipocampo que responden selectivamente al lugar donde se encuentra la persona. Forman sistemas de navegación alocéntricos de detección entre objetos. Por decirlo de otra forma, se podría decir que se trata de los puntos de refernecia que utilizamos para saber donde nos encontramos.
     
+    Las células de lugar son neuronas localizadas en el hipocampo que se activan selectivamente cuando el individuo se encuentra en una ubicación específica del entorno. Cada célula responde a una zona concreta, contribuyendo a la formación de un mapa interno del espacio. Este sistema de codificación espacial permite representar el entorno de forma alocéntrica, es decir, en relación con objetos externos, y no únicamente desde la perspectiva del propio cuerpo. \cite{MapaCognitivo_O_KEEFE,GPS_Cerebral_O_KEEFE, TiposCelulas_GPSCerebral, ManualDeBusquedayRescate}
 
-    Estas células se activan cuando se está en un lugar específico.
+    Estas células pueden considerarse como puntos de referencia neuronales que facilitan la orientación y el desplazamiento sin errores, proporcionando información sobre la posición de objetos, partes del cuerpo y lugares circundantes. Su patrón de disparo se mantiene incluso en situaciones de desorientación, aunque puede sufrir pequeñas variaciones conforme el individuo se desplaza.
 
-    Dan información sobre la posición de objetos alrededor, de partes del propio cuerpo o de lugares y permiten un desplazamiento sin errores.
+    De hecho, las células de lugar no actúan de forma aislada, sino que forman redes funcionales que representan el entorno de manera colectiva y adaptable a los cambios. Las interacciones entre estas células y otras redes neuronales, como las células de red, o con regiones corticales implicadas en la memoria y la navegación, resultan clave para la construcción del mapa cognitivo.
 
-    Se cree que las células de lugar tambien son las células de tiempo, aquellas que codifican la percepción del tiempo. Se desconoce su potencial de acción.
+    Además, se cree que estas células podrían participar también en la codificación del tiempo, actuando como "células de tiempo" que contribuyen a la percepción temporal. Aunque esta todavía en estudio, esto sugiere una posible fusión entre los sistemas de representación espacial y temporal en el hipocampo.
+
 
     \subsubsection{Células de red}
-    Son neuronas que se encuentran en el córtex entoriinal. Se llaman células de red porque se organizan en patrones de células en hexágonos o triángulos. Actualmente su uso es desconocido pero se sabe que se encuentran relacionadas con las células de lugar. Se cree que podrían funcionar cómo la triangulación de telefonía, para poder conocer las coordenadas. 
-
-    La combinación del mapa cognitivo, las células de lugar y estas mismas permitirían crear el mapa cerebral.
+    
+    Las células de red son neuronas localizadas en la corteza entorrinal medial que desempeñan un papel fundamental en la codificación espacial. Estas células están estrechamente relacionadas con las células de lugar del hipocampo ya que son la estructura de fondo sobre la cual se organiza el mapa cognitivo. Se caracterizan por generar patrones de activación periódicos que forman una rejilla hexagonal o triangular, proporcionando una métrica interna del espacio. Este patrón regular inidcaría que actúan como un sistema de coordenadas neuronales, facilitando la autolocalización del individuo en el entorno.\cite{MapaCognitivo_O_KEEFE, GPSCerebral_MOSER, TiposCelulas_GPSCerebral, ManualDeBusquedayRescate}
+    
+    Aunque su función precisa aún está en estudio, se ha propuesto que estas células podrían operar de forma similar a los sistemas de triangulación utilizados en telefonía móvil, donde se estima la posición mediante la activación entre múltiples puntos de referencia. De esta forma el cerebro tendría la capacidad de calcular coordenadas espaciales con gran precisión.
+    
 
     \subsubsection{Células de dirección}
-    Estas neuronas permitirían conocer la dirección en la que se mueve el sujeto. 
+    
+    Las células de dirección son neuronas especializadas que se activan en función de la orientación del individuo, codificando la dirección hacia la que se mueve o se encuentra orientado. A diferencia de las células de lugar, que responden a ubicaciones específicas, se puede decir que estas células registran el ángulo de desplazamiento, proporcionando una referencia constante.\cite{MapaCognitivo_O_KEEFE, TiposCelulas_GPSCerebral, ManualDeBusquedayRescate}
+    
+    Su activación es independiente de la posición concreta de la persona en el entorno. Esta información de orientación es esencial para la navegación precisa y para la construcción de un mapa cognitivo estable, en el que la dirección complementa la localización y la métrica espacial.
     
 
     \subsubsection{Células de límite}
-    Son neuronas que se encuentran en el subículum del hipocampo. Estas neuronas experimentan una mayora activación cuando el sujeto se encuentra cerca de algún límite, cómo puede ser una pared o un precipicio.
+    
+    Las células de límite o de borde se sitúan en el subículum del hipocampo y se activan cuando el individuo se encuentra cerca de un borde físico del entorno, como una pared, un precipicio o cualquier tipo de límite espacial. Su patrón de activación permite identificar las fronteras del espacio, contribuyendo a la percepción y organización del entorno en términos de zonas transitables y zonas de contención. Este papel es fundamental especialmente en entornos complejos o desconocidos.\cite{MapaCognitivo_O_KEEFE, TiposCelulas_GPSCerebral, ManualDeBusquedayRescate}
+        
+    En conjunto con las células de lugar, de red y de dirección, las células de límite completan el sistema de navegación cerebral, ya que aportan la información sobre la estructura del entorno y facilitan una representación espacial precisa y sobretodo funcional.
 
-    
-    
-    
-    Existen numerosas enfermedades y trastornos que pueden afectar a nuestro GPS cerebral como la hipoglucemia, hiperglucemia, hipotermia, hipertermia, demencia, enfermedad mental, discapacidad mental y autismo.
 
-    Por ejemplo, con la hipoxia se disminuye la irrigación a esas zonas del cerebro. Y con la edad se ve afectada la memoria a corto plazo por lo que para intentar mantenerla hay que ejercitarla lo máximo posible.
-    
 
     \subsection{GPS cerebral: Alzheimer}
+    \textcolor{red}{ORDENAR Y REVISAR}
+    
     Se ve afectado el hipocampo y la corteza entorrinal, de hecho es una de las primeras estructuras del cerebro que se deteriora, por lo que se produce una pérdida del sentido de la orientación, como uno de los primeros síntomas. Su causa es la acumulación de proteínas tau y de placas de proteína beta-amiloide que destruyen las neuronas. 
     
     En concreto, unas de las primeras zonas que se ven afectadas son la corteza entorrinal por la acumulación de proteína Tau y la región CA1 por la acumulación de péptido amiloide que provoca poco a poco la desconexión entre las neuronas, por lo que se va perdiendo memoria a corto plazo y existe una deficiencia en la activación de las células de red. 
@@ -185,6 +280,8 @@ Por otro lado, también tenemos instituciones especializadas, como la Fundación
     
 
     \subsection{GPS cerebral: Otras}
+    \textcolor{red}{ORDENAR Y REVISAR}
+    
     Personas con demencia, discapacidad intelectual o enfermedad mental tienen disminuida también la capacidad de generar mapas cofnitivos.
 
     Sin embargo cabe destacar que las personas con discapacidad intelectual tienen una mejor capacidad que las personas cuya edad se les ha atribuido puesto que cuentan con la años de experiencia. Principalmente se basan en rutinas que si llegan a cambiar pueden impedir que consturyan impediatamente el nuevo mapa cognitivo.
@@ -192,6 +289,8 @@ Por otro lado, también tenemos instituciones especializadas, como la Fundación
     Los niños todavía no son capaces de generar mapas cognitivos completos puesto que no han desarollado completamente esa habilidad. Normalmente se empieza a desarrollar a partir de los 8-9 años. De hecho los niños pequeños tampoco suelen tener metaconocimiento de sus habilidades espaciales, por lo que pueden perderse con mayor facilidad.
 
     \subsection{GPS cerebral: Emociones}
+    \textcolor{red}{ORDENAR Y REVISAR}
+    
     Como se ha mencionado antes, las emociones también juegan un papel principal en la orientación de las personas.
 
     Por ejemplo, una persona con una alta excitación percibe menor cantidad de señales ambientales, mientras que una persona con poca excitación puede incurrir en pensamientos difusos. Por lo que como en todo en esta vida, se busca el equilibrio.
@@ -205,26 +304,34 @@ Por otro lado, también tenemos instituciones especializadas, como la Fundación
     
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%% ESTADO DEL ARTE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     \section{Estado del arte}\label{estadoArte}
+
+    \textcolor{red}{ AÑADIR ALGUNA IMAGEN }
     %\textcolor{red}{Revisión exhaustiva y crítica de la literatura existente y las tecnologías actuales en un campo específico. En el contexto de una app, el estado del arte implica analizar las innovaciones, tendencias, metodologías, y las soluciones más avanzadas que existen hasta la fecha en ese ámbito particular. Su objetivo es comprender lo que ya se ha logrado y los desafíos aún por resolver, para identificar áreas de mejora e innovación.}
     
     En la actualidad existen numerosas herramientas y sistemas especializados que se utilizan en operaciones de búsqueda y rescate de personas desaparecidas. En este apartado se presenta una revisión de soluciones relevantes, incluyendo algunas que, si bien no han sido concebidas específicamente para este ámbito, podrían aportar funcionalidades valiosas si se adaptan adecuadamente. A partir de esta recopilación, se realizará un análisis comparativo para poder identificar las características más interesantes para el diseño de la aplicación propuesta en este trabajo. 
     
     \subsection{Herramientas y sistemas específicos de casos de personas desaparecidas}
-    \textcolor{red}{Incluir aquí las herramientas, alertcops, desaparecido,... Todo menos Alerthor y alguna de las otras aplicaciones tipo mapas que son de agricultura etc... QUIZÁS ORDENARLAS EN FUNCIÓN DE SU USO EN LA BÚSQUEDA, PRIMERO LA MONITORIZACIÓN DE LAS PERSONAS Y LAS DENUNCIAS CON ALERCOPS, LUEGO SISTEMAS DE BASES DE DATOS, LOS SISTEMAS DE ALERTAS Y LOS SISTEMAS DE BÚSQUEDA/MAPAS.} 
     
     En esta sección se presentan soluciones tecnológicas desarrolladas específicamente para la localización de personas desaparecidas. Se incluyen aplicaciones, plataformas, dispositivos y metodologías, con énfasis en sus funcionalidades, limitaciones y grado de adopción por parte de organismos especializados.
 
     \subsubsection{Alertcops}
     AlertCops representa una de las herramientas más relevantes en el ámbito de la seguridad ciudadana en nuestro país, pese a no ser suficientemente conocida por la población. Se trata de una aplicación móvil gratuita desarrollada por el Ministerio del Interior español, cuyo objetivo principal es reforzar la seguridad ciudadana mediante una comunicación directa, discreta y rápida con los cuerpos de seguridad del Estado, como la Guardia Civil y la Policía Nacional. \cite{Alertcops} 
+\figura{0.7}{img/Logotipo_Alertcops.png}{Logotipo Alertcops. \textit{Fuente: recursos Alertcops.}}{img_logoAlertcops}{keepaspectratio}
 
     La aplicación permite a la ciudadanía informar sobre delitos, incidencias o situaciones sospechosas, así como compartir datos con las autoridades. En el contexto de personas desaparecidas, una de las funcionalidades más importantes es el modo guardián. Esta funcionalidad permite compartir la ubicación en tiempo real con familiares o directamente con los cuerpos de seguridad, lo que facilita una localización rápida y precisa en caso de emergencia.
 
     Además, Alertcops cuenta con un chat en tiempo real con la Policía y la Guardia Civil, lo que permite recibir orientación inmediata en casos de desorientación o riesgo. También incluye un botón de socorro (SOS) que, al ser activado, envía automáticamente una alerta a las autoridades acompañada de un breve audio y la geolocalización del usuario. \cite{alertcops_folleto}
+
+    Con la nueva actualización de septiembre de 2025 se ha añadido la funcionalidad de Avisos, donde se podrá recibir alertas y notificaciones de interés, seguridad, colaboración ciudadana y de emergencia en función de la zona donde se encuentre el usuario. 
+
+\figura{0.7}{img/Alertcops_chat.png}{Distintas capturas de pantalla de Alertcops. \textit{Fuente: recursos Alertcops.}}{img_pantallasAlertcops}{keepaspectratio}
     
 
     \subsubsection{Aplicación Desaparecido}
 
     \textcolor{red}{contactar con el CEO (Eduardo) para preguntar más info o que ha pasado porque no hay ninguna noticia después de febrero de 2023 (bueno en linkedin tienen una única publicación de hace 10 meses), y creo que es algo muy muy parecido a mi idea}
+
+\figura{0.4}{img/Logotipo_DesaparecidoApp.png}{Logotipo App Desaparecido \textit{Fuente: \cite{webDesaparecido}}}{img_logoDesaparecido}{keepaspectratio}
     
     Desaparecido es un software SAR (Search and Rescue) orientado al apoyo de los equipos de emergencia en la búsqueda de personas desaparecidas\cite{webDesaparecido, Github_DesaparecidoApp}, con el propósito de mejorar la eficiencia y coordinación de las operaciones. Entre sus funcionalidades destaca el monitoreo y control en tiempo real de los datos asociados a cada caso, la documentación de los planes de actuación, y la coordinación entre los distintos equipos implicados. Esta herramienta se basa en procesos estandarizados que facilitan el trabajo conjunto entre cuerpos de emergencia, y garantiza una gestión segura de la información, priorizando la privacidad de los datos personales. 
 
@@ -239,13 +346,33 @@ Por otro lado, también tenemos instituciones especializadas, como la Fundación
 
     En la fase inicial de la búsqueda, el software permite acceder a una amplia variedad de formularios, como los relativos a la identificación de la persona desaparecida, la descripción del incidente, la evaluación de la urgencia del caso o la recogida sistemática de pistas. También ofrece la posibilidad de utilizar formularios oficiales de instituciones como el Emergency Management Institute (EMI), así como información sintetizada sobre el comportamiento de personas desaparecidas (Lost Person Behavior), que orienta las líneas de investigación en función de las circunstancias del caso. Además, Win CASIE III facilita el registro detallado de las decisiones tomadas y toda la información, inlcuyendo datos sobre la persona desaparecida, el nivel de urgencia, los recursos disponibles y requeridos, la estructura del operativo y la composición de los equipos implicados.
 
-    Durante la fase de búsqueda sobre el terreno, el software permite imprimir formularios de consenso para expertos, calcular el consenso general a partir de sus respuestas y almacenarlo como parte del informe. También se pueden generar hojas de asignación de equipos, informes intermedios y otros documentos operativos. Asimismo, Win CASIE III incorpora herramientas para calcular parámetros clave como la probabilidad de detección (POD) o la probabilidad de área (POA), además de permitir la segmentación del terreno en zonas según las necesidades del operativo. La plataforma facilita el registro de pistas encontradas, la realización de análisis hipotéticos tipo What if?, y ofrece recomendaciones sobre la distribución óptima de los recursos para maximizar la probabilidad de éxito. Todo el proceso queda almacenado, lo que permite mantener una trazabilidad completa de las decisiones y acciones ejecutadas.
+    Durante la fase de búsqueda sobre el terreno, el software permite imprimir formularios de consenso para expertos, calcular el consenso general a partir de sus respuestas y almacenarlo como parte del informe. También se pueden generar hojas de asignación de equipos, informes intermedios y otros documentos operativos. Asimismo, Win CASIE III incorpora herramientas para calcular parámetros clave como la probabilidad de detección (POD) o la probabilidad de área (POA), además de permitir la segmentación del terreno en zonas según las necesidades del operativo. La plataforma facilita el registro de pistas encontradas, la realización de análisis hipotéticos tipo What if?\footnote{Técnica que permite explorar diferentes resultados en función de distintos supuestos.}, y ofrece recomendaciones sobre la distribución óptima de los recursos para maximizar la probabilidad de éxito. Todo el proceso queda almacenado, lo que permite mantener una trazabilidad completa de las decisiones y acciones ejecutadas.
 
     Por último, una vez finalizado el operativo, el software permite generar un informe final completo que recoge de forma estructurada todas las acciones realizadas, las decisiones tomadas y los resultados obtenidos.
     
 
+    \subsubsection{Bases de datos de personas desaparecidas a nivel nacional e internacional}
+    
+    En España, el Sistema de Personas Desaparecidas y Restos Humanos sin Identificar (PDyRH) es la herramienta oficial empleada por las Fuerzas y Cuerpos de Seguridad del Estado en la investigación de desapariciones. Coordinado por el Centro Nacional de Desaparecidos (CNDES), este sistema permite la colaboración con administraciones públicas, instituciones y organizaciones, tanto nacionales como internacionales, en la difusión de avisos, alertas y peticiones de colaboración ciudadana. \cite{plan_desaparecidos_2022, cndesprotocoloFFCC}
+    
+    Este sistema se puso en funcionamiento en 2010, integrando una base de datos que centraliza toda la información relativa a denuncias por desaparición, así como los expedientes de cadáveres y restos humanos sin identificar recopilados por los distintos cuerpos policiales. Esto facilita la trazabilidad de los casos y la posibilidad de establecer correspondencias o coincidencias entre denuncias y hallazgos, contribuyendo así a la identificación de algunas personas desaparecidas.
+    
+    Entre sus funcionalidades, a parte de la recopilación de información, el sistema permite importar información biométrica desde el servidor de imágenes del Documento Nacional de Identidad, así como solicitar la publicación de alertas en la web oficial del CNDES y generar automáticamente carteles de búsqueda. Asimismo, desde el PDyRH es posible activar alertas especiales como la Alerta AMBER, en casos de menores desaparecidos, o la Alerta Mayor Desaparecido, en casos de personas de avanzada edad.
+    
+    Cada registro en el sistema incluye un conjunto de datos básicos que permiten caracterizar la desaparición: nombre y apellidos del desaparecido y del denunciante, fecha de nacimiento, sexo, nacionalidad, domicilio habitual, fecha, hora y lugar de la desaparición, motivo o tipología del caso (si se conoce), descripción física, fotografía reciente, posibles trastornos o enfermedades, discapacidad o falta de autonomía, tratamientos médicos vitales, antecedentes de violencia de género, consumo de sustancias, reincidencia, fuga de centros de protección (con indicación del centro), y la confirmación expresa y escrita para la difusión de la imagen del desaparecido. Actualmente hay más de 320.000 registros, de esos 6.722 siguen en activo y 7.633 corresponden con menores ausentados.\cite{InformeCNDES2025}
+    
+    La responsabilidad de revisar y actualizar la información recae en los cuerpos y fuerzas de seguridad, mientras que el CNDES supervisa la calidad del registro y la correcta grabación de los datos.
+
+    Mientras, a nivel internacional existen diferentes iniciativas que recopilan información sobre personas desaparecidas. Una de las más destacadas es el sistema iDMS (Integrated Data Management System), desarrollado por la Comisión Internacional sobre Personas Desaparecidas (ICMP). Este software especializado permite registrar, almacenar, visualizar y analizar grandes volúmenes de datos relacionados con personas desaparecidas, incluyendo cerca de 200.000 casos. Está diseñado para ser accesible por instituciones gubernamentales y organizaciones autorizadas, y permite incorporar información genética mediante perfiles de ADN, lo que facilita la identificación de restos humanos y la vinculación familiar. Además, el sistema incluye una herramienta pública llamada Online Inquiry Center (OIC), que permite reportar un caso y realizar su seguimiento.\cite{icmp_idms} 
+
+
+    Otra base de datos relevante es la creada por el Dr. Robert Koester, que contiene más de 50.000 incidentes reales de búsqueda y rescate en distintos países. Esta base se centra en el análisis estadístico del comportamiento de las personas desaparecidas según su perfil y el entorno geográfico. En base a la información recopilada de los distintos incidentes, se han identificado patrones que permiten predecir zonas probables de localización, tiempos de supervivencia y estrategias óptimas de búsqueda\cite{isrid_dbs}. Pese a que el acceso completo a estos datos registrados requiere contactar directamente con el autor y justificar el uso previsto, existe una aplicación y un libro, Lost Person Behavior, que resumen las estadísticas y conclusiones operativas derivadas de los datos y son ampliamente utilizados por equipos de búsqueda y rescate en todo el mundo. \cite{lostPersonBehavior}
+
+    Por último, también destacan herramientas como I-Familia de la Interpol, que se centra en el cotejo genético de muestras de ADN para facilitar la identificación de personas desaparecidas. Este sistema permite realizar comparaciones indirectas cuando no se dispone de huellas dactilares, fichas dentales u otros métodos convencionales, y está orientado a casos transnacionales en los que la cooperación entre países resulta esencial. I-Familia forma parte del sistema de bases de datos criminales de INTERPOL y representa una herramienta clave en la identificación de restos humanos y en la reunificación de familias, aunque su uso está restringido a cuerpos policiales y autoridades competentes. \cite{interpol_ifamilia} 
+
 
     \subsubsection{Sistema ES-ALERT}
+    \textcolor{red}{¿Incluir un pequeño párrafo donde se indique en la web del CNDES se inlcluyen las alertas activas de los desaparecidos y que algunas asociaciones como sosdesaparecido comparten las alertas en sus redes sociales....? Aunque esto lo puedo poner en el contexto. La comunicación entre los grupos de rescate o profesionales en caso de necesitar colaboración ciudadana es bastante limitada, utilizando redes sociales y contactos conocidos}
 
     ES-Alert es el sistema español de alertas públicas, desarrollado en el cumplimiento del artículo 110 de la Directiva Europea 2018/1972\cite{DirectivaUE_EsAlert}, que exige a los Estados miembros la implementación de mecanismos capaces de proporcionar instrucciones claras y oportunas a la población en situaciones de emergencia mediante telefonía móvil. En España, este sistema se integra en la Red de Alerta Nacional de Protección Civil como complemento a los canales tradicionales de alerta y está gestionado por el Ministerio del Interior\cite{SistemaEsAlert,ESAlertProteccionCivil}.
     
@@ -255,109 +382,309 @@ Por otro lado, también tenemos instituciones especializadas, como la Fundación
     
     Aunque no ha sido diseñado específicamente para casos de desaparición, sí es una herramienta de apoyo en operaciones de búsqueda y rescate, siempre y cuando no se comprometa la seguridad de la persona desaparecida. En estos casos, ES-Alert sirve para difundir información clave a la población localizada en el área de búsqueda, facilitando la colaboración ciudadana y ampliando el alcance de los equipos de emergencia\cite{ESAlertCastillaLeon2025}. Por ello, las características de este sistema pueden ser muy interesantes para su adopción en nuestra aplicación o incluso que en algún momento se encuentren interconectados.
 
-    \subsubsection{Bases de datos de personas desaparecidas: Sistema PDyRH y Database ISRID}
-
-    \textcolor{red}{Dar Vuelta/Revisar}
-    
-    \textcolor{red}{Citar el plan estrategico en materia de personas desaparecidas.} \cite{plan_desaparecidos_2022}
-    
-    Sistema PDyRH: sistema de Personas Desaparecidas y Restos Humanos sin Identificar (PDyRH). Es el empleado por las Fuerzas y Cuerpos de Seguridad en la investigación de desapariciones. Es coordinado por el CNDES (Centro Nacional de Desaparecidos) que además colabora con las Administraciones Públicas y otras instituciones y organizaciones públicas y privadas habilitadas, tanto nacionales como internacionales en la difusión de avisos, alertas o peticiones de colaboración a la población. https://www.interior.gob.es/opencms/en/detail-pages/article/Las-Fuerzas-y-Cuerpos-de-Seguridad-registraron-26.003-denuncias-por-desaparicion-de-personas-en-2022/
-
-
 
     \subsubsection{Sistemas basados en Inteligencia Artificial: DroneFinder y RES-DesVi}
 
-    \textcolor{red}{Dar Vuelta/Revisar}
+    En la actualidad, los sistemas basados en inteligencia artificial están empezando a transformar las búsquedas de personas desaparecidas, ofreciendo herramientas que priorizan casos, acotan zonas de búsqueda y optimizan la asignación de recursos operativos. 
     
-    DroneFinder: https://itg.es/dronefinder-plenamente-operativaermite-localizar-personas-desaparecidas-con-drones-ia/
+    Un ejemplo destacado es SER‑DesVi, un sistema predictivo diseñado para estimar el riesgo de lesión o fallecimiento por causas suicidas u homicidas en personas desaparecidas\cite{SERDesVi, SERDesVi_Validacion}. Para ello, combina distintos factores de riesgo y protección en base a datos sociodemográficos, psicosociales y criminológicos, generando una puntuación de riesgo que puede orientar la investigación y mejorar la gestión de recursos disponibles. Además, otro de sus objetivos de es ser un instrumento estandarizado para la recolección de datos sobre desapariciones en España. No obstante, su utilidad práctica dependerá de su futura integración en los flujos de trabajo policiales y en bases de datos como el PDyRH. Sin una conexión fluida entre las predicciones y los sistemas multirespuesta que coordinan los operativos, las recomendaciones del modelo corren el riesgo de quedarse en apoyo teóricosin impacto operativo real.
 
-    Respecto a los sistemas de predicción en este ámbito, son escasos pero en un tiempo donde la inteligencia artificial está a la orden del día el desarrollo de sistemas de predicción irá creciendo en todos los ámbitos.... 
+    Por otro lado, existen soluciones orientadas a la detección y localización empleando ciertos dispositivos hardware, como el uso drones. Un ejemplo de ello es Drone Finder\cite{dronefinder} desarrollado por Aeromedia, Indra e ITG (Instituto Tecnológico de Galicia), desde donde se presentan distintas herramientas basadas en inteligencia artificial orientadas a equipos de emergencia, instituciones o servicios sociales. Estas herramientas permiten cubrir de forma más eficiente y completa grandes áreas y mejorar la coordinación de los recursos humanos y tecnológicos. Aunque este trabajo no se enfoca en el uso de hardware para la búsqueda y rescate de personas desaparecidas, considero que es relevante conocer que existen otro tipo de tecnologías que quizás en un futuro puedan llegar a integrarse o coordinarse, puesto que aportan mucha otra información que puede ser realmente relevante para un buen desenlace de los casos. 
+    
+    Asimismo, se están desarrollando modelos predictivos que permiten determinar la distancia recorrida y el patrón de dispersión de una persona desaparecida, utilizando distintas variables como las condiciones meteorológicas durante el periodo de desaparición\cite{DistanciaTiempoMeteo}. Este tipo de estudios son relevantes porque abren la puerta a estudios con otras variables como los basados en características biológicas como enfermedades, trastornos, edad, complexión física... Integrar este tipo de predicciones permitiría acotar de forma más efectiva las áreas de búsqueda, adaptando prioridades y recursos en función del perfil del caso. De hecho, en conjunto, estos estudios y la información disponible en las distintas bases de datos podrían configurar un enfoque multidimensional que facilite la toma de decisiones por parte de los equipos de búsqueda.
 
-    De hecho ya hay investigaciones sobre sistemas de predicción para el apoyo en las búsquedas de personas desaparecidas. Una des las herramientas que se está desarrollando es SER-DesVi que se trataría de un sistema predictivo de valoración del riesgo de lesión o fallecimiento por causas suicidas u homicidas. \cite{SERDesVi, SERDesVi_Validacion}
-
-    SER-DesVi se basa en distintos factores de riesgo y protección para realizar las predicciones. También tiene como objetivo es que sirva como herramienta estandarizada de recolección de datos sociodemográficos, psicosociales y criminológicos de desapariciones en España. 
-
-    Este estilo de herramientas de predicción favorecen a la priorización de líneas de investigación ante una desaparición y a la mejora de gestión de los recursos de los operativos.
-
-    Sin embargo, falta una inclusión en los sistemas multirespuesta para que sea realmente efectiva la toma de decisiones en los operativos de búsqueda de personas desaparecidas basada en la evidencia. 
+    
     
     \subsection{Otras herramientas y sistemas}
-    Además de las soluciones diseñadas para este fin, existen herramientas provenientes de otros ámbitos (como la gestión de emergencias) que podrían ofrecer ventajas significativas si se adaptan al contexto de búsqueda de personas desaparecidas. Esta subsección explora dichas tecnologías con el objetivo de ampliar el espectro de posibilidades para el diseño de nuestra aplicación.
-
-    \subsubsection{Mapas: SIGPAC y IGME}
-
-    \textcolor{red}{Dar Vuelta/Revisar}
-
-    SIGPAC: mapas https://sigpac.mapa.es/fega/visor/
-    
-    IGME: mapas https://info.igme.es/cartografiadigital/portada/default.aspx?mensaje=true
+    Además de las soluciones diseñadas específicamente para la búsqueda y rescate de personas desaparecidas, existen herramientas provenientes de otros ámbitos que podrían ofrecer ventajas significativas si se adaptan al contexto de búsqueda de personas desaparecidas. Esta subsección explora dichas tecnologías con el objetivo de ampliar el espectro de posibilidades para el diseño de nuestra aplicación.
 
     \subsubsection{Alerthor}
-
-    \textcolor{red}{Dar Vuelta/Revisar}
     
-    Alerthor es una plataforma de gestión de alertas emergencias y monitoreo geográfico diseñado para equipos de rescate, bomberos y otros servicios de seguridad. Desde esta plataforma se pueden coordinar recursos en tiempo real y geolocalizar tanto a personas como a vehículos desde un único monitor. Su sistema de alertas funciona incluso sin conexión a internet. Además, permite personalizar mapas y generar informes de los operativos. \cite{webAlerthor, appAlerthor}
-        
-    Aunque no se trate de una herramienta especializada en operativos de personas desaparecidas, es una herramienta que podría ser muy útil para organizar y coordinar las búsquedas. Por ello, muchas de las funcionalidades disponibles las tendré en cuenta para definir nuestra aplicación especializada en la búsqueda y rescate de personas desaparecidas. 
+    Alerthor es una plataforma integral en línea y en la nube de gestión de emergencias y monitoreo geográfico, diseñada para equipos de rescate, bomberos y otros servicios de seguridad. Desde esta plataforma se pueden coordinar recursos en tiempo real y geolocalizar tanto a personas como a vehículos desde un único monitor. Su sistema de alertas funciona incluso sin conexión a internet. Además, permite personalizar mapas y generar informes de los operativos. \cite{webAlerthor}
+    
+\figura{0.5}{img/logotipo_Alerthor.png}{Logotipo plataforma Alerthor \textit{Fuente: \cite{webAlerthor}}}{img_logoAlerthor}{keepaspectratio}
 
+    Las alertas de Alerthor son sonoras y visuales e incluyen información precisa. Asimismo, quienes reciben una pueden indicar si se unirán o no a la emergencia. Estas alertas pueden recibirse a través de la app móvil de Alerthor \cite{appAlerthor} o a través de SMS, aunque también existe la posibilidad de enviarse a radios o activar sirenas o timbres locales desde la plataforma. 
+
+    Alerthor permite la coordinación de múltiples operativos al mismo tiempo y el seguimiento geográfico en tiempo real de personas y recursos. Utiliza mapas en línea como los de Google Maps o Waze que se pueden personalizar añadiendo capas y puntos de control. Además, ofrece personalizar configuraciones y el acceso al historial de los datos de alertas e incidentes previos.  Asimismo, posibilita generar reportes estadísticos de los incidentes. Las interfaces, tanto de la plataforma como de la aplicación, son intuitivas y desde Alerthor se ofrecen cursos de capacitación.
+    
+    Esta aplicación ofrece una versión gratuita donde se pueden crear hasta 25 usuarios y una versión Plus de pago con acceso a todas las funcionalidades.
+        
+    Debido a sus funcionalidades, esta herramienta podría ser interesante para organizar y coordinar las búsquedas de personas desaparecidas, aunque no haya sido diseñada específicamente para este tipo de emergencias. Es por esta razón que tendré en cuenta muchas de sus funcionalidades para diseñar y definir la aplicación que se propone en este trabajo.
+
+    
+    \subsubsection{Mapas: SIGPAC, IGN e IGME}
+
+
+    Las herramientas cartográficas son imprescindibles para la búsqueda de personas desaparecidas. Desde el Grupo de Rescate Espeleológico y de Montaña (GREM) de Burgos\cite{GREM} se han recomendado varias herramientas cartográficas que aunque no hayan sido diseñadas para la búsqueda de personas desaparecidas son de gran utilidad para la planificación de las rutas, la evaluación del terreno o la localización de cada participante. Estas herramientas proporcionadas han sido desarrolladas por organismos oficiales ofreciendo información geoespacial precisa y actualizada, y algunas de estas herramientas permiten su uso incluso sin conexión, muy importante en entornos rurales o de montaña.
+
+    La primera herramienta es el visor SIGPAC\cite{SIGPACVisor}, gestionado por el Ministerio de Agricultura, Pesca y Alimentación. Este visor permite consultar parcelas agrícolas, límites administrativos y elementos del paisaje rural. Aunque su uso está pensado principalmente para el ámbito agrario, su nivel de detalle y la posibilidad de identificar caminos, edificaciones y masas forestales lo hacen útil en tareas de orientación. Desgraciadamente, requiere conexión a internet para su funcionamiento.
+    
+\figura{0.8}{img/CapturaMapaSIGPAC.png}{Captura de pantalla del visor de mapas SIGPAC. \textit{Fuente: \cite{SIGPACVisor}}}{img_capturaMapasSIGPAC}{keepaspectratio}
+
+    Por otro lado, el también tenemos mapas del Instituto Geográfico Nacional\cite{IGNPortal}, tenemos distintos visores que permiten explorar el territorio con distintos niveles de zoom y capas temáticas\cite{IGNVisorIberpix, IGNVisorSignA}. Además el IGN cuenta con una aplicación móvil asociada, desde la cual se pueden descargar zonas concretas y utilizar el GPS sin conexión y sin cobertura móvil. Además, gracias a su interfaz intuitiva y la calidad de sus datos lo convierten se pueden planificar rutas y crear puntos de control, recurso valioso en estos casos.
+
+\figura{0.2}{img/Captura_AppIGN.jpg}{Captura de pantalla de la app de mapas del IGN. \textit{Fuente: App oficial Mapas de España - CIGN}}{img_capturaMapasSIGPAC}{keepaspectratio}
+
+    Por último, el Catálogo de Información Geocientífica del Instituto Geológico y Minero de España\cite{IGMECatalogo} ofrece acceso a mapas geológicos, hidrogeológicos y de riesgos naturales. Esta información puede ser especialmente relevante en zonas con cuevas, simas o terrenos inestables, donde conocer la composición del subsuelo puede ayudar a anticipar riesgos o delimitar áreas de búsqueda. Aunque el visor es online, algunos mapas pueden descargarse previamente para su consulta sin conexión.
+
+    Se ha de reseñar que este conjunto de herramientas son complementarias y actualmente se utilizan en la planificación de los operativos. Sin embargo, si se llegan a integrar de forma adecuada junto a los sistemas de gestión, sistemas de alerta o modelos predictivos pueden llegar a mejorar la eficiencia y seguridad de las intervenciones.
     
 
 
     \subsection{Análisis comparativo}
-    A partir de la revisión anterior, se realiza un análisis comparativo que permite identificar patrones, fortalezas y debilidades entre las distintas herramientas. Este ejercicio busca extraer los elementos más relevantes y transferibles que puedan servir como base para la definición funcional y técnica de la aplicación que se pretende desarrollar.
+    A partir de la revisión anterior se ha realizado un análisis comparativo donde poder identificar las características, fortalezas y debilidades entre las herramientas revisadas, lo que permite extraer los elementos más relevantes para definir las bases funcionales y técnicas de la aplicación que se propone en este trabajo. Las tablas comparativas \ref{tabla:TablaComparativaI} y \ref{tabla:TablaComparativaII} muestran las características clave, las limitaciones y las funcionalidades que podrían resultar útiles para integrar en una solución más completa.
     
-    \textcolor{red}{Análisis Comparativo:}
+    \vspace{3cm}
+    
+% ----------------------------------------------------
+% TABLA COMPARATIVA.
+\begin{table}[htbp]
+\centering
+\footnotesize
+\begin{tabular}{ |m{2cm}|m{4cm}|m{4cm}|m{4cm}|  } 
+\hline
+\cellcolor[HTML]{B9E3F0}\centering\textbf{Herramienta} & \cellcolor[HTML]{B9E3F0}\textbf{Características clave}& \cellcolor[HTML]{B9E3F0}\textbf{Limitaciones / Huecos}& \cellcolor[HTML]{B9E3F0}\textbf{Características a integrar en nuestra app}\\
 
-    \textcolor{red}{Realizar una comparación entre los distintos proyectos (características, ventajas y problemas de las soluciones existentes.)}
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Alertcops} 
+    & {Canal oficial.
     
-    Los principales problemas y ventajas que ofrecen las soluciones actuales son:
-    (Crear una tabla)
+    Comunicación directa con cuerpos y fuerzas de seguridad.
+    
+    Modo guardián donde compartir ubicación en tiempo real.
+    
+    Botón SOS con audio y geolocalización.
+    
+    Chat en tiempo real con autoridades.
+    } 
+    & {Diseñada para seguridad ciudadana general, no para gestión SAR.
+    
+    No permite trazabilidad de un caso de desaparición.
+    
+    Depende de adopción ciudadana y de la difusión dada por parte de autoridades.
+    
+    No funciona sin cobertura móvil.
+    } 
+    & {Canal seguro y oficial de comunicación con autoridades ante emergencias. 
+    
+    Mecanismo de geolocalización en tiempo real.
+    
+    Chat en tiempo real con las autoridades.
+    }\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{App Desaparecido} 
+    & {Plataforma en desarrollo de gestión integral en búsqueda y rescate.
 
-    Existen sistemas de alerta ciudadana y redes sociales especializadas como:
-    \begin{itemize}
-        \item es-alert
-        \item Web del CNDES
-        \item asociaciones como sosdesaparecidos
-    \end{itemize}
+    Seguimiento de casos. 
     
-    \textcolor{red}{Análisis de métodos y tecnologías:}
+    Gestión de documentación.
     
-    %\textcolor{red}{- Revisa tecnologías disruptivas que se estén utilizando en la coordinación de emergencias (uso de drones, algoritmos de inteligencia artificial para análisis de datos, etc.).}
+    Coordinación de equipos y gestión de recursos.
     
-    \subsection{Sistemas de predicción actuales}
+    Machine Learning para determinar la vulnerabilidad del caso y zonas probables de localización de la persona desaparecida.
+    } 
+    & {Fase demo.
+ 
+    No se integra con bases oficiales. 
+    
+    Madurez y validación operativa limitadas.
+    
+    No tiene un sistema de alertas.
+    } 
+    & {Gestión completa de los casos.
 
-    \textcolor{red}{INCLUIDO PREVIAMENTE EN EL APARTADO DE SISTEMAS BASADOS EN INTELIGENCIA ARTIFICIAL}
-
-    Respecto a los sistemas de predicción en este ámbito, son escasos pero en un tiempo donde la inteligencia artificial está a la orden del día el desarrollo de sistemas de predicción irá creciendo en todos los ámbitos.... 
-
-    De hecho ya hay investigaciones sobre sistemas de predicción para el apoyo en las búsquedas de personas desaparecidas. Una des las herramientas que se está desarrollando es SER-DesVi que se trataría de un sistema predictivo de valoración del riesgo de lesión o fallecimiento por causas suicidas u homicidas. \cite{SERDesVi, SERDesVi_Validacion}
-
-    SER-DesVi se basa en distintos factores de riesgo y protección para realizar las predicciones. También tiene como objetivo es que sirva como herramienta estandarizada de recolección de datos sociodemográficos, psicosociales y criminológicos de desapariciones en España. 
-
-    Este estilo de herramientas de predicción favorecen a la priorización de líneas de investigación ante una desaparición y a la mejora de gestión de los recursos de los operativos.
-
-    Sin embargo, falta una inclusión en los sistemas multirespuesta para que sea realmente efectiva la toma de decisiones en los operativos de búsqueda de personas desaparecidas basada en la evidencia. 
-
+    Machine Learning para determinar el grado de urgencia y predicción de zonas de localización.
     
+    Gestión de documentación.
+    
+    Coordinación de equipos y gestión de recursos. 
+    }\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Win CASIE III} 
+    & {Software de búsqueda y rescate gratuito.
+
+    Formularios operativos en base a protocolos existentes.
+    
+    Orientación de líneas de investigación
+    
+    Registro de decisiones.
+    
+    Cálculo de parámetros clave en SAR.
+    
+    Generación de informes.
+    } 
+    & {Orientado a planificación y obtención de informes finales.
+
+    No cuenta con geolocalización de equipos.
+    
+    Capacidad de uso offline limitada. Interfaz de usuario compleja.
+    } 
+    & {Formularios operativos estandarizados.
+
+    Cálculo de parámetros.
+    
+    Orientación de líneas de investigación.
+    
+    Registro y generación de informes.
+    }\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Bases de datos} 
+    & {Base de datos oficial de denuncias de personas desaparecidas en España: PDyRH.
+
+    Bases internacionales: iDMS e ISRID.
+    
+    Permite detectar coincidencias e identificar restos humanos.
+    
+    Registro centralizado de denuncias.
+    Incluye información biométrica.
+    
+    Obtención de perfiles estadísticos.
+    
+    Historial de casos.
+
+    Datos descargables.
+    } 
+    & {Acceso restringido y controlado.
+
+    Únicamente registro de información de casos de personas desaparecidas y estadísticas con esos datos.
+    
+    No es útil para coordinar equipos, sí para conocer casos similares.
+    } 
+    & {Acceso a historial de casos.
+
+    Obtención de patrones estadísticos.
+    
+    Bases de datos descargables.
+    }\\
+\hline
+\end{tabular}
+\caption{Comparación de herramientas actuales I.\label{tabla:TablaComparativaI}
+}
+\end{table}
 
 
-    
-    
-    \subsection{Resumen de identificación de huecos}
-    \textcolor{red}{Identificación de huecos en la literatura:}
-    
-    \textcolor{red}{- Señala las áreas no suficientemente cubiertas o las limitaciones de las actuales herramientas, lo que justifica tu propuesta de solución.}
-    
-    \textcolor{red}{Huecos identificados:}
-    Sin embargo, la comunicación entre los grupos de rescate, profesionales en caso de necesitar la colaboración ciudadana es bastante limitada, utilizando redes sociales y contactos conocidos. Por lo que la creación de una app que aumente la esa colaboración y comunicacion entre los profesionales y los civiles dispuestos a aportar su granito de arena, con el fin de disminuir tiempos de búsqueda y aumentar las posibilidades de encontrar con vida a la persona desaparecida.
 
-    Además, en un mundo donde cada vez más tecnológico y donde tenemos a la orden del día la IA (inteligencia artificial), no se están aprovechando todos los recursos. Por ello también se intenta incluir en nuestra solución una funcionalidad de predicción para poder enfocarse en las zonas donde sería más probable encontrar a la persona desaparecida en función de sus características. (Edad, enfermedades...)
-    
-    %\textcolor{red}{- Señala cuáles son los principales desafíos del procedimiento tradicional (por ejemplo, la dispersión de información, la lentitud en la coordinación, problemas de actualización en tiempo real) y cómo tu app puede suponer una mejora.}
-    
-    
-    
+% TABLA COMPARATIVA II.
+\begin{table}[htbp]
+\centering
+\footnotesize
+\begin{tabular}{ |m{2cm}|m{4cm}|m{4cm}|m{4cm}|  } 
+\hline
+\cellcolor[HTML]{B9E3F0}\centering\textbf{Herramienta} & \cellcolor[HTML]{B9E3F0}\textbf{Características clave}& \cellcolor[HTML]{B9E3F0}\textbf{Limitaciones / Huecos}& \cellcolor[HTML]{B9E3F0}\textbf{Características a integrar en nuestra app}\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{ES-Alert} 
+    & {Sistema de alertas de emergencia oficial en España.
 
+    Difusión masiva por Cell Broadcast. 
+    
+    En función de criterios geográficos.
+    
+    Mensajes cortos y precisos rápidos.
+    
+    No recoge información personal de los dispositivos a los que llega la alerta.
+    } 
+    & {No gestiona operativos.
+
+    No es útil para coordinar equipos.
+    
+    Normalmente no se usa en casos de personas desaparecidas, salvo casos muy urgentes.
+    
+    Depende de cobertura móvil.
+    } 
+    & {Mecanismo de alertas masivas y públicas localizadas.}\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Sistemas de predicción} 
+    & {Estimación del riesgo de un caso, localización remota con drones o predicción de distancia recorrida por el desaparecido. 
+
+    Modelos de predicción en base a información sobre el caso o condiciones durante la desaparición. 
+    
+    Soporte analítico para priorización y asignación de recursos.
+    } 
+    & {Actualmente en la mayoría en desarrollo.
+
+    Necesitan validación operativa, datos de calidad y conexión con flujo policial.
+    
+    El uso de drones requiere de hardware especializado y resulta en retos operativos y más permisos. 
+    } 
+    & {Uso de algoritmos de inteligencia artificial para predicción de zonas de probabilidad de detección de personas y estimación del riesgo para priorizar y optimizar los recursos en las búsquedas.}\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Alerthor} 
+    & {Plataforma integral de gestión de emergencias en tiempo real.
+    
+    Uso de alertas sonoras/visuales.
+    
+    Notificaciones multicanal (app, sms o radio).
+    
+    Confirmación de asistencia.
+    
+    Geolocalización de recursos y personas.
+    
+    Personalización de mapas.
+    
+    Gestión de varios operativos simultáneamente.
+    
+    Historial de alertas o incidentes.
+    
+    Obtención de reportes estadísticos.
+    
+    Gratuita hasta 25 usuarios y versión Plus.
+    } 
+    & {No desarrollado específicamente para SAR.
+    
+    Formularios limitados.
+    
+    Herramienta comercial que habría que adaptar a los protocolos SAR.
+    
+    Modo offline limitado 
+    } 
+    & {Sistema de alertas multicanal consolidado con posibilidad de confirmación de asistencia.
+    
+    Geolocalización de personas y recursos en tiempo real.
+    Personalización de mapas.
+    
+    Gestión simultánea de distintos operativos.
+    
+    Acceso a historial de incidentes.
+    
+    Obtención de informes estadísticos de los incidentes.
+    }\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Mapas} 
+    & {Cartografía oficial detallada (parcelas, ortofotos, topografía).
+    
+    Mapas geocientíficos.
+    
+    Creación de capas personalizadas y puntos de control.
+    
+    Mapas sin conexión: IGN.
+    
+    Mapas descargables.
+    } 
+    & {Únicamente mapas.
+    
+    Necesitan de cobertura y conexión a internet (menos los IGN) aunque son descargables.
+    } 
+    & {Mapas detallados de soporte cartográfico para planificación y geolocalización.
+    
+    Personalización de mapas con capas personalizados y posibilidad de incluir puntos de control.
+    }\\
+\hline
+\end{tabular}
+\caption{Comparación de herramientas actuales II.\label{tabla:TablaComparativaII}
+}
+\end{table}
+% ----------------------------------------------------
+% ----------------------------------------------------
+
+    Al observar el conjunto de herramientas disponibles, se puede confirmar que muchas de ellas cubren aspectos específicos del proceso de búsqueda y rescate, pero lo hacen de forma fragmentada. Algunas, como la aplicación Desaparecido, intentan abarcar varios criterios operativos, pero en general ninguna ofrece una solución integral que combine la gestión completa de los casos de personas desaparecidas, la comunicación directa con autoridades, la recopilación documental, la gestión de alertas, la geolocalización en tiempo real, el análisis estadístico y predictivo, el acceso a bases de datos oficiales y el uso de cartografía especializada. Es por ello que existe una oportunidad clara para el desarrollo de una plataforma que reúna todos estos elementos, facilitando la interoperabilidad con sistemas oficiales, herramientas de campo y canales de difusión de alertas, y ofreciendo a la ciudadanía un espacio único y accesible para colaborar en la localización de personas desaparecidas.
+    
+    En base a lo analizado, se puede considerar como funcionalidad esencial incluir una ficha de caso estandarizada basada en protocolos oficiales, con campos obligatorios y control de difusión, mapas offline personalizables con capas topográficas y geológicas y posibilidad de incluir puntos de control, un sistema de aviso simultáneo a miembros del equipo o voluntarios con confirmación de asistencia y formularios específicos para su participación, geolocalización de los participantes durante la búsqueda, comunicación entre los participantes, trazabilidad completa del caso con exportación de informes y estadísticas, y almacenamiento seguro de la información en bases de datos. 
+    
+    A parte de las funcionalidades principales es interesante incorporar otras herramientas para el cálculo de parámetros relevantes en la búsqueda y la posibilidad de diferenciar equipos o perfiles según sus funciones. Asimismo, el uso de modelos predictivos y el análisis de los parámetros calculados puede ayudar a establecer estrategias más eficientes, priorizando recursos y delimitando áreas de búsqueda de forma inteligente, siempre dejando claro que estos modelos son herramientas de apoyo y no sustituyen la toma de decisiones humanas, por lo que deben estar acompañados de controles y supervisión operativa. 
+    
+    Para complementar funcionalidades, intentar integrar en la app el sistema PDyRH es un objetivo muy valioso, pero requiere de acuerdos formales, por lo que mientras estos no estén en vigor, la aplicación debería contar con mecanismos de exportación segura y formularios basados en los protocolos actuales para facilitar la comunicación con las autoridades. Es importante también garantizar que la visibilidad del caso no comprometa la seguridad ni la privacidad de la persona desaparecida, aplicando filtros y permisos adecuados para cada tipo de información. Asimismo, la gestión del voluntariado y de los distintos equipos implica definir roles específicos, validar perfiles y registrar la actividad durante la búsqueda utilizando distintos mecanismos que ayuden a reducir riesgos operativos y mejorar la coordinación en tiempo real.
+    
     
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% OBJETIVOS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     \section{Objetivos}\label{obj}
@@ -384,14 +711,20 @@ Por otro lado, también tenemos instituciones especializadas, como la Fundación
     \end{itemize}
     
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% DESCRIPCIÓN %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    \section{Descripcion general de la solucion}\label{descripcion1} % COMENTAR SI NO INTERESA
-    Se pretende realizar una app de apoyo en la búsqueda de personas desaparecidas. Esta app se basará en un sistema de alertas, predicción y geolocalización. Pretende reunir a la mayor cantidad de voluntarios posible y llevar un control de los asistentes a la búsqueda. Además, servirá también para logística de los equipos profesionales de búsqueda y optimización de los recursos con el fin de encontrar a la persona desaparecida en el menor tiempo posible.
+    \section{Descripcion general de la solucion}\label{descripcion1} % 
+
+    Esta problemática no es únicamente de nuestro país (Españ), por lo la idea de la aplicación también podría ser válida internacionalemnte. Aunque en España hay que tener en cuenta que la gestión de los operativos de búsqueda y de los casos de personas desaparecidas es de las FFCCS, por lo que para que lelgase a ser realmente útil sería necesario una serie de acuerdos con estos FFCCS.
+    
+    \textcolor{red}{Realizar un párrafo donde se indica que he realizado un cuestionario en Santander X Explorer para ciudadanos y distintos grupos de rescate aunque con poca participación de fuerzas y cuerpos de seguridad donde se seleccionan las funcionalidades más importantes o esenciales para priorizar en la app}
+    
+    COMENTAR SI NO INTERESA
+    Desde un inicio se ha mencionado que se pretende realizar una app de apoyo en la búsqueda de personas desaparecidas. Esta app se basará en un sistema de alertas, predicción y geolocalización. Pretende reunir a la mayor cantidad de voluntarios posible y llevar un control de los asistentes a la búsqueda. Además, servirá también para logística de los equipos profesionales de búsqueda y optimización de los recursos con el fin de encontrar a la persona desaparecida en el menor tiempo posible.
 
     La app estaría disponible no solo para grupos profesionales o voluntarios profesionales, sino que también para cualquier persona interesada en ayudar. Estos civiles podrían gestionar el área donde se quiere recibir las alertas y aceptar o denegar ir a ayudar en caso de alerta de búsqueda en la zona. Durante la búsqueda se mantendrá informados y geolocalizados a los asistentes.
 
     Respecto a la ayuda logística de la búsqueda, se podrán definir los distintos perfiles necesarios o las tareas a realizar, colocar puntos de control y ofrecer retroalimentación basada en estadísticas de desapariciones anteriores y la información del desaparecido, como puede ser edad o enfermedades, por ejemplo, si desaparece en la montaña una persona de mediana edad con diabetes la apliación indicaría que algunos de los puntos de control deben de ser zonas con alguna fuente de agua ya que está demostrado que las personas con diabetes suelen tener mucha sed y por supervivencia se acercarán a esas fuentes de agua.
     
-    Se ha utilizado la herramienta Github \cite{GitHub} para llevar un control de todo el proyecto. Se puede acceder a la información del mismo en el siguiente repositorio: ...
+    Se ha utilizado la herramienta Github \cite{GitHub} para llevar un control de toda la memoria y subir en última instancia el prototipo. Se puede acceder a la información del mismo en el siguiente repositorio: ...
 
     \textcolor{red}{REVISAR }
 
