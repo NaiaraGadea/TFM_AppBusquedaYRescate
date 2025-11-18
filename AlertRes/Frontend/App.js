@@ -15,8 +15,8 @@ import casoPublico from './src/screens/home/pantallaCasoPublic';
 
 // Pantallas profesionales
 import menuProfesionales from './src/screens/createSearch/menuProfesionales';
-import RegisterCaseScreen from './screens/RegisterCaseScreen';
-import AlertsScreen from './screens/AlertsScreen';
+import RegisterCaseScreen from './src/screens/createSearch/RegisterCaseScreen';
+import AlertsScreen from './src/screens/createSearch/AlertsScreen';
 import nuevoDesaparecido from './src/screens/createSearch/nuevoDesaparecido';
 import casosActivos from './src/screens/createSearch/casosActivos';
 import historialCasos from './src/screens/createSearch/historialCasos';
@@ -99,6 +99,47 @@ function InicioStack() {
   );
 }
 
+// 🔹 Stack para la pestaña "Búsqueda"
+function BusquedaStack() {
+  return (
+    <Stack.Navigator>
+      <Stack.Screen
+        name="Búsqueda"
+        component={PantallaBusqueda}
+        options={{ title: 'Búsqueda' }}
+      />
+    </Stack.Navigator>
+  );
+}
+
+// 🔹 Stack para la pestaña "Perfil"
+function PerfilStack() {
+  return (
+    <Stack.Navigator>
+      <Stack.Screen
+        name="Perfil"
+        component={mostrarPerfil}
+        options={{ title: 'Perfil' }}
+      />
+    </Stack.Navigator>
+  );
+}
+
+
+// 🔹 Stack para la pestaña "Ajustes"
+function AjustesStack() {
+  return (
+    <Stack.Navigator>
+      <Stack.Screen
+        name="Ajustes"
+        component={ajustes}
+        options={{ title: 'Ajustes' }}
+      />
+    </Stack.Navigator>
+  );
+}
+
+
 export default function App() {
   const [activeSearch, setActiveSearch] = useState(null);
 
@@ -122,11 +163,11 @@ export default function App() {
               headerShown: false,
             })}
           >
-            <Tab.Screen name="Perfil" component={mostrarPerfil} />
-            <Tab.Screen name="Búsqueda" component={PantallaBusqueda} />
+            <Tab.Screen name="Perfil" component={PerfilStack} />
+            <Tab.Screen name="Búsqueda" component={BusquedaStack} />
             <Tab.Screen name="Inicio" component={InicioStack} />
             <Tab.Screen name="Profesionales" component={ProfesionalesStack} />
-            <Tab.Screen name="Ajustes" component={ajustes} options={{ headerShown: true, title: "Ajustes" }} />
+            <Tab.Screen name="Ajustes" component={AjustesStack} />
           </Tab.Navigator>
         </NavigationContainer>
       </SearchContext.Provider>

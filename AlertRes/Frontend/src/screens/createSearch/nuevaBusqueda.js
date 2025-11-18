@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react';
-import { View, Text, TextInput, Modal, StyleSheet, Switch, TouchableOpacity, Alert } from 'react-native';
+import { View, Text, TextInput, Modal, StyleSheet, Switch, TouchableOpacity, Alert, ScrollView, KeyboardAvoidingView, Platform } from 'react-native';
 import { createSearch, getCaseByCaseId } from '../../../api';
-import CaseItem from '../../../components/CaseItem';
+import CaseItem from '../components/CaseItem';
 import { SearchContext } from '../../../App';   // 👈 Importamos el contexto
 
 export default function NuevaBusqueda({ route, navigation }) {
@@ -15,7 +15,7 @@ export default function NuevaBusqueda({ route, navigation }) {
   const [showConfirm, setShowConfirm] = useState(false);
   const [createdSearch, setCreatedSearch] = useState(null);
 
-  const { setActiveSearch } = useContext(SearchContext); // 👈 Accedemos al setter global
+  const { setActiveSearch } = useContext(SearchContext); 
 
   useEffect(() => {
     getCaseByCaseId(caseId).then(setCaseData);
@@ -45,19 +45,29 @@ export default function NuevaBusqueda({ route, navigation }) {
 
   const handleAccept = () => {
     setShowConfirm(false);
-    setActiveSearch(createdSearch); // 👈 Guardamos la búsqueda activa en el contexto
+    setActiveSearch(createdSearch); // Guardamos la búsqueda activa en el contexto
     navigation.navigate('Búsqueda'); // navegamos a la pestaña de búsqueda
   };
 
   if (!caseData) return <Text>Cargando...</Text>;
 
   return (
-    <View style={styles.container}>
-      <CaseItem item={caseData} />
+    <KeyboardAvoidingView
+            style={{ flex: 1 }}
+            behavior={Platform.OS === "ios" ? "padding" : "height"}
+            keyboardVerticalOffset={100}>
+        <ScrollView style={styles.container}>
+      <View style={{ alignItems: 'center', marginBottom: 16 }}>
+        <CaseItem item={caseData} />  
+      </View>
 
+      <Text>Lugar de encuentro: </Text>
       <TextInput style={styles.input} placeholder="Lugar de encuentro" value={meetingPlace} onChangeText={setMeetingPlace} />
+      <Text>Fecha y hora (YYYY-MM-DD HH:mm):</Text>
       <TextInput style={styles.input} placeholder="Fecha y hora (YYYY-MM-DD HH:mm)" value={meetingDate} onChangeText={setMeetingDate} />
+      <Text>Mensaje:</Text>
       <TextInput style={styles.input} placeholder="Mensaje" value={message} onChangeText={setMessage} />
+      <Text>Recomendaciones:</Text>
       <TextInput style={styles.input} placeholder="Recomendaciones" value={recommendations} onChangeText={setRecommendations} />
 
       <Text>¿Búsqueda pública?</Text>
@@ -66,6 +76,7 @@ export default function NuevaBusqueda({ route, navigation }) {
       <TouchableOpacity style={styles.button} onPress={handleSubmit}>
         <Text style={styles.buttonText}>Aceptar</Text>
       </TouchableOpacity>
+      <Text> </Text>
 
       {/* Confirmación */}
       <Modal visible={showConfirm} transparent animationType="fade">
@@ -92,7 +103,8 @@ export default function NuevaBusqueda({ route, navigation }) {
           </View>
         </View>
       </Modal>
-    </View>
+    </ScrollView>
+    </KeyboardAvoidingView>
   );
 }
 

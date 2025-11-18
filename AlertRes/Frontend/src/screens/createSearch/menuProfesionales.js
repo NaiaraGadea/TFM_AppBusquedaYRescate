@@ -13,9 +13,9 @@ export default function CrearMenuScreen({ navigation }) {
         <Text style={styles.buttonText}>{"Registrar caso"}</Text>
       </TouchableOpacity>
 
-      <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('CrearBusqueda')}>
+      <TouchableOpacity style={styles.button} onPress={() => {}}>
         <Ionicons name={"search-outline"} size={22} color="rgb(25, 104, 133)" style={styles.icon} />
-        <Text style={styles.buttonText}>{"Crear búsqueda"}</Text>
+        <Text style={styles.buttonText}>{"Gestionar búsquedas"}</Text>
       </TouchableOpacity>
 
       <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('CasosActivos')}>

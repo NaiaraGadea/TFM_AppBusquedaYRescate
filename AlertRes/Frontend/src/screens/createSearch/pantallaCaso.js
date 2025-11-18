@@ -60,7 +60,7 @@ export default function InformacionCaso({ route }) {
 }
 
 const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: "#fff", padding: 16 },
+  container: { flex: 1, backgroundColor: "#fff", padding: 16, paddingBottom:50},
   title: { fontSize: 22, fontWeight: "700", marginBottom: 16, textAlign: "center" },
   label: {fontSize: 14, fontWeight: '600',paddingLeft: 10, margintop: 15},
   text: {fontSize:14, paddingLeft:10},

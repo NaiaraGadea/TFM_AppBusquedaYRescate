@@ -1,9 +1,9 @@
 import React, { useEffect, useState, useCallback } from 'react';
-import { View, Text, FlatList, RefreshControl, StyleSheet } from 'react-native';
+import { View, Text, FlatList, RefreshControl, StyleSheet, Dimensions } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useNavigation } from '@react-navigation/native';
 import { getCasesWithAlerts } from '../../../api';
-import CaseItem from '../../../components/CaseItem';
+import CaseItem from '../components/CaseItem';
 
 // Caso de ejemplo que se mostrará si no hay ninguna desaparición.
 const demoCase = {
@@ -43,6 +43,9 @@ export default function listaDesaparecidos() {
     setRefreshing(false);
   }, []);
 
+  // Detectar si es web o móvil
+  const isWeb = Dimensions.get('window').width > 768; // Cambia el umbral según tus necesidades
+
   return (
     <View style={styles.container}>
       <Text style={styles.title}>¿Los has visto?</Text>
@@ -59,6 +62,8 @@ export default function listaDesaparecidos() {
         refreshControl={
           <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
         }
+        numColumns={isWeb ? 4 : 1} // Cambia a 3 columnas en web, 1 en móvil
+        columnWrapperStyle={isWeb ? styles.columnWrapper : null} // Opcional para espaciar columnas
       />
     </View>
   );
@@ -76,5 +81,8 @@ const styles = StyleSheet.create({
     fontWeight: '700',
     marginBottom: 12,
     textAlign: 'center',
+  },
+  columnWrapper: {
+    justifyContent: 'space-between',
   },
 });

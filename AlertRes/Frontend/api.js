@@ -1,7 +1,7 @@
 // Frontend/src/api.js
 import axios from 'axios';
 
-const API_BASE = process.env.EXPO_PUBLIC_API_BASE || 'http://192.168.0.45:4000';
+const API_BASE = process.env.EXPO_PUBLIC_API_BASE || 'http://192.168.0.19:4000';
 
 export const api = axios.create({
   baseURL: API_BASE,

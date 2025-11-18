@@ -1,6 +1,6 @@
 // src/screens/home/pantallaCasoPublic.js
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, Image, TextInput, Button, TouchableOpacity, Share, ScrollView } from 'react-native';
+import { View, Text, StyleSheet, Image, TextInput, Button, TouchableOpacity, Share, ScrollView, KeyboardAvoidingView, Platform } from 'react-native';
 
 export default function casoPublico({ route, navigation }) {
   const { item } = route.params;
@@ -17,6 +17,10 @@ export default function casoPublico({ route, navigation }) {
   };
 
   return (
+    <KeyboardAvoidingView
+            style={{ flex: 1 }}
+            behavior={Platform.OS === "ios" ? "padding" : "height"}
+            keyboardVerticalOffset={100}>
     <ScrollView style={styles.container}>
       <Image source={{ uri: item.photo_url }} style={styles.image} />
       <Text style={styles.name}>{item.full_name}</Text>
@@ -43,6 +47,7 @@ export default function casoPublico({ route, navigation }) {
 
       
     </ScrollView>
+    </KeyboardAvoidingView>
   );
 }
 

@@ -36,6 +36,11 @@ export default function CrearMenuScreen({ navigation }) {
         <Text style={styles.buttonText}>{"Ayuda"}</Text>
         <Ionicons name="chevron-forward" size={20} color="#888" />
       </TouchableOpacity>
+
+      <TouchableOpacity style={styles.logoutButton} onPress={() => { /* de momento no hace nada */ }}>
+        <Text style={styles.logoutText}>{"Cerrar Sesión"}</Text>
+        <Ionicons name="log-out-outline" size={30} color="rgb(172, 11, 27)" />
+      </TouchableOpacity>
     </View>
   );
 }
@@ -83,4 +88,22 @@ firstButton: {
     alignSelf: 'center'
     
   },
+  logoutButton: {
+  flexDirection: 'row',
+  alignItems: 'center',
+  justifyContent: 'space-between',
+  backgroundColor: '#fff',
+  paddingHorizontal: 40,
+  paddingVertical: 30,
+  width: '100%',
+  borderBottomWidth: 1,
+  borderColor: '#ccc',
+},
+
+logoutText: {
+  fontSize: 16,
+  fontWeight: '600',
+  color: 'rgb(172, 11, 27)', // 👈 rojo para diferenciar
+  alignSelf: 'center',
+},
 });
