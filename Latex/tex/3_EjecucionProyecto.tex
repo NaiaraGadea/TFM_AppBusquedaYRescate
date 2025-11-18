@@ -6,29 +6,42 @@
 
 %%%%%%%%%%%%%%%%%%-------------- TECNOLOGIAS --------------%%%%%%%%%%%%%%%%%%
     \section{Tecnologías empleadas}\label{tec}
-    
-    \textcolor{red}{REVISAR}
-    
-    Para el desarrollo he utilizado distintas herramientas y recursos. Voy a dividir entre las tecnologías empleadas en el desarrollo de la memoria y las utilizadas en el desarrollo del prototipo.
+        
+    En el desarrollo del proyecto y de la memoria se ha utilizado distintas herramientas y recursos. A continuación, se incluye una breve descripción de cada una de ellas. Se pueden dividir en dos bloques aquellas tecnologías empleadas en el desarrollo de la memoria y las utilizadas en el desarrollo del prototipo.
 
-    En el desarrollo de la memoria he utilizado:
+    \subsubsection{Herramientas empleadas en el desarrollo de la memoria.}
     \begin{itemize}
-        \item Overleaf: para escribir toda la memoria utilizando la plantilla proporcionada por la universidad y compilar los ficheros para obtener el documento PDF final.\cite{Overleaf}
-        \item Draw.io: Para realizar algunos de los diagramas. \cite{Diagrams.net}
-        \item Github: Para recopilar todo el proyecto realizado y todos los ficheros en un único lugar desde donde poder ir viendo el avance del proyecto.\cite{github}
-        \item Microsoft Office 365: principalmente como un apoyo más, utilizando documentos de Word para recopilar información, Excel para la planificación temporal o PowerPoint para arreglar o retocar imágenes creadas y realizar la presentación de la defensa del trabajo.\cite{microsoft365} 
-        \item Inteligencia artificial copilot: como una herramienta más para conseguir imágenes de las pantallas, obtener la bibliografía en LaTeX de forma automatizada u obtener una organización inicial de los apartados del documento, aunque luego todo ello ha sido modificado por mí a mi gusto y necesidades.\cite{copilot2025}
-        \item Leguajes de programación: LaTeX, .
+        \item Overleaf: es un editor LaTeX en línea que permite realizar documentos de texto complejos. La memoria de este trabajo se ha escrito íntegramente con esta herramienta, utilizando como base la plantilla proporcionada desde la universidad.\cite{Overleaf}
+        
+        \item LaTeX: es un sistema de comandos para composición de textos que permite crear documentos complejos con alta calidad tipográfica, como los trabajos científicos y técnicos.
+
+        
+        \item Draw.io: es un servicio web gratuito que permite crear distintos diagramas. Esta herramienta se ha utilizado para crear diferentes diagramas del trabajo como el diagrama de casos de uso. \cite{Diagrams.net}
+        
+        \item Github: es una plataforma en la nube que permite almacenar, compartir y trabajar de forma colaborativa proyectos en forma de repositorios. En los repositorios se pueden almacenar ficheros de código, de texto o imágenes... Además, estos repositorios sirven para presentar o compartir trabajos, seguir los cambios realizados a lo largo del tiempo u obtener feedback del proyecto por parte de otros usuarios. En este trabajo se ha utilizado para recopilar todos los ficheros en un único lugar desde donde poder ir viendo el avance del proyecto.\cite{gitHub}
+        
+        \item Microsoft Office 365: son un conjunto de aplicaciones de oficina que mejoran la productividad, que incluyen aplicaciones de edición de texto, herramientas de comunicación, de análisis de datos, servicios en la nube... En el trabajo se ha utilizado como un apoyo más, utilizando documentos de Word para recopilar información, Excel para la planificación temporal o PowerPoint para mejorar imágenes, crear esquemas y realizar la presentación de la defensa del trabajo.\cite{microsoft365} 
+
+        
+        \item Inteligencia artificial copilot: es un asistente de inteligencia artificial de Microsoft que ayuda a resumir, redactar y automatizar tareas. En el trabajo se ha usado como una herramienta más para obtener imágenes personalizadas para el proyecto como el diseño de las pantallas, obtener la bibliografía en LaTeX de forma automatizada u obtener una organización inicial de los apartados del documento, aunque luego se ha ido modificado en función de las necesidades del proyecto.\cite{copilot2025}
+        
     \end{itemize}
 
-    Para el desarrollo del prototipo:
+    \subsubsection{Herramientas empleadas en el desarrollo del prototipo.}
     \begin{itemize}
-        \item Visual Studio: para la creación y modificación de todos los ficheros necesarios para el funcionamiento de la aplicación.
-        \item Expo.dev: en concreto usar los snacks (https://snack.expo.dev/), para ir visualizando el frontend y poder realizar modificaciones, de forma más sencilla, indicando además las versiones necesarias de cada paquete y luego pasar todo a Visual Studio. 
-        \item MariaDB: base de datos utilizada en el prototipo.
-        \item HeidiSQL: como interfaz gráfica de MariaDB. Para crear la base de datos de AlertRes y las diferentes tablas, además de visualizar los datos recogidos en cada una de las tablas.
-        \item Lenguajes de programación: Javascript, Node.js y SQL. He de decir que, menos SQL, he tenido que aprender desde cero lo necesario de esos lenguajes para poder desarrollar el prototipo.
-        \item Plataformas de aprendizaje ... donde he aprendido esos lenguajes.
+        \item Visual Studio Code: es un editor de código de Microsoft que permite crear y modificar todos los ficheros necesarios para el funcionamiento de la aplicación. Este software permite visualizar toda la estructura de archivos del proyecto y ejecutar ficheros ya que cuenta con un terminal de comandos. Además, se pueden descargar distintas extensiones y conectarse a GitHub en función de las necesidades del proyecto.\cite{vscode} 
+        
+        \item React Native: es una biblioteca de JavaScript que permite desarrollar aplicaciones móviles nativas multiplataforma (tanto en Android como en iOS) a partir de un único código JavaScript.  Cuenta con cinco elementos principales para construir las interfaces de usuario: View, Text, Image, ScrollView y TextInput.\cite{reactnative} 
+        
+        \item Expo: es una colección de herramientas que simplifican el desarrollo de aplicaciones con React Nactive. Además, permite realizar testeos tanto en el navegador, como en dipositivos móviles o simuladores. En concreto, en este trabajo inicialmente se ha utilizado Expo Snacks, que es un entorno interactivo online, para visualizar las primeras fases del frontend de la aplicación con correcciones y sugerencias automáticas y ya pasar el código a Visual Studio Code.  Más tarde se ha utilizado Expo Go que es una aplicación móvil que permite experimentar la aplicación multiplataforma desarrollada en un dispositivo móvil, simplemente escaneando un código QR.\cite{expo, expo_snack, expo_go}
+
+        \item Node.js: es un entorno de ejecución JavaScript gratuito, de código abierto y multiplataforma que permite construir aplicaciones de red escalables. Se utiliza para poder conectar la interfaz de usuario con la base de datos.\cite{nodejs}
+        
+        \item MariaDB y HeidiSQL: es una base de datos relacional que permite el acceso a sus datos con SQL. Fue desarrollada como un software de código abierto por lo que ofrece un servicio rápido, escalable, versátil y robusto. En el proyecto se usa MariaDB para crear la base de datos de AlertRes y utilizarla en el prototipo\cite{mariadb}. La interfaz gráfica utilizada para trabajar con MariaDB es HeidiSQL que permite crear de forma sencilla las diferentes tablas de la base de datos de AlertRes y visualizar los datos recogidos en ellas.\cite{heidisql} 
+        
+        \item Como lenguajes de programación para el desarrollo del prototipo se han utilizado JavaScript, que se utiliza principalmente para desarrollo de páginas web y aplicaciones; y SQL que se utiliza para gestionar, consultar y modificar la información almacenada en bases de datos relacionales. 
+        
+
     \end{itemize}
 
     
@@ -37,19 +50,17 @@
     
 %%%%%%%%%%%%%%%%%%-------------- ARQUITECTURA --------------%%%%%%%%%%%%%%%%%%
     \section{Arquitectura y análisis}\label{arq_ana}
-    En este aparatado encontramos los requisitos funcionales y no funcionales, los riesgos a los que se expone la aplicación, los casos de uso y el digrama de componentes necesaroi para el desarrollo de la aplicación.
+    En este apartado se encuentran los requisitos funcionales y no funcionales, los riesgos a los que se expone la aplicación, los casos de uso y el digrama de componentes necesarios para el desarrollo de la aplicación.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% REQUISITOS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
         \subsection{Requisitos}
 
-En esta sección definiremos varios requisitos funcionales y no funcionales que nos ayudarán a definir el proyecto. Se ha de aclarar que aunque no se cumplan con todos los requisitos al desarrollar el prototipo de la aplicación, se considerará que cuantos más requisitos cumpla el prototipo más exitoso será. Respecto a los riesgos asociados al proyecto y sus estrategias de mitigación se verán de forma breve en la siguiente subsección.
+En esta sección se definirán varios requisitos funcionales y no funcionales que ayudarán a definir el proyecto. Se ha de aclarar que aunque no se cumplan con todos los requisitos al desarrollar el prototipo de la aplicación, se considerará que cuantos más requisitos cumpla el prototipo más exitoso será. Respecto a los riesgos asociados al proyecto y sus estrategias de mitigación se verán de forma breve en la siguiente subsección.
 
 Se ha de destacar que en el futuro, cuando se encuentre desarrollada y validada la aplicación, se tendrá que definir el entorno de desarrollo, las plataformas soportades y la compatibilidad con APIs externas y otros sistemas de datos o funcionalidades complementarias.
     
     \subsubsection{Requisitos Funcionales}
-Se van a presentar distintas tablas correspondientes a los requisitos funcionales de la aplicación que se pretende desarrollar. Estos requisitos corresponden a aquellos que nuestra aplicación debe poder realizar.
-
-\textcolor{red}{REVISAR}
+Se van a presentar distintas tablas correspondientes a los requisitos funcionales de la aplicación que se pretende desarrollar. Estos requisitos corresponden a aquellas funcionalidades que la aplicación debe poder realizar.
 
 % ----------------------------------------------------
 % Requisito 1
@@ -60,9 +71,9 @@ Se van a presentar distintas tablas correspondientes a los requisitos funcionale
 \hline
 \cellcolor[HTML]{B9E3F0}\textbf{RF-01} & \multicolumn{1}{c|}{\cellcolor[HTML]{B9E3F0}\textbf{Registro e Identificación de perfiles}} \\ 
 
-\hline Descripción & \begin{tabular}{p{10.5cm}}La solución deberá ser capaz de diferenciar entre distintos tipos de perfiles, grupos de rescate/asociaciones/instituciones, miembros de esos grupos de rescate/asociaciones/instituciones y población voluntaria. Para ello es necesario diferenciar a la hora de registrarse como usuario y en caso de ser grupo de rescate/asociación/institución realizar el procedimiento de autentificación necesario para mantener la seguridad de la aplicación.\end{tabular} \\ 
+\hline Descripción & \begin{tabular}{p{10.5cm}}La solución deberá ser capaz de diferenciar entre distintos tipos de perfiles, grupos de rescate/asociaciones/instituciones, miembros de esos grupos de rescate/asociaciones/instituciones y población voluntaria. Para ello es necesario diferenciar a la hora de registrarse como usuario y en caso de ser grupo de rescate/asociación/institución realizar el procedimiento de autentificación necesario.\end{tabular} \\ 
 
-\hline Importancia & \cellcolor[HTML]{FFFFFF}\begin{tabular}{p{10.5cm}}Alta, es la base para permitir distintas funcionalidades en funcion de los perfiles y mantener la seguridad.\end{tabular} \\ 
+\hline Importancia & \cellcolor[HTML]{FFFFFF}\begin{tabular}{p{10.5cm}}Alta, es la base para permitir distintas funcionalidades en función de los perfiles y mantener la seguridad.\end{tabular} \\ 
 
 \hline Prioridad & \multicolumn{1}{c|}{Alta} \\ 
 
@@ -81,7 +92,7 @@ Se van a presentar distintas tablas correspondientes a los requisitos funcionale
 \hline
 \cellcolor[HTML]{B9E3F0}\textbf{RF-02} & \multicolumn{1}{c|}{\cellcolor[HTML]{B9E3F0}\textbf{Transmisión de avisos}} \\ 
 
-\hline Descripción & \begin{tabular}{p{10.5cm}}La solución deberá ser capaz de comunicar a los usuarios especificados, mediante su sistema de avisos, una búsqueda que se va a llevar a cabo transmitiendo el punto de encuentro y una pregunta de confirmación de asistencia o el aviso de una persona desaparecida en su zona. También podrá enviar alertas en tiempo real, notificaciones push y actualizaciones del estado de los casos.\end{tabular} \\ 
+\hline Descripción & \begin{tabular}{p{10.5cm}}La solución deberá ser capaz de comunicar a los usuarios especificados, mediante su sistema de avisos, una búsqueda que se va a llevar a cabo transmitiendo el punto de encuentro y una pregunta de confirmación de asistencia o el aviso de una persona desaparecida en su zona.\end{tabular} \\ 
 
 \hline Importancia & \cellcolor[HTML]{FFFFFF}\begin{tabular}{p{10.5cm}}Alta, es una de las funcionalidades clave.\end{tabular} \\ 
 
@@ -100,17 +111,17 @@ Se van a presentar distintas tablas correspondientes a los requisitos funcionale
 \begin{tabular}{|
 >{\columncolor[HTML]{EFEFEF}}c |l|}
 \hline
-\cellcolor[HTML]{B9E3F0}\textbf{RF-03} & \multicolumn{1}{c|}{\cellcolor[HTML]{B9E3F0}\textbf{Comunicación de persona desaparecida-Implícito antes}} \\ 
+\cellcolor[HTML]{B9E3F0}\textbf{RF-03} & \multicolumn{1}{c|}{\cellcolor[HTML]{B9E3F0}\textbf{Registro de persona desaparecida}} \\ 
 
-\hline Descripción & \begin{tabular}{p{10.5cm}}La solución deberá permitir a cualquier usuario autorizado comunicar la desaparición de una persona, incluyendo datos relevantes como nombre, edad, última ubicación conocida, descripción física, circunstancias de la desaparición y contacto del denunciante. Esta información será validada por las instituciones correspondientes antes de ser difundida.\end{tabular} \\ 
+\hline Descripción & \begin{tabular}{p{10.5cm}}La solución deberá permitir a los usuarios autorizados crear un nuevo caso de persona desaparecida, incluyendo datos relevantes como nombre, edad, última ubicación conocida, descripción física, circunstancias de la desaparición y contacto del denunciante. Esta información podrá ser difundida y podrá crearse una búsqueda asociada al caso.\end{tabular} \\ 
 
-\hline Importancia & \cellcolor[HTML]{FFFFFF}\begin{tabular}{p{10.5cm}}Alta. Es el punto de partida de cualquier operativo de búsqueda y debe garantizar la veracidad y rapidez en la difusión de la información.\end{tabular} \\ 
+\hline Importancia & \cellcolor[HTML]{FFFFFF}\begin{tabular}{p{10.5cm}}Alta. Es el punto de partida del caso y  cualquier operativo de búsqueda.\end{tabular} \\ 
 
 \hline Prioridad & \multicolumn{1}{c|}{Alta} \\ 
 
 \hline
 \end{tabular}
-\caption{Requisito funcional 3 Comunicación de persona desaparecida}
+\caption{Requisito funcional 3 Registro de persona desaparecida}
 \label{RF_01}
 \end{table}
 
@@ -123,13 +134,13 @@ Se van a presentar distintas tablas correspondientes a los requisitos funcionale
 \hline
 \cellcolor[HTML]{B9E3F0}\textbf{RF-04} & \multicolumn{1}{c|}{\cellcolor[HTML]{B9E3F0}\textbf{Documentación de la búsqueda}} \\ 
 
-\hline Descripción & \begin{tabular}{p{10.5cm}} La solución deberá poder recopilar y almacenar la información de la persona desaparecida, del lugar de búsqueda y de los usuarios participantes en una búsqueda, siguiendo las pautas de los protocolos actuales. Esto incluye fotos, rutas recorridas, hallazgos, tiempos de búsqueda y observaciones relevantes.\end{tabular} \\ 
+\hline Descripción & \begin{tabular}{p{10.5cm}} La solución deberá poder recopilar y almacenar la información de la persona desaparecida, del lugar de búsqueda y de los usuarios participantes en una búsqueda, siguiendo las pautas de los protocolos actuales. Esto puede incluir fotos, rutas recorridas, hallazgos, tiempos de búsqueda y observaciones relevantes.\end{tabular} \\ 
 
-\hline Importancia & \cellcolor[HTML]{FFFFFF}\begin{tabular}{p{10.5cm}}Alta. Es esencial para mantener un registro ordenado y útil para futuras búsquedas o análisis.
+\hline Importancia & \cellcolor[HTML]{FFFFFF}\begin{tabular}{p{10.5cm}}Media. Es esencial para mantener un registro ordenado y útil para futuras búsquedas o análisis.
 
 \end{tabular} \\ 
 
-\hline Prioridad & \multicolumn{1}{c|}{Alta} \\ 
+\hline Prioridad & \multicolumn{1}{c|}{Media} \\ 
 
 \hline
 \end{tabular}
@@ -148,9 +159,9 @@ Se van a presentar distintas tablas correspondientes a los requisitos funcionale
 
 \hline Descripción & \begin{tabular}{p{10.5cm}}La solución deberá permitir a los usuarios autorizados solicitar voluntarios o recursos a otros grupos de la zona, crear puntos de control de las búsquedas, asignar zonas específicas a grupos o individuos, y coordinar las acciones en tiempo real. También deberá permitir la modificación dinámica del plan de búsqueda según los avances. \end{tabular} \\ 
 
-\hline Importancia & \cellcolor[HTML]{FFFFFF}\begin{tabular}{p{10.5cm}}Alta. Es clave para garantizar una búsqueda organizada, eficiente y segura.\end{tabular} \\ 
+\hline Importancia & \cellcolor[HTML]{FFFFFF}\begin{tabular}{p{10.5cm}}Media. Es clave para garantizar una búsqueda organizada, eficiente y segura.\end{tabular} \\ 
 
-\hline Prioridad & \multicolumn{1}{c|}{Alta} \\ 
+\hline Prioridad & \multicolumn{1}{c|}{Media} \\ 
 
 \hline
 \end{tabular}
@@ -188,9 +199,9 @@ Se van a presentar distintas tablas correspondientes a los requisitos funcionale
 \hline
 \cellcolor[HTML]{B9E3F0}\textbf{RF-07} & \multicolumn{1}{c|}{\cellcolor[HTML]{B9E3F0}\textbf{Geolocalización}} \\ 
 
-\hline Descripción & \begin{tabular}{p{10.5cm}}La solución deberá ser capaz de integrar mapas en tiempo real y mostrar zonas de búsqueda y puntos de interés. Además, deberá poder realizar un seguimiento de los asistentes en las búsquedas y funcionar tanto en zonas con internet como sin él, mediante sincronización posterior.\end{tabular} \\ 
+\hline Descripción & \begin{tabular}{p{10.5cm}}La solución deberá ser capaz de integrar mapas en tiempo real y mostrar zonas de búsqueda y puntos de interés. Además, deberá poder realizar un seguimiento de los asistentes en las búsquedas y funcionar tanto en zonas con internet como sin él.\end{tabular} \\ 
 
-\hline Importancia & \cellcolor[HTML]{FFFFFF}\begin{tabular}{p{10.5cm}}AAlta. Es necesario para llevar el correcto seguimiento de las personas que asisten a la búsqueda y de las zonas que se han o no recorrido.\end{tabular} \\ 
+\hline Importancia & \cellcolor[HTML]{FFFFFF}\begin{tabular}{p{10.5cm}}Alta. Es necesario para llevar el correcto seguimiento de las personas que asisten a la búsqueda y de las zonas que se han o no recorrido.\end{tabular} \\ 
 
 \hline Prioridad & \multicolumn{1}{c|}{Media} \\ 
 
@@ -212,9 +223,9 @@ Se van a presentar distintas tablas correspondientes a los requisitos funcionale
 
 \hline Descripción & \begin{tabular}{p{10.5cm}}La solución dispondrá de la posibilidad de, en base a los datos introducidos de la persona desaparecida y de los datos de búsquedas anteriores, predecir los lugares donde haya más posibilidad de encontrar a la persona. Esto se podrá realizar mediante algoritmos de inteligencia artificial y análisis de patrones. \end{tabular} \\ 
 
-\hline Importancia & \cellcolor[HTML]{FFFFFF}\begin{tabular}{p{10.5cm}}Alta. Aumenta la eficiencia de los operativos al priorizar zonas con mayor probabilidad de éxito.\end{tabular} \\ 
+\hline Importancia & \cellcolor[HTML]{FFFFFF}\begin{tabular}{p{10.5cm}}Media. Aumenta la eficiencia de los operativos al priorizar zonas con mayor probabilidad de éxito.\end{tabular} \\ 
 
-\hline Prioridad & \multicolumn{1}{c|}{Alta} \\ 
+\hline Prioridad & \multicolumn{1}{c|}{Baja} \\ 
 
 \hline
 \end{tabular}
@@ -234,7 +245,7 @@ Se van a presentar distintas tablas correspondientes a los requisitos funcionale
 
 \hline Descripción & \begin{tabular}{p{10.5cm}}La solución deberá incluir un manual de usuario accesible desde la aplicación, que explique de forma clara y sencilla cómo utilizar cada funcionalidad. Este manual deberá estar adaptado a los distintos perfiles (civil voluntario, institución, miembro de grupo de rescate) e incluir guías paso a paso, vídeos explicativos y preguntas frecuentes.\end{tabular} \\ 
 
-\hline Importancia & \cellcolor[HTML]{FFFFFF}\begin{tabular}{p{10.5cm}}Alta. Es fundamental para garantizar que todos los usuarios, independientemente de su nivel técnico, puedan utilizar la aplicación correctamente.\end{tabular} \\ 
+\hline Importancia & \cellcolor[HTML]{FFFFFF}\begin{tabular}{p{10.5cm}}Media. Es fundamental para garantizar que todos los usuarios, independientemente de su nivel técnico, puedan utilizar la aplicación correctamente.\end{tabular} \\ 
 
 \hline Prioridad & \multicolumn{1}{c|}{Media} \\ 
 
@@ -298,7 +309,7 @@ Se van a presentar distintas tablas correspondientes a los requisitos funcionale
 
 \hline Importancia & \begin{tabular}{p{10.5cm}}Alta. Facilita la coordinación en tiempo real y mejora la eficiencia de los operativos de búsqueda.\end{tabular} \\ 
 
-\hline Prioridad & \multicolumn{1}{c|}{Alta} \\ 
+\hline Prioridad & \multicolumn{1}{c|}{Media} \\ 
 
 \hline
 \end{tabular}
@@ -315,7 +326,7 @@ Se van a presentar distintas tablas correspondientes a los requisitos funcionale
 \hline
 \cellcolor[HTML]{B9E3F0}\textbf{RF-13} & \multicolumn{1}{c|}{\cellcolor[HTML]{B9E3F0}\textbf{Gestión de permisos y roles}} \\ 
 
-\hline Descripción & \begin{tabular}{p{10.5cm}}La solución deberá permitir asignar y gestionar permisos según el tipo de usuario. Cada perfil tendrá acceso únicamente a las funcionalidades que le corresponden, y las instituciones podrán definir qué miembros tienen acceso a funciones avanzadas como creación de alertas, consulta de datos o gestión de búsquedas.\end{tabular} \\ 
+\hline Descripción & \begin{tabular}{p{10.5cm}}La solución deberá permitir asignar y gestionar permisos según el tipo de usuario. Cada perfil tendrá acceso únicamente a las funcionalidades que le corresponden, y las instituciones podrán definir qué miembros de su grupo tienen acceso a funciones avanzadas como creación de alertas, consulta de datos o gestión de búsquedas.\end{tabular} \\ 
 
 \hline Importancia & \begin{tabular}{p{10.5cm}}Alta. Es esencial para garantizar la seguridad, privacidad y correcto funcionamiento de la aplicación.\end{tabular} \\ 
 
@@ -400,7 +411,7 @@ En este apartado se presentan los requisitos no funcionales que corresponden a l
          
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% CASOS DE USO %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
         \subsection{Casos de uso}
-        En esta sección del trabajo se exponen los diferentes casos de uso de la aplicación propuesta basándose en los requisitos previamente mencionados. En las siguientes figuras \ref{diagramaCasosDeUso1} y \ref{diagramaCasosDeUso2} podemos ver los diagramas de casos de uso y el su relación con cada rol, y más abajo, las distintas tablas donde se define cada uno de los casos de uso. Estos casos de uso son guías para poder crear la aplicación y cuanto mayor número de casos de uso cumpla nuestro prototipo más exitosa será la solución creada.
+        En esta sección del trabajo se exponen los diferentes casos de uso de la aplicación propuesta basándose en los requisitos previamente mencionados. En las siguientes figuras \ref{diagramaCasosDeUso1} y \ref{diagramaCasosDeUso2} se pueden ver los diagramas de casos de uso y el su relación con cada rol, y más abajo, las distintas tablas donde se define cada uno de los casos de uso. Se ha de tener en cuenta que estos casos de uso son guías para poder crear la aplicación y cuanto mayor número de casos de uso cumpla el prototipo más exitosa será la solución creada. En el Anexo \ref{CasosDeUso} se pueden conocer en mayor profundidad cada uno de los casos de uso propuestos.
 
         
 \figura{0.95}{img/DiagCasosUso_Generales.png}{Diagrama de casos de uso generales a todos los roles. \textit{Fuente propia.}}{diagramaCasosDeUso1}{keepaspectratio}
@@ -412,7 +423,7 @@ En este apartado se presentan los requisitos no funcionales que corresponden a l
 
 
         %\begin{document}
-        \input{tex/CasosDeUso}
+        %\input{tex/CasosDeUso}
         %\end{document}
 
 
@@ -499,18 +510,18 @@ En este apartado encontraremos en las siguientes tablas la descripción de los t
 
     Este diseño se realizó inicialmente como boceto hecho a mano de todas las pantallas que podemos ver en la imagen \ref{bocetosPantallas}, y después se utilizó la herramienta de inteligencia artificial Copilot de Microsoft \cite{copilot2025} para convertir esos bocetos en diseños más profesionales utilizando la imagen del boceto de cada pantalla y una descripción de los principales elementos de la pantalla específica.
 
-    \figura{0.6}{img/bocetos.jpg}{Bocetos a mano de las principales pantallas de la aplicación}{bocetosPantallas}{keepaspectratio}
+    \figura{0.6}{img/bocetos.jpg}{Bocetos a mano de las principales pantallas de la aplicación. \textit{Fuente Propia.}}{bocetosPantallas}{keepaspectratio}
 
-    En la imagen \ref{diagramaPantallas} se pueden ver todas las pantallas principales que se han obtenido. Además, se va ha realizar una breve descripción y explicación de cada una de las doce pantallas. Estas descripciones se han utilizado como base del prompt de entrada en la inteligencia artificial (Copilot). 
+    En la imagen \ref{diagramaPantallas} se pueden ver todas las pantallas principales que se han obtenido. Además, se incluye una breve descripción y explicación de cada una de las doce pantallas. Estas descripciones son una aproximación de lo que he utilizado como base del prompt de entrada en la inteligencia artificial (Copilot). 
 
-    \figura{1}{img/DiseñosDePantallas.png}{Principales pantallas de la aplicación}{diagramaPantallas}{keepaspectratio}
+    \figura{1.05}{img/DiseñosDePantallas.png}{Principales pantallas de la aplicación. \textit{Fuente Propia.}}{diagramaPantallas}{keepaspectratio}
 
 
     \subsubsection{Pantalla de creación del perfil}
     Esta pantalla de la aplicación corresponde con la creación del perfil, será de las primeras en aparecer tras la instalación de la aplicación. Aquí el usuario creará un perfil en la aplicación que se guardará en la base de datos rellenando varios campos con información personal como nombre, apellidos o correo electrónico. Además, desde esta pantalla el usuario podrá indicar su rol, para conocer si es un civil voluntario, un profesional de una institución verificada o el propio responsable de la institución. En caso de ser el responsable de una institución deberá seguir ciertos pasos para verificar la organización.
     
     
-    \figura{0.33}{img/DiseñoPantalla_CrearPerfil.png}{Diseño de la pantalla de creación del perfil.}{DiseñoP_CrearPerfil}{keepaspectratio}
+    \figura{0.33}{img/DiseñoPantalla_CrearPerfil.png}{Diseño de la pantalla de creación del perfil. \textit{Fuente Propia.}}{DiseñoP_CrearPerfil}{keepaspectratio}
 
     \vspace{3cm}
 
@@ -519,66 +530,66 @@ En este apartado encontraremos en las siguientes tablas la descripción de los t
 
     Debajo podremos encontrar el menú que nos llevará a las distintas pantallas como la de perfil, los ajustes, la pantalla de búsqueda (se encontrará activa si se ha aceptado la participación en una búsqueda), la pantalla de profesionales disponible solo para aquellos miembros e instituciones verificados, no para civiles, desde dónde se podrán crear nuevas alertas nuevas y búsquedas, y se podrá volver a la pantalla de inicio con el botón central.
 
-    \figura{0.35}{img/DiseñoPantalla_Inicio.png}{Diseño de la pantalla de inicio.}{DiseñoP_Inicio}{keepaspectratio}
+    \figura{0.35}{img/DiseñoPantalla_Inicio.png}{Diseño de la pantalla de inicio. \textit{Fuente Propia.}}{DiseñoP_Inicio}{keepaspectratio}
 
     \vspace{6cm}
     
     \subsubsection{Pantalla de Información del desaparecido}
-    En esta pantalla encontraremos la ficha del desaparecido. Aquí encontraremos la información básica relevante del desaparecido y dos botones principales para contactar con los responsables o compartir la alerta por redes sociales u otros medios. En la parte baja encontraremos de nuevo el menú de navegación.
+    En esta pantalla encontraremos la ficha del desaparecido. Aquí encontraremos la información básica relevante del desaparecido y dos botones principales para contactar con los responsables o compartir la alerta por redes sociales u otros medios. En la parte baja se encontrará el menú de navegación.
 
-    \figura{0.33}{img/DiseñoPantalla_Desaparecido.png}{Diseño de la pantalla de información de una persona desaparecida.}{DiseñoP_Desaparecido}{keepaspectratio}
+    \figura{0.3}{img/DiseñoPantalla_Desaparecido.png}{Diseño de la pantalla de información de una persona desaparecida. \textit{Fuente Propia.}}{DiseñoP_Desaparecido}{keepaspectratio}
 
-    %\vspace{20cm}
+    \vspace{15cm}
 
     \subsubsection{Pantalla de Perfil de usuario}
-    La pantalla de perfil del usuario donde el usuario podrá consultar sus datos y preferencias y modificarlos en caso necesario. Además tendrá la opción de añadir su foto de perfil. Por otro lado se ha incluido un contador de participación en búsquedas para generar un sentido de orgullo y compromiso y así promover una mayor participación. Entre los datos que se pueden consultar o modificar se podrá encontrar, el gmail, el número de teléfono, dni, institución a la que pertenece (en caso de pertenecer a alguno verificado) o las tareas en las que prefiere ayudar (p.e. conductor, alimentación u otra logística o participar en el terreno). En la parte baja encontraremos de nuevo el menú de navegación.
+    La pantalla de perfil del usuario donde el usuario podrá consultar sus datos y preferencias y modificarlos en caso necesario. Además tendrá la opción de añadir su foto de perfil. Por otro lado se ha incluido un contador de participación en búsquedas para generar un sentido de orgullo y compromiso y así promover una mayor participación. Entre los datos que se pueden consultar o modificar se podrá encontrar, el gmail, el número de teléfono, dni, institución a la que pertenece (en caso de pertenecer a alguno verificado) o las tareas en las que prefiere ayudar (p.e. conductor, alimentación u otra logística o participar en el terreno). En la parte baja se encontrará el menú de navegación.
     
 
-    \figura{0.35}{img/DiseñoPantalla_Perfil.png}{Diseño de la pantalla de perfil.}{DiseñoP_Perfil}{keepaspectratio}
+    \figura{0.35}{img/DiseñoPantalla_Perfil.png}{Diseño de la pantalla de perfil. \textit{Fuente Propia.}}{DiseñoP_Perfil}{keepaspectratio}
 
     \subsubsection{Pantalla de Ajustes}
 
-    El acceso al tutorial o poder contactar con el centro de ayuda en caso de necesitar ayudar se hará principalmente desde esta pantalla de ajustes, además se podrán activar o desactivar las notificaciones y personalizar el tipo de alertas a recibir, por ejemplo, en función de la localización o urgencia. Se podrá gestionar la privacidad de tu cuenta o el idioma. También se encontrarán los términos y condiciones de uso de la aplicación. Además, se podrá cerrar sesión o eliminar la cuenta si el usuario lo desea. En la parte baja encontraremos el menú de navegación.
+    El acceso al tutorial o poder contactar con el centro de ayuda en caso de necesitar ayudar se hará principalmente desde esta pantalla de ajustes, además se podrán activar o desactivar las notificaciones y personalizar el tipo de alertas a recibir, por ejemplo, en función de la localización o urgencia. Se podrá gestionar la privacidad de tu cuenta o el idioma. También se encontrarán los términos y condiciones de uso de la aplicación. Además, se podrá cerrar sesión o eliminar la cuenta si el usuario lo desea. En la parte baja se encontrará el menú de navegación.
 
 
-    \figura{0.33}{img/DiseñoPantalla_Ajustes.png}{Diseño de la pantalla de ajustes.}{DiseñoP_Ajustes}{keepaspectratio}
+    \figura{0.33}{img/DiseñoPantalla_Ajustes.png}{Diseño de la pantalla de ajustes. \textit{Fuente Propia.}}{DiseñoP_Ajustes}{keepaspectratio}
 
     \vspace{3cm}
     
 
     \subsubsection{Pantalla de Alerta de Búsqueda}
-    Esta pantalla recoge la alerta de apoyo en búsqueda, podemos ver un mensaje con información básica de la búsqueda como la fecha y la localización donde se llevará a cabo, incluyendo opcionalmente las tareas en las que se necesita apoyo. Este mensaje deberá ser aceptado o rechazado por el usuario utilizando los botones correspondientes. En la parte baja encontraremos de nuevo el menú de navegación.
+    Esta pantalla recoge la alerta de apoyo en búsqueda, se puede ver un mensaje con información básica de la búsqueda como la fecha y la localización donde se llevará a cabo, incluyendo opcionalmente las tareas en las que se necesita apoyo. Este mensaje deberá ser aceptado o rechazado por el usuario utilizando los botones correspondientes. En la parte baja se encontrará de nuevo el menú de navegación.
      
 
-    \figura{0.35}{img/DiseñoPantalla_Alerta.png}{Diseño de pantalla de una alerta.}{DiseñoP_Alerta}{keepaspectratio}
+    \figura{0.35}{img/DiseñoPantalla_Alerta.png}{Diseño de pantalla de una alerta. \textit{Fuente Propia.}}{DiseñoP_Alerta}{keepaspectratio}
 
     \subsubsection{Pantalla de Búsqueda}
-    La pantalla de búsqueda recogerá de forma resumida la información necesaria en la búsqueda. Se ha de reseñar que esta pantalla solo se encontrará activa en caso de haber aceptado la participación en la búsqueda. Encontraremos la información del desaparecido con su fotografía, los compañeros o grupo con el que se ha asociado al usuario y su función de apoyo en la búsqueda. Desde esta pantalla se podrá acceder a todas las recomendaciones a tener en cuenta antes, durante y después del operativo. Además, dispondrá del acceso al mapa donde poder ubicarse y encontrar los puntos de control establecidos. El menú de navegación lo encontraremos en la parte baja de la pantalla.
+    La pantalla de búsqueda recogerá de forma resumida la información necesaria en la búsqueda. Se ha de reseñar que esta pantalla solo se encontrará activa en caso de haber aceptado la participación en la búsqueda. Se recogerá la información del desaparecido con su fotografía, los compañeros o grupo con el que se ha asociado al usuario y su función de apoyo en la búsqueda. Desde esta pantalla se podrá acceder a todas las recomendaciones a tener en cuenta antes, durante y después del operativo. Además, dispondrá del acceso al mapa donde poder ubicarse y encontrar los puntos de control establecidos. El menú de navegación se encontrará en la parte baja de la pantalla.
     
 
-    \figura{0.33}{img/DiseñoPantalla_Busqueda.png}{Diseño de la pantalla de una búsqueda activa.}{DiseñoP_Busqueda}{keepaspectratio}
+    \figura{0.33}{img/DiseñoPantalla_Busqueda.png}{Diseño de la pantalla de una búsqueda activa. \textit{Fuente Propia.}}{DiseñoP_Busqueda}{keepaspectratio}
 
     \subsubsection{Pantalla de Mapa durante la Búsqueda}
-    En esta nueva pantalla encontraremos el mapa que se usará para que el usuario pueda ubicarse e ubicar los puntos de control sobre el terreno. En esta pantalla encontraremos una pequeña brújula de apoyo y puntos de control como puede ser la ubicación del PMA (Punto de Mando Avanzado). Desde aquí el usuario podrá poner fin a su participación en la búsqueda o aplazarla, volver a leer las recomendaciones o acceder a las advertencias o mensajes dados por los responsables del operativo o de su equipo, además existirá un botón para poder contactar con los responsables ante cualquier indicio. El menú de navegación se mantiene en la parte baja de la pantalla.
+    En esta nueva pantalla se encontrará el mapa que se usará para que el usuario pueda ubicarse e ubicar los puntos de control sobre el terreno. En esta pantalla encontraremos una pequeña brújula de apoyo y puntos de control como puede ser la ubicación del PMA (Punto de Mando Avanzado). Desde aquí el usuario podrá poner fin a su participación en la búsqueda o aplazarla, volver a leer las recomendaciones o acceder a las advertencias o mensajes dados por los responsables del operativo o de su equipo, además existirá un botón para poder contactar con los responsables ante cualquier indicio. El menú de navegación se mantiene en la parte baja de la pantalla.
     
 
-    \figura{0.32}{img/DiseñoPantalla_Mapa.png}{Diseño de la pantalla del mapa durante una búsqueda.}{DiseñoP_Mapa}{keepaspectratio}
+    \figura{0.32}{img/DiseñoPantalla_Mapa.png}{Diseño de la pantalla del mapa durante una búsqueda. \textit{Fuente Propia.}}{DiseñoP_Mapa}{keepaspectratio}
 
     \subsubsection{Pantalla de Mensaje asociado a una Búsqueda}
     En la siguiente pantalla podremos visualizar como se recibiría un nuevo mensaje durante una búsqueda. En el mensaje podrán incluirse información relevante de la búsqueda o utilizarlo para indicar a todos los participantes que, por ejemplo, se da por finalizado el opertativo por el día de hoy y se retoma otro día o que se han hallado indicios en cierta zona por lo que se reestablecen nuevos puntos de control. 
 
-    \figura{0.31}{img/DiseñoPantalla_Mensaje.png}{Diseño de pantalla de un mensaje.}{DiseñoP_Mensaje}{keepaspectratio}
+    \figura{0.31}{img/DiseñoPantalla_Mensaje.png}{Diseño de pantalla de un mensaje. \textit{Fuente Propia.}}{DiseñoP_Mensaje}{keepaspectratio}
 
     \subsubsection{Pantalla de miembros o grupos profesionales}
     Esta pantalla estará disponible solo para los profesionales o instituciones verificadas y autorizadas, pero es posible que no todas las funcionalidades estén activas. En caso de que todas las funcionalidades se encuentren activas desde esta pantalla se podrán gestionar los miembros del grupo, las alertas o los operativos de búsqueda y se podrá consultar al resto de miembros del grupo autorizando o no funcionalidades para cada miembro. También podrá crear nuevas alertas o búsquedas de personas desaparecidas y consultar el historial de las mismas.  
   
-    \figura{0.35}{img/DiseñoPantalla_Profesionales.png}{Diseño de la pantalla de creación del perfil}{DiseñoP_Profesionales}{keepaspectratio}
+    \figura{0.35}{img/DiseñoPantalla_Profesionales.png}{Diseño de la pantalla de creación del perfil. \textit{Fuente Propia.}}{DiseñoP_Profesionales}{keepaspectratio}
 
     \subsubsection{Pantalla de Nueva Alerta}
     En el diseño de la pantalla de creación de nuevas alertas encontraremos una especie de cuestionario desde donde se podrá añadir una imagen y toda la información relevante de la persona desaparecida, como su nombre y apellidos, la fecha y lugar de desaparición, edad, enfermedades y medicamentos o información de contacto de familiares. En este formulario se podrá indicar si se trata de una alerta pública o reservada a los miembros de la institución que crea la alerta, además se podrá seleccionar los campos que serán visibles en la alerta de desaparición de la pantalla de inicio. 
     
 
-    \figura{0.35}{img/DiseñoPantalla_CrearAlerta.png}{Diseño de la pantalla de creación de una alerta de persona desaparecida.}{DiseñoP_CrearAlerta}{keepaspectratio}
+    \figura{0.35}{img/DiseñoPantalla_CrearAlerta.png}{Diseño de la pantalla de creación de una alerta de persona desaparecida. \textit{Fuente Propia.}}{DiseñoP_CrearAlerta}{keepaspectratio}
 
     \vspace{3cm}
 
@@ -586,11 +597,11 @@ En este apartado encontraremos en las siguientes tablas la descripción de los t
     \subsubsection{Pantalla de Nueva Búsqueda}
     La creación de las búsquedas estará asociada a una alerta de persona desaparecida y así se reflejará en el diseño de la pantalla de creación de nuevas búsquedas. Desde esta pantalla se podrá gestionar todo lo relacionado con la búsqueda, por ejemplo, colocar la localización central de la búsqueda sobre un mapa, colocar puntos de control sobre el mismo o coordinar a los participantes en la búsqueda seleccionando número de efectivos o voluntarios necesitados y las tareas donde se les pueda necesitar. También se podrá gestionar el mensaje que aparecerá en la alerta de búsqueda en los dispositivos de los usuarios. 
 
-    Por otro lado, aunque esta sería una de las últimas funcionalidades por su complejidad, desde esta pantalla se podrá permitir realizar una predicción de la localización de la persona desaparecida en base a las características recogidas en la alerta y a un algoritmo de predicción que actualmente no se encuentra desarrollado.
+    Por otro lado, aunque esta sería una de las últimas funcionalidades por su complejidad, desde esta pantalla se podrá permitir realizar una predicción de la localización de la persona desaparecida en base a las características recogidas en la alerta y a un algoritmo de predicción que actualmente no se encuentra desarrollado. El modelo de predicción que se propone se encuentra explicado en el apartado \textit{\ref{TrabajoFuturo}. Trabajo Futuro}.
     
     Al igual que las alertas, las búsquedas tendrán la opción de ser privadas para los miembros de la organización responsable de la alerta, semiprivada para otras organizaciones o entidades o pública para permitir la colaboración civil.
 
-    \figura{0.35}{img/DiseñoPantalla_CrearBusqueda.png}{Diseño de la pantalla de creación del perfil}{DiseñoP_CrearBusqueda}{keepaspectratio}
+    \figura{0.3}{img/DiseñoPantalla_CrearBusqueda.png}{Diseño de la pantalla de creación del perfil. \textit{Fuente Propia.}}{DiseñoP_CrearBusqueda}{keepaspectratio}
 
     
 \vspace{3cm}
@@ -605,6 +616,14 @@ En este apartado encontraremos en las siguientes tablas la descripción de los t
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% D. COMPONENTES %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
         \subsection{Diagramas de componentes}
+        
+        %En esta subsección se incluyen los diagramas de componentes pensados para la aplicación, en concreto, un diagrama de clases (o de tablas a crear en la base de datos) \textcolor{red}{ un diagrama de navegación?}.
+
+        En esta subsección se incluye un diagrama de clases donde se puede ver la interacción entre las principales clases. Estas clases se utilizarán de guía y corresponderán a las tablas de la base de datos de AlertRes.
+
+    \figura{1}{img/DiagramaClases.png}{Diagrama de clases. \textit{Fuente Propia.}}{DiagramaClases}{keepaspectratio}
+
+        Cabe recordar que, al igual que los requisitos y los casos de uso, se trata de una guía y que a lo largo del desarrollo puede verse modificado.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% BBDD %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
         %\subsection{Bases de datos}

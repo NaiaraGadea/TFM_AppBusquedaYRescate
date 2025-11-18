@@ -3,26 +3,159 @@
 
 
 %%%%%%%%%%%%%%%%%%-------------- IMPLEMENTACION  --------------%%%%%%%%%%%%%%%%%%
-    \section{Implementación}\label{desa}
+\section{Implementación del Prototipo}\label{desa}
+\textcolor{red}{REVISAR}
 
+En este apartado se realiza una recopilación de los resultados de la implementación del prototipo. 
+
+\subsection{Requisitos Previos}
+\textcolor{red}{REVISAR}
+
+Como lo realizado es solo un prototipo, es necesario tener instalado\footnote{Ante cualquier problema siguiendo los siguientes pasos, por favor ponerse en contacto conmigo para intentar solucionarlos, a tráves del correo nairodgom@alum.us.es}:
+\begin{itemize}
+    \item MariaDb con su interfaz HeidiSQL para poder crear las tablas y la base de datos que he usado para almacenar la información. Para crear las tablas Seguir el Anexo X.
+
+    \item Node.js
+
+    \item Visual Studio Code con la extensión ESLint.
+\end{itemize}
+
+
+Después, recomiendo descargar la carpeta AlertRes disponible en el repositorio de GitHub creado para el proyecto \url{https://github.com/NaiaraGadea/TFM_AppBusquedaYRescate/} y abrirla desde Visual Studio Code
+
+se deberá modificar el archivo .env en función de la contraseña que se ha puesto al crear la base de datos y los archivos api.js y server.js en función del ip del wifi utilizado. Para averiguar la dirección IP en Windows se abre el terminal y se escribe el comando ipconfig y se busca la IP de la red LAN:
+\figura{0.7}{img/ipconfig.png}{Dirección IP necesaria para el backend. \textit{Fuente propia.}}{web_inicio0}{keepaspectratio}
+
+Seguidamente tendremos que activar el backend con la línea de código:
+
+npm run start:backend
+
+Si todo va bien deberemos ver:
+
+AlertRes API escuchando en http://localhost:4000
+
+Después activaremos el Frontend pero esta vez:
+
+cd Frontend
+
+npx expo start --clear \footnote{Si da problemas usar npm install antes}
+
+una vez aparezcan las opciones para abrir nuestra aplicación, yo recomiendo usar la web, ya que es mucho más rápida y no suele dar problemas, para ello pondremos 'w' y debería abrirse una pestaña en el navegador donde al cabo de unos segundos se muestra nuestra aplicación lista para su suo.
+
+\vspace{10cm}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% PANTALLAS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-        \subsection{Distintas pantallas y botones}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% INTERACCIONES %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-        \subsection{Interacción con la base de datos}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% D. DE USO %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-        \subsection{Navegación. Diagramas de uso}    
+    \subsection{Navegación. Diagramas de flujo}    
+    En la siguiente figura se muestra el diagrama de flujo del funcionamiento del prototipo. En este diagrama se incluyen las principales pantallas y botones. En colores azules se encuentran aquellas pantallas y botones realizados con éxito, mientras que en color naranja encontramos aquellos componentes que no se han terminado de desarrollar o no han llegado a implementarse. Los elementos amarillos corresponden con una integración de datos en alguna de las tablas de la base de datos de AlertRes.
+    
+    \figura{1}{img/DiagramaFlujo.png}{Diagrama de flujo del prototipo inicial creado. \textit{Fuente propia.}}{DFlujo}{keepaspectratio}
+
+\vspace{1cm}
+
+    Tras realizar una revisión del prototipo se consensuó que se iban a realizar tres diseños de pantalla diferentes en función del perfil al que iba a estar destinado. Por ello, se han creado tres diagramas diferentes.
+    
+    \figura{1}{img/DiagramaFlujoVoluntarios.png}{Diagrama de flujo del prototipo creado para el perfil de voluntarios. \textit{Fuente propia.}}{DFlujo_Voluntarios}{keepaspectratio}
+
+\vspace{5cm}
+
+    %\figura{1.05}{img/DiagramaFlujoGrupos.png}{Diagrama de flujo del prototipo creado para el perfil de grupos o jefes de grupos. \textit{Fuente propia.}}{DFlujo_Grupos}{keepaspectratio}
+
+    \begin{figure} [htb!]
+        \centering
+        \includegraphics[width=1.2\linewidth, angle=270, keepaspectratio]{img/DiagramaFlujoGrupos.png}
+        \caption{Diagrama de flujo del prototipo creado para el perfil de grupos o jefes de grupos. \textit{Fuente propia.}}
+        \label{DFlujo_Grupos}
+    \end{figure}
+    
+
+\vspace{15cm}
+
+    \figura{1}{img/DiagramaFlujoMiembros.png}{Diagrama de flujo del prototipo creado para el perfil de miembros. \textit{Fuente propia.}}{DFlujo_Miembros}{keepaspectratio}
+    
+\vspace{30cm}
+
+    \subsection{Distintas pantallas y botones}
+
+    \textcolor{red}{Insertar capturas y pequeñas descripciones de las pantallas que sí me ha dado tiempo a crear.}
+
+    \textcolor{red}{DE MOMENTO SON IMÁGENES DE PRUEBA, LAS FINALES SE AÑADIRÁN MÁS ADELANTE. AÑADIR SOMBRA A LAS IMÁGENES.}
+
+    Tras abrir el prototipo, lo primero que se encuentra es la pantalla de inicio, que es la que se mostraría justo despues de haber iniciado sesión en la aplicación. En esta pantalla de inicio se puede ver la lista de desaparecidos de los que se ha lanzado una alerta para contar con colaboración sobre el caso. En la parte inferior de esa misma pantalla se encuentra el menú principal que llevará a otras pantallas como la pantalla de ajustes, la pantalla de profesionales, la pantalla de búsquedas y la pantalla de perfil del usuario registrado.
+
+\figura{0.7}{img/Resultados/Web_Inicio_0.png}{Pantalla de inicio. \textit{Fuente propia.}}{web_inicio0}{keepaspectratio}
+
+
+\figura{0.7}{img/Resultados/Web_Ajustes_0.png}{Pantalla de ajustes. \textit{Fuente propia.}}{web_ajustes0}{keepaspectratio}
+
+
+\figura{0.7}{img/Resultados/Web_Profesionales_0.png}{Pantalla de profesionales. \textit{Fuente propia.}}{web_profesionales0}{keepaspectratio}
+
+\figura{0.7}{img/Resultados/Web_Busqueda_0.png}{Pantalla de búsqueda inicial, donde no se está participando en ninguna búsqueda. \textit{Fuente propia.}}{web_busqueda0}{keepaspectratio}
+
+
+\figura{0.7}{img/Resultados/Web_Perfil_0.png}{Pantalla de Perfil del usuario. \textit{Fuente propia.}}{web_perfil0}{keepaspectratio}
+
+Desde la pantalla de inicio se puede acceder al la información pública y de contacto de cada alerta publicada como se puede ver en la imagen. 
+
+\figura{0.7}{img/Resultados/Web_Inicio_0.png}{Pantalla de información y contacto de una alerta publicada. \textit{Fuente propia.}}{web_ajustes0}{keepaspectratio}
+
+Desde la pantalla de los profesionales como se vio en el diseño existen distintas funcioanlidades como el registro de casos de personas desaparecidas, el acceso al historial de casos, desde cada caso creado y activo, se podrá crear una alerta asociada a ese caso además de crear nuevas búsquedas que se compartan para convocar a la mayor cantidad de personas posible.
+
+\figura{0.7}{img/Resultados/Web_RegistroCaso1.png}{Pantalla de registro de un caso. \textit{Fuente propia.}}{Web_RegistroCaso1}{keepaspectratio}
+
+\figura{0.7}{img/Resultados/Web_RegistroCaso1_2.png}{Pantalla pantalla de confirmación de registro de un caso. \textit{Fuente propia.}}{Web_RegistroCaso1_2}{keepaspectratio}
+
+\figura{0.7}{img/Resultados/Web_Ajustes_0.png}{Pantalla de ajustes. \textit{Fuente propia.}}{web_ajustes0}{keepaspectratio}
+
+
+
+\figura{0.7}{img/Resultados/Web_CasosActivos.png}{Pantalla de casos activos. \textit{Fuente propia.}}{web_ajustes0}{keepaspectratio}
+
+\figura{0.7}{img/Resultados/Web_CasoActivo1.png}{Pantalla de un caso activo. \textit{Fuente propia.}}{web_ajustes0}{keepaspectratio}
+
+\figura{0.7}{img/Resultados/Web_CrearAlerta1.png}{Pantalla de creación de la alerta asociada al caso activo. \textit{Fuente propia.}}{web_ajustes0}{keepaspectratio}
+
+\figura{0.7}{img/Resultados/Web_CrearAlerta1_2.png}{Pantalla de confirmación de creación de la alerta. \textit{Fuente propia.}}{web_ajustes0}{keepaspectratio}
+
+\figura{0.7}{img/Resultados/Web_AlertaEnviada.png}{Pantalla de una alerta enviada. \textit{Fuente propia.}}{web_ajustes0}{keepaspectratio}
+
+
+\figura{0.7}{img/Resultados/Web_CrearBusqueda1.png}{Pantalla de creación de una búsqueda asociada a un caso. \textit{Fuente propia.}}{web_ajustes0}{keepaspectratio}
+
+\figura{0.7}{img/Resultados/Web_LlamadaBusqueda.png}{Pantalla de una alerta de convocatoria de búsqueda. \textit{Fuente propia.}}{web_ajustes0}{keepaspectratio}
+
+
+Cuando se en vía la alerta de búsqueda aparece un mensaje que el usuario deberá aceptar o rechazar en función si puede o no colaborar en esa búsqueda en la fecha y lugar establecidos. Si se acepta la búsqueda la pantalla de búsqueda pasará a reflejar los datos de la búsqueda en la que se ha apuntado.
+\figura{0.7}{img/Resultados/Web_Busqueda_1.png}{Pantalla de búsqueda. \textit{Fuente propia.}}{web_ajustes0}{keepaspectratio}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% INTERACCIONES %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \subsection{Interacción con la base de datos}
+
+    En la base de datos creada con MariaDB, alertres, se tienen diferentes tablas con las que interaccionará la aplicación. Una tabla que registrará los datos de personas desaparecidas, missing persons. Otra que registrará la información básica del caso donde se incluye la fotografía de la persona, cases. Otra que registrará las alertas que se han activado, alerts. Otra donde se registra la información de las búsquedas organizadas para encontrar a una persona, searchs. (Y la tabla de registro de usuarios)
+
+\figura{0.7}{img/Resultados/alertresDB/tabla_missing_persons.png}{Tabla donde se almacena información de las personas desaparecidas. \textit{Fuente propia.}}{tabla_missing_persons}{keepaspectratio}
+
+\figura{0.7}{img/Resultados/alertresDB/tabla_cases.png}{Tabla donde se almacena información  básica del caso. \textit{Fuente propia.}}{tabla_cases}{keepaspectratio}
+
+\figura{0.7}{img/Resultados/alertresDB/tabla_alerts.png}{Tabla de registro de las alertas activadas. \textit{Fuente propia.}}{tabla_alerts}{keepaspectratio}
+
+\figura{0.7}{img/Resultados/alertresDB/tabla_searchs.png}{Tabla de registro de las búsquedas organizadas entorno a un caso. \textit{Fuente propia.}}{tabla_searchs}{keepaspectratio}
+
 
 
 %%%%%%%%%%%%%%%%%%-------------- PRUEBAS --------------%%%%%%%%%%%%%%%%%%
     \section{Pruebas}\label{pru}
+    No he podido realizar pruebas.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% INSTALACIÓN %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-        \subsection{Instalación}
+    \subsection{Instalación}
+    \subsection{Opiniones de usuarios}
+    He diseñado un cuestionario de usabilidad que si hubiera podido realizar pruebas se hubiese entregado a los usuarios para conocer su opinión para poder mejorar la aplicación.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% PRUEBAS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-        \subsection{Pruebas de base de datos}
-        \subsection{Pruebas API(servidor)}
-        \subsection{Pruebas de la aplicación móvil}
-            \subsubsection{Android}
-            \subsubsection{iOS}
+    %\subsection{Pruebas de base de datos}
+    %\subsection{Pruebas API(servidor)}
+    %\subsection{Pruebas de la aplicación móvil}
+        %\subsubsection{Android}
+        %\subsubsection{iOS}

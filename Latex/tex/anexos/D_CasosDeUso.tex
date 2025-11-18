@@ -1,0 +1,1188 @@
+\chapter{Casos de uso}\ref{CasosDeUso}
+% ----------------------------------------------------
+% ----------------------------------------------------
+% Caso de uso 01
+\begin{table}[htbp]
+\centering
+\begin{tabular}{ |m{3cm}|m{11cm}|  } 
+\hline
+\cellcolor[HTML]{B9E3F0}\centering\textbf{CS-01} & \cellcolor[HTML]{B9E3F0}\textbf{\textless Crear perfil \textgreater}\\
+
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Versión}             & 1.0  \\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Autor}                & Naiara Gadea Rodríguez Gómez\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Descripción}                & { Creación del perfil tras la descarga de la aplicación. Crear el perfil permite utilizar la aplicación y distintas funcionalidades en función del rol del perfil creado. }\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Secuencia \newline Normal}                &                 
+        \begin{enumerate}
+            \item El usuario debe tener la app descargada.
+            \item El usuario abrirá la app clicando sobre su icono.
+            \item El sistema mostrará por pantalla 'Introducir número de teléfono'.
+            \item El sistema creará un código de confirmación que se enviará a ese teléfono y deberá introducir el usuario.
+            \item Si el número de teléfono no se encuentra registrado se creará un nuevo perfil. Si se encuentra registrado se cargarán los datos de ese perfil automáticamente y se dará por finalizado el caso de uso.
+            \item El sistema pedirá introducir nombre, apellidos, DNI y correo electrónico.
+            \item El sistema pedirá aceptar la política de privacidad y el tratamiento de los datos.
+            \item El sistema pedirá insertar el código de la institución a la que pertenece o saltar este paso en caso de no pertenecer a ninguna institución.
+            \item El sistema pedirá introducir profesión, formas de colaboración preferentes y zona de recepción de alertas.
+            \item El usuario introduce todos los datos.
+            \item El sistema guarda los datos en el perfil creado.
+            \item El sistema muestra la pantalla con los datos del perfil creado.
+        \end{enumerate}\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Frecuencia}                & Alta\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Importancia}                & Alta\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Urgencia}                & Alta\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Requisitos Funcionales Relacionados}                & { RF-01, RF-06 }\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Casos de uso relacionados}                & { CS-02 }\\
+\hline
+\end{tabular}
+\caption{CU-01. Crear perfil.}
+\end{table}
+
+
+% ----------------------------------------------------
+% Caso de uso 02
+\begin{table}[htbp] %[h!]
+\centering
+\begin{tabular}{ |m{3cm}|m{11cm}|  } 
+\hline
+\cellcolor[HTML]{B9E3F0}\centering\textbf{CS-02} & \cellcolor[HTML]{B9E3F0}\textbf{\textless Modificar perfil \textgreater}\\
+
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Versión}             & 1.0  \\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Autor}                & Naiara Gadea Rodríguez Gómez\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Descripción}                & { Permite al usuario editar los datos de su perfil, como nombre, correo, zona de recepción de alertas, formas de colaboración, entre otros. También puede actualizar su vinculación con una institución si corresponde. }\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Secuencia \newline Normal}                &                 
+        \begin{enumerate}
+            \item El usuario accede a la aplicación con su sesión iniciada.
+            \item El usuario accede a la sección 'Perfil'.
+            \item El sistema muestra los datos actuales del perfil.
+            \item El usuario selecciona 'Editar perfil'.
+            \item El sistema permite modificar los campos disponibles.
+            \item El usuario realiza los cambios deseados.
+            \item El usuario guarda los cambios.
+            \item El sistema actualiza los datos y muestra el perfil modificado.
+        \end{enumerate}\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Frecuencia}                & Media\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Importancia}                & Alta\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Urgencia}                & Media\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Requisitos Funcionales Relacionados}                & { RF-01, RF-06 }\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Casos de uso relacionados}                & { CS-01 }\\
+\hline
+\end{tabular}
+\caption{CU-02. Modificar perfil.}
+\end{table}
+
+
+% ----------------------------------------------------
+% Caso de uso 03
+\begin{table}[htbp] %[h!]
+\centering
+\begin{tabular}{ |m{3cm}|m{11cm}|  } 
+\hline
+\cellcolor[HTML]{B9E3F0}\centering\textbf{CS-03} & \cellcolor[HTML]{B9E3F0}\textbf{\textless Iniciar sesión \textgreater}\\
+
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Versión}             & 1.0  \\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Autor}                & Naiara Gadea Rodríguez Gómez\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Descripción}                & { Permite al usuario acceder a su perfil previamente creado en la aplicación. Es necesario para utilizar las funcionalidades personalizadas según el rol del usuario. }\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Secuencia \newline Normal}                &                 
+        \begin{enumerate}
+            \item El usuario abre la aplicación.
+            \item El sistema solicita el número de teléfono.
+            \item El usuario introduce su número.
+            \item El sistema envía un código de verificación por SMS.
+            \item El usuario introduce el código recibido.
+            \item El sistema verifica el código.
+            \item Si el número está registrado, se cargan los datos del perfil.
+            \item El sistema muestra la pantalla principal con acceso a las funcionalidades.
+        \end{enumerate}\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Frecuencia}                & Alta\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Importancia}                & Alta\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Urgencia}                & Alta\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Requisitos Funcionales Relacionados}                & { RF-01 }\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Casos de uso relacionados}                & { CS-01, CS-02 }\\
+\hline
+\end{tabular}
+\caption{CU-03. Iniciar sesión.}
+\end{table}
+
+
+% ----------------------------------------------------
+% Caso de uso 04
+\begin{table}[htbp] %[h!]
+\centering
+\begin{tabular}{ |m{3cm}|m{11cm}|  } 
+\hline
+\cellcolor[HTML]{B9E3F0}\centering\textbf{CS-04} & \cellcolor[HTML]{B9E3F0}\textbf{\textless Recibir alertas de personas desaparecidas \textgreater}\\
+
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Versión}             & 1.0  \\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Autor}                & Naiara Gadea Rodríguez Gómez\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Descripción}                & { Permite al usuario recibir notificaciones sobre personas desaparecidas en su zona de alerta configurada. }\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Secuencia \newline Normal}                &                 
+        \begin{enumerate}
+            \item El sistema detecta una nueva alerta de desaparición.
+            \item El sistema verifica la zona de recepción de alertas del usuario.
+            \item Si la alerta corresponde a su zona, se envía una notificación.
+            \item El usuario abre la notificación.
+            \item El sistema muestra los detalles de la persona desaparecida.
+        \end{enumerate}\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Frecuencia}                & Alta\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Importancia}                & Alta\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Urgencia}                & Alta\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Requisitos Funcionales Relacionados}                & { RF-02, RF-03 }\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Casos de uso relacionados}                & { CS-12, CS-13 }\\
+\hline
+\end{tabular}
+\caption{CU-04. Recibir alertas de personas desaparecidas.}
+\end{table}
+
+
+% ----------------------------------------------------
+% Caso de uso 05
+\begin{table}[htbp] %[h!]
+\centering
+\begin{tabular}{ |m{3cm}|m{11cm}|  } 
+\hline
+\cellcolor[HTML]{B9E3F0}\centering\textbf{CS-05} & \cellcolor[HTML]{B9E3F0}\textbf{\textless Recibir alertas de necesidad de ayuda en búsquedas \textgreater}\\
+
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Versión}             & 1.0  \\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Autor}                & Naiara Gadea Rodríguez Gómez\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Descripción}                & { Permite al usuario recibir notificaciones cuando se necesita colaboración en una búsqueda activa. }\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Secuencia \newline Normal}                &                 
+        \begin{enumerate}
+            \item El sistema detecta una solicitud de ayuda en una búsqueda.
+            \item El sistema verifica la zona de recepción de alertas del usuario.
+            \item Si corresponde, se envía una notificación.
+            \item El usuario abre la notificación.
+            \item El sistema muestra los detalles de la búsqueda y cómo colaborar.
+        \end{enumerate}\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Frecuencia}                & Media\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Importancia}                & Alta\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Urgencia}                & Alta\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Requisitos Funcionales Relacionados}                & { RF-02, RF-03  }\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Casos de uso relacionados}                & { CS-06 }\\
+\hline
+\end{tabular}
+\caption{CU-05. Recibir alertas de necesidad de ayuda en búsquedas.}
+\end{table}
+
+
+% ----------------------------------------------------
+% Caso de uso 06
+\begin{table}[htbp] %[h!]
+\centering
+\begin{tabular}{ |m{3cm}|m{11cm}|  } 
+\hline
+\cellcolor[HTML]{B9E3F0}\centering\textbf{CS-06} & \cellcolor[HTML]{B9E3F0}\textbf{\textless Participar en búsqueda \textgreater}\\
+
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Versión}             & 1.0  \\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Autor}                & Naiara Gadea Rodríguez Gómez\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Descripción}                & { Permite al usuario unirse a una búsqueda activa y colaborar según sus capacidades. }\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Secuencia \newline Normal}                &                 
+        \begin{enumerate}
+            \item El usuario accede a la búsqueda desde una alerta o desde el menú.
+            \item El sistema muestra los detalles de la búsqueda.
+            \item El usuario selecciona 'Participar'.
+            \item El sistema registra su participación.
+            \item El sistema muestra instrucciones y zona asignada si corresponde.
+        \end{enumerate}\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Frecuencia}                & Alta\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Importancia}                & Alta\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Urgencia}                & Alta\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Requisitos Funcionales Relacionados}                & { RF-05, RF-07 }\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Casos de uso relacionados}                & { CS-07, CS-08 }\\
+\hline
+\end{tabular}
+\caption{CU-06. Participar en búsqueda.}
+\end{table}
+
+
+% ----------------------------------------------------
+% Caso de uso 07
+\begin{table}[htbp] %[h!]
+\centering
+\begin{tabular}{ |m{3cm}|m{11cm}|  } 
+\hline
+\cellcolor[HTML]{B9E3F0}\centering\textbf{CS-07} & \cellcolor[HTML]{B9E3F0}\textbf{\textless Pausar participación en búsqueda \textgreater}\\
+
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Versión}             & 1.0  \\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Autor}                & Naiara Gadea Rodríguez Gómez\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Descripción}                & { Permite al usuario indicar que interrumpe temporalmente su participación en una búsqueda. }\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Secuencia \newline Normal}                &                 
+        \begin{enumerate}
+            \item El usuario accede a la búsqueda en curso.
+            \item El usuario selecciona 'Pausar participación'.
+            \item El sistema registra la pausa.
+            \item El sistema actualiza el estado del usuario en la búsqueda.
+        \end{enumerate}\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Frecuencia}                & Media\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Importancia}                & Media\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Urgencia}                & Media\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Requisitos Funcionales Relacionados}                & { RF-05 }\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Casos de uso relacionados}                & { CS-06, CS-08 }\\
+\hline
+\end{tabular}
+\caption{CU-07. Pausar participación en búsqueda.}
+\end{table}
+
+
+% ----------------------------------------------------
+% Caso de uso 08
+\begin{table}[htbp] %[h!]
+\centering
+\begin{tabular}{ |m{3cm}|m{11cm}|  } 
+\hline
+\cellcolor[HTML]{B9E3F0}\centering\textbf{CS-08} & \cellcolor[HTML]{B9E3F0}\textbf{\textless Finalizar participación en búsqueda \textgreater}\\
+
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Versión}             & 1.0  \\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Autor}                & Naiara Gadea Rodríguez Gómez\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Descripción}                & { Permite al usuario indicar que ha terminado su colaboración en una búsqueda. }\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Secuencia \newline Normal}                &                 
+        \begin{enumerate}
+            \item El usuario accede a la búsqueda en curso.
+            \item El usuario selecciona 'Finalizar participación'.
+            \item El sistema registra la finalización.
+            \item El sistema actualiza el estado del usuario en la búsqueda.
+        \end{enumerate}\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Frecuencia}                & Media\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Importancia}                & Alta\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Urgencia}                & Media\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Requisitos Funcionales Relacionados}                & { RF-05 }\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Casos de uso relacionados}                & { CS-06, CS-07 }\\
+\hline
+\end{tabular}
+\caption{CU-08. Finalizar participación en búsqueda.}
+\end{table}
+
+
+% ----------------------------------------------------
+% Caso de uso 09
+\begin{table}[htbp] %[h!]
+\centering
+\begin{tabular}{ |m{3cm}|m{11cm}|  } 
+\hline
+\cellcolor[HTML]{B9E3F0}\centering\textbf{CS-09} & \cellcolor[HTML]{B9E3F0}\textbf{\textless Comunicarse con otros usuarios \textgreater}\\
+
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Versión}             & 1.0  \\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Autor}                & Naiara Gadea Rodríguez Gómez\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Descripción}                & { Permite al usuario enviar mensajes a otros usuarios autorizados dentro de la aplicación. }\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Secuencia \newline Normal}                &                 
+        \begin{enumerate}
+            \item El usuario accede a la sección de mensajería.
+            \item El usuario selecciona el destinatario.
+            \item El usuario escribe el mensaje.
+            \item El sistema envía el mensaje.
+            \item El destinatario recibe una notificación y puede responder.
+        \end{enumerate}\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Frecuencia}                & Media\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Importancia}                & Alta\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Urgencia}                & Media\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Requisitos Funcionales Relacionados}                & { RF-12 }\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Casos de uso relacionados}                & { CS-06 }\\
+\hline
+\end{tabular}
+\caption{CU-09. Comunicarse con otros usuarios.}
+\end{table}
+
+
+% ----------------------------------------------------
+% Caso de uso 10
+\begin{table}[htbp] %[h!]
+\centering
+\begin{tabular}{ |m{3cm}|m{11cm}|  } 
+\hline
+\cellcolor[HTML]{B9E3F0}\centering\textbf{CS-10} & \cellcolor[HTML]{B9E3F0}\textbf{\textless Visualizar puntos de control \textgreater}\\
+
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Versión}             & 1.0  \\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Autor}                & Naiara Gadea Rodríguez Gómez\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Descripción}                & { Permite al usuario ver los puntos de control establecidos en una búsqueda. }\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Secuencia \newline Normal}                &                 
+        \begin{enumerate}
+            \item El usuario accede a la búsqueda en curso.
+            \item El sistema muestra el mapa con los puntos de control.
+            \item El usuario puede consultar información de cada punto.
+        \end{enumerate}\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Frecuencia}                & Media\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Importancia}                & Media\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Urgencia}                & Media\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Requisitos Funcionales Relacionados}                & { RF-07 }\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Casos de uso relacionados}                & { CS-06 }\\
+\hline
+\end{tabular}
+\caption{CU-10. Visualizar puntos de control.}
+\end{table}
+
+
+% ----------------------------------------------------
+% Caso de uso 11
+\begin{table}[htbp] %[h!]
+\centering
+\begin{tabular}{ |m{3cm}|m{11cm}|  } 
+\hline
+\cellcolor[HTML]{B9E3F0}\centering\textbf{CS-11} & \cellcolor[HTML]{B9E3F0}\textbf{\textless Visualizar zona/localización \textgreater}\\
+
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Versión}             & 1.0  \\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Autor}                & Naiara Gadea Rodríguez Gómez\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Descripción}                & { Permite al usuario ver su ubicación en el mapa y la zona asignada en una búsqueda. }\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Secuencia \newline Normal}                &                 
+        \begin{enumerate}
+            \item El usuario accede a la búsqueda en curso.
+            \item El sistema muestra el mapa con su ubicación.
+            \item El sistema muestra la zona asignada o el campo base.
+        \end{enumerate}\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Frecuencia}                & Alta\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Importancia}                & Alta\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Urgencia}                & Alta\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Requisitos Funcionales Relacionados}                & { RF-07 }\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Casos de uso relacionados}                & { CS-06 }\\
+\hline
+\end{tabular}
+\caption{CU-11. Visualizar zona/localización.}
+\end{table}
+
+
+% ----------------------------------------------------
+% Caso de uso 12
+\begin{table}[htbp] %[h!]
+\centering
+\begin{tabular}{ |m{3cm}|m{11cm}|  } 
+\hline
+\cellcolor[HTML]{B9E3F0}\centering\textbf{CS-12} & \cellcolor[HTML]{B9E3F0}\textbf{\textless Recibir información de la búsqueda \textgreater}\\
+
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Versión}             & 1.0  \\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Autor}                & Naiara Gadea Rodríguez Gómez\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Descripción}                & { Permite al usuario consultar los detalles actualizados de una búsqueda en la que participa. }\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Secuencia \newline Normal}                &                 
+        \begin{enumerate}
+            \item El usuario accede a la búsqueda en curso.
+            \item El sistema muestra información actualizada: zona, participantes, hallazgos, instrucciones.
+            \item El usuario puede revisar los datos y actuar en consecuencia.
+        \end{enumerate}\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Frecuencia}                & Alta\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Importancia}                & Alta\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Urgencia}                & Alta\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Requisitos Funcionales Relacionados}                & { RF-04, RF-06 }\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Casos de uso relacionados}                & { CS-06 }\\
+\hline
+\end{tabular}
+\caption{CU-12. Recibir información de la búsqueda.}
+\end{table}
+
+
+% ----------------------------------------------------
+% Caso de uso 13
+\begin{table}[htbp] %[h!]
+\centering
+\begin{tabular}{ |m{3cm}|m{11cm}|  } 
+\hline
+\cellcolor[HTML]{B9E3F0}\centering\textbf{CS-13} & \cellcolor[HTML]{B9E3F0}\textbf{\textless Compartir alerta de persona desaparecida \textgreater}\\
+
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Versión}             & 1.0  \\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Autor}                & Naiara Gadea Rodríguez Gómez\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Descripción}                & { Permite al usuario compartir una alerta de desaparición con otros usuarios o redes sociales. }\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Secuencia \newline Normal}                &                 
+        \begin{enumerate}
+            \item El usuario accede a una alerta activa.
+            \item El usuario selecciona 'Compartir'.
+            \item El sistema ofrece opciones de envío (usuarios, redes sociales, correo).
+            \item El usuario selecciona el canal y confirma.
+            \item El sistema envía la alerta.
+        \end{enumerate}\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Frecuencia}                & Media\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Importancia}                & Alta\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Urgencia}                & Alta\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Requisitos Funcionales Relacionados}                & { RF-02, RF-03 }\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Casos de uso relacionados}                & { CS-04 }\\
+\hline
+\end{tabular}
+\caption{CU-13. Compartir alerta de persona desaparecida.}
+\end{table}
+
+% ----------------------------------------------------
+% Caso de uso 14
+\begin{table}[htbp] %[h!]
+\centering
+\begin{tabular}{ |m{3cm}|m{11cm}|  } 
+\hline
+\cellcolor[HTML]{B9E3F0}\centering\textbf{CS-14} & \cellcolor[HTML]{B9E3F0}\textbf{\textless Crear alerta de persona desaparecida \textgreater}\\
+
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Versión}             & 1.0  \\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Autor}                & Naiara Gadea Rodríguez Gómez\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Descripción}                & {Permite a una institución o grupo de rescate registrar oficialmente una alerta de desaparición en el sistema, incluyendo los datos básicos de la persona desaparecida y el contexto del caso.}\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Secuencia \newline Normal}                &                 
+        \begin{enumerate}
+			\item El usuario con perfil institucional accede a la aplicación.
+			\item El usuario selecciona la opción “Crear alerta”.
+			\item El sistema solicita los datos de la persona desaparecida: nombre, edad, descripción, última ubicación conocida, fecha y hora.
+			\item El sistema solicita información adicional: contacto del denunciante, circunstancias de la desaparición.
+			\item El usuario introduce los datos.
+			\item El sistema valida la información.
+			\item El sistema registra la alerta y la vincula a la institución.
+			\item El sistema envía la alerta a los usuarios en la zona correspondiente.
+		\end{enumerate}\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Frecuencia}                & Media\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Importancia}                & Muy alta\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Urgencia}                & Alta\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Requisitos Funcionales Relacionados}                & {RF-03, RF-10}\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Casos de uso relacionados}                & {CS-15, CS-13}\\
+\hline
+\end{tabular}
+\caption{CU-14. Crear alerta de persona desaparecida.}
+\end{table}
+
+% ----------------------------------------------------
+% Caso de uso 15
+\begin{table}[htbp] %[h!]
+\centering
+\begin{tabular}{ |m{3cm}|m{11cm}|  } 
+\hline
+\cellcolor[HTML]{B9E3F0}\centering\textbf{CS-15} & \cellcolor[HTML]{B9E3F0}\textbf{\textless Crear búsqueda relacionada con una alerta \textgreater}\\
+
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Versión}             & 1.0  \\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Autor}                & Naiara Gadea Rodríguez Gómez\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Descripción}                & {Permite a una institución o grupo de rescate iniciar una búsqueda vinculada a una alerta de desaparición previamente registrada. Se definen zonas, recursos y participantes.}\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Secuencia \newline Normal}                &                 
+        \begin{enumerate}
+			\item El usuario institucional accede a la aplicación.
+			\item El usuario selecciona una alerta activa.
+			\item El usuario elige la opción “Crear búsqueda”.
+			\item El sistema solicita información: zona de búsqueda, fecha y hora de inicio, recursos disponibles, responsables.
+			\item El usuario introduce los datos.
+			\item El sistema valida la información.
+			\item El sistema registra la búsqueda y la vincula a la alerta.
+			\item El sistema envía notificaciones a usuarios en la zona.
+		\end{enumerate}\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Frecuencia}                & Media\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Importancia}                & Muy alta\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Urgencia}                & Alta\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Requisitos Funcionales Relacionados}                & {RF-02, RF-03, RF-05}\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Casos de uso relacionados}                & {CS-14, CS-06}\\
+\hline
+\end{tabular}
+\caption{CU-15. Crear búsqueda relacionada con una alerta.}
+\end{table}
+
+% ----------------------------------------------------
+% Caso de uso 16
+\begin{table}[htbp] %[h!]
+\centering
+\begin{tabular}{ |m{3cm}|m{11cm}|  } 
+\hline
+\cellcolor[HTML]{B9E3F0}\centering\textbf{CS-16} & \cellcolor[HTML]{B9E3F0}\textbf{\textless Compartir alertas \textgreater}\\
+
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Versión}             & 1.0  \\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Autor}                & Naiara Gadea Rodríguez Gómez\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Descripción}                & {Permite a una institución o grupo de rescate compartir una alerta de desaparición con otros grupos, instituciones o canales externos como redes sociales o medios de comunicación.}\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Secuencia \newline Normal}                &                 
+        \begin{enumerate}
+			\item El usuario institucional accede a una alerta activa.
+			\item El usuario selecciona la opción “Compartir alerta”.
+			\item El sistema muestra las opciones de compartición: otros grupos, redes sociales, correo electrónico, etc.
+			\item El usuario selecciona el canal deseado.
+			\item El sistema genera el contenido de la alerta en formato compartible.
+			\item El usuario confirma el envío o publicación.
+			\item El sistema registra la acción y muestra confirmación.
+		\end{enumerate}\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Frecuencia}                & Media\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Importancia}                & Alta\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Urgencia}                & Alta\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Requisitos Funcionales Relacionados}                & {RF-02, RF-03}\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Casos de uso relacionados}                & {CS-14, CS-13}\\
+\hline
+\end{tabular}
+\caption{CU-16. Compartir alertas.}
+\end{table}
+
+% ----------------------------------------------------
+% Caso de uso 17
+\begin{table}[htbp] %[h!]
+\centering
+\begin{tabular}{ |m{3cm}|m{11cm}|  } 
+\hline
+\cellcolor[HTML]{B9E3F0}\centering\textbf{CS-17} & \cellcolor[HTML]{B9E3F0}\textbf{\textless Consultar historial de desapariciones \textgreater}\\
+
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Versión}             & 1.0  \\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Autor}                & Naiara Gadea Rodríguez Gómez\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Descripción}                & {Permite a una institución o grupo de rescate revisar los casos de desaparición registrados previamente, especialmente aquellos en los que ha participado. Incluye acceso a datos, reportes y resultados.}\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Secuencia \newline Normal}                &                 
+        \begin{enumerate}
+			\item El usuario institucional accede a la aplicación.
+			\item El usuario selecciona la opción “Historial de desapariciones”.
+			\item El sistema muestra una lista de casos anteriores.
+			\item El usuario puede filtrar por fecha, zona, estado o participación.
+			\item El usuario selecciona un caso.
+			\item El sistema muestra los detalles del caso: datos de la persona, acciones realizadas, resultados obtenidos.
+		\end{enumerate}\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Frecuencia}                & Media\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Importancia}                & Alta\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Urgencia}                & Media\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Requisitos Funcionales Relacionados}                & {RF-06, RF-11}\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Casos de uso relacionados}                & {CS-14, CS-15, CS-27}\\
+\hline
+\end{tabular}
+\caption{CU-17. Consultar historial de desapariciones.}
+\end{table}
+
+% ----------------------------------------------------
+% Caso de uso 18
+\begin{table}[htbp] %[h!]
+\centering
+\begin{tabular}{ |m{3cm}|m{11cm}|  } 
+\hline
+\cellcolor[HTML]{B9E3F0}\centering\textbf{CS-18} & \cellcolor[HTML]{B9E3F0}\textbf{\textless Consultar listado de participantes en búsqueda \textgreater}\\
+
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Versión}             & 1.0  \\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Autor}                & Naiara Gadea Rodríguez Gómez\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Descripción}                & {Permite a una institución o grupo de rescate consultar quiénes están participando en una búsqueda activa, incluyendo datos básicos y estado de participación.}\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Secuencia \newline Normal}                &                 
+        \begin{enumerate}
+			\item El usuario institucional accede a la búsqueda activa.
+			\item El usuario selecciona la opción “Listado de participantes”.
+			\item El sistema muestra una lista con los nombres, roles y estado de cada participante.
+			\item El usuario puede filtrar por tipo de perfil, zona asignada o estado (activo, pausado, finalizado).
+			\item El sistema actualiza la información en tiempo real.
+		\end{enumerate}\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Frecuencia}                & Alta\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Importancia}                & Alta\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Urgencia}                & Media\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Requisitos Funcionales Relacionados}                & {RF-05, RF-06}\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Casos de uso relacionados}                & {CS-06, CS-17, CS-30}\\
+\hline
+\end{tabular}
+\caption{CU-18. Consultar listado de participantes en búsqueda.}
+\end{table}
+
+% ----------------------------------------------------
+% Caso de uso 19
+\begin{table}[htbp] %[h!]
+\centering
+\begin{tabular}{ |m{3cm}|m{11cm}|  } 
+\hline
+\cellcolor[HTML]{B9E3F0}\centering\textbf{CS-19} & \cellcolor[HTML]{B9E3F0}\textbf{\textless Finalizar o desactivar alerta/búsqueda \textgreater}\\
+
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Versión}             & 1.0  \\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Autor}                & Naiara Gadea Rodríguez Gómez\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Descripción}                & {Permite a una institución o grupo de rescate cerrar oficialmente una alerta o búsqueda activa, ya sea por resolución del caso, suspensión temporal o finalización del operativo.}\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Secuencia \newline Normal}                &                 
+        \begin{enumerate}
+			\item El usuario institucional accede a la alerta o búsqueda activa.
+			\item El usuario selecciona la opción “Finalizar” o “Desactivar”.
+			\item El sistema solicita confirmar la acción.
+			\item El usuario confirma.
+			\item El sistema registra el cierre o suspensión.
+			\item El sistema actualiza el estado del caso y notifica a los participantes.
+		\end{enumerate}\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Frecuencia}                & Media\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Importancia}                & Alta\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Urgencia}                & Alta\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Requisitos Funcionales Relacionados}                & {RF-05, RF-06}\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Casos de uso relacionados}                & {CS-14, CS-15, CS-18}\\
+\hline
+\end{tabular}
+\caption{CU-19. Finalizar o desactivar alerta/búsqueda.}
+\end{table}
+
+% ----------------------------------------------------
+% Caso de uso 20
+\begin{table}[htbp] %[h!]
+\centering
+\begin{tabular}{ |m{3cm}|m{11cm}|  } 
+\hline
+\cellcolor[HTML]{B9E3F0}\centering\textbf{CS-20} & \cellcolor[HTML]{B9E3F0}\textbf{\textless Predicción de localización \textgreater}\\
+
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Versión}             & 1.0  \\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Autor}                & Naiara Gadea Rodríguez Gómez\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Descripción}                & {Permite a una institución o grupo de rescate obtener sugerencias sobre posibles zonas donde podría encontrarse una persona desaparecida, basándose en datos del perfil, patrones anteriores y características del terreno.}\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Secuencia \newline Normal}                &                 
+        \begin{enumerate}
+			\item El usuario institucional accede a una alerta activa.
+			\item El usuario selecciona la opción “Predicción de localización”.
+			\item El sistema solicita confirmar los datos del perfil de la persona desaparecida.
+			\item El sistema analiza los datos disponibles: edad, estado físico, historial, zona de desaparición, clima, etc.
+			\item El sistema cruza la información con búsquedas anteriores y patrones registrados.
+			\item El sistema muestra un mapa con zonas sugeridas para iniciar la búsqueda.
+			\item El usuario puede aceptar las sugerencias o modificarlas.
+		\end{enumerate}\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Frecuencia}                & Media\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Importancia}                & Alta\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Urgencia}                & Alta\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Requisitos Funcionales Relacionados}                & {RF-08, RF-06}\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Casos de uso relacionados}                & {CS-14, CS-15, CS-30}\\
+\hline
+\end{tabular}
+\caption{CU-20. Predicción de localización.}
+\end{table}
+
+% ----------------------------------------------------
+% Caso de uso 21
+\begin{table}[htbp] %[h!]
+\centering
+\begin{tabular}{ |m{3cm}|m{11cm}|  } 
+\hline
+\cellcolor[HTML]{B9E3F0}\centering\textbf{CS-21} & \cellcolor[HTML]{B9E3F0}\textbf{\textless Geolocalización de participantes \textgreater}\\
+
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Versión}             & 1.0  \\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Autor}                & Naiara Gadea Rodríguez Gómez\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Descripción}                & {Permite a una institución o grupo de rescate visualizar en tiempo real la ubicación de los participantes en una búsqueda, facilitando la coordinación y el control de zonas recorridas.}\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Secuencia \newline Normal}                &                 
+        \begin{enumerate}
+			\item El usuario institucional accede a la búsqueda activa.
+			\item El usuario selecciona la opción “Geolocalización de participantes”.
+			\item El sistema muestra un mapa con la ubicación actual de los participantes.
+			\item El usuario puede filtrar por tipo de perfil o zona asignada.
+			\item El sistema actualiza la información en tiempo real.
+			\item El usuario puede usar esta información para ajustar la estrategia de búsqueda.
+		\end{enumerate}\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Frecuencia}                & Alta\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Importancia}                & Muy alta\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Urgencia}                & Alta\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Requisitos Funcionales Relacionados}                & {RF-07, RF-05}\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Casos de uso relacionados}                & {CS-06, CS-18, CS-30}\\
+\hline
+\end{tabular}
+\caption{CU-21. Geolocalización de participantes.}
+\end{table}
+
+% ----------------------------------------------------
+% Caso de uso 22
+\begin{table}[htbp] %[h!]
+\centering
+\begin{tabular}{ |m{3cm}|m{11cm}|  } 
+\hline
+\cellcolor[HTML]{B9E3F0}\centering\textbf{CS-22} & \cellcolor[HTML]{B9E3F0}\textbf{\textless Informar o enviar avisos durante búsqueda \textgreater}\\
+
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Versión}             & 1.0  \\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Autor}                & Naiara Gadea Rodríguez Gómez\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Descripción}                & {Permite a una institución o grupo de rescate enviar mensajes o avisos a los participantes durante una búsqueda activa, para informar sobre cambios, hallazgos o instrucciones importantes.}\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Secuencia \newline Normal}                &                 
+        \begin{enumerate}
+			\item El usuario institucional accede a la búsqueda activa.
+			\item El usuario selecciona la opción “Enviar aviso”.
+			\item El sistema solicita el contenido del mensaje.
+			\item El usuario redacta el aviso.
+			\item El sistema permite seleccionar destinatarios (todos, por zona, por rol).
+			\item El usuario confirma el envío.
+			\item El sistema envía el aviso y notifica a los destinatarios.
+		\end{enumerate}\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Frecuencia}                & Alta\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Importancia}                & Muy alta\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Urgencia}                & Alta\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Requisitos Funcionales Relacionados}                & {RF-02, RF-12}\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Casos de uso relacionados}                & {CS-06, CS-21, CS-30}\\
+\hline
+\end{tabular}
+\caption{CU-22. Informar o enviar avisos durante búsqueda.}
+\end{table}
+
+% ----------------------------------------------------
+% Caso de uso 23
+\begin{table}[htbp] %[h!]
+\centering
+\begin{tabular}{ |m{3cm}|m{11cm}|  } 
+\hline
+\cellcolor[HTML]{B9E3F0}\centering\textbf{CS-23} & \cellcolor[HTML]{B9E3F0}\textbf{\textless Colocar puntos de control \textgreater}\\
+
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Versión}             & 1.0  \\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Autor}                & Naiara Gadea Rodríguez Gómez\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Descripción}                & {Permite a las instituciones o grupos de rescate definir y registrar puntos de control en zonas de búsqueda para coordinar mejor la operación y facilitar la comunicación y logística.}\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Secuencia \newline Normal}                &                 
+        \begin{enumerate}
+			\item El usuario institucional inicia sesión en la aplicación.
+			\item Accede al módulo de gestión de búsqueda activa.
+			\item Selecciona la opción “Colocar punto de control”.
+			\item El sistema muestra el mapa de la zona de búsqueda.
+			\item El usuario selecciona una ubicación en el mapa.
+			\item El sistema solicita nombre del punto de control, tipo (logístico, médico, informativo, etc.) y horario de funcionamiento.
+			\item El usuario introduce los datos requeridos.
+			\item El sistema guarda el punto de control y lo muestra en el mapa.
+			\item El sistema notifica a los participantes cercanos sobre el nuevo punto de control.
+		\end{enumerate}\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Frecuencia}                & Media\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Importancia}                & Alta\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Urgencia}                & Media\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Requisitos Funcionales Relacionados}                & {RF-05, RF-07}\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Casos de uso relacionados}                & {CS-09, CS-15, CS-30}\\
+\hline
+\end{tabular}
+\caption{CU-23. Colocar puntos de control.}
+\end{table}
+
+% ----------------------------------------------------
+% Caso de uso 24
+\begin{table}[htbp] %[h!]
+\centering
+\begin{tabular}{ |m{3cm}|m{11cm}|  } 
+\hline
+\cellcolor[HTML]{B9E3F0}\centering\textbf{CS-24} & \cellcolor[HTML]{B9E3F0}\textbf{\textless Ajustar datos de miembros \textgreater}\\
+
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Versión}             & 1.0  \\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Autor}                & Naiara Gadea Rodríguez Gómez\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Descripción}                & {Permite a una institución modificar o actualizar los datos de sus miembros registrados en la aplicación, como información de contacto, rol, disponibilidad o zona de actuación.}\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Secuencia \newline Normal}                &                 
+        \begin{enumerate}
+			\item El usuario institucional inicia sesión en la aplicación.
+			\item Accede al módulo de gestión de miembros.
+			\item Selecciona el miembro que desea modificar.
+			\item El sistema muestra los datos actuales del miembro.
+			\item El usuario edita los campos necesarios (nombre, rol, zona, etc.).
+			\item El sistema valida los datos introducidos.
+			\item El usuario confirma los cambios.
+			\item El sistema guarda los datos actualizados y muestra confirmación.
+		\end{enumerate}\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Frecuencia}                & Media\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Importancia}                & Alta\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Urgencia}                & Media\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Requisitos Funcionales Relacionados}                & {RF-01, RF-13, RF-14}\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Casos de uso relacionados}                & {CS-25, CS-02}\\
+\hline
+\end{tabular}
+\caption{CU-24. Ajustar datos de miembros.}
+\end{table}
+
+% ----------------------------------------------------
+% Caso de uso 25
+\begin{table}[htbp] %[h!]
+\centering
+\begin{tabular}{ |m{3cm}|m{11cm}|  } 
+\hline
+\cellcolor[HTML]{B9E3F0}\centering\textbf{CS-25} & \cellcolor[HTML]{B9E3F0}\textbf{\textless Consultar datos de miembros \textgreater}\\
+
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Versión}             & 1.0  \\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Autor}                & Naiara Gadea Rodríguez Gómez\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Descripción}                & {Permite a una institución acceder a la información registrada de sus miembros, como datos personales, rol, disponibilidad, zona de actuación y participación en búsquedas.}\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Secuencia \newline Normal}                &                 
+        \begin{enumerate}
+			\item El usuario institucional inicia sesión en la aplicación.
+			\item Accede al módulo de gestión de miembros.
+			\item El sistema muestra el listado de miembros registrados en la institución.
+			\item El usuario selecciona un miembro del listado.
+			\item El sistema muestra los datos registrados del miembro.
+			\item El usuario puede consultar la información sin modificarla.
+		\end{enumerate}\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Frecuencia}                & Alta\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Importancia}                & Alta\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Urgencia}                & Media\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Requisitos Funcionales Relacionados}                & {RF-01, RF-06}\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Casos de uso relacionados}                & {CS-24, CS-18}\\
+\hline
+\end{tabular}
+\caption{CU-25. Consultar datos de miembros.}
+\end{table}
+
+% ----------------------------------------------------
+% Caso de uso 26
+\begin{table}[htbp] %[h!]
+\centering
+\begin{tabular}{ |m{3cm}|m{11cm}|  } 
+\hline
+\cellcolor[HTML]{B9E3F0}\centering\textbf{CS-26} & \cellcolor[HTML]{B9E3F0}\textbf{\textless Comunicarse con otros grupos o puesto de mando \textgreater}\\
+
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Versión}             & 1.0  \\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Autor}                & Naiara Gadea Rodríguez Gómez\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Descripción}                & {Permite a los grupos de rescate o instituciones establecer comunicación directa con otros grupos o con el puesto de mando central durante una búsqueda activa, para coordinar acciones, compartir información y tomar decisiones conjuntas.}\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Secuencia \newline Normal}                &                 
+        \begin{enumerate}
+			\item El usuario institucional accede a la búsqueda activa.
+			\item Selecciona la opción “Comunicarse con otros grupos o puesto de mando”.
+			\item El sistema muestra una lista de grupos disponibles y el puesto de mando.
+			\item El usuario selecciona el destinatario.
+			\item El sistema solicita el contenido del mensaje.
+			\item El usuario redacta el mensaje y lo envía.
+			\item El sistema entrega el mensaje al destinatario y muestra confirmación de envío.
+		\end{enumerate}\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Frecuencia}                & Alta\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Importancia}                & Muy alta\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Urgencia}                & Alta\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Requisitos Funcionales Relacionados}                & {RF-02, RF-12}\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Casos de uso relacionados}                & {CS-11, CS-22, CS-30}\\
+\hline
+\end{tabular}
+\caption{CU-26. Comunicarse con otros grupos o puesto de mando.}
+\end{table}
+
+% ----------------------------------------------------
+% Caso de uso 27
+\begin{table}[htbp] %[h!]
+\centering
+\begin{tabular}{ |m{3cm}|m{11cm}|  } 
+\hline
+\cellcolor[HTML]{B9E3F0}\centering\textbf{CS-27} & \cellcolor[HTML]{B9E3F0}\textbf{\textless Generar informe y estadísticas \textgreater}\\
+
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Versión}             & 1.0  \\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Autor}                & Naiara Gadea Rodríguez Gómez\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Descripción}                & {Permite a los administradores o instituciones generar informes detallados y estadísticas sobre las búsquedas realizadas, participación, zonas recorridas, tiempos de respuesta y otros datos relevantes para evaluación y mejora de procesos.}\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Secuencia \newline Normal}                &                 
+        \begin{enumerate}
+			\item El usuario con permisos administrativos accede al módulo de informes.
+			\item Selecciona el tipo de informe o estadística que desea generar.
+			\item El sistema solicita parámetros de filtrado (fecha, zona, tipo de búsqueda, etc.).
+			\item El usuario introduce los parámetros deseados.
+			\item El sistema procesa los datos y genera el informe.
+			\item El sistema muestra el informe en pantalla y ofrece opción de descarga.
+		\end{enumerate}\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Frecuencia}                & Media\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Importancia}                & Alta\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Urgencia}                & Media\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Requisitos Funcionales Relacionados}                & {RF-06, RF-11}\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Casos de uso relacionados}                & {CS-28, CS-30}\\
+\hline
+\end{tabular}
+\caption{CU-27. Generar informe y estadísticas.}
+\end{table}
+
+% ----------------------------------------------------
+% Caso de uso 28
+\begin{table}[htbp] %[h!]
+\centering
+\begin{tabular}{ |m{3cm}|m{11cm}|  } 
+\hline
+\cellcolor[HTML]{B9E3F0}\centering\textbf{CS-28} & \cellcolor[HTML]{B9E3F0}\textbf{\textless Guardar datos \textgreater}\\
+
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Versión}             & 1.0  \\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Autor}                & Naiara Gadea Rodríguez Gómez\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Descripción}                & {Permite al sistema almacenar de forma segura toda la información generada durante el uso de la aplicación, incluyendo datos de usuarios, búsquedas, alertas, evidencias, mensajes y puntos de control, garantizando su disponibilidad para consultas futuras.}\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Secuencia \newline Normal}                &                 
+        \begin{enumerate}
+			\item El sistema recibe datos generados por los usuarios o por procesos internos.
+			\item El sistema valida la integridad y formato de los datos.
+			\item El sistema clasifica los datos según su tipo (usuario, búsqueda, alerta, etc.).
+			\item El sistema guarda los datos en la base de datos correspondiente.
+			\item El sistema confirma el almacenamiento exitoso.
+			\item Los datos quedan disponibles para futuras consultas o generación de informes.
+		\end{enumerate}\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Frecuencia}                & Muy alta\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Importancia}                & Muy alta\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Urgencia}                & Alta\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Requisitos Funcionales Relacionados}                & {RF-06, RF-01, RF-04}\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Casos de uso relacionados}                & {CS-27, CS-11, CS-06}\\
+\hline
+\end{tabular}
+\caption{CU-28. Guardar datos.}
+\end{table}
+
+% ----------------------------------------------------
+% Caso de uso 29
+\begin{table}[htbp] %[h!]
+\centering
+\begin{tabular}{ |m{3cm}|m{11cm}|  } 
+\hline
+\cellcolor[HTML]{B9E3F0}\centering\textbf{CS-29} & \cellcolor[HTML]{B9E3F0}\textbf{\textless Consultar instrucciones (manual de usuario) \textgreater}\\
+
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Versión}             & 1.0  \\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Autor}                & Naiara Gadea Rodríguez Gómez\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Descripción}                & {Permite a cualquier usuario acceder al manual de usuario desde la aplicación, con instrucciones adaptadas a su perfil (voluntario, institución, miembro) para facilitar el uso correcto de las funcionalidades disponibles.}\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Secuencia \newline Normal}                &                 
+        \begin{enumerate}
+			\item El usuario accede al menú principal de la aplicación.
+			\item Selecciona la opción “Manual de usuario”.
+			\item El sistema identifica el perfil del usuario.
+			\item El sistema muestra el contenido del manual correspondiente al perfil.
+			\item El usuario puede navegar por secciones del manual.
+			\item El sistema permite realizar búsquedas dentro del manual.
+		\end{enumerate}\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Frecuencia}                & Media\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Importancia}                & Alta\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Urgencia}                & Media\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Requisitos Funcionales Relacionados}                & {RF-09}\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Casos de uso relacionados}                & {CS-01, CS-02}\\
+\hline
+\end{tabular}
+\caption{CU-29. Consultar instrucciones (manual de usuario).}
+\end{table}
+
+% ----------------------------------------------------
+% Caso de uso 30
+\begin{table}[htbp] %[h!]
+\centering
+\begin{tabular}{ |m{3cm}|m{11cm}|  } 
+\hline
+\cellcolor[HTML]{B9E3F0}\centering\textbf{CS-30} & \cellcolor[HTML]{B9E3F0}\textbf{\textless Monitorear búsqueda \textgreater}\\
+
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Versión}             & 1.0  \\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Autor}                & Naiara Gadea Rodríguez Gómez\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Descripción}                & {Permite a los administradores o instituciones supervisar en tiempo real el desarrollo de una búsqueda activa, incluyendo la ubicación de participantes, zonas cubiertas, puntos de control activos y avisos emitidos. Facilita la toma de decisiones y la coordinación general.}\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Secuencia \newline Normal}                &                 
+        \begin{enumerate}
+			\item El usuario institucional accede a la búsqueda activa desde el panel de control.
+			\item El sistema muestra un mapa con la información en tiempo real.
+			\item El usuario visualiza la ubicación de los participantes.
+			\item El sistema muestra zonas recorridas y pendientes.
+			\item El usuario puede consultar puntos de control activos.
+			\item El sistema permite acceder a avisos enviados y mensajes recientes.
+			\item El usuario puede tomar decisiones estratégicas basadas en la información visualizada.
+		\end{enumerate}\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Frecuencia}                & Muy alta\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Importancia}                & Muy alta\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Urgencia}                & Alta\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Requisitos Funcionales Relacionados}                & {RF-05, RF-07, RF-02}\\
+\hline
+\cellcolor[HTML]{EFEFEF}\textbf{Casos de uso relacionados}                & {CS-21, CS-22, CS-23, CS-27}\\
+\hline
+\end{tabular}
+\caption{CU-30. Monitorear búsqueda.}
+\end{table}

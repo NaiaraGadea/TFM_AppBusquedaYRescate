@@ -42,10 +42,10 @@
 \pagenumbering{arabic}
 \setlength{\parskip}{4ex}
 \tipo{Máster}   % Grado o M\'aster
-\titulopro{...Título del TFM... AlertRes: App de búsqueda y rescate de personas desaparecidas.}
+\titulopro{ AlertRes, diseño de una app de búsqueda y rescate de personas desaparecidas.}
 \tutor{Alejandro Fernández-Montes González \\
 Damián Fernández Cerero}
-\departamento{Nombre Departamento}
+\departamento{Lenguajes y Sistemas Informáticos}
 %\autores{Nombre 1}{Nombre 2}  % Dos autores
 \autores{Naiara Gadea Rodríguez Gómez}{{\ }}   % Un autor
 \dia{\large \today}
@@ -64,9 +64,17 @@ Este trabajo sería imposible sin el apoyo de mi familia y mis amigos. Agradecer
 
 \cdpchapter{Resumen}
 
-\textcolor{red}{REVISAR}
+\textcolor{red}{En este trabajo se presenta la creación e implementación de una aplicación multiplataforma que sirve de apoyo en la búsqueda y rescate de personas desaparecidas. Desde la aplicación se fomenta la mejora de la gestión de los operativos de búsqueda y la colaboración ciudadana y entre los distintos grupos de búsqueda. (Para el desarrollo de la app se ha empleado React Native, Node.js, Javascript). Además, se presenta (de forma teórica) una pequeña mejora donde utilizar los datos de las personas desaparecidas recogidos con la app para predecir las zonas donde se podrían encontrar a futuras víctimas. }
 
-En este trabajo se presenta la creación e implementación de una aplicación multiplataforma que sirve de apoyo en la búsqueda y rescate de personas desaparecidas. Desde la aplicación se fomenta la mejora de la gestión de los operativos de búsqueda y la colaboración ciudadana y entre los distintos grupos de búsqueda. (Para el desarrollo de la app se ha empleado React Native, Node.js, Javascript). Además, se presenta (de forma teórica) una pequeña mejora donde utilizar los datos de las personas desaparecidas recogidos con la app para predecir las zonas donde se podrían encontrar a futuras víctimas.
+Este trabajo se centra en la exploración de una solución a una necesidad real, proponiendo una aplicación multiplataforma que sirva de apoyo en la búsqueda y rescate de personas desaparecidas. Esta aplicación se basará en un sistema de alertas y geolocalización. Desde la aplicación se fomenta la mejora de la gestión de los operativos de búsqueda y la colaboración ciudadana y entre los distintos grupos de búsqueda con el fin de encontrar a la persona desaparecida en el menor tiempo posible.
+
+Durante el desarrollo del proyecto se han estudiado los distintos aspectos teóricos alrededor de la problemática de las personas desaparecidas. Asimismo, se ha indagado en las soluciones disponibles actualmente para definir las características que debería tener la aplicación. Además, se propone a lo largo del proyecto, de forma teórica, un sistema de predicción de zonas de localización de víctimas en base a los datos de las personas desaparecidas.
+
+Por otro lado, se ha realizado un prototipo con funcionalidades básicas utilizando Visual Studio Code, MariaDB, ReactNative, JavaScript y Node.js.
+
+Toda la información y ficheros LaTeX de la memoria y el prototipo creado a lo largo del trabajo en el repositorio de GitHub: \url{https://github.com/NaiaraGadea/TFM_AppBusquedaYRescate}.
+
+
 
 {\centering \subsection*{Descriptores} }
 Personas desaparecidas, búsqueda, rescate, app, iOS, android, aplicación, coordinación, solución, mejora, necesidad, React Native, Node.js, Javascript.
@@ -75,11 +83,17 @@ Personas desaparecidas, búsqueda, rescate, app, iOS, android, aplicación, coor
 
 \cdpchapter{Abstract}
 
-... resumen en inglés ...
+This work focuses on exploring a solution to a real need by proposing a cross-platform application to support the search and rescue of missing persons. This application will be based on an alert and geolocation system. The app promotes improved management of search operations and citizen cooperation, as well as collaboration among different search groups, with the aim of locating the missing person in the shortest possible time.
+
+During the project development, the various theoretical aspects surrounding the problem of missing persons were studied. Likewise, currently available solutions were investigated in order to define the features the application should have. In addition, the project theoretically proposes a system to predict likely victim location areas based on missing-person data.
+
+On the other hand, a prototype with basic functionality was created using Visual Studio Code, MariaDB, React Native, JavaScript, and Node.js.
+
+All the information and LaTeX files for the report and the prototype created during this work are in the GitHub repository: \url{https://github.com/NaiaraGadea/TFM_AppBusquedaYRescate}.
 
 {\centering \subsection*{Keywords} }
 
-Disappeared people, missing people, search, rescue, app, iOS, android, application, application, coordination, solution, improvement, need, React Native, Node.js, Javascript.
+Disappeared people, missing people, search, rescue, app, iOS, android, application, coordination, solution, improvement, need, React Native, Node.js, Javascript.
 
 \tableofcontents
 
@@ -189,23 +203,31 @@ Disappeared people, missing people, search, rescue, app, iOS, android, applicati
 %\bibliography{bibliografia} 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\appendix
+
+\chapter*{ANEXOS}
+\addcontentsline{toc}{chapter}{ANEXOS}
+
+\begin{comment}
 \chapter{ANEXOS}
 
     \begin{enumerate}[a)]
 	    
-	\item Anexo A
-        \item Anexo B
-        \item Anexo C
-        \item Anexo D
-        \item Anexo E
+	\item Anexo: Cuestionario de interés inicial en la aplicación.
+        \item Anexo: Despliegue Github.
+        \item Anexo: Guías de búsqueda y rescate de personas desaparecidas.
+        \item Anexo: Cuestionario de usabilidad
+        %\item Anexo E
 
     \end{enumerate}
-    
-    \include{tex/anexos/A_InstalacionHerramientas}
-    \include{tex/anexos/B_DespliegueGithub}
-    \include{tex/anexos/C_GuiasBusquedaYRescate}
-    \include{tex/anexos/D_Codigo}
-    \include{tex/anexos/E_CuestionarioUsabilidad}
+\end{comment}
+
+\include{tex/anexos/A_CuestionarioInteresInicial}
+%\include{tex/anexos/A_InstalacionHerramientas}
+\include{tex/anexos/B_DespliegueGithub}
+\include{tex/anexos/C_GuiasBusquedaYRescate}
+\include{tex/anexos/D_CasosDeUso}
+\include{tex/anexos/E_CuestionarioUsabilidad}
 
 
 

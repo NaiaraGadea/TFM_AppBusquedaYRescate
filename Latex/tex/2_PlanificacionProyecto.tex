@@ -1,18 +1,15 @@
 \chapter{PLANIFICACIÓN DEL PROYECTO}\label{planif}
     \section{Planificación temporal}\label{ptemp}
-    Para el desarrollo del proyecto se ha dividido el mismo en distintos hitos y se ha seguido la planificación por semanas que se puede observar en la siguiente ilustración. 
+    El desarrollo del proyecto se ha dividido en distintos hitos y se ha ejecutado mediante la planificación por semanas que se puede observar en la siguiente ilustración. Esta planificación no corresponde con el plan inicial puesto que fue iterativamente ajustada según las necesidades que surgían a lo largo del desarrollo del proyecto. Sin embargo los principales hitos se han mantenido como referencia. \textcolor{red}{Modificar o añadir el diagrama en base a las nuevas fechas.}
 
-    \textcolor{red}{INSERTAR IMAGEN DE LA PLANIFICACIÓN}
-    
-    \vspace{3cm}
+    \figura{1.05}{img/PlanificacionTemporal.png }{Diagrama de planificacion Temporal. \textit{Fuente Propia.}}{planificacionTemporal}{keepaspectratio}
+
 
     \section{Planificación financiera}\label{pfin}
 
-    El desarrollo del proyecto sigue los siguientes requisitos financieros.
+    El desarrollo del proyecto sigue los siguientes bloques económicos: costes personales, costes de desarrollo e ingresos previsotos de la aplicación. \textcolor{red}{MOFICAR LOS DATOS CON MÁS MESES.}
 
-    La planificación económica se basa en la identificación de los costes personales, costes materiales, costes de desarrollo e ingresos del prototipo.
-
-    En concreto los costes personales se van a calcular en base al salario medio de un Ingeniero de la Salud con menos de 3 años de experiencia laboral, que ronda los  1400\euro\ al mes en modalidad de jornada completa, y por lo tanto unos 700\euro\ por media jornada. La duración será durante el periodo aproximado de 8 meses con un contrato a media jornada (La media jornada constará de unas 4 horas al día durante 5 días a la semana, es decir, 20 horas semanales.). Teniendo en cuenta que en esos 8 meses podría se tienen unos 25 días de vacaciones, en total tendremos que unas 600 horas de trabajo totales. El resumen de los costes personales se pueden observar en la siguiente tabla.
+    Los costes personales se calculan en base al salario medio de un Ingeniero de la Salud con menos de 3 años de experiencia laboral, que ronda los  1700\euro\ brutos al mes en modalidad de jornada completa, lo que equicale a unos 850\euro\ brutos por media jornada \cite{salario_ingeniero}. La duración aproximada es de un periodo aproximado de 9 meses con un contrato a media jornada\footnote{La media jornada se compone de unas 4 horas al día durante 5 días a la semana, lo que supone un total de 20 horas semanales.}. Teniendo en cuenta que 25 jornadas de vacaciones en esos 9 meses, el total de horas trabajadas será de 750 horas. El desglose de los costes personales se puede observar en la siguiente tabla. 
 
     % Tabla del desglose económico de costes personales.
     \begin{table}[h!]
@@ -21,46 +18,72 @@
     \hline
     \cellcolor[HTML]{EFEFEF}\textbf{} & \cellcolor[HTML]{EFEFEF}\textbf{Costes}\\
     
-    Sueldo neto mensual           & {696,4€} \\
+    Sueldo neto mensual           & {696,41€} \\
     
-    Sueldo bruto mensual                & {799,79€}\\
+    Sueldo bruto mensual                & {852,09€}\\
     \hline
-    \cellcolor[HTML]{EFEFEF}\textbf{Total neto en los 8 meses}                & \cellcolor[HTML]{EFEFEF}{5.571,2€} \\
+    \cellcolor[HTML]{EFEFEF}\textbf{Total neto en los 9 meses}                & \cellcolor[HTML]{EFEFEF}{6.267,69€} \\
     
-    \cellcolor[HTML]{EFEFEF}\textbf{Total bruto en los 8 meses}                & \cellcolor[HTML]{EFEFEF}{6.398,32€} \\
+    \cellcolor[HTML]{EFEFEF}\textbf{Total bruto en los 9 meses}                & \cellcolor[HTML]{EFEFEF}{7.668,81€} \\
     \hline
     \end{tabular}
     \caption{Resumen de costes personales.}
     \end{table}
 
-    Respecto a los gastos relacionados con los equipos de desarrollo, el primer gasto sería el ordenador que se ha empleado y la licencia de Office que se ha utilizado para realizar algunas partes del proyecto, teniendo en cuenta una amortización en unos 4 años (La amortización se calcula con la diferencia del coste del equipo y del coste residual a los 4años (un 40\% del coste del equipo) todo ello divido entre el periodo de amortización, que en este caso serán unos 4 años.). En principio no se incluyen otros gastos de software porque el resto de herramientas empleadas han sido de código abierto y gratuitas.
-
+    Los gastos relacionados con los equipos para el desarrollo incluyen el ordenador y el terminal móvil que se ha utilizado en los dos últimos meses en el desarrollo del prototipo con la aplicación Expo Go, ambos con una amortización en unos 4 años \footnote{La amortización se calcula con la diferencia del coste del equipo y del coste residual a los 4años (un 40\% del coste del equipo) todo ello divido entre el periodo de amortización, que en este caso serán unos 4 años.}. En el periodo de los nueve meses se ha aplicado la parte proporcional de esa amortización para obtener el coste imputable al proyecto. El desglose se puede ver en la siguiente tabla:
 
     % Tabla del desglose económico de equipos de desarrollo.
     \begin{table}[h!]
     \centering
     \begin{tabular}{ |m{5cm} m{3cm} m{3cm}|  } 
     \hline
-    \cellcolor[HTML]{EFEFEF}\textbf{} & \cellcolor[HTML]{EFEFEF}\textbf{Costes}& \cellcolor[HTML]{EFEFEF}\textbf{Amortización}\\
+    \cellcolor[HTML]{EFEFEF}\textbf{} & \cellcolor[HTML]{EFEFEF}\textbf{Costes}& \cellcolor[HTML]{EFEFEF}\textbf{Amortización a los 9 meses}\\
     
-    Ordenador ASUS           & {700\euro } & {105\euro }\\
-    
-    Office 365 personal anual              & {99\euro } & {14,85\euro }\\
+    Ordenador ASUS           & {700\euro } & {78,85\euro }\\
 
-    Overleaf Study 8 meses              & {64\euro } & {9,6\euro }\\
+    Teléfono SAMSUNG (2 meses)           & {500\euro } & {12,5\euro }\\
+    
     \hline
-    \cellcolor[HTML]{EFEFEF}\textbf{Total en los 8 meses}                & \cellcolor[HTML]{EFEFEF}{863\euro } & \cellcolor[HTML]{EFEFEF}{129,45\euro } \\
+    \cellcolor[HTML]{EFEFEF}\textbf{Total en los 9 meses}                & \cellcolor[HTML]{EFEFEF}{1200\euro } & \cellcolor[HTML]{EFEFEF}{91,35\euro } \\
     \hline
     \end{tabular}
     \caption{Resumen de costes de equipos de desarrollo amortizados en 4 años.}
     \end{table}
 
-    \textcolor{red}{Sin embargo, en el futuro se deberá incluir el precio de sacar una app al mercado...}
+    En los gastos de equipos de desarrollo se incluyen las licencias necesarias para el trabajo documental y la memoria en LaTeX. Se necesita una licencia de Office 365 y la licencia de Overleaf. En principio no se incluyen otros gastos de software porque el resto de herramientas empleadas son de código abierto y gratuitas. En la siguiente tabla se puede ver el resumen de gastos de equipo de desarrollo.
 
+    % Tabla del desglose económico de equipos de desarrollo.
+    \begin{table}[h!]
+    \centering
+    \begin{tabular}{ |m{6cm} m{3cm} m{3cm}|  } 
+    \hline
+    \cellcolor[HTML]{EFEFEF}\textbf{} & \cellcolor[HTML]{EFEFEF}\textbf{Costes}& \cellcolor[HTML]{EFEFEF}\textbf{Coste en los 9 meses}\\
+    
+    Amortización del Ordenador ASUS           & {-} & {78,85\euro }\\
 
+    Amortización del móvil SAMSUNG           & {-} & {12,5\euro }\\
+    
+    Office 365 personal anual              & {99\euro } & {74,25\euro }\\
 
+    Overleaf Study mensual              & {8\euro } & {72\euro }\\
+    \hline
+    \cellcolor[HTML]{EFEFEF}\textbf{Total en los 9 meses}                & \cellcolor[HTML]{EFEFEF}{-} & \cellcolor[HTML]{EFEFEF}{237,6\euro } \\
+    \hline
+    \end{tabular}
+    \caption{Resumen de costes de equipos de desarrollo.}
+    \end{table}
+    
+    El prototipo realizado no se ha lanzado al mercado, por lo que existen distintos gastos que se deberán tener en cuenta en el futuro conforme avance el proyecto. Algunos de esos gastos pueden incluir la publicación de la aplicación en tiendas como Apple Developer Program (99 \euro/año) o Google Play Console (cuota única de unos 25\euro).
 
+    En lo que respecta a los posibles ingresos de la aplicación, pese a que se tendría que realizar un estudio más detallado sobre el modelo de negocio, la mejor mejor opción en España sería que estuviese financiado y respaldado por el Gobierno y las Fuerzas y Cuerpos de Seguridad del Estado. A escala internacional uno de los modelos que se podrían aplicar sería un modelo freemium-suscripción, donde existe una versión gratuita para todos los ciudadanos y una licencia de pago para instituciones que les permitan acceder a las funciones avanzadas.
+
+    
+\begin{comment}
     \section{Estudio de Mercado}\label{merca}
+
+
+    \textcolor{red}{FUERAAAA, YA LO HE IDO EXPLICANDO EN PUNTOS ANTERIORES}
+    
     Me he puesto en contacto con diferentes grupos, asociaciones y profesionales, aunque solo unos pocos han dado respuesta, las preguntas que han respondido han ayudado a dar forma a la aplicación, para conseguir diseñar una herramienta realmente útil y eficaz. 
     
     \textcolor{red}{Investigar el entorno comercial de una aplicación. Incluye analizar la competencia, identificar las necesidades y preferencias de los usuarios, evaluar el tamaño del mercado, y entender las tendencias del consumidor. El propósito del estudio de mercado es determinar la viabilidad comercial de la aplicación y diseñar estrategias para captar y satisfacer a los usuarios potenciales.}
@@ -71,7 +94,7 @@
 
 
 
-
+\end{comment}
 
 
     
