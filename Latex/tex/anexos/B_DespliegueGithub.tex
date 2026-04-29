@@ -1,6 +1,58 @@
 \chapter{Despliegue GitHub}
 %\section{Despliegue Github}
 
+\textcolor{red}{FINALIZAR Y REVISAR UNA VEZ FINALIZADO EL PROTOTIPO FINAL}
+
+Este anexo se recogen de forma organizada todas las carpetas y ficheros que componen el repositorio de GitHub: \url{https://github.com/NaiaraGadea/TFM_AppBusquedaYRescate}. El objetivo es ofrecer una visión global de la estructura del proyecto, facilitando la localización de recursos y la navegación por los distintos componentes.
 \begin{itemize}
-    \item package.json: es un fichero que incluye todas las dependencias con sus versiones para que la aplicación funcione correctamente.
+    \item \textbf{Carpeta AlertRes}: carpeta que contiene todos los fichero propios del prototipo de la aplicación AlertRes desarrollado a lo largo del trabajo.
+    \begin{itemize}
+        \item Carpeta Backend: carpeta que incluye todos los ficheros relativos al backend del prototipo, ficheros que sirven para gestionar el procesamiento interno de la aplicación y como conexión de la interfaz de usuario con la base de datos.
+        \begin{itemize}
+            \item Carpeta src:
+            \begin{itemize}
+                \item Carpeta routes:
+                \begin{itemize}
+                    \item alerts.js: fichero que ...
+                    \item cases.js: fichero que ...
+                    \item desaparecidos.js: fichero que ...
+                    \item searchs.js: fichero que ...
+                \end{itemize}
+                \item db.js: fichero que ...
+                \item server.js: fichero que ...
+            \end{itemize}
+            \item package.json:
+        \end{itemize}
+        \item Carpeta Frontend: carpeta que incluye todos los ficheros relativos al frontend del prototipo, es decir, ficheros relacionados con la interfaz de usuario del prototipo. 
+        \begin{itemize}
+            \item Carpeta assets:
+            \item Carpeta src:
+            \begin{itemize}
+                \item Carpeta screens:
+                \begin{itemize}
+                    \item Carpeta components:
+                    \item 
+                \end{itemize}
+                \item Carpeta styles:
+            \end{itemize}
+            \item App.js:
+            \item api.js:
+            \item app.json:
+            \item index.js:
+            \item package.json:
+        \end{itemize} 
+        \item package.json: es un fichero que incluye todas las dependencias con sus versiones para que la aplicación funcione correctamente.
+    \end{itemize}
+    
+    \item  \textbf{Carpeta Latex}: carpeta que contiene todos los ficheros necesarios para la creación del documento de la memoria.
+    \begin{itemize}
+        \item Carpeta img: carpeta que contiene todas las imágenes de la memoria del trabajo.
+        \item Carpeta tex: carpeta que contiene todos los ficheros LaTeX correspondientes a cada capítulo y a los anexos de la memoria.
+        \item bibliografia.bib: fichero que recopila las referencias bibliográficas de todo el proyecto.
+        \item memoria.tex: fichero que constituye el documento principal del proyecto escrito en LaTeX. Desde él, se compila completamente la memoria y se genera el documento final en formato PDF.
+        \item pclass.cls: fichero que incluye la información relativa al estilo del documento de la memoria.
+    \end{itemize}
+    
+    \item \textbf{MemoriaTFM\_NaiaraRodríguez.pdf}: fichero pdf con el documento final de la memoria del trabajo.
+    \item README.md: fichero que contiene la presentación del repositorio de Github en Markdown.
 \end{itemize}
