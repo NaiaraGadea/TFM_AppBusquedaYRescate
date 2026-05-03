@@ -1,0 +1,17 @@
+{
+  "name": "alertres",
+  "private": true,
+  "version": "0.1.0",
+  "workspaces": [
+    "Backend",
+    "Frontend"
+  ],
+  "scripts": {
+    "dev:backend": "npm --workspace Backend run dev",
+    "start:backend": "npm --workspace Backend run start",
+    "start:frontend": "npm --workspace Frontend run start"
+  },
+  "dependencies": {
+    
+  }
+}
