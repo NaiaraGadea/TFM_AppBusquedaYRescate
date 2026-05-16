@@ -1,7 +1,7 @@
 // Frontend/src/api.js
 import axios from 'axios';
 
-const API_BASE = process.env.EXPO_PUBLIC_API_BASE || 'http://192.168.0.129:4000';
+const API_BASE = process.env.EXPO_PUBLIC_API_BASE || 'http://192.168.0.182:4000';
 
 export const api = axios.create({
   baseURL: API_BASE,
@@ -63,10 +63,16 @@ export const getCases = (limit) => api.get(`/cases${limit ? `?limit=${limit}` : 
 export const getCasesWithPublicAlerts = (limit)=> (`/cases/activePublicAlerts${limit ? `?limit=${limit}` : ''}`).then(r => r.data);
 export const getCasesByGroup = (group_id) => api.get(`/cases/by-group/${group_id}`).then(r => r.data);
 export const getCasesByStatus = (status = null) => api.get('/cases/by-status', { params: { status } }).then(r => r.data);
+export const getCaseByCaseId = (caseId) => api.get(`/cases/${caseId}`).then(r => r.data);
 
 
 // POST
 export const createCase = (payload) => api.post('/cases', payload).then(r=>r.data);
+
+// PUT
+export const updateCase = (caseId, payload) => api.put(`/cases/${caseId}`, payload).then(r => r.data);
+
+
 
 // Found Cases
 // GET con límite
@@ -119,6 +125,9 @@ export const createSearchParticipant = (payload) => api.post('/search_participan
 // Searches
 // GET con límite
 export const getSearches = (limit) => api.get(`/searches${limit ? `?limit=${limit}` : ''}`).then(r => r.data);
+export const getSearchesByVisibility = (groupId) =>  api.get(`/searches/by-visibility/${groupId}`).then(r => r.data);
+
+
 // POST
 export const createSearch = (payload) => api.post('/searches', payload).then(r=>r.data);
 

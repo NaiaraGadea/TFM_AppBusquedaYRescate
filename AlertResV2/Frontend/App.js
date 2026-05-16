@@ -12,6 +12,7 @@ import CreateUser from './src/screens/auth/CrearUsuario';
 
 // Pantallas principales
 import mostrarPerfil from './src/screens/profile/Perfil';
+import pantallaListaBusquedas from './src/screens/search/pantallaListaBusquedas';
 import PantallaBusqueda from './src/screens/search/pantallaBusqueda';
 import listaDesaparecidos from './src/screens/home/Desaparecidos';
 import casosGrupo from './src/screens/home/pantallaCasosGrupo';
@@ -121,6 +122,21 @@ function CasosGrupoStack() {
         component={RegisterCaseScreen}
         options={{ title: 'Registrar caso' }}
       />
+      <Stack.Screen
+        name="PantallaCasoActivo"
+        component={pantallaCasoActivo}
+        options={{ title: 'Desaparecido' }}
+      />
+      <Stack.Screen
+        name="CrearAlerta"
+        component={AlertsScreen}
+        options={{ title: 'Crear alerta' }}
+      />
+      <Stack.Screen
+        name="NuevaBusqueda"
+        component={NuevaBusqueda}
+        options={{ title: 'Crear Búsqueda' }}
+      />
     </Stack.Navigator>
   );
 }
@@ -131,10 +147,16 @@ function BusquedaStack() {
   return (
     <Stack.Navigator>
       <Stack.Screen
+        name="ListaBusquedas"
+        component={pantallaListaBusquedas}
+        options={{ title: 'Listado de Búsquedas' }}
+      />
+      <Stack.Screen
         name="Búsqueda"
         component={PantallaBusqueda}
         options={{ title: 'Búsqueda' }}
       />
+      
     </Stack.Navigator>
   );
 }
@@ -175,7 +197,7 @@ function TabsVoluntarios(){
       tabBarIcon: ({ color, size }) => {
         let iconName;
         if (route.name === 'Perfil') iconName = 'account';
-        else if (route.name === 'Búsqueda') iconName = 'map-marker-account';
+        else if (route.name === 'Búsquedas') iconName = 'map-marker-account';
         else if (route.name === 'Inicio') iconName = 'home';
         else if (route.name === 'Ajustes') iconName = 'cog';
         return <MaterialCommunityIcons name={iconName} color={color} size={size} />;
@@ -183,7 +205,7 @@ function TabsVoluntarios(){
       })}>
 
       <Tab.Screen name = "Inicio" component={InicioStack}/>
-      <Tab.Screen name = "Búsqueda" component={BusquedaStack}/>
+      <Tab.Screen name = "Búsquedas" component={BusquedaStack}/>
       <Tab.Screen name = "Perfil" component={PerfilStack}/>
       <Tab.Screen name = "Ajustes" component={AjustesStack}/>
 
@@ -199,7 +221,7 @@ function TabsMiembros(){
       tabBarIcon: ({ color, size }) => {
         let iconName;
         if (route.name === 'Perfil') iconName = 'account';
-        else if (route.name === 'Búsqueda') iconName = 'map-marker-account';
+        else if (route.name === 'Búsquedas') iconName = 'map-marker-account';
         else if (route.name === 'Inicio') iconName = 'home';
         else if (route.name === 'Ajustes') iconName = 'cog';
         return <MaterialCommunityIcons name={iconName} color={color} size={size} />;
@@ -207,7 +229,7 @@ function TabsMiembros(){
       })}>
 
       <Tab.Screen name = "Inicio" component={InicioStack}/>
-      <Tab.Screen name = "Búsqueda" component={BusquedaStack}/>
+      <Tab.Screen name = "Búsquedas" component={BusquedaStack}/>
       <Tab.Screen name = "Perfil" component={PerfilStack}/>
       <Tab.Screen name = "Ajustes" component={AjustesStack}/>
 
@@ -223,7 +245,7 @@ function TabsGrupos(){
       tabBarIcon: ({ color, size }) => {
         let iconName;
         if (route.name === 'Grupo') iconName = 'account-group';
-        else if (route.name === 'Búsqueda') iconName = 'map-marker-account';
+        else if (route.name === 'Búsquedas') iconName = 'map-marker-account';
         else if (route.name === 'Inicio') iconName = 'home';
         else if (route.name === 'Alertas') iconName = 'bell';
         else if (route.name === 'Ajustes') iconName = 'cog';
@@ -232,7 +254,7 @@ function TabsGrupos(){
       })}>
 
       <Tab.Screen name = "Alertas" component={InicioStack}/>
-      <Tab.Screen name = "Búsqueda" component={BusquedaStack}/>
+      <Tab.Screen name = "Búsquedas" component={BusquedaStack}/>
       <Tab.Screen name="Inicio" component={CasosGrupoStack}/>
 
       <Tab.Screen name = "Grupo" component={ProfesionalesStack}/>

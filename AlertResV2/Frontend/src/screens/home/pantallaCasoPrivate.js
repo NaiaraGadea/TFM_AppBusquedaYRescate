@@ -42,7 +42,7 @@ export default function casoPublico({ route, navigation }) {
       <InfoTag text="Activo" backgroundColor="#27ae60" />
       <InfoTag text="Público" backgroundColor="#188fff" />
       <Image source={{ uri: item.photo_url }} style={styles.image} />
-      <Text style={styles.name}>{item.fist_name} {item.last_name}</Text>
+      <Text style={styles.name}>{item.first_name} {item.last_name}</Text>
       <Text style={styles.desappearance_date}>Fecha de desaparición: {item.desappearance_date}</Text>
       <Text style={styles.text}>Edad actual: {item.age || 'Desconocida'} años</Text>
       <Text style={styles.text}>Última localización: {item.last_seen_point}</Text>

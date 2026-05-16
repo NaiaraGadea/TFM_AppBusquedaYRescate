@@ -1,4 +1,5 @@
 // src/screens/createSearch/pantallaCaso.js
+// FUERA
 import React, { useEffect, useState } from "react";
 import { View, Text, StyleSheet, ScrollView, TouchableOpacity, Image } from "react-native";
 import { getDesaparecidoByCaseId, getCaseByCaseId } from "../../../api";

@@ -7,7 +7,19 @@ import { Ionicons } from '@expo/vector-icons'; // para iconos sutiles
 
 import { UserContext } from '../../../App';
 
-
+// Etiqueta moderna
+const InfoTag = ({
+  text,
+  backgroundColor = '#3498db',
+  textColor = '#fff',
+  style,
+}) => {
+  return (
+    <View style={[styles.tagContainer, { backgroundColor }, style]}>
+      <Text style={[styles.tagText, { color: textColor }]}>{text}</Text>
+    </View>
+  );
+};
 
 export default function GroupCases({ navigation }) {
     const { currentUser } = useContext(UserContext);
@@ -31,7 +43,7 @@ export default function GroupCases({ navigation }) {
 
         const interval = setInterval(() => {
             loadCasesOnly(); // función ligera
-        }, 5000); // refresco cada 5 segundos
+        }, 10000); // refresco cada 10 segundos
 
         return () => clearInterval(interval); // limpieza al salir de la pantalla
     }, [currentUser]);
@@ -53,13 +65,14 @@ export default function GroupCases({ navigation }) {
         // Enriquecer cada caso con la info de la persona
         const c = await Promise.all(
         rawCases.map(async (caso) => {
-        // 1. Obtener missing_person
-        const missing = await getMissingPersonById(caso.missing_id);
-        // 2. Obtener datos de la persona asociada
-        const person = await getPersonById(missing.person_id);
-        return {...caso, missing,person};
-        })
-    );
+            // 1. Obtener missing_person
+            const missing = await getMissingPersonById(caso.missing_id);
+            // 2. Obtener datos de la persona asociada
+            const person = await getPersonById(missing.person_id);
+            return {...caso, missing,person};
+        }));
+
+        console.log("CASE DATA:", c);
 
     
         setPerson(p);
@@ -85,8 +98,8 @@ export default function GroupCases({ navigation }) {
         setCasesData(c);
     }
 
-    console.log("PERSON DATA:", person);
-    console.log("GROUP DATA:", groupData);
+    //console.log("PERSON DATA:", person);
+    //console.log("GROUP DATA:", groupData);
     if (!groupData || !person) {
         return <Text>Cargando...</Text>;
     }
@@ -94,8 +107,13 @@ export default function GroupCases({ navigation }) {
     const renderItem = ({ item }) => (
         <TouchableOpacity
           style={styles.button}
-          onPress={() => navigation.navigate("PantallaCaso", { caseId: item.case_id })}
+          onPress={() => navigation.navigate("PantallaCasoActivo", {item})}
         >
+          <InfoTag
+            text={item.case_status === 'active' ? 'Activo' : 'Cerrado'}
+            backgroundColor={item.case_status === 'active' ? '#27ae60' : '#8B0000'}
+            />
+
           <Text style={styles.buttonText}>
             #{item.case_id} - {item.person.first_name} {item.person.last_name} ({item.person.age} años)
           </Text>
@@ -168,5 +186,22 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     borderRadius: 6,
   },
+  button: {
+    padding: 16,
+    borderBottomWidth: 1,
+    borderColor: "#ccc",
+  },
   buttonText: { fontSize: 16, fontWeight: "600", color: "#111827" },
+  tagContainer: {
+    paddingHorizontal: 12,
+    paddingVertical: 6,
+    borderRadius: 12,
+    alignSelf: 'flex-start',
+    marginRight: 8,
+    marginBottom: 8,
+  },
+  tagText: {
+    fontSize: 14,
+    fontWeight: '500',
+  },
 });

@@ -1,113 +1,143 @@
 // src/screens/createSearch/pantallaCaso.js
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { View, Text, StyleSheet, ScrollView, TouchableOpacity, Image } from "react-native";
-import { getDesaparecidoByCaseId, getCaseByCaseId } from "../../../api";
 import { useNavigation } from "@react-navigation/native";
+import { updateCase } from "../../../api";
 
 export default function InformacionCaso({ route }) {
-  const { caseId } = route.params;
-  const [info, setInformacion] = useState(null);
+  const { item } = route.params;
   const navigation = useNavigation();
 
+  const handleCloseCase = async () => {
+      await updateCase(item.case_id, { case_status: "closed" });
+      alert("El caso ha sido cerrado correctamente.");
+      navigation.goBack();
+  };
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const desaparecido = await getDesaparecidoByCaseId(caseId).catch(() => ({}));
-        const caso = await getCaseByCaseId(caseId).catch(() => ({}));
-        setInformacion({ ...desaparecido, ...caso });
-      } catch (err) {
-        console.error(err);
-      }
-    };
-    fetchData();
-  }, [caseId]);
 
-  if (!info) return <Text>Cargando...</Text>;
+  const desaparecido = item.missing;
+  const persona = item.person;
 
   return (
     <ScrollView style={styles.container}>
-      <Text style={styles.title}>Caso #{caseId}</Text>
+      <Text style={styles.title}>Caso #{item.case_id}</Text>
 
-      {info.photo_url ? (
-              <Image source={{ uri: info.photo_url }} style={styles.image} resizeMode="cover" />
-            ) : (
-              <View style={[styles.image, styles.placeholder]} />
-            )}
-            
-      <Text style = {styles.label}>Nombre:</Text>
-      <Text style = {styles.text}>{info.first_name} {info.last_name}</Text>
-      <Text style = {styles.label}>Edad:</Text>
-      <Text style = {styles.text}>{info.age} años </Text>
-      <Text style = {styles.label}>Nacionalidad:</Text>
-      <Text style = {styles.text}> {info.nationality}</Text>
-      <Text style = {styles.label}>Dirección habitual:</Text>
-      <Text style = {styles.text}> {info.habitual_address}</Text>
-      <Text style = {styles.label}>Última vez visto:</Text>
-      <Text style = {styles.text}> {info.disappearance_place}</Text>
-      <Text style = {styles.label}>Motivo desaparición:</Text>
-      <Text style = {styles.text}> {info.disappearance_reason}</Text>
-      <Text style = {styles.label}>Estado:</Text>
-      <Text style = {styles.text}>{info.status}</Text>
+      {desaparecido.photo_url ? (
+        <Image
+          source={{ uri: desaparecido.photo_url }}
+          style={styles.image}
+          resizeMode="cover"
+        />
+      ) : (
+        <View style={[styles.image, styles.placeholder]} />
+      )}
 
+      {/* DATOS PERSONALES */}
+      <Text style={styles.label}>Nombre:</Text>
+      <Text style={styles.text}>{persona.first_name} {persona.last_name}</Text>
 
-      {/* Aquí irán los datos de contacto de familiares/denunciantes*/}
-      
+      <Text style={styles.label}>Edad:</Text>
+      <Text style={styles.text}>{persona.age} años</Text>
+
+      <Text style={styles.label}>Nacionalidad:</Text>
+      <Text style={styles.text}>{desaparecido.nationality}</Text>
+
+      <Text style={styles.label}>Dirección habitual:</Text>
+      <Text style={styles.text}>{desaparecido.habitual_address}</Text>
+
+      {/* INFORMACIÓN DEL CASO */}
+      <Text style={styles.label}>Última vez visto:</Text>
+      <Text style={styles.text}>{item.last_seen_point}</Text>
+
+      <Text style={styles.label}>Fecha desaparición:</Text>
+      <Text style={styles.text}>
+        {new Date(item.disappearance_date).toLocaleDateString()}
+      </Text>
+
+      <Text style={styles.label}>Estado del caso:</Text>
+      <Text style={styles.text}>
+        {item.case_status === "active" ? "Activo" : "Cerrado"}
+      </Text>
+
+      {/* BOTONES */}
+      {/* BOTÓN: Modificar datos */}
       <View style={{ marginTop: 20 }}>
-        <TouchableOpacity style={styles.button2} onPress={() =>{}}>
-            <Text style={styles.buttonText}>Modificar Datos</Text>
+        <TouchableOpacity style={styles.button2} onPress={() => {}}>
+          <Text style={styles.buttonText}>Modificar Datos</Text>
         </TouchableOpacity>
       </View>
-      <View style={{ marginTop: 20 }}>
-        <TouchableOpacity style={styles.button2} onPress={() => navigation.navigate('NuevaBusqueda', { caseId})}>
+
+      {item.case_status === 'active' && (
+      <>{/* BOTÓN: Crear Búsqueda */}
+        <View style={{ marginTop: 20 }}>
+          <TouchableOpacity
+            style={styles.button2}
+            onPress={() => navigation.navigate("NuevaBusqueda", { item })}
+          >
             <Text style={styles.buttonText}>Crear Búsqueda</Text>
-        </TouchableOpacity>
-      </View>
-      <View style={{ marginTop: 20, marginBottom:30 }}>
-        <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('CrearAlerta', { caseId})}>
+          </TouchableOpacity>
+        </View>
+        {/* BOTÓN: Enviar Alerta */}
+        <View style={{ marginTop: 20 }}>
+          <TouchableOpacity
+            style={styles.button}
+            onPress={() => navigation.navigate("CrearAlerta", { item})}
+          >
             <Text style={styles.buttonText}>Enviar Alerta</Text>
-        </TouchableOpacity>
-      </View>
+          </TouchableOpacity>
+        </View>
+
+        {/* BOTÓN: Cerrar caso */}
+        <View style={{ marginTop: 20, marginBottom: 30 }}>
+          <TouchableOpacity
+            style={[styles.button, { backgroundColor: '#8B0000' }]}
+            onPress={handleCloseCase}
+          >
+            <Text style={styles.buttonText}>Cerrar Caso</Text>
+          </TouchableOpacity>
+        </View>
+      </>
+    )}
+
     </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: "#fff", padding: 16 , paddingBottom:50},
+  container: { flex: 1, backgroundColor: "#fff", padding: 16, paddingBottom: 50 },
   title: { fontSize: 22, fontWeight: "700", marginBottom: 16, textAlign: "center" },
-  label: {fontSize: 14, fontWeight: '600',paddingLeft: 10, margintop: 15},
-  text: {fontSize:14, paddingLeft:10},
+  label: { fontSize: 14, fontWeight: "600", paddingLeft: 10, marginTop: 15 },
+  text: { fontSize: 14, paddingLeft: 10 },
   button: {
     marginTop: 12,
-    backgroundColor: 'rgba(131, 14, 25, 1)',
+    backgroundColor: "rgba(131, 14, 25, 1)",
     paddingVertical: 10,
     paddingHorizontal: 20,
     borderRadius: 6,
   },
   button2: {
     marginTop: 12,
-    backgroundColor: 'rgb(143,164,179)',
+    backgroundColor: "rgb(143,164,179)",
     paddingVertical: 10,
     paddingHorizontal: 20,
     borderRadius: 6,
   },
   buttonText: {
-  color: 'rgb(255,255,255)',
-  fontSize: 16,
-  fontWeight: '600',
-  alignSelf: 'center'
+    color: "rgb(255,255,255)",
+    fontSize: 16,
+    fontWeight: "600",
+    alignSelf: "center",
   },
   image: {
-    width: '15%',
-    height: undefined,
-    aspectRatio: 2 / 3, // mantiene proporción en móvil y web
+    width: "40%",
+    aspectRatio: 2 / 3,
     borderRadius: 8,
-    backgroundColor: '#eee',
+    backgroundColor: "#eee",
     marginBottom: 12,
-    alignSelf: 'center'
+    alignSelf: "center",
   },
   placeholder: {
-    justifyContent: 'center',
-    alignItems: 'center',
+    justifyContent: "center",
+    alignItems: "center",
   },
 });

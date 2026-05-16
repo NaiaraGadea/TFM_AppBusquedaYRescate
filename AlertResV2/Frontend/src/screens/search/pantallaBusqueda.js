@@ -5,13 +5,14 @@ import { View, Text, StyleSheet, TouchableOpacity, ScrollView, Modal } from 'rea
 import { Ionicons } from '@expo/vector-icons';
 import { SearchContext } from '../../../App';
 
-export default function PantallaBusqueda() {
-  const { activeSearch, setActiveSearch } = useContext(SearchContext);
+export default function PantallaBusqueda({ route, navigation }) {
+  //const { activeSearch, setActiveSearch } = useContext(SearchContext);
+  const { item } = route.params || {};
   const [showRecs, setShowRecs] = React.useState(false);
-
+ 
   
 
-  if (!activeSearch) {
+  if (!item) {
     return (
       <View style={styles.emptyContainer}>
         <Ionicons name="search-outline" size={60} color="#888" style={{ marginBottom: 15 }} />
@@ -28,16 +29,26 @@ export default function PantallaBusqueda() {
     <View style={styles.container}>
       <ScrollView contentContainerStyle={{ paddingBottom: 80 }}>
         {/* Título */}
-        <Text style={styles.title}>Búsqueda #{activeSearch.id}</Text>
+        <Text style={styles.title}>Búsqueda #{item.search_id} - {item.person.first_name} {item.person.last_name}</Text>
 
         {/* Info del desaparecido */}
         <View style={styles.card}>
           <Text style={styles.sectionTitle}>Info del desaparecido</Text>
+          <Text style={styles.name}>{item.person.first_name} {item.person.last_name}</Text>
+          <Text style={styles.text}>Edad actual: {item.person.age || 'Desconocida'} años</Text>
+          {item.missing.height ? <Text style={styles.text}>Altura: {item.missing.height} m</Text> : null}
+          {item.missing.weight ? <Text style={styles.text}>Peso: {item.missing.weight} kg</Text> : null}
+          {item.missing.hair ? <Text style={styles.text}>Pelo: {item.missing.hair}</Text> : null}
+          {item.missing.facial_hair ? <Text style={styles.text}>Vello facial: {item.missing.facial_hair}</Text> : null}
+          {item.missing.eye_colour ? <Text style={styles.text}>Color de ojos: {item.missing.eye_colour}</Text> : null}
+          {item.missing.physical_constitution ? <Text style={styles.text}>Constitución física: {item.missing.physical_constitution}</Text> : null}
+          {item.missing.description ? <Text style={styles.text}>Descripción: {item.missing.description}</Text> : null}
+          {item.missing.information ? <Text style={styles.text}>Información extra: {item.missing.information}</Text> : null}
 
-          <Text style={styles.label}>Alerta asociada:</Text>
-          <Text style={styles.value}>{activeSearch.case_id}</Text>
+          <Text style={styles.label}>Caso asociado:</Text>
+          <Text style={styles.value}>{item.case_id}</Text>
           <Text style={styles.label}>Información:</Text>
-          <Text style={styles.value}>{activeSearch.message}</Text>
+          <Text style={styles.value}>{item.message}</Text>
         </View>
 
         {/* Mapa */}
@@ -50,9 +61,13 @@ export default function PantallaBusqueda() {
         <View style={styles.card}>
           <Text style={styles.sectionTitle}>Detalles de la búsqueda</Text>
           <Text style={styles.label}>Fecha y hora prevista:</Text>
-          <Text style={styles.value}>{activeSearch.meeting_date}</Text>
-          <Text style={styles.label}>Localización central:</Text>
-          <Text style={styles.value}>{activeSearch.meeting_place}</Text>
+          <Text style={styles.value}>{item.meeting_date}</Text>
+          <Text style={styles.label}>Lugar de encuentro:</Text>
+          <Text style={styles.value}>{item.meeting_point}</Text>
+          <Text style={styles.label}>Grupo organizador:</Text>
+          <Text style={styles.value}>
+            {item.creatorGroup?.group_name || "Grupo desconocido"}
+          </Text>
         </View>
 
         {/* Botón de recomendaciones */}
@@ -63,7 +78,7 @@ export default function PantallaBusqueda() {
       </ScrollView>
 
       {/* Botón salir */}
-      <TouchableOpacity style={styles.exitButton} onPress={() => setActiveSearch(null)}>
+      <TouchableOpacity style={styles.exitButton} onPress={() => navigation.goBack()}>
         <Text style={{ color: '#fff', fontWeight: '600' }}>Salir de la búsqueda</Text>
       </TouchableOpacity>
 
@@ -72,7 +87,7 @@ export default function PantallaBusqueda() {
         <View style={styles.modalOverlay}>
           <View style={styles.modalContent}>
             <Text style={styles.sectionTitle}>Recomendaciones</Text>
-            <Text style={styles.value}>{activeSearch.recommendations}</Text>
+            <Text style={styles.value}>{item.recommendations}</Text>
             <TouchableOpacity style={styles.closeButton} onPress={() => setShowRecs(false)}>
               <Text style={{ color: '#fff' }}>Cerrar</Text>
             </TouchableOpacity>

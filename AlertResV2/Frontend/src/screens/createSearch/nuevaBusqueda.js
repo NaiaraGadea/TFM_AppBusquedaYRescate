@@ -1,43 +1,50 @@
+// src/screens/createSearch/nuevaBusqueda.js
+
 import React, { useState, useEffect, useContext } from 'react';
 import { View, Text, TextInput, Modal, StyleSheet, Switch, TouchableOpacity, Alert, ScrollView, KeyboardAvoidingView, Platform } from 'react-native';
-import { createSearch, getCaseByCaseId } from '../../../api';
+import { createSearch } from '../../../api';
 import CaseItem from '../components/CaseItem';
 import { SearchContext } from '../../../App';   // 👈 Importamos el contexto
 
 export default function NuevaBusqueda({ route, navigation }) {
-  const { caseId } = route.params;
-  const [caseData, setCaseData] = useState(null);
+  const { item } = route.params;
+
   const [meetingPlace, setMeetingPlace] = useState('');
   const [meetingDate, setMeetingDate] = useState('');
   const [message, setMessage] = useState('');
   const [recommendations, setRecommendations] = useState('');
   const [isPublic, setIsPublic] = useState(true);
-  const [showConfirm, setShowConfirm] = useState(false);
-  const [createdSearch, setCreatedSearch] = useState(null);
+  //const [showConfirm, setShowConfirm] = useState(false);
+  //const [createdSearch, setCreatedSearch] = useState(null);
 
   const { setActiveSearch } = useContext(SearchContext); 
 
-  useEffect(() => {
-    getCaseByCaseId(caseId).then(setCaseData);
-  }, [caseId]);
-
   const handleSubmit = async () => {
     try {
-      const newSearch = await createSearch({ 
-        case_id: caseId, 
-        meeting_place: meetingPlace, 
-        meeting_date: meetingDate, 
-        message, 
-        recommendations, 
-        is_public: isPublic 
+      const newSearch = await createSearch({
+        case_id: item.case_id,   
+        meeting_point: meetingPlace,
+        meeting_date: meetingDate,
+        message,
+        recommendations,
+        is_public: isPublic,
+        created_by : item.created_by
       });
-      setCreatedSearch(newSearch);   // guardamos la búsqueda creada
-      setShowConfirm(true);          // mostramos el modal de confirmación
+      setActiveSearch(newSearch);
+      //setCreatedSearch(newSearch);   // guardamos la búsqueda creada
+      //setShowConfirm(true);          // mostramos el modal de confirmación
+      navigation.reset({
+        index: 0,
+        routes: [{ name: 'Inicio' }],
+      });
+
+      navigation.navigate('Búsquedas');
     } catch (err) {
       Alert.alert('Error', 'No se pudo crear la búsqueda');
     }
   };
 
+  /*
   const handleReject = () => {
     setShowConfirm(false);
     navigation.navigate('Inicio'); // vuelve al inicio si no participa
@@ -48,8 +55,7 @@ export default function NuevaBusqueda({ route, navigation }) {
     setActiveSearch(createdSearch); // Guardamos la búsqueda activa en el contexto
     navigation.navigate('Búsqueda'); // navegamos a la pestaña de búsqueda
   };
-
-  if (!caseData) return <Text>Cargando...</Text>;
+  */
 
   return (
     <KeyboardAvoidingView
@@ -58,7 +64,7 @@ export default function NuevaBusqueda({ route, navigation }) {
             keyboardVerticalOffset={100}>
         <ScrollView style={styles.container}>
       <View style={{ alignItems: 'center', marginBottom: 16 }}>
-        <CaseItem item={caseData} />  
+        <CaseItem item={item} />  
       </View>
 
       <Text>Lugar de encuentro: </Text>
@@ -78,7 +84,7 @@ export default function NuevaBusqueda({ route, navigation }) {
       </TouchableOpacity>
       <Text> </Text>
 
-      {/* Confirmación */}
+      {/* Confirmación 
       <Modal visible={showConfirm} transparent animationType="fade">
         <View style={styles.overlay}>
           <View style={styles.confirmBox}>
@@ -102,7 +108,7 @@ export default function NuevaBusqueda({ route, navigation }) {
             </View>
           </View>
         </View>
-      </Modal>
+      </Modal>*/}
     </ScrollView>
     </KeyboardAvoidingView>
   );
