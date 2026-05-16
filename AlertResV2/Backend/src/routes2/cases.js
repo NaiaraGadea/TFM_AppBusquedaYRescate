@@ -129,6 +129,15 @@ router.get('/by-status', async (req, res) => {
     res.json(rows);
 });
 
+// GET: obtener un caso por su id
+router.get('/:id', async (req, res) => {
+    const [rows] = await pool.query(
+      'SELECT * FROM cases WHERE case_id = ?',
+      [req.params.id]
+    );
+    res.json(rows[0] || null);
+});
+
 
 
 // POST: crear un nuevo caso y devolver la fila insertada
@@ -191,5 +200,39 @@ router.post('/', async (req, res) => {
 
     res.json(rows[0]);
 });
+
+// PUT: actualizar un caso completo excepto campos protegidos
+router.put('/:case_id', async (req, res) => {
+    const caseId = Number(req.params.case_id);
+
+    // Campos que NO se pueden modificar
+    const protectedFields = ['case_id', 'missing_id', 'reporter_id', 'created_at', 'created_by'];
+
+    // Filtrar el body para evitar que actualicen campos protegidos
+    const updates = Object.fromEntries(
+        Object.entries(req.body).filter(([key]) => !protectedFields.includes(key))
+    );
+
+    if (Object.keys(updates).length === 0) {
+        return res.status(400).json({ error: 'No hay campos válidos para actualizar' });
+    }
+
+    // Construir SQL dinámico
+    const fields = Object.keys(updates).map(key => `${key} = ?`).join(', ');
+    const values = Object.values(updates);
+
+    await pool.query(
+      `UPDATE cases SET ${fields} WHERE case_id = ?`,
+      [...values, caseId]
+    );
+
+    const [rows] = await pool.query(
+      `SELECT * FROM cases WHERE case_id = ?`,
+      [caseId]
+    );
+
+    res.json(rows[0]);
+});
+
 
 export default router;

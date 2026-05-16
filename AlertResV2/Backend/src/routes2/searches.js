@@ -41,6 +41,29 @@ router.get('/', async (req, res) => {
     res.json(rows);
 });
 
+// GET: búsquedas públicas + búsquedas del grupo
+router.get('/by-visibility/:groupId', async (req, res) => {
+    const groupId = Number(req.params.groupId);
+
+    // Si no pertenece a ningún grupo solo búsquedas públicas:
+    if (isNaN(groupId) || groupId === 0) {
+        const [rows] = await pool.query(
+            `SELECT * FROM searches WHERE is_public = 1 ORDER BY created_at DESC`
+        );
+        return res.json(rows);
+    }
+    // Si sí que pertenece a un grupo
+    const [rows] = await pool.query(
+        `SELECT * FROM searches 
+         WHERE is_public = 1 OR created_by = ?
+         ORDER BY created_at DESC`,
+        [groupId]
+    );
+
+    res.json(rows);
+});
+
+
 // POST: crear una nueva búsqueda y devolver la fila insertada
 router.post('/', async (req, res) => {
     const {
