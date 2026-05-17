@@ -165,7 +165,7 @@ export default function CreateUser({ navigation }) {
 }
 
 const styles = StyleSheet.create({
-  container: { flex: 1, padding: 16 },
+  container: { flex: 1, padding: 16, paddingBottom: 50},
   title: { fontSize: 20, marginBottom: 12, textAlign: 'center' },
   input: { borderWidth: 1, borderColor: '#ccc', padding: 10, borderRadius: 6, marginVertical: 8 },
   pickerWrap: { borderWidth: 1, borderColor: '#ccc', borderRadius: 6, marginVertical: 8 },

@@ -1,4 +1,5 @@
 // src/screens/home/pantallaCasoPublic.js
+// FUERA
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, Image, TextInput, Button, TouchableOpacity, Share, ScrollView, KeyboardAvoidingView, Platform } from 'react-native';
 

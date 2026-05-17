@@ -2,7 +2,7 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native'
 import { Ionicons } from '@expo/vector-icons'
-import { getUsers, getPeople, getGroupByPersonID, getPersonById , getUserById} from '../../../api';
+import { getUsers, getPeople, getGroupByPersonID, getPersonById , getUserById, getMemberByPersonId, getGroupById} from '../../../api';
 import { UserContext } from '../../../App';
 
 
@@ -26,6 +26,9 @@ export default function PerfilScreen () {
   // const user = currentUser || demoCase;
   const [person, setPerson] = useState(null);
   const [userData, setUserData] = useState(null);
+
+  const [group, setGroup] = useState(null);
+
   
   console.log("CURRENT USER DATA:", currentUser);
 
@@ -42,14 +45,24 @@ export default function PerfilScreen () {
 
     const p = await getPersonById(currentUser.person_id);
     const u = await getUserById(currentUser.user_id);
-    console.log("PERSON DATA:", p);
-    console.log("USER DATA:", u);
+    //console.log("PERSON DATA:", p);
+    //console.log("USER DATA:", u);
 
     setPerson(p);
     setUserData(u);
+    // Si el usuario pertenece a un grupo, lo cargamos
+    if (u.rol === "group_member" || u.rol === "group") {
+        const m = await getMemberByPersonId(currentUser.person_id);
+        const g = await getGroupById(m.group_id);
+        
+        console.log("GROUP DATA:", g);
+        setGroup(g);
+    }
   }
   console.log("PERSON DATA:", person);
   console.log("USER DATA:", userData);
+
+  
   
   if (!person || !userData) {
   return (
@@ -98,7 +111,7 @@ export default function PerfilScreen () {
 
         <View style={styles.row}>
           <Ionicons name="business-outline" size={20} color="#555" />
-          <Text style={styles.info}>Institución: {'Ninguna'}</Text>
+          <Text style={styles.info}>Institución: {group?.group_name || 'Ninguna'}</Text>
         </View>
         
         <View style={styles.row}>

@@ -39,21 +39,21 @@ export default function casoPublico({ route, navigation }) {
             behavior={Platform.OS === "ios" ? "padding" : "height"}
             keyboardVerticalOffset={100}>
     <ScrollView style={styles.container}>
-      <InfoTag text="Activo" backgroundColor="#27ae60" />
-      <InfoTag text="Público" backgroundColor="#188fff" />
-      <Image source={{ uri: item.photo_url }} style={styles.image} />
-      <Text style={styles.name}>{item.first_name} {item.last_name}</Text>
-      <Text style={styles.desappearance_date}>Fecha de desaparición: {item.desappearance_date}</Text>
+      <InfoTag text={item.case_status ? "Activo" : "Cerrado"} backgroundColor={item.case_status ? "#27ae60" : "#AC0B1B"} />
+      <InfoTag text={item.alert_type ? "Público" :  "Privado"} backgroundColor={item.alert?.is_public ? "#188fff" : "#555"}/>
+      <Image source={{ uri: item.missing.photo_url }} style={styles.image} />
+      <Text style={styles.name}>{item.person.first_name} {item.person.last_name}</Text>
+      <Text style={styles.text}>Fecha de desaparición: {item.disappearance_date}</Text>
       <Text style={styles.text}>Edad actual: {item.age || 'Desconocida'} años</Text>
       <Text style={styles.text}>Última localización: {item.last_seen_point}</Text>
-      {item.height ? <Text style={styles.text}>Altura: {item.height} m</Text> : null}
-      {item.weight ? <Text style={styles.text}>Peso: {item.weight} kg</Text> : null}
-      {item.hair ? <Text style={styles.text}>Pelo: {item.hair}</Text> : null}
-      {item.facial_hair ? <Text style={styles.text}>Vello facial: {item.facial_hair}</Text> : null}
-      {item.eye_colour ? <Text style={styles.text}>Color de ojos: {item.eye_colour}</Text> : null}
-      {item.physical_constitution ? <Text style={styles.text}>Constitución física: {item.physical_constitution}</Text> : null}
-      {item.description ? <Text style={styles.text}>Descripción: {item.description}</Text> : null}
-      {item.information ? <Text style={styles.text}>Información extra: {item.information}</Text> : null}
+      {item.missing.height ? <Text style={styles.text}>Altura: {item.missing.height} m</Text> : null}
+      {item.missing.weight ? <Text style={styles.text}>Peso: {item.missing.weight} kg</Text> : null}
+      {item.missing.hair ? <Text style={styles.text}>Pelo: {item.missing.hair}</Text> : null}
+      {item.missing.facial_hair ? <Text style={styles.text}>Vello facial: {item.missing.facial_hair}</Text> : null}
+      {item.missing.eye_colour ? <Text style={styles.text}>Color de ojos: {item.missing.eye_colour}</Text> : null}
+      {item.missing.physical_constitution ? <Text style={styles.text}>Constitución física: {item.missing.physical_constitution}</Text> : null}
+      {item.missing.description ? <Text style={styles.text}>Descripción: {item.missing.description}</Text> : null}
+      {item.missing.information ? <Text style={styles.text}>Información extra: {item.missing.information}</Text> : null}
       {item.group_name ? <Text style={styles.text}>Grupo encargado: {item.group_name}</Text> : null}
       <Text style={styles.text}>Contacto: </Text>
       {item.group_phone ? <Text style={styles.text}>Teléfono de contacto: {item.group_phone}</Text> : null}

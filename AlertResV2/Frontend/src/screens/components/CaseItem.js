@@ -19,24 +19,24 @@ export default function CaseItem({ item, onContact }) {
   return (
     <View style={styles.card}>
       <View style={{ flexDirection: 'row' , alignSelf: 'flex-end' }}>
-      <InfoTag text={item.case_status ? "Activo" : "Activo"} backgroundColor="#27ae60" />
-      <InfoTag text={item.alert_type ? "Público" : "Público"} backgroundColor="#188fff" />
+      <InfoTag text={item.case_status ? "Activo" : "Cerrado"} backgroundColor={item.case_status ? "#27ae60" : "#AC0B1B"} />
+      <InfoTag text={item.alert_type ? "Público" :  "Privado"} backgroundColor={item.alert?.is_public ? "#188fff" : "#555"}/>
       </View>
-      {item.photo_url ? (
-        <Image source={{ uri: item.photo_url }} style={styles.image} resizeMode="cover" />
+      {item.missing.photo_url ? (
+        <Image source={{ uri: item.missing.photo_url }} style={styles.image} resizeMode="cover" />
       ) : (
         <View style={[styles.image, styles.placeholder]} />
       )}  
-      <Text style={styles.name}>{item.full_name || 'Nombre'} {item.last_name|| 'Apellidos'}</Text>
-      {item.age != null && <Text style={styles.text}>Edad actual: {item.age}</Text>}
+      <Text style={styles.name}>{item.person.first_name || 'Nombre'} {item.person.last_name|| 'Apellidos'}</Text>
+      {item.person.age != null && <Text style={styles.text}>Edad actual: {item.person.age}</Text>}
       {item.last_seen_point && (
         <Text style={styles.text}>Lugar: {item.last_seen_point}</Text>
       )}
-      {(item.height || item.weight) && (
+      {(item.missing.height || item.missing.weight) && (
         <Text style={styles.text}>
-          {item.height && `Altura: ${item.height} m`}
-          {item.height && item.weight && '   |   '}
-          {item.weight && `Peso: ${item.weight} kg`}
+          {item.missing.height && `Altura: ${item.missing.height} m`}
+          {item.missing.height && item.missing.weight && '   |   '}
+          {item.missing.weight && `Peso: ${item.missing.weight} kg`}
         </Text>
       )}
       {item.physical_constitution && (

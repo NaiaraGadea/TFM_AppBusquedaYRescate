@@ -111,7 +111,7 @@ export default function SearchList({ navigation }) {
             <View style={styles.header}>
                 <Text style={styles.title}>{groupData?.group_name || "Voluntario"}</Text>
                 <Text style={styles.subtitle}>
-                    Jefatura: {person.first_name} {person.last_name}
+                    {person.first_name} {person.last_name}
                 </Text>
             </View>
 

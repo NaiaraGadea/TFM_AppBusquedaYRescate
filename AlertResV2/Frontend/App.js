@@ -20,15 +20,17 @@ import ajustes from './src/screens/settings/Ajustes';
 import casoPublico from './src/screens/home/pantallaCasoPublic'; 
 
 // Pantallas profesionales
-import menuProfesionales from './src/screens/createSearch/menuProfesionales';
-import RegisterCaseScreen from './src/screens/createSearch/RegisterCaseScreen';
-import AlertsScreen from './src/screens/createSearch/AlertsScreen';
-import nuevoDesaparecido from './src/screens/createSearch/nuevoDesaparecido';
-import casosActivos from './src/screens/createSearch/casosActivos';
-import historialCasos from './src/screens/createSearch/historialCasos';
-import pantallaCaso from './src/screens/createSearch/pantallaCaso';
-import pantallaCasoActivo from './src/screens/createSearch/pantallaCasoActivo';
-import NuevaBusqueda from './src/screens/createSearch/nuevaBusqueda';
+import menuProfesionales from './src/screens/profesionals/menuProfesionales';
+import RegisterCaseScreen from './src/screens/profesionals/RegisterCaseScreen';
+import AlertsScreen from './src/screens/profesionals/AlertsScreen';
+import nuevoDesaparecido from './src/screens/profesionals/nuevoDesaparecido';
+import casosActivos from './src/screens/profesionals/casosActivos';
+import historialCasos from './src/screens/profesionals/historialCasos';
+import pantallaCaso from './src/screens/profesionals/pantallaCaso';
+import pantallaCasoActivo from './src/screens/profesionals/pantallaCasoActivo';
+import NuevaBusqueda from './src/screens/profesionals/nuevaBusqueda';
+
+import listaMiembros from './src/screens/profesionals/MiembrosGrupo.js'
 
 // Tema global
 import { MyTheme } from './src/styles/Globalstyles';
@@ -41,7 +43,7 @@ export const SearchContext = createContext();
 
 // Contexto para el usuario loggeado
 export const UserContext = createContext();
-
+/*
 // Stack para la pestaña "Profesionales"
 function ProfesionalesStack() {
   return (
@@ -86,6 +88,19 @@ function ProfesionalesStack() {
         component={NuevaBusqueda}
         options={{ title: 'Crear Búsqueda' }}
       />
+    </Stack.Navigator>
+  );
+}*/
+
+function ProfesionalesStack() {
+  return (
+    <Stack.Navigator>
+      <Stack.Screen
+        name="ListaMiembros"
+        component={listaMiembros}
+        options={{ title: 'Información del grupo' }}
+      />
+      
     </Stack.Navigator>
   );
 }
@@ -256,7 +271,6 @@ function TabsGrupos(){
       <Tab.Screen name = "Alertas" component={InicioStack}/>
       <Tab.Screen name = "Búsquedas" component={BusquedaStack}/>
       <Tab.Screen name="Inicio" component={CasosGrupoStack}/>
-
       <Tab.Screen name = "Grupo" component={ProfesionalesStack}/>
       <Tab.Screen name = "Ajustes" component={AjustesStack}/>
 

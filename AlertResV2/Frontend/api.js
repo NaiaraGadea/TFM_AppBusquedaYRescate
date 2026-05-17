@@ -54,24 +54,22 @@ export const deleteSearch = (id) =>
 // Alerts
 // GET con límite
 export const getAlerts = (limit) => api.get(`/alerts${limit ? `?limit=${limit}` : ''}`).then(r => r.data);
+export const getPublicAlerts = (groupId) =>  api.get(`/alerts/by-visibility/${groupId}`).then(r => r.data);
+
 // POST
 export const createAlert = (payload) => api.post('/alerts', payload).then(r=>r.data);
 
 // Cases
 // GET con límite
 export const getCases = (limit) => api.get(`/cases${limit ? `?limit=${limit}` : ''}`).then(r => r.data);
-export const getCasesWithPublicAlerts = (limit)=> (`/cases/activePublicAlerts${limit ? `?limit=${limit}` : ''}`).then(r => r.data);
+export const getCasesWithPublicAlerts = (limit) => api.get(`/cases/activePublicAlerts${limit ? `?limit=${limit}` : ''}`).then(r => r.data);
 export const getCasesByGroup = (group_id) => api.get(`/cases/by-group/${group_id}`).then(r => r.data);
 export const getCasesByStatus = (status = null) => api.get('/cases/by-status', { params: { status } }).then(r => r.data);
 export const getCaseByCaseId = (caseId) => api.get(`/cases/${caseId}`).then(r => r.data);
-
-
 // POST
 export const createCase = (payload) => api.post('/cases', payload).then(r=>r.data);
-
 // PUT
 export const updateCase = (caseId, payload) => api.put(`/cases/${caseId}`, payload).then(r => r.data);
-
 
 
 // Found Cases
@@ -84,6 +82,9 @@ export const createFoundCase = (payload) => api.post('/found_cases', payload).th
 // Group Members
 // GET con límite
 export const getGroupMembers = (limit) => api.get(`/group_members${limit ? `?limit=${limit}` : ''}`).then(r => r.data);
+export const getMembersByGroupId = (group_id) => api.get(`/group_members/by-group/${group_id}`).then(r => r.data);
+export const getMemberByPersonId = (person_id) => api.get(`/group_members/by-person/${person_id}`).then(r => r.data);
+
 // POST
 export const createGroupMember = (payload) => api.post('/group_members', payload).then(r=>r.data);
 
@@ -91,7 +92,6 @@ export const createGroupMember = (payload) => api.post('/group_members', payload
 // GET con límite
 export const getMissingPeople = (limit) => api.get(`/missing_people${limit ? `?limit=${limit}` : ''}`).then(r => r.data);
 export const getMissingPersonById = (id) => api.get(`/missing_people/${id}`).then(r => r.data);
-
 // POST
 export const createMissingPerson = (payload) => api.post('/missing_people', payload).then(r=>r.data);
 
@@ -99,6 +99,7 @@ export const createMissingPerson = (payload) => api.post('/missing_people', payl
 // GET con límite
 export const getPeople = (limit) => api.get(`/people${limit ? `?limit=${limit}` : ''}`).then(r => r.data);
 export const getPersonById = (id) => api.get(`/people/${id}`).then(r => r.data);
+export const getPersonByDni = (dni) => api.get(`/people/by-dni/${dni}`).then(r => r.data);
 // POST
 export const createPerson = (payload) => api.post('/people', payload).then(r=>r.data);
 
@@ -126,8 +127,6 @@ export const createSearchParticipant = (payload) => api.post('/search_participan
 // GET con límite
 export const getSearches = (limit) => api.get(`/searches${limit ? `?limit=${limit}` : ''}`).then(r => r.data);
 export const getSearchesByVisibility = (groupId) =>  api.get(`/searches/by-visibility/${groupId}`).then(r => r.data);
-
-
 // POST
 export const createSearch = (payload) => api.post('/searches', payload).then(r=>r.data);
 
@@ -135,6 +134,11 @@ export const createSearch = (payload) => api.post('/searches', payload).then(r=>
 // GET con límite
 export const getUsers = (limit) => api.get(`/users${limit ? `?limit=${limit}` : ''}`).then(r => r.data);
 export const getUserById = (id) => api.get(`/users/${id}`).then(r => r.data);
-
+export const getUserByPersonId = (person_id) => api.get(`/users/by-person/${person_id}`).then(r => r.data);
 // POST
 export const createUser = (payload) => api.post('/users', payload).then(r=>r.data);
+// PUT
+//export const updateUserRole = (user_id, newRole) => api.put(`/users/${user_id}/role`, { rol: newRole }).then(r => r.data);
+export const updateUser = (user_id, payload) => api.put(`/users/${user_id}`, payload).then(r => r.data);
+
+
