@@ -35,6 +35,24 @@ router.get('/', async (req, res) => {
     res.json(rows);
 });
 
+// GET: obtener los miembros de un grupo id
+router.get('/by-group/:id', async (req, res) => {
+    const [rows] = await pool.query(
+      'SELECT * FROM group_members WHERE group_id = ?',
+      [req.params.id]
+    );
+    res.json(rows);
+});
+
+// GET: obtener la información de un miembro en base a su person_id
+router.get('/by-person/:id', async (req, res) => {
+    const [rows] = await pool.query(
+      'SELECT * FROM group_members WHERE person_id = ?',
+      [req.params.id]
+    );
+    res.json(rows[0]); // Solo hay 1 persona con ese id.
+});
+
 // POST: crear un nuevo miembro de grupo y devolver la fila insertada
 router.post('/', async (req, res) => {
     const {

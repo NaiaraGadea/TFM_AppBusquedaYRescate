@@ -89,7 +89,7 @@ router.get('/activePublicAlerts', async (req, res) => {
                     ORDER BY c.created_at DESC
                     `
 
-    const sql = limit ? `{$baseSQL} LIMIT ?` : baseSQL;
+    const sql = limit ? `${baseSQL} LIMIT ?` : baseSQL;
 
     const params = limit ? [Number(limit)] : [];
 

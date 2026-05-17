@@ -38,6 +38,7 @@ router.get('/', async (req, res) => {
     const [rows] = await pool.query(sql, params);
     res.json(rows);
 });
+
 // GET: seleccionar una persona en base a su person_id
 router.get('/:id', async (req, res) => {
     const [rows] = await pool.query(
@@ -46,6 +47,16 @@ router.get('/:id', async (req, res) => {
     );
     res.json(rows[0] || null);
 });
+
+// GET: seleccionar una persona en base a su person_id
+router.get('/by-dni/:id', async (req, res) => {
+    const [rows] = await pool.query(
+      'SELECT * FROM people WHERE dni = ?',
+      [req.params.id]
+    );
+    res.json(rows[0] || null);
+});
+
 
 
 // POST: crear una nueva persona y devolver la fila insertada

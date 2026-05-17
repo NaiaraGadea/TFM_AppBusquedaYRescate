@@ -37,6 +37,31 @@ router.get('/', async (req, res) => {
     res.json(rows);
 });
 
+// GET: alertas públicas + alertas del grupo
+router.get('/by-visibility/:groupId', async (req, res) => {
+	const groupId = Number(req.params.groupId);
+
+	// Si no pertenece a ningún grupo solo búsquedas públicas:
+	if (isNaN(groupId) || groupId === 0) {
+		const [rows] = await pool.query(
+			`SELECT * FROM alerts WHERE is_public = 1 ORDER BY created_at DESC`
+		);
+		return res.json(rows);
+	}
+	// Si sí que pertenece a un grupo
+	const [rows] = await pool.query(
+		`SELECT a.*
+		FROM alerts a
+		JOIN cases c ON c.case_id = a.case_id
+		WHERE a.is_public = 1
+			OR c.created_by = ?
+		ORDER BY a.created_at DESC`,
+		[groupId]
+	);
+
+	res.json(rows);
+});
+
 // Enpoint POST: creación de una nueva alerta en la tabla alerts y devuelve la fila insertada. 
 // Primero se extraen las variables enviadas en el request, después se insertan. 
 // Luego se devuelve los datos de la nueva fila añadida.

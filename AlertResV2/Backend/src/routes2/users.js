@@ -44,6 +44,15 @@ router.get('/:id', async (req, res) => {
     res.json(rows[0] || null);
 });
 
+// GET: seleccionar un usuario en base a su person_id
+router.get('/by-person/:id', async (req, res) => {
+    const [rows] = await pool.query(
+      'SELECT * FROM users WHERE person_id = ?',
+      [req.params.id]
+    );
+    res.json(rows[0] || null);
+});
+
 // POST: crear un nuevo usuario y devolver la fila insertada
 router.post('/', async (req, res) => {
     const {
@@ -78,3 +87,34 @@ router.post('/', async (req, res) => {
 });
 
 export default router;
+
+// PUT: actualizar un usuario excepto campos protegidos
+router.put('/:user_id', async (req, res) => {
+    const userId = Number(req.params.user_id);
+    // Campos que NO se pueden modificar
+    const protectedFields = ['user_id', 'person_id', 'created_at'];
+    // Filtrar el body para evitar que actualicen campos protegidos
+    const updates = Object.fromEntries(
+        Object.entries(req.body).filter(([key]) => !protectedFields.includes(key))
+    );
+
+    if (Object.keys(updates).length === 0) {
+        return res.status(400).json({ error: 'No hay campos válidos para actualizar' });
+    }
+
+    // Construir SQL dinámico
+    const fields = Object.keys(updates).map(key => `${key} = ?`).join(', ');
+    const values = Object.values(updates);
+
+    await pool.query(
+        `UPDATE users SET ${fields} WHERE user_id = ?`,
+        [...values, userId]
+    );
+
+    const [rows] = await pool.query(
+        `SELECT * FROM users WHERE user_id = ?`,
+        [userId]
+    );
+
+    res.json(rows[0]);
+});
