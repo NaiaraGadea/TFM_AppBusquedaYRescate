@@ -58,5 +58,5 @@ app.use('/users', usersRouter);
 
 const port = Number(process.env.PORT || 4000);
 app.listen(port, "0.0.0.0",() => {
-  console.log(`AlertRes API escuchando en http://192.168.0.182:${port}`);
+  console.log(`AlertRes API escuchando en http://192.168.0.206:${port}`);
 });
