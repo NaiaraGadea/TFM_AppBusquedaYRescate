@@ -177,8 +177,8 @@ export default function MembersList({ navigation }) {
                             <Text style={{ color: "#fff", fontWeight: "600" }}>Añadir</Text>
                         </TouchableOpacity>
 
-                        <TouchableOpacity onPress={() => setShowAddModal(false)}>
-                            <Text style={{ marginTop: 10, color: "#777" }}>Cancelar</Text>
+                        <TouchableOpacity style={styles.modalCancelButton} onPress={() => setShowAddModal(false)}>
+                            <Text style={{ color: "#fff", fontWeight: "600" }}>Cancelar</Text>
                         </TouchableOpacity>
                     </View>
                 </View>
@@ -258,5 +258,13 @@ const styles = StyleSheet.create({
         borderRadius: 6,
         alignItems: "center",
     },
+    modalCancelButton: {
+        backgroundColor: "#AC0B1B",
+        padding: 12,
+        borderRadius: 6,
+        alignItems: "center",
+        marginTop: 20
+    },
+
 
 });

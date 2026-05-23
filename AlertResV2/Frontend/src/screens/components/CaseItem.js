@@ -20,7 +20,7 @@ export default function CaseItem({ item, onContact }) {
     <View style={styles.card}>
       <View style={{ flexDirection: 'row' , alignSelf: 'flex-end' }}>
       <InfoTag text={item.case_status ? "Activo" : "Cerrado"} backgroundColor={item.case_status ? "#27ae60" : "#AC0B1B"} />
-      <InfoTag text={item.alert_type ? "Público" :  "Privado"} backgroundColor={item.alert?.is_public ? "#188fff" : "#555"}/>
+      <InfoTag text={item.alert?.is_public ? "Público" : "Privado"} backgroundColor={item.alert?.is_public ? "#188fff" : "#555"}/>
       </View>
       {item.missing.photo_url ? (
         <Image source={{ uri: item.missing.photo_url }} style={styles.image} resizeMode="cover" />
@@ -28,22 +28,47 @@ export default function CaseItem({ item, onContact }) {
         <View style={[styles.image, styles.placeholder]} />
       )}  
       <Text style={styles.name}>{item.person.first_name || 'Nombre'} {item.person.last_name|| 'Apellidos'}</Text>
-      {item.person.age != null && <Text style={styles.text}>Edad actual: {item.person.age}</Text>}
+      {item.person.age != null && <Text style={styles.text}>
+        <Text style={styles.textBold}>Edad actual: </Text>  
+        {item.person.age}</Text>}
       {item.last_seen_point && (
-        <Text style={styles.text}>Lugar: {item.last_seen_point}</Text>
+        <Text style={styles.text}>
+          <Text style={styles.textBold}>Lugar: </Text>
+          {item.last_seen_point}
+        </Text>
       )}
       {(item.missing.height || item.missing.weight) && (
         <Text style={styles.text}>
-          {item.missing.height && `Altura: ${item.missing.height} m`}
-          {item.missing.height && item.missing.weight && '   |   '}
-          {item.missing.weight && `Peso: ${item.missing.weight} kg`}
+          {item.missing.height && (
+            <>
+              <Text style={styles.textBold}>Altura: </Text>
+              {item.missing.height} m
+            </>
+          )}
+
+          {item.missing.height && item.missing.weight && "   |   "}
+
+          {item.missing.weight && (
+            <>
+              <Text style={styles.textBold}>Peso: </Text>
+              {item.missing.weight} kg
+            </>
+          )}
         </Text>
       )}
+
       {item.physical_constitution && (
-        <Text style={styles.text}>Constitución física: {item.physical_constitution}</Text>
+        <Text style={styles.text}>
+          <Text style={styles.textBold}>Constitución física: </Text>
+          {item.physical_constitution}
+        </Text>
       )}
       {item.group_name && (
-        <Text style={styles.text}>Grupo encargado: {item.group_name}</Text>
+        <Text style={[styles.text, { textAlign: "center" }]}>
+        <Text style={styles.textBold}>Grupo encargado:{"\n"}</Text>
+        {item.group_name}
+        </Text>
+        
       )}
 
       <TouchableOpacity style={styles.button} onPress={() => onContact?.(item)}>
@@ -83,6 +108,12 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: '700',
     marginBottom: 4,
+  },
+  textBold: {
+    fontWeight: "500" ,
+    fontSize: 14,
+    color: '#555',
+    marginBottom: 2,
   },
   text: {
     fontSize: 14,

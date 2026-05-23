@@ -26,9 +26,11 @@ import AlertsScreen from './src/screens/profesionals/AlertsScreen';
 import nuevoDesaparecido from './src/screens/profesionals/nuevoDesaparecido';
 import casosActivos from './src/screens/profesionals/casosActivos';
 import historialCasos from './src/screens/profesionals/historialCasos';
-import pantallaCaso from './src/screens/profesionals/pantallaCaso';
+//import pantallaCaso from './src/screens/profesionals/pantallaCaso';
 import pantallaCasoActivo from './src/screens/profesionals/pantallaCasoActivo';
 import NuevaBusqueda from './src/screens/profesionals/nuevaBusqueda';
+
+import casoCerrado from './src/screens/profesionals/casoCerrado';
 
 import listaMiembros from './src/screens/profesionals/MiembrosGrupo.js'
 
@@ -117,7 +119,7 @@ function InicioStack() {
       <Stack.Screen
         name="casoPublico"
         component={casoPublico}
-        options={{ title: 'Detalle del caso' }} 
+        options={{ title: 'Información' }} 
       />
     </Stack.Navigator>
   );
@@ -130,7 +132,7 @@ function CasosGrupoStack() {
       <Stack.Screen
         name="CasosGrupo"
         component={casosGrupo}
-        options={{ title: 'Casos del Grupo' }}
+        options={{ title: 'Casos del grupo' }}
       />
       <Stack.Screen
         name="RegistrarCaso"
@@ -140,7 +142,7 @@ function CasosGrupoStack() {
       <Stack.Screen
         name="PantallaCasoActivo"
         component={pantallaCasoActivo}
-        options={{ title: 'Desaparecido' }}
+        options={{ title: 'Caso' }}
       />
       <Stack.Screen
         name="CrearAlerta"
@@ -150,7 +152,12 @@ function CasosGrupoStack() {
       <Stack.Screen
         name="NuevaBusqueda"
         component={NuevaBusqueda}
-        options={{ title: 'Crear Búsqueda' }}
+        options={{ title: 'Crear búsqueda' }}
+      />
+      <Stack.Screen
+        name="CasoCerrado"
+        component={casoCerrado}
+        options={{ title: 'Cerrar caso' }}
       />
     </Stack.Navigator>
   );
@@ -164,7 +171,7 @@ function BusquedaStack() {
       <Stack.Screen
         name="ListaBusquedas"
         component={pantallaListaBusquedas}
-        options={{ title: 'Listado de Búsquedas' }}
+        options={{ title: 'Listado de búsquedas' }}
       />
       <Stack.Screen
         name="Búsqueda"

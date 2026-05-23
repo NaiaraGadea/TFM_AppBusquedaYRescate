@@ -91,7 +91,7 @@ export default function InformacionCaso({ route }) {
         <View style={{ marginTop: 20, marginBottom: 30 }}>
           <TouchableOpacity
             style={[styles.button, { backgroundColor: '#8B0000' }]}
-            onPress={handleCloseCase}
+            onPress={() => navigation.navigate("CasoCerrado", { item })}
           >
             <Text style={styles.buttonText}>Cerrar Caso</Text>
           </TouchableOpacity>

@@ -120,7 +120,7 @@ export default function GroupCases({ navigation }) {
           <Text style={{ color: "#555" }}>
             Última vez visto: {item.last_seen_point}
           </Text>
-          <Text style={{ color: "#777" }}>Estado: {item.case_status}</Text>
+          {/*<Text style={{ color: "#777" }}>Estado: {item.case_status}</Text>*/}
           <Text style={{ color: "#999", fontSize: 12 }}>
             Creado: {new Date(item.created_at).toLocaleDateString()}
           </Text>

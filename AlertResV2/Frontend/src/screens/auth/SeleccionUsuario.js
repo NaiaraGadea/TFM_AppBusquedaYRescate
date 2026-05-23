@@ -38,7 +38,7 @@ const styles = StyleSheet.create({
 
 // src/screens/auth/SeleccionUsuario.js
 import React, { useEffect, useState, useContext } from 'react';
-import { View, Text, TouchableOpacity, StyleSheet, ActivityIndicator, Alert } from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet, ActivityIndicator, Alert, Image } from 'react-native';
 import { Picker } from '@react-native-picker/picker';
 import { getUsers, getPeople, getPersonById, getGroupByPersonID } from '../../../api'; // funciones exportadas en tu api.js
 import { UserContext } from '../../../App'; // Para guardar qué usuario se ha loggeado
@@ -123,6 +123,11 @@ export default function SeleccionUsuario({ navigation }) {
 
   return (
     <View style={styles.container}>
+      <Image 
+        source={require('../../../assets/logoAlertRes.png')}
+        style={styles.image}
+        resizeMode="contain"
+      />
       <Text style={styles.title}>Seleccione su usuario:</Text>
 
       {loading ? (
@@ -162,11 +167,17 @@ export default function SeleccionUsuario({ navigation }) {
 }
 
 const styles = StyleSheet.create({
-  container: { flex: 1, justifyContent: 'center', alignItems: 'center', padding: 16 },
-  title: { fontSize: 22, marginBottom: 20 },
+  container: { flex: 1, justifyContent: 'center', alignItems: 'center', padding: 16, backgroundColor: '#333' },
+  title: { fontSize: 22, marginBottom: 20, color: '#fff' },
   pickerWrap: { width: '100%', backgroundColor: '#fff', borderRadius: 8, marginBottom: 16 },
   picker: { width: '100%' },
-  button: { backgroundColor: '#333', padding: 14, width: 300, borderRadius: 10, marginVertical: 8 },
-  secondary: { backgroundColor: '#555' },
-  text: { color: 'white', textAlign: 'center', fontSize: 16 }
+  button: { backgroundColor: '#c0c0c0', padding: 14, width: 300, borderRadius: 10, marginVertical: 8 },
+  secondary: { backgroundColor: '#81ADC6' },
+  text: { color: 'black', textAlign: 'center', fontSize: 16 },
+  image: {
+    width: '40%',
+    height: 180,
+    marginBottom: 20,
+  },
+
 });
