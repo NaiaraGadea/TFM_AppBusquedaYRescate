@@ -49,3 +49,14 @@ De acuerdo con ello, el **objetivo principal de este trabajo es el de diseñar u
 - **Subobjetivo 5. Bases de un sistema de predicción**: se van a sentar las bases de un sistema básico de predicción de la localización de una persona desaparecida en base a enfermedades u otras características de la persona desaparecida.
 
 ## **Contenidos del repositorio**
+- **Carpeta AlertRes**: primera versión del prototipo.
+  - Cartpeta Backend
+  - Carpeta Frontend
+- **Carpeta AlertResV2**: segunda última versión del prototipo hasta el momento.
+  - Carpeta Backend
+  - Carpeta Frontend
+- **Carpeta Latex**: ficheros Latex utilizados para la creación del archivo de la memoria en PDF.
+  - Carpeta img
+  - Carpeta tex
+- **MemoriaTFM_NaiaraRodriguez.pdf**: documento final del trabajo.
+- **README.md**: fichero en Markdown de presentación del repositorio GitHub.
