@@ -1,3 +1,5 @@
+// FUERA
+// src/screens/components/AlertItem.jsj
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import CaseItem from './CaseItem';

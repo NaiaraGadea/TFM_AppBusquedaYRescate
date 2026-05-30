@@ -1,11 +1,21 @@
 // src/screens/createSearch/nuevaBusqueda.js
+/*
+TFM: AlertRes, app de búsqueda y rescate de personas desaparecidas (2026)
+Autora: Naiara Gadea Rodríguez Gómez
+Máster en Ingeniería Biomédica y Salud Digital, Universidad de Sevilla
 
+---
+Descripción: Pantalla de creación de una nueva búsqueda para un caso.
+*/
+
+// Importaciones
 import React, { useState, useEffect, useContext } from 'react';
 import { View, Text, TextInput, Modal, StyleSheet, Switch, TouchableOpacity, Alert, ScrollView, KeyboardAvoidingView, Platform } from 'react-native';
 import { createSearch } from '../../../api';
 import CaseItem from '../components/CaseItem';
 import { SearchContext } from '../../../App'; 
 
+// Exportación
 export default function NuevaBusqueda({ route, navigation }) {
   const { item } = route.params;
 
@@ -14,8 +24,6 @@ export default function NuevaBusqueda({ route, navigation }) {
   const [message, setMessage] = useState('');
   const [recommendations, setRecommendations] = useState('');
   const [isPublic, setIsPublic] = useState(true);
-  //const [showConfirm, setShowConfirm] = useState(false);
-  //const [createdSearch, setCreatedSearch] = useState(null);
 
   const { setActiveSearch } = useContext(SearchContext); 
 
@@ -31,8 +39,6 @@ export default function NuevaBusqueda({ route, navigation }) {
         created_by : item.created_by
       });
       setActiveSearch(newSearch);
-      //setCreatedSearch(newSearch);   // guardamos la búsqueda creada
-      //setShowConfirm(true);          // mostramos el modal de confirmación
       navigation.reset({
         index: 0,
         routes: [{ name: 'Inicio' }],
@@ -44,19 +50,7 @@ export default function NuevaBusqueda({ route, navigation }) {
     }
   };
 
-  /*
-  const handleReject = () => {
-    setShowConfirm(false);
-    navigation.navigate('Inicio'); // vuelve al inicio si no participa
-  };
-
-  const handleAccept = () => {
-    setShowConfirm(false);
-    setActiveSearch(createdSearch); // Guardamos la búsqueda activa en el contexto
-    navigation.navigate('Búsqueda'); // navegamos a la pestaña de búsqueda
-  };
-  */
-
+  // Vista de la interfaz de la pantalla
   return (
     <KeyboardAvoidingView
             style={{ flex: 1 }}
@@ -84,36 +78,12 @@ export default function NuevaBusqueda({ route, navigation }) {
       </TouchableOpacity>
       <Text> </Text>
 
-      {/* Confirmación 
-      <Modal visible={showConfirm} transparent animationType="fade">
-        <View style={styles.overlay}>
-          <View style={styles.confirmBox}>
-            <Text style={styles.confirmTitle}>¿Quieres participar en esta búsqueda?</Text>
-            {createdSearch && (
-              <>
-                <Text>Lugar: {createdSearch.meeting_place}</Text>
-                <Text>Fecha: {createdSearch.meeting_date}</Text>
-                <Text>Mensaje: {createdSearch.message}</Text>
-                <Text>Recomendaciones: {createdSearch.recommendations}</Text>
-              </>
-            )}
-
-            <View style={styles.actions}>
-              <TouchableOpacity style={styles.cancelButton} onPress={handleReject}>
-                <Text>Rechazar</Text>
-              </TouchableOpacity>
-              <TouchableOpacity style={styles.confirmButton} onPress={handleAccept}>
-                <Text style={{color:'#fff'}}>Aceptar</Text>
-              </TouchableOpacity>
-            </View>
-          </View>
-        </View>
-      </Modal>*/}
     </ScrollView>
     </KeyboardAvoidingView>
   );
 }
 
+// Estilos de la pantalla
 const styles = StyleSheet.create({
   container: { flex: 1, padding: 16, backgroundColor: '#fff' },
   input: { borderWidth: 1, borderColor: '#ccc', padding: 8, marginVertical: 8 },

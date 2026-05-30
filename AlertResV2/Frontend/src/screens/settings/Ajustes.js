@@ -1,13 +1,25 @@
-// src/screens/createSearch/menuProfesionales.js
+// src/screens/settings/Ajustes.js
+/*
+TFM: AlertRes, app de búsqueda y rescate de personas desaparecidas (2026)
+Autora: Naiara Gadea Rodríguez Gómez
+Máster en Ingeniería Biomédica y Salud Digital, Universidad de Sevilla
+
+---
+Descripción: Pantalla de ajustes de diferentes parámetros e información de AlertRes. Desde aquí se podrá cerrar sesión.
+*/
+
+// Importaciones
 import React,{ useEffect, useState, useContext } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, Switch, ScrollView } from 'react-native';
 import { Ionicons } from '@expo/vector-icons'; // para iconos sutiles
 
-export default function CrearMenuScreen({ navigation }) {
+// Exportación
+export default function Ajustes({ navigation }) {
   const [notifications, setNotifications] = React.useState(true);
   // Para el modal de contacto
   const [showAddModal, setShowAddModal] = useState(false);
 
+  // Vista de la pantalla
   return (
     <View style={styles.container}>
       <TouchableOpacity style={styles.firstButton} onPress={() => { /* de momento no nada */ }}>
@@ -44,6 +56,7 @@ export default function CrearMenuScreen({ navigation }) {
         <Ionicons name="log-out-outline" size={30} color="rgb(172, 11, 27)" />
       </TouchableOpacity>
 
+      {/** Vista del modal de contacto con los responsables de AlertRes */}
       {showAddModal && (
         <View style={styles.modalOverlay}>
           <View style={styles.modalBox}>
@@ -66,8 +79,7 @@ export default function CrearMenuScreen({ navigation }) {
   );
 }
 
-
-
+// Estilo de la pantalla
 const styles = StyleSheet.create({
   container: {
     backgroundColor: '#fff',
@@ -75,8 +87,6 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-start',
     paddingTop: 50,
   },
-
-
   button: {
   flexDirection: 'row',
   alignItems: 'center',
@@ -87,27 +97,23 @@ const styles = StyleSheet.create({
   width: '100%',
   borderBottomWidth: 1,
   borderColor: '#ccc',
-},
-
-
-firstButton: {
-  flexDirection: 'row',
-  alignItems: 'center',
-  justifyContent: 'space-between',
-  backgroundColor: '#fff',
-  paddingVertical: 30,
-  paddingHorizontal: 40,
-  width: '100%',
-  borderWidth: 1,
-  borderColor: '#ccc',
-},
-
+  },
+  firstButton: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    backgroundColor: '#fff',
+    paddingVertical: 30,
+    paddingHorizontal: 40,
+    width: '100%',
+    borderWidth: 1,
+    borderColor: '#ccc',
+  },
   buttonText: {
     fontSize: 16,
     fontWeight: '600',
     color: '#111827',
     alignSelf: 'center'
-    
   },
   logoutButton: {
   flexDirection: 'row',
@@ -119,72 +125,69 @@ firstButton: {
   width: '100%',
   borderBottomWidth: 1,
   borderColor: '#ccc',
-},
-
-logoutText: {
-  fontSize: 16,
-  fontWeight: '600',
-  color: 'rgb(172, 11, 27)', // 👈 rojo para diferenciar
-  alignSelf: 'center',
-},
-    modalOverlay: {
-  position: "absolute",
-  top: 0, left: 0, right: 0, bottom: 0,
-  backgroundColor: "rgba(0,0,0,0.5)",
-  justifyContent: "center",
-  alignItems: "center",
-},
-modalBox: {
-  width: "80%",
-  backgroundColor: "#fff",
-  padding: 20,
-  borderRadius: 10,
-  alignItems: "center"
-},
-modalTitle: {
-  fontSize: 18,
-  fontWeight: "700",
-  marginBottom: 15,
-},
-modalHeader: {
-  /*
-  width: "100%",
-  backgroundColor: "#c0d8ea", // gris-azulado institucional
-  paddingVertical: 12,
-  paddingHorizontal: 16,
-  borderTopLeftRadius: 10,
-  borderTopRightRadius: 10,
-  marginBottom: 15,*/
-  backgroundColor: "#7F7F7F", // tu azul-gris
-  paddingVertical: 8,
-  paddingHorizontal: 20,
-  borderRadius: 20,
-  alignSelf: "center",
-  marginBottom: 20,
-},
-
-modalHeaderText: {
-  color: "#fff",
-  fontSize: 18,
-  fontWeight: "700",
-  textAlign: "center",
-},
-modalButton:{marginTop: 10,
-  backgroundColor: "#9eb9cd",
-  paddingVertical: 12,
-  paddingHorizontal: 30,
-  borderRadius: 8,
-  alignItems: "center",
-  shadowColor: "#000",
-  shadowOpacity: 0.15,
-  shadowRadius: 4,
-  shadowOffset: { width: 0, height: 2 },
-  elevation: 3, 
-},
-modalButtonText: {
-  color: "#fff",
-  fontSize: 16,
-  fontWeight: "600",
-},
-
+  },
+  logoutText: {
+    fontSize: 16,
+    fontWeight: '600',
+    color: 'rgb(172, 11, 27)', // 👈 rojo para diferenciar
+    alignSelf: 'center',
+  },
+  modalOverlay: {
+    position: "absolute",
+    top: 0, left: 0, right: 0, bottom: 0,
+    backgroundColor: "rgba(0,0,0,0.5)",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  modalBox: {
+    width: "80%",
+    backgroundColor: "#fff",
+    padding: 20,
+    borderRadius: 10,
+    alignItems: "center"
+  },
+  modalTitle: {
+    fontSize: 18,
+    fontWeight: "700",
+    marginBottom: 15,
+  },
+  modalHeader: {
+    /*
+    width: "100%",
+    backgroundColor: "#c0d8ea", // gris-azulado institucional
+    paddingVertical: 12,
+    paddingHorizontal: 16,
+    borderTopLeftRadius: 10,
+    borderTopRightRadius: 10,
+    marginBottom: 15,*/
+    backgroundColor: "#7F7F7F", // tu azul-gris
+    paddingVertical: 8,
+    paddingHorizontal: 20,
+    borderRadius: 20,
+    alignSelf: "center",
+    marginBottom: 20,
+  },
+  modalHeaderText: {
+    color: "#fff",
+    fontSize: 18,
+    fontWeight: "700",
+    textAlign: "center",
+  },
+  modalButton:{marginTop: 10,
+    backgroundColor: "#9eb9cd",
+    paddingVertical: 12,
+    paddingHorizontal: 30,
+    borderRadius: 8,
+    alignItems: "center",
+    shadowColor: "#000",
+    shadowOpacity: 0.15,
+    shadowRadius: 4,
+    shadowOffset: { width: 0, height: 2 },
+    elevation: 3, 
+  },
+  modalButtonText: {
+    color: "#fff",
+    fontSize: 16,
+    fontWeight: "600",
+  },
 });

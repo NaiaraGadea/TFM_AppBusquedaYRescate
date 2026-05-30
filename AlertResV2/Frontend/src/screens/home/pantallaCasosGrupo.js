@@ -1,5 +1,14 @@
 // src/screens/home/pantallaCasosGrupo.js
-// Pantalla donde se muestran todos los casos del grupo
+/*
+TFM: AlertRes, app de búsqueda y rescate de personas desaparecidas (2026)
+Autora: Naiara Gadea Rodríguez Gómez
+Máster en Ingeniería Biomédica y Salud Digital, Universidad de Sevilla
+
+---
+Descripción: Pantalla donde se muestran todos los casos del grupo logueado.
+*/
+
+// Importaciones
 import React, { useEffect, useState, useContext } from "react";
 import { View, Text, FlatList, TouchableOpacity, StyleSheet, ScrollView } from "react-native";
 import { getCasesByGroup, getPersonById, getUserById, getGroupById, getMissingPersonById } from "../../../api";
@@ -7,7 +16,7 @@ import { Ionicons } from '@expo/vector-icons'; // para iconos sutiles
 
 import { UserContext } from '../../../App';
 
-// Etiqueta moderna
+// Etiqueta base
 const InfoTag = ({
   text,
   backgroundColor = '#3498db',
@@ -21,6 +30,7 @@ const InfoTag = ({
   );
 };
 
+// Exportación
 export default function GroupCases({ navigation }) {
     const { currentUser } = useContext(UserContext);
     const [person, setPerson] = useState(null);
@@ -48,7 +58,6 @@ export default function GroupCases({ navigation }) {
         return () => clearInterval(interval); // limpieza al salir de la pantalla
     }, [currentUser]);
 
-
     // Cargamos la información del usuario actual
     async function loadData() {
         if (!currentUser) return;
@@ -59,8 +68,8 @@ export default function GroupCases({ navigation }) {
         const rawCases = await getCasesByGroup(currentUser.group_id);
         
 
-        //console.log("PERSON DATA:", p);
-        //console.log("USER DATA:", u);
+        //console.log("PERSON DATA:", p); //Info
+        //console.log("USER DATA:", u); //Info
 
         // Enriquecer cada caso con la info de la persona
         const c = await Promise.all(
@@ -72,16 +81,15 @@ export default function GroupCases({ navigation }) {
             return {...caso, missing,person};
         }));
 
-        console.log("CASE DATA:", c);
+        console.log("CASE DATA:", c); //Info
 
-    
         setPerson(p);
         setUserData(u);
         setGroupData(g);
         setCasesData(c);
     }
 
-    // Nueva función: recarga solo los casos (más eficiente para el polling)
+    // Función que recarga solo los casos (más eficiente para el polling)
     async function loadCasesOnly() {
         if (!currentUser) return;
 
@@ -98,12 +106,13 @@ export default function GroupCases({ navigation }) {
         setCasesData(c);
     }
 
-    //console.log("PERSON DATA:", person);
-    //console.log("GROUP DATA:", groupData);
+    //console.log("PERSON DATA:", person); //Info
+    //console.log("GROUP DATA:", groupData); //Info
     if (!groupData || !person) {
         return <Text>Cargando...</Text>;
     }
 
+    //Item con la información básica del caso. Luego se mostrará una lista con todos los casos (items).
     const renderItem = ({ item }) => (
         <TouchableOpacity
           style={styles.button}
@@ -120,17 +129,15 @@ export default function GroupCases({ navigation }) {
           <Text style={{ color: "#555" }}>
             Última vez visto: {item.last_seen_point}
           </Text>
-          {/*<Text style={{ color: "#777" }}>Estado: {item.case_status}</Text>*/}
           <Text style={{ color: "#999", fontSize: 12 }}>
             Creado: {new Date(item.created_at).toLocaleDateString()}
           </Text>
         </TouchableOpacity>
       );
     
+    // Vista de la interfaz de la pantalla
     return (
-
         <View style={styles.container}>
-
             {/* BLOQUE FIJO: SIEMPRE SE MUESTRA */}
             <View style={styles.header}>
             <Text style={styles.title}>{groupData.group_name}</Text>
@@ -162,6 +169,7 @@ export default function GroupCases({ navigation }) {
     );
 }
 
+// Estilos de la pantalla
 const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: "#fff", padding: 16 },
   header: {

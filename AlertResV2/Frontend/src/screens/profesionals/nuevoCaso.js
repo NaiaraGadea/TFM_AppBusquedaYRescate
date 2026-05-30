@@ -1,4 +1,14 @@
-// Frontend/src/screens/home/RegisterCaseScreen.js
+// Frontend/src/screens/home/nuevoCaso.js
+/*
+TFM: AlertRes, app de búsqueda y rescate de personas desaparecidas (2026)
+Autora: Naiara Gadea Rodríguez Gómez
+Máster en Ingeniería Biomédica y Salud Digital, Universidad de Sevilla
+
+---
+Descripción: Pantalla de creación o registro de un nuevo incidente de una persona desaparecida.
+*/
+
+// Importaciones
 import React, { useState, useContext } from 'react';
 import {View, Text, TextInput, TouchableOpacity, Alert,ScrollView, 
         Switch, StyleSheet, KeyboardAvoidingView, Platform, ActivityIndicator} from 'react-native';
@@ -6,11 +16,11 @@ import { Picker } from '@react-native-picker/picker';
 import {createPerson, createMissingPerson, createReporter, createCase} from '../../../api';
 import { UserContext } from '../../../App';
 
+// Exportación
 export default function RegisterCaseScreen({ navigation }) {
   const { currentUser } = useContext(UserContext);
 
   // Campos persona
-  //const [person, setPerson] = useState(null)
   const [first_name, setFirstName] = useState('');
   const [last_name, setLastName] = useState('');
   const [date_of_birth, setDob] = useState(''); // YYYY-MM-DD
@@ -20,7 +30,6 @@ export default function RegisterCaseScreen({ navigation }) {
   const [age, setAge] = useState('');
 
   // Campos missing_people
-  //const [missing_person, setMissing] = useState (null)
   const [nickname, setNickname] = useState('');
   const [adult, setAdult] = useState(false);
   const [sex, setSex] = useState(''); // 'female' | 'male' | 'other'
@@ -65,8 +74,6 @@ export default function RegisterCaseScreen({ navigation }) {
   const [recurrence, setRecurrence] = useState('unknown');
   const [created_by, setCreatedBy] = useState(currentUser?.group_id || null);
 
-  
-
   // Campos del denunciante reporters+people
   const [rep_first_name, setRepFirstName] = useState('');
   const [rep_last_name, setRepLastName] = useState('');
@@ -77,7 +84,6 @@ export default function RegisterCaseScreen({ navigation }) {
   const [rep_email, setRepEmail] = useState('');
   const [relation, setRelation] = useState('');
   const [report_reason, setReportReason] = useState('');
-
 
 
   const [loading, setLoading] = useState(false);
@@ -100,11 +106,9 @@ export default function RegisterCaseScreen({ navigation }) {
         phone: phone || null,
         email: email || null
       };
-
       const p = await createPerson(personPayload);
       const person_id = p?.person_id;
       if (!person_id) throw new Error('No se pudo crear la persona');
-
 
       // 2) Crear registro en missing_people
       const missingPayload = {
@@ -137,13 +141,11 @@ export default function RegisterCaseScreen({ navigation }) {
         grade_of_deafness: grade_of_deafness || null,
         gender_violence: gender_violence ? 1 : 0,
       };
-
       const mp = await createMissingPerson(missingPayload);
       const missing_id = mp?.missing_id;
       if (!missing_id) throw new Error('No se pudo crear el registro de desaparecido');
 
-
-      // 3) (Opcional) crear reporter si tu formulario tuviera datos del reportero
+      // 3) (Opcional) crear reporter si el formulario tuviera datos del reportero
       let reporter_id = null;
 
       const hasReporter =
@@ -156,7 +158,6 @@ export default function RegisterCaseScreen({ navigation }) {
         report_reason;
 
       if (hasReporter) {
-
         // Validación mínima obligatoria
         if (!rep_first_name.trim() || !rep_last_name.trim()) {
           setLoading(false);
@@ -165,7 +166,6 @@ export default function RegisterCaseScreen({ navigation }) {
             "Si introduces datos del denunciante, nombre y apellidos son obligatorios."
           );
         }
-
         const reporterPersonPayload = {
           first_name: rep_first_name.trim(),
           last_name: rep_last_name.trim(),
@@ -178,17 +178,14 @@ export default function RegisterCaseScreen({ navigation }) {
 
         const pr = await createPerson(reporterPersonPayload);
         const reporterperson_id = pr?.person_id;
-
         const reporterPayload = {
           person_id: reporterperson_id,
           relation: relation || null,
           report_reason: report_reason || null
         };
-
         const r = await createReporter(reporterPayload);
         reporter_id = r?.reporter_id;
       }
-
 
       // 4) Crear case en tabla cases
       const casePayload = {
@@ -210,7 +207,6 @@ export default function RegisterCaseScreen({ navigation }) {
         created_by: created_by || null
       };
 
-
       const caseRes = await createCase(casePayload);
       const case_id = caseRes?.case_id;
       if (!case_id) throw new Error('No se pudo crear el caso');
@@ -225,6 +221,7 @@ export default function RegisterCaseScreen({ navigation }) {
     }
   };
 
+  // Vista de la pantalla
   return (
     <KeyboardAvoidingView
       style={{ flex: 1 }}
@@ -454,7 +451,6 @@ export default function RegisterCaseScreen({ navigation }) {
           </Picker>
         </View>
 
-
         {/*INFORMACIÓN FÍSICA Y MÉDICA DE LA PERSONA*/}
         <Text style={styles.sectionTitle}>Datos psicofísicos de la persona</Text>
 
@@ -600,7 +596,6 @@ export default function RegisterCaseScreen({ navigation }) {
           <Switch value={gender_violence} onValueChange={setGenderViolence} />
         </View>
 
-
         {/*DATOS DE LA PERSONA DENUNCIANTE*/}
         <Text style={styles.sectionTitle}>Datos del denunciante</Text>
         <View style={styles.inputContainer}>
@@ -691,10 +686,6 @@ export default function RegisterCaseScreen({ navigation }) {
           />
         </View>
 
-
-
-        
-
         <TouchableOpacity style={styles.button} onPress={submit} disabled={loading}>
           <Text style={styles.buttonText}>{loading ? 'Guardando...' : 'Guardar'}</Text>
         </TouchableOpacity>
@@ -703,6 +694,7 @@ export default function RegisterCaseScreen({ navigation }) {
   );
 }
 
+// Estilo de la pantalla
 const styles = StyleSheet.create({
   container: {
     padding: 16,

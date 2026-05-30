@@ -1,3 +1,15 @@
+/*
+TFM: AlertRes, app de búsqueda y rescate de personas desaparecidas (2026)
+Autora: Naiara Gadea Rodríguez Gómez
+Máster en Ingeniería Biomédica y Salud Digital, Universidad de Sevilla
+
+---
+Descripción: Fichero que es el núcleo de la aplicación.
+Aquí se inicializan los contextos globales, configura la navegación principal 
+mediante stacks y tabs según el tipo de usuario, y aplica el tema visual global. 
+*/
+
+// Importaciones
 import React, { useState, createContext } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
@@ -15,17 +27,17 @@ import mostrarPerfil from './src/screens/profile/Perfil';
 import pantallaListaBusquedas from './src/screens/search/pantallaListaBusquedas';
 import PantallaBusqueda from './src/screens/search/pantallaBusqueda';
 import listaDesaparecidos from './src/screens/home/Desaparecidos';
-import casosGrupo from './src/screens/home/pantallaCasosGrupo';
+import casosGrupo from './src/screens/home/pantallaCasosGrupo.js';
 import ajustes from './src/screens/settings/Ajustes';
-import casoPublico from './src/screens/home/pantallaCasoPublic'; 
+import casoPublico from './src/screens/home/pantallaCasoPublic.js'; 
 
 // Pantallas profesionales
-import menuProfesionales from './src/screens/profesionals/menuProfesionales';
-import RegisterCaseScreen from './src/screens/profesionals/RegisterCaseScreen';
-import AlertsScreen from './src/screens/profesionals/AlertsScreen';
-import nuevoDesaparecido from './src/screens/profesionals/nuevoDesaparecido';
-import casosActivos from './src/screens/profesionals/casosActivos';
-import historialCasos from './src/screens/profesionals/historialCasos';
+//import menuProfesionales from './src/screens/profesionals/menuProfesionales';
+import RegisterCaseScreen from './src/screens/profesionals/nuevoCaso.js';
+import AlertsScreen from './src/screens/profesionals/nuevaAlerta.js';
+//import nuevoDesaparecido from './src/screens/profesionals/nuevoDesaparecido';
+//import casosActivos from './src/screens/profesionals/casosActivos';
+//import historialCasos from './src/screens/profesionals/historialCasos';
 //import pantallaCaso from './src/screens/profesionals/pantallaCaso';
 import pantallaCasoActivo from './src/screens/profesionals/pantallaCasoActivo';
 import NuevaBusqueda from './src/screens/profesionals/nuevaBusqueda';
@@ -45,55 +57,8 @@ export const SearchContext = createContext();
 
 // Contexto para el usuario loggeado
 export const UserContext = createContext();
-/*
-// Stack para la pestaña "Profesionales"
-function ProfesionalesStack() {
-  return (
-    <Stack.Navigator>
-      <Stack.Screen
-        name="MenuProfesionales"
-        component={menuProfesionales}
-        options={{ title: 'Panel de profesionales' }}
-      />
-      <Stack.Screen
-        name="RegistrarCaso"
-        component={RegisterCaseScreen}
-        options={{ title: 'Registrar caso' }}
-      />
-      <Stack.Screen
-        name="CasosActivos"
-        component={casosActivos}
-        options={{ title: 'Casos Activos' }}
-      />
-      <Stack.Screen
-        name="HistorialCasos"
-        component={historialCasos}
-        options={{ title: 'Historial' }}
-      />
-      <Stack.Screen
-        name="PantallaCaso"
-        component={pantallaCaso}
-        options={{ title: 'Desaparecido' }}
-      />
-      <Stack.Screen
-        name="PantallaCasoActivo"
-        component={pantallaCasoActivo}
-        options={{ title: 'Desaparecido' }}
-      />
-      <Stack.Screen
-        name="CrearAlerta"
-        component={AlertsScreen}
-        options={{ title: 'Crear alerta' }}
-      />
-      <Stack.Screen
-        name="NuevaBusqueda"
-        component={NuevaBusqueda}
-        options={{ title: 'Crear Búsqueda' }}
-      />
-    </Stack.Navigator>
-  );
-}*/
 
+// Stack para la pestaña "Grupo"
 function ProfesionalesStack() {
   return (
     <Stack.Navigator>
@@ -163,7 +128,6 @@ function CasosGrupoStack() {
   );
 }
 
-
 // Stack para la pestaña "Búsqueda"
 function BusquedaStack() {
   return (
@@ -178,7 +142,6 @@ function BusquedaStack() {
         component={PantallaBusqueda}
         options={{ title: 'Búsqueda' }}
       />
-      
     </Stack.Navigator>
   );
 }
@@ -195,7 +158,6 @@ function PerfilStack() {
     </Stack.Navigator>
   );
 }
-
 
 // Stack para la pestaña "Ajustes"
 function AjustesStack() {
@@ -285,6 +247,7 @@ function TabsGrupos(){
   );
 }
 
+// Exportación de la app
 export default function App(){
   // Constante para conocersi hay o no una búsqueda en la que se está participando.
   const [activeSearch, setActiveSearch] = useState(null);
@@ -317,39 +280,3 @@ export default function App(){
 
   );
 }
-
-/*
-export default function App() {
-  const [activeSearch, setActiveSearch] = useState(null);
-
-  return (
-    <SafeAreaProvider>
-      <SearchContext.Provider value={{ activeSearch, setActiveSearch }}>
-        <NavigationContainer theme={MyTheme}>
-          <StatusBar style="auto" />
-          <Tab.Navigator
-            initialRouteName="Inicio"
-            screenOptions={({ route }) => ({
-              tabBarIcon: ({ color, size }) => {
-                let iconName;
-                if (route.name === 'Perfil') iconName = 'account';
-                else if (route.name === 'Búsqueda') iconName = 'map-marker-account';
-                else if (route.name === 'Inicio') iconName = 'home';
-                else if (route.name === 'Profesionales') iconName = 'plus-circle';
-                else if (route.name === 'Ajustes') iconName = 'cog';
-                return <MaterialCommunityIcons name={iconName} color={color} size={size} />;
-              },
-              headerShown: false,
-            })}
-          >
-            <Tab.Screen name="Perfil" component={PerfilStack} />
-            <Tab.Screen name="Búsqueda" component={BusquedaStack} />
-            <Tab.Screen name="Inicio" component={InicioStack} />
-            <Tab.Screen name="Profesionales" component={ProfesionalesStack} />
-            <Tab.Screen name="Ajustes" component={AjustesStack} />
-          </Tab.Navigator>
-        </NavigationContainer>
-      </SearchContext.Provider>
-    </SafeAreaProvider>
-  );
-}*/

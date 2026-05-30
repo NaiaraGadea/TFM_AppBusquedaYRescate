@@ -1,61 +1,29 @@
 // Frontend/src/api.js
+/*
+TFM: AlertRes, app de búsqueda y rescate de personas desaparecidas (2026)
+Autora: Naiara Gadea Rodríguez Gómez
+Máster en Ingeniería Biomédica y Salud Digital, Universidad de Sevilla
+
+---
+Descripción: Fichero donde se une el backend y el frontend, aquí se exportan las funciones 
+creadas en base a las distintas peticiones definidas en el Backedn.
+*/
+
+// Importaciones
 import axios from 'axios';
 
-const API_BASE = process.env.EXPO_PUBLIC_API_BASE || 'http://192.168.0.206:4000';
+const API_BASE = process.env.EXPO_PUBLIC_API_BASE || 'http://192.168.0.227:4000';
 
 export const api = axios.create({
   baseURL: API_BASE,
   timeout: 8000
 });
 
-/*
-// helpers VIEJOS
-//Casos
-export const getCases = () => api.get('/cases').then(r => r.data);
-export const getCasesByStatus = (status = 'all') => api.get(`/cases?status=${status}`).then(r => r.data);
-export const getCasesWithAlerts = () =>api.get('/cases/with-alerts').then(r => r.data);
-export const createCase = (payload) => api.post('/cases', payload).then(r => r.data);
-export const getCaseByCaseId = (caseId) => api.get(`/cases/${caseId}`).then(r => r.data);
-
-
-// Alertas
-export const getAlerts = (limit = 50) => api.get(`/alerts?limit=${limit}`).then(r => r.data);
-export const createAlert = (payload) => api.post('/alerts', payload).then(r => r.data);
-
-
-//Personas Desaparecidas
-export const createDesaparecido = (payload) =>
-  api.post('/desaparecidos', payload).then(r => r.data);
-
-export const getDesaparecidoByCaseId = (caseId) =>
-  api.get(`/desaparecidos/${caseId}`).then(r => r.data);
-
-export const updateDesaparecidoStatus = (caseId, status) =>
-  api.patch(`/desaparecidos/${caseId}/status`, { status }).then(r => r.data);
-
-// Búsquedas
-export const getSearchs = (limit = 50) =>
-  api.get(`/searchs?limit=${limit}`).then(r => r.data);
-
-export const getSearchsByCaseId = (caseId) =>
-  api.get(`/searchs/case/${caseId}`).then(r => r.data);
-
-export const createSearch = (payload) =>
-  api.post('/searchs', payload).then(r => r.data);
-
-export const getSearchById = (id) =>
-  api.get(`/searchs/${id}`).then(r => r.data);
-
-export const deleteSearch = (id) =>
-  api.delete(`/searchs/${id}`).then(r => r.data);
-
-*/
 // Helpers nuevos:
 // Alerts
 // GET con límite
 export const getAlerts = (limit) => api.get(`/alerts${limit ? `?limit=${limit}` : ''}`).then(r => r.data);
 export const getPublicAlerts = (groupId) =>  api.get(`/alerts/by-visibility/${groupId}`).then(r => r.data);
-
 // POST
 export const createAlert = (payload) => api.post('/alerts', payload).then(r=>r.data);
 
@@ -71,20 +39,17 @@ export const createCase = (payload) => api.post('/cases', payload).then(r=>r.dat
 // PUT
 export const updateCase = (caseId, payload) => api.put(`/cases/${caseId}`, payload).then(r => r.data);
 
-
 // Found Cases
 // GET con límite
 export const getFoundCases = (limit) => api.get(`/found_cases${limit ? `?limit=${limit}` : ''}`).then(r => r.data);
 // POST
 export const createFoundCase = (payload) => api.post('/found_cases', payload).then(r=>r.data);
 
-
 // Group Members
 // GET con límite
 export const getGroupMembers = (limit) => api.get(`/group_members${limit ? `?limit=${limit}` : ''}`).then(r => r.data);
 export const getMembersByGroupId = (group_id) => api.get(`/group_members/by-group/${group_id}`).then(r => r.data);
 export const getMemberByPersonId = (person_id) => api.get(`/group_members/by-person/${person_id}`).then(r => r.data);
-
 // POST
 export const createGroupMember = (payload) => api.post('/group_members', payload).then(r=>r.data);
 
@@ -129,6 +94,9 @@ export const getSearches = (limit) => api.get(`/searches${limit ? `?limit=${limi
 export const getSearchesByVisibility = (groupId) =>  api.get(`/searches/by-visibility/${groupId}`).then(r => r.data);
 // POST
 export const createSearch = (payload) => api.post('/searches', payload).then(r=>r.data);
+// PUT
+export const updateSearch = (search_id, payload) => api.put(`/searches/${search_id}`, payload).then(r => r.data);
+export const updateSearchesByCase = (case_id, payload) => api.put(`/searches/by-case/${case_id}`, payload).then(r => r.data);
 
 // Users
 // GET con límite

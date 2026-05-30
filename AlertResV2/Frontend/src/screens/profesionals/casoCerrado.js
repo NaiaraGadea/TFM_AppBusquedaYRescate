@@ -1,12 +1,23 @@
 // src/screens/profesionals/CasoCerrado.js
+/*
+TFM: AlertRes, app de búsqueda y rescate de personas desaparecidas (2026)
+Autora: Naiara Gadea Rodríguez Gómez
+Máster en Ingeniería Biomédica y Salud Digital, Universidad de Sevilla
+
+---
+Descripción: Pantalla con la que se recoge toda la información de un caso que se pretende cerrar, y se produce el cierre final del caso.
+*/
+
+// Importaciones
 import React, { useState } from 'react';
 import {
   View, Text, TextInput, TouchableOpacity, ScrollView,
   StyleSheet, KeyboardAvoidingView, Platform, ActivityIndicator, Alert
 } from 'react-native';
 import { Picker } from '@react-native-picker/picker';
-import { createFoundCase, updateCase } from '../../../api';
+import { createFoundCase, updateCase, updateSearchesByCase } from '../../../api';
 
+// Exportación
 export default function CasoCerrado({ route, navigation }) {
   const { item } = route.params;
   const case_id = item.case_id;
@@ -14,26 +25,26 @@ export default function CasoCerrado({ route, navigation }) {
   const desaparecido = item.missing;
   const persona = item.person;
 
-  // --- CAMPOS found_cases ---
+  // Campos de found_cases
   const [found_location, setFoundLocation] = useState('');
   const [latitude, setLatitude] = useState('');
   const [longitude, setLongitude] = useState('');
   const [distance_from_ipp_km, setDistance] = useState('');
   const [vertical_elevation_m, setElevation] = useState('');
   const [mobility_hours, setMobilityHours] = useState('');
-
   const [localization_type, setLocalizationType] = useState('');
   const [scenario, setScenario] = useState('');
   const [subject_status, setSubjectStatus] = useState('');
   const [climate_type, setClimateType] = useState('');
   const [disappearance_zone, setDisappearanceZone] = useState('');
   const [disappearance_terrain, setDisappearanceTerrain] = useState('');
-
   const [final_notes, setFinalNotes] = useState('');
   const [found_at, setFoundAt] = useState('');
-
   const [loading, setLoading] = useState(false);
 
+
+  // Función que se ejecutará al presionar sobre el botón de 'Guardar'. 
+  // Con esta función se pasa toda la información del caso cerrado a la base de datos. 
   async function submit() {
     if (!case_id) {
       return Alert.alert("Error", "No se recibió el case_id");
@@ -65,8 +76,11 @@ export default function CasoCerrado({ route, navigation }) {
       const res = await createFoundCase(payload);
       if (!res?.found_id) throw new Error("No se pudo registrar el cierre del caso");
 
-      // Ahora sí cerramos el caso
+      // Cerramos el caso
       await updateCase(case_id, { case_status: "closed" });
+      // Cerrar TODAS las búsquedas asociadas al caso
+      await updateSearchesByCase(case_id, { search_status:  "finalizada"});
+
 
       Alert.alert("Caso cerrado", `Registro creado con ID: ${res.found_id}`);
       navigation.navigate("Inicio", {screen: "CasosGrupo"});
@@ -79,11 +93,12 @@ export default function CasoCerrado({ route, navigation }) {
     }
   }
 
+  // Vista de la interfaz
   return (
     <KeyboardAvoidingView style={{ flex: 1 }} behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
       <ScrollView contentContainerStyle={styles.container}>
 
-        {/* --- INFORMACIÓN DEL CASO (SOLO LECTURA) --- */}
+        {/* Información del caso (solo lectura) */}
         <Text style={styles.sectionTitle}>Información del caso</Text>
 
         <Text style={styles.label}>Nombre:</Text>
@@ -103,7 +118,7 @@ export default function CasoCerrado({ route, navigation }) {
         <Text style={styles.label}>Estado actual:</Text>
         <Text style={styles.text}>Activo (se cerrará al guardar)</Text>
 
-        {/* --- FORMULARIO DE CIERRE --- */}
+        {/* Formulario de cierre */}
         <Text style={styles.sectionTitle}>Datos de cierre del caso</Text>
 
         {loading && <ActivityIndicator size="large" color="#ac0b1b" />}
@@ -145,7 +160,6 @@ export default function CasoCerrado({ route, navigation }) {
           <TextInput value={mobility_hours} onChangeText={setMobilityHours} style={styles.input} keyboardType="numeric" />
         </View>
 
-        {/* ENUMS */}
         <View style={styles.inputContainer}>
           <Text style={styles.label}>Tipo de localización</Text>
           <Picker selectedValue={localization_type} onValueChange={setLocalizationType} style={styles.picker}>
@@ -240,6 +254,7 @@ export default function CasoCerrado({ route, navigation }) {
   );
 }
 
+// Estilo de la pantalla
 const styles = StyleSheet.create({
   container: {
     padding: 16,

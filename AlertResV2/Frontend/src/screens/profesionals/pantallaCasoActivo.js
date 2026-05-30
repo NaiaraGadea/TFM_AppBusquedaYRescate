@@ -1,23 +1,28 @@
-// src/screens/createSearch/pantallaCaso.js
+// src/screens/createSearch/pantallaCasoActivo.js
+/*
+TFM: AlertRes, app de búsqueda y rescate de personas desaparecidas (2026)
+Autora: Naiara Gadea Rodríguez Gómez
+Máster en Ingeniería Biomédica y Salud Digital, Universidad de Sevilla
+
+---
+Descripción: Pantalla con la información de un caso.
+*/
+
+// Importaciones
 import React from "react";
 import { View, Text, StyleSheet, ScrollView, TouchableOpacity, Image } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { updateCase } from "../../../api";
 
+// Exportación
 export default function InformacionCaso({ route }) {
   const { item } = route.params;
   const navigation = useNavigation();
 
-  const handleCloseCase = async () => {
-      await updateCase(item.case_id, { case_status: "closed" });
-      alert("El caso ha sido cerrado correctamente.");
-      navigation.goBack();
-  };
-
-
   const desaparecido = item.missing;
   const persona = item.person;
 
+  // Vista de la interfaz de la pantalla
   return (
     <ScrollView style={styles.container}>
       <Text style={styles.title}>Caso #{item.case_id}</Text>
@@ -103,6 +108,7 @@ export default function InformacionCaso({ route }) {
   );
 }
 
+// Estilo de la pantalla
 const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: "#fff", padding: 16, paddingBottom: 50 },
   title: { fontSize: 22, fontWeight: "700", marginBottom: 16, textAlign: "center" },

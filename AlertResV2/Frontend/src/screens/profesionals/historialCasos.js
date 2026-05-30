@@ -1,4 +1,5 @@
 // src/screens/createSearch/HistorialCasos.js
+// FUERA
 // Pantalla donde se muestran todos los casos por estado del caso
 import React, { useEffect, useState } from "react";
 import { View, Text, FlatList, TouchableOpacity, StyleSheet } from "react-native";

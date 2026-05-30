@@ -1,11 +1,22 @@
-// Pantalla de creación de alertas respecto a un caso.
+// src/screens/profesionals/NuevaAlerta.js
+/*
+TFM: AlertRes, app de búsqueda y rescate de personas desaparecidas (2026)
+Autora: Naiara Gadea Rodríguez Gómez
+Máster en Ingeniería Biomédica y Salud Digital, Universidad de Sevilla
+
+---
+Descripción: Pantalla de creación de alertas respecto a un caso.
+*/
+
+// Importaciones
 import React, { useState, useEffect } from 'react';
 import { View, Text, TextInput, Button, Alert, Modal, StyleSheet, Switch, TouchableOpacity, ScrollView, KeyboardAvoidingView, Platform } from 'react-native';
 import { Picker } from '@react-native-picker/picker';
 import { createAlert, getCaseByCaseId } from '../../../api';
 import CaseItem from '../components/CaseItem';
-import AlertItem from '../components/AlertItem';
+//import AlertItem from '../components/AlertItem';
 
+// Exportación
 export default function AlertsScreen({ route, navigation }) {
   const { item } = route.params;
   console.log("ITEM Alert DATA:", item);
@@ -25,7 +36,6 @@ export default function AlertsScreen({ route, navigation }) {
   const handleSubmit = async () => {
     setShowConfirm(false);
     try {
-      //await createAlert({ case_id: caseId, message, is_public: isPublic, alert_type: alertType, zone });
       await createAlert({ 
         case_id: item.case_id, 
         message, 
@@ -41,6 +51,7 @@ export default function AlertsScreen({ route, navigation }) {
 
   if (!caseData) return <Text>Cargando...</Text>;
 
+  // Vista de la pantalla
   return (
     <KeyboardAvoidingView
       style={{ flex: 1 }}
@@ -143,6 +154,7 @@ export default function AlertsScreen({ route, navigation }) {
   );
 }
 
+// Estilo de la pantalla
 const styles = StyleSheet.create({
   container: { flex: 1, padding: 16, backgroundColor: '#fff', paddingBottom: 50 },
   label: { fontWeight: '600', marginTop: 10, marginBottom: 4 },

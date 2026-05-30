@@ -1,17 +1,28 @@
 // src/screens/profesionals/MiembrosGrupo.js
-// Pantalla donde se muestran todas las búsquedas públicas y del grupo
+/*
+TFM: AlertRes, app de búsqueda y rescate de personas desaparecidas (2026)
+Autora: Naiara Gadea Rodríguez Gómez
+Máster en Ingeniería Biomédica y Salud Digital, Universidad de Sevilla
+
+---
+Descripción: Pantalla donde se muestran todos los miembros del grupo.
+*/
+
+// Importaciones
 import React, { useEffect, useState, useContext } from "react";
 import { View, Text, FlatList, TouchableOpacity, StyleSheet, TextInput } from "react-native";
 import { getPersonById, getGroupById, getUserByPersonId, getMembersByGroupId, getPersonByDni, createGroupMember, updateUser} from "../../../api";
 import { Ionicons } from '@expo/vector-icons';
 import { UserContext } from '../../../App';
 
+// Etiqueta base
 const InfoTag = ({ text, backgroundColor = '#3498db', textColor = '#fff' }) => (
     <View style={[styles.tagContainer, { backgroundColor }]}>
         <Text style={[styles.tagText, { color: textColor }]}>{text}</Text>
     </View>
 );
 
+// Exportación
 export default function MembersList({ navigation }) {
     const { currentUser } = useContext(UserContext);
 
@@ -41,6 +52,7 @@ export default function MembersList({ navigation }) {
         return () => clearInterval(interval);
     }, [currentUser]);
 
+    // Función para cargar toda la información de los miembros del grupo logueado.
     async function loadData() {
         if (!currentUser) return;
 
@@ -55,10 +67,8 @@ export default function MembersList({ navigation }) {
         // Enriquecer cada búsqueda con info del caso y persona
         const enriched = await Promise.all(
             rawMembers.map(async (m) => {
-                //const missing = await getMissingPersonById(s.case_id);
                 const person = await getPersonById(m.person_id);
                 const user = await getUserByPersonId(m.person_id);
-                //const creatorGroup = await getGroupById(m.created_by);
 
                 return { ...m, person, user };
 
@@ -70,6 +80,7 @@ export default function MembersList({ navigation }) {
         setMembers(enriched);
     }
 
+    // Función para cargar la información de todos los miembros del grupo, pero optimizada.
     async function loadMembersOnly() {
         // Obtener los miembros del grupo
         const rawMembers = await getMembersByGroupId(currentUser.group_id);
@@ -85,6 +96,7 @@ export default function MembersList({ navigation }) {
         setMembers(enriched);
     }
     
+    // Función que se activará en el modal para añadir nuevos miembros al grupo en base a su DNI.
     async function handleAddMember() {
         // 1. Buscar persona por DNI
         const person = await getPersonByDni(dni);
@@ -106,7 +118,6 @@ export default function MembersList({ navigation }) {
         });
 
         // 3. Actualizar rol del usuario
-        //await updateUserRole(person.person_id, "group_member");
         const user = await getUserByPersonId(person.person_id);
         await updateUser(user.user_id, { rol: "group_member" });
 
@@ -122,6 +133,7 @@ export default function MembersList({ navigation }) {
 
     if (!person) return <Text>Cargando...</Text>;
 
+    // Vista del ítem de cada miembro del grupo.
     const renderItem = ({ item }) => (
         <TouchableOpacity style={styles.button} onPress={() => {}}>
             <InfoTag text={item.role_in_group} backgroundColor="#f68700" />
@@ -144,6 +156,7 @@ export default function MembersList({ navigation }) {
         </TouchableOpacity>
     );
 
+    // Vista de la pantalla
     return (
         <View style={styles.container}>
             <View style={styles.header}>
@@ -164,6 +177,7 @@ export default function MembersList({ navigation }) {
                 renderItem={renderItem}
                 contentContainerStyle={{ paddingBottom: 40 }}/>
 
+            {/* MODAL para añadir miembros*/}
             {showAddModal && (
                 <View style={styles.modalOverlay}>
                     <View style={styles.modalBox}>
@@ -187,6 +201,7 @@ export default function MembersList({ navigation }) {
     );
 }
 
+// Estilo de la pantalla
 const styles = StyleSheet.create({
     container: { flex: 1, backgroundColor: "#fff", padding: 16 },
     header: {

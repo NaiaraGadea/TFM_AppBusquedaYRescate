@@ -1,8 +1,20 @@
+// src/screens/home/Desaparecidos.js
+/*
+TFM: AlertRes, app de búsqueda y rescate de personas desaparecidas (2026)
+Autora: Naiara Gadea Rodríguez Gómez
+Máster en Ingeniería Biomédica y Salud Digital, Universidad de Sevilla
+
+---
+Descripción: Pantalla con la lista de personas desaparecidas de las cuales se ha lanzado una alerta. Las alertas se muestran con CaseItem.
+*/
+
+// Importaciones
 import React, { useEffect, useState, useCallback, useContext } from 'react';
 import { View, Text, FlatList, RefreshControl, StyleSheet, Dimensions } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import { UserContext } from '../../../App';
 
+import CaseItem from '../components/CaseItem';
+import { UserContext } from '../../../App';
 // IMPORTACIONES API
 import { 
   getPublicAlerts,
@@ -12,7 +24,6 @@ import {
   getGroupById
 } from '../../../api';
 
-import CaseItem from '../components/CaseItem';
 
 // Caso de ejemplo que se mostrará si no hay ninguna desaparición.
 const demoCase = {
@@ -38,6 +49,7 @@ const demoCase = {
   group_phone: '091',
 };
 
+// Exportación
 export default function listaDesaparecidos() {
   const navigation = useNavigation();
   const { currentUser } = useContext(UserContext);
@@ -48,7 +60,7 @@ export default function listaDesaparecidos() {
 
   // Cargar alertas públicas + del grupo y reconstruir cada caso
   const load = async () => {
-    if (!currentUser) return; // seguridad
+    if (!currentUser) return; 
 
     setLoading(true);
     try {
@@ -92,14 +104,10 @@ export default function listaDesaparecidos() {
     if (currentUser) load();
   }, [currentUser]);
 
-  // Polling cada 30s (opcional)
+  // Polling cada 30s, para volver a cargar los casos en caso de que se haya añadido uno nuevo.
   useEffect(() => {
     if (!currentUser) return;
-
-    const interval = setInterval(() => {
-      load();
-    }, 30000);
-
+    const interval = setInterval(() => {load();}, 30000);
     return () => clearInterval(interval);
   }, [currentUser]);
 
@@ -112,6 +120,7 @@ export default function listaDesaparecidos() {
   // Detectar si es web o móvil
   const isWeb = Dimensions.get('window').width > 768;
 
+  // Vista de la pantalla.
   return (
     <View style={styles.container}>
       <Text style={styles.title}>¿Los has visto?</Text>
@@ -137,6 +146,7 @@ export default function listaDesaparecidos() {
   );
 }
 
+// Estilos de la pantalla
 const styles = StyleSheet.create({
   container: {
     flex: 1,

@@ -1,17 +1,32 @@
 // src/screens/search/PantallaBusqueda.js
+/*
+TFM: AlertRes, app de búsqueda y rescate de personas desaparecidas (2026)
+Autora: Naiara Gadea Rodríguez Gómez
+Máster en Ingeniería Biomédica y Salud Digital, Universidad de Sevilla
+
+---
+Descripción: Pantalla donde se muestra la información de la búsqueda seleccionada.
+
+NOTA: se ha intentado implementar el mapa pero no ha sido posible que funcione correctamente.
+*/
+
+// Importaciones
 import React, { useContext, useEffect, useState } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, ScrollView, Modal } from 'react-native';
-// import MapView, { Marker } from 'react-native-maps';
+import { View, Text, StyleSheet, TouchableOpacity, ScrollView, Modal, Platform } from 'react-native';
+// import MapView, { Marker } from 'react-native-maps'; // No funciona
 import { Ionicons } from '@expo/vector-icons';
 import { SearchContext } from '../../../App';
 
+// MAPA UNIVERSAL (funciona en Expo Go, Android, iOS y Web)
+//import MapView, { Marker } from "react-native-web-maps"; // Tampoco funciona
+import { WebView } from 'react-native-webview';
+
+// Exportación
 export default function PantallaBusqueda({ route, navigation }) {
   //const { activeSearch, setActiveSearch } = useContext(SearchContext);
   const { item } = route.params || {};
   const [showRecs, setShowRecs] = React.useState(false);
  
-  
-
   if (!item) {
     return (
       <View style={styles.emptyContainer}>
@@ -24,7 +39,14 @@ export default function PantallaBusqueda({ route, navigation }) {
     );
   }
 
+  // Coordenadas (si no hay, usar Madrid)
+  const lat = item.latitude || 40.4168;
+  const lng = item.longitude || -3.7038;
 
+  // URL del mapa con marcador
+  const mapUrl = `https://www.google.com/maps?q=${lat},${lng}&z=14&output=embed`;
+
+  // Vista de la pantalla
   return (
     <View style={styles.container}>
       <ScrollView contentContainerStyle={{ paddingBottom: 80 }}>
@@ -51,11 +73,39 @@ export default function PantallaBusqueda({ route, navigation }) {
           <Text style={styles.value}>{item.message}</Text>
         </View>
 
-        {/* Mapa */}
+        {/* Mapa - NO FUNCIONA*/}
+        {/*<View style={styles.card}>
+          <Text style={styles.sectionTitle}>Mapa</Text>
+
+          <MapView
+            style={styles.map}
+            initialRegion={{
+              latitude: item.latitude || 40.4168,
+              longitude: item.longitude || -3.7038,
+              latitudeDelta: 0.01,
+              longitudeDelta: 0.01,
+            }}
+          >
+            {item.latitude && item.longitude && (
+              <Marker
+                coordinate={{
+                  latitude: item.latitude,
+                  longitude: item.longitude,
+                }}
+                title="Punto de encuentro"
+              />
+            )}
+          </MapView>
+        </View>*/}
         <View style={styles.card}>
           <Text style={styles.sectionTitle}>Mapa</Text>
-          
+
+          <WebView
+            style={styles.map}
+            source={{ uri: mapUrl }}
+          />
         </View>
+
 
         {/* Detalles */}
         <View style={styles.card}>
@@ -98,6 +148,7 @@ export default function PantallaBusqueda({ route, navigation }) {
   );
 }
 
+// Estilo de la pantalla
 const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: '#f9f9f9' },
   center: { flex: 1, justifyContent: 'center', alignItems: 'center' },
@@ -181,4 +232,5 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
+  //map:{width:'80%', height: '80%' }
 });

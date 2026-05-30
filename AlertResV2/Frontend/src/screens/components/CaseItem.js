@@ -1,8 +1,17 @@
-
 // Frontend/src/components/CaseItem.js
+/*
+TFM: AlertRes, app de búsqueda y rescate de personas desaparecidas (2026)
+Autora: Naiara Gadea Rodríguez Gómez
+Máster en Ingeniería Biomédica y Salud Digital, Universidad de Sevilla
+
+---
+Descripción: Item para mostrar un resumen de un caso del cual se ha publicado una alerta en la app.
+*/
+// Importaciones
 import React from 'react';
 import { View, Text, Image, TouchableOpacity, StyleSheet } from 'react-native';
-// Etiqueta moderna
+
+// Etiqueta base
 const InfoTag = ({
   text,
   backgroundColor = '#3498db',
@@ -15,6 +24,8 @@ const InfoTag = ({
     </View>
   );
 };
+
+// Exportación y vista del item.
 export default function CaseItem({ item, onContact }) {
   return (
     <View style={styles.card}>
@@ -78,6 +89,7 @@ export default function CaseItem({ item, onContact }) {
   );
 }
 
+// Estilos del Item
 const styles = StyleSheet.create({
   card: {
     backgroundColor: '#fff',

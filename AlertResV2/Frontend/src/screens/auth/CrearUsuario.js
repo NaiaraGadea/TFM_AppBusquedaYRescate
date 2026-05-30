@@ -1,4 +1,14 @@
 // src/screens/auth/CrearUsuario.js
+/*
+TFM: AlertRes, app de búsqueda y rescate de personas desaparecidas (2026)
+Autora: Naiara Gadea Rodríguez Gómez
+Máster en Ingeniería Biomédica y Salud Digital, Universidad de Sevilla
+
+---
+Descripción: pantalla para crear un nuevo usuario para la app.
+*/
+
+// Importaciones
 import React, { useState, useContext } from 'react';
 import { 
   View, Text, TextInput, TouchableOpacity, StyleSheet, 
@@ -11,9 +21,11 @@ import DateTimePicker from '@react-native-community/datetimepicker';
 import { createPerson, createGroup, createUser, createGroupMember } from '../../../api'; // funciones exportadas en tu api.js
 import { UserContext } from '../../../App'; // Para guardar qué usuario se ha loggeado
 
+// Exportación
 export default function CreateUser({ navigation }) {
   const { setCurrentUser } = useContext(UserContext);
 
+  // Datos del usuario
   const [first_name, setFirstName] = useState('');
   const [last_name, setLastName] = useState('');
   const [rol, setRol] = useState('volunteer'); // volunteer | group | group_member
@@ -29,7 +41,7 @@ export default function CreateUser({ navigation }) {
   const [group_type, setGroupType] = useState('');
   const [loading, setLoading] = useState(false);
 
-  // Para mostrar el selector nativo en móvil
+  // Para mostrar el selector nativo en el móvil
   const [showPicker, setShowPicker] = useState(false);
 
   // Función para calcular la edad
@@ -39,6 +51,7 @@ export default function CreateUser({ navigation }) {
     return Math.abs(ageDate.getUTCFullYear() - 1970);
   }
 
+  // Función que se ejecuta al presionar el botón de crear usuario: 'Crear y entrar'
   async function handleCreate() {
     if (!first_name || !last_name || !dni) {
       Alert.alert('Faltan datos', 'Rellena nombre, apellidos y dni.');
@@ -91,7 +104,6 @@ export default function CreateUser({ navigation }) {
       // 3) Crear usuario
       const userData = await createUser({ person_id, rol, search_count: 0 });
 
-      // userData.user_id debe existir. Si no, habría que buscarlo.
       setCurrentUser({
         user_id: userData.user_id,
         person_id,
@@ -113,6 +125,7 @@ export default function CreateUser({ navigation }) {
     }
   }
 
+  // Vista de la interfaz de pantalla
   return (
     <ScrollView  style={{ flex: 1 }} contentContainerStyle={styles.container}>
       <Text style={styles.title}>Crear nuevo usuario</Text>
@@ -123,7 +136,7 @@ export default function CreateUser({ navigation }) {
 
       <Text style={{ marginTop: 8 }}>Fecha de Nacimiento</Text>
 
-      {/* WEB → usar DatePickerInput (funciona perfecto) */}
+      {/* WEB → usar DatePickerInput */}
       {Platform.OS === "web" ? (
         <DatePickerInput
           locale="es"
@@ -164,7 +177,7 @@ export default function CreateUser({ navigation }) {
         </>
       )}
 
-      {/* EDAD (AUTOMÁTICA) */}
+      {/* Edad Automática */}
       <Text style={{ marginTop: 8 }}>Edad</Text>
       <TextInput style={styles.input} value={String(age)} editable={false} />
 
@@ -206,6 +219,7 @@ export default function CreateUser({ navigation }) {
   );
 }
 
+// Estilo de la pantalla
 const styles = StyleSheet.create({
   container: { 
     //flex: 1, 

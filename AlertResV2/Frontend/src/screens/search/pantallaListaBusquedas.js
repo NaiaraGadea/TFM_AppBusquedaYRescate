@@ -1,17 +1,28 @@
 // src/screens/search/pantallaListaBusqueda.js
-// Pantalla donde se muestran todas las búsquedas públicas y del grupo
+/*
+TFM: AlertRes, app de búsqueda y rescate de personas desaparecidas (2026)
+Autora: Naiara Gadea Rodríguez Gómez
+Máster en Ingeniería Biomédica y Salud Digital, Universidad de Sevilla
+
+---
+Descripción: Pantalla donde se muestran todas las búsquedas públicas y del grupo.
+*/
+
+// Importaciones
 import React, { useEffect, useState, useContext } from "react";
 import { View, Text, FlatList, TouchableOpacity, StyleSheet } from "react-native";
-import { getPersonById, getUserById, getGroupById, getMissingPersonById, getSearchesByVisibility} from "../../../api";
+import { getPersonById, getUserById, getGroupById, getMissingPersonById, getSearchesByVisibility, getCaseByCaseId} from "../../../api";
 import { Ionicons } from '@expo/vector-icons';
 import { UserContext } from '../../../App';
 
+// Etiqueta base
 const InfoTag = ({ text, backgroundColor = '#3498db', textColor = '#fff' }) => (
     <View style={[styles.tagContainer, { backgroundColor }]}>
         <Text style={[styles.tagText, { color: textColor }]}>{text}</Text>
     </View>
 );
 
+// Exportación
 export default function SearchList({ navigation }) {
     const { currentUser } = useContext(UserContext);
 
@@ -35,6 +46,7 @@ export default function SearchList({ navigation }) {
         return () => clearInterval(interval);
     }, [currentUser]);
 
+    // Función para cargar todos los datos de búsquedas registradas en la base de datos.
     async function loadData() {
         if (!currentUser) return;
 
@@ -44,10 +56,13 @@ export default function SearchList({ navigation }) {
         // Obtener búsquedas públicas + del grupo
         const rawSearches = await getSearchesByVisibility(currentUser.group_id ?? 0);
 
+        console.log("RAW SEARCHES:", rawSearches);
+
         // Enriquecer cada búsqueda con info del caso y persona
         const enriched = await Promise.all(
             rawSearches.map(async (s) => {
-                const missing = await getMissingPersonById(s.case_id);
+                const caseData = await getCaseByCaseId(s.case_id);
+                const missing = await getMissingPersonById(caseData.missing_id);
                 const person = await getPersonById(missing.person_id);
                 const creatorGroup = await getGroupById(s.created_by);
                 return { ...s, missing, person, creatorGroup };
@@ -60,14 +75,15 @@ export default function SearchList({ navigation }) {
         setSearches(enriched);
     }
 
+    // Función optimizada para el polling donde se obtienen las búsquedas de la base de datos.
     async function loadSearchesOnly() {
         const rawSearches = await getSearchesByVisibility(currentUser.group_id ?? 0);
-        //console.log("SEARCHES DATA:", rawSearches);
-
+        //console.log("SEARCHES DATA:", rawSearches); //Info
 
         const enriched = await Promise.all(
             rawSearches.map(async (s) => {
-                const missing = await getMissingPersonById(s.case_id);
+                const caseData = await getCaseByCaseId(s.case_id);
+                const missing = await getMissingPersonById(caseData.missing_id);
                 const person = await getPersonById(missing.person_id);
                 const creatorGroup = await getGroupById(s.created_by);
                 return { ...s, missing, person, creatorGroup };
@@ -80,6 +96,7 @@ export default function SearchList({ navigation }) {
 
     if (!person) return <Text>Cargando...</Text>;
 
+    // Vista del item donde se recogerá un resumen de la información de una búsqueda. Se mostrará una lista de items.
     const renderItem = ({ item }) => (
         <TouchableOpacity
             style={styles.button}
@@ -106,6 +123,7 @@ export default function SearchList({ navigation }) {
         </TouchableOpacity>
     );
 
+    // Vista de la pantalla
     return (
         <View style={styles.container}>
             <View style={styles.header}>
@@ -132,6 +150,7 @@ export default function SearchList({ navigation }) {
     );
 }
 
+// Estilo de la pantalla
 const styles = StyleSheet.create({
     container: { flex: 1, backgroundColor: "#fff", padding: 16 },
     header: {

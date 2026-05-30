@@ -1,4 +1,14 @@
-// src/screens/home/pantallaCasoPublic.js
+// src/screens/home/PantallaCasoPublic.js
+/*
+TFM: AlertRes, app de búsqueda y rescate de personas desaparecidas (2026)
+Autora: Naiara Gadea Rodríguez Gómez
+Máster en Ingeniería Biomédica y Salud Digital, Universidad de Sevilla
+
+---
+Descripción: Pantalla que muestra la información básica de un caso de desaparecido del cuál se ha lanzado una alerta.
+*/
+
+// Importaciones
 import React, { useState } from 'react';
 import { 
   View, Text, StyleSheet, Image, TextInput, Button, 
@@ -19,22 +29,25 @@ const InfoTag = ({
   );
 };
 
-export default function casoPublico({ route, navigation }) {
+// Exportación
+export default function CasoPublico({ route, navigation }) {
   const { item } = route.params;
   const [message, setMessage] = useState('');
 
+  // Constante con la información a compartir
   const onShare = async () => {
     try {
       await Share.share({
-        message: `Ayuda a difundir: ${item.full_name}, 
-        visto por última vez en ${item.last_seen_location}. 
-        Más info: ${item.description || ''} ${item.information || ''}`,
+        message: `Ayuda a difundir: ${item.person.first_name} ${item.person.last_name}, 
+        visto por última vez en ${item.last_seen_point}. 
+        Más info en AlertRes`,
       });
     } catch (error) {
       alert(error.message);
     }
   };
 
+  // Vista de la interfaz de pantalla
   return (
     <KeyboardAvoidingView
       style={{ flex: 1 }}
@@ -118,17 +131,10 @@ export default function casoPublico({ route, navigation }) {
           </>
         )}
 
-        {item.missing.description && (
-          <>
-            <Text style={styles.label}>Descripción:</Text>
-            <Text style={styles.text}>{item.missing.description}</Text>
-          </>
-        )}
-
         {item.missing.information && (
           <>
             <Text style={styles.label}>Información extra:</Text>
-            <Text style={styles.text}>{item.missing.information}</Text>
+            <Text style={styles.text}>{item.missing.final_notes}</Text>
           </>
         )}
 
@@ -181,12 +187,13 @@ export default function casoPublico({ route, navigation }) {
   );
 }
 
+// Estilos de la pantalla
 const styles = StyleSheet.create({
   container: {
     padding: 16,
     backgroundColor: '#fff',
     paddingBottom: 80,
-    flexGrow: 1, // 🔥 IMPORTANTE PARA QUE EL SCROLL BAJE EN MÓVIL
+    flexGrow: 1, 
   },
 
   image: {
