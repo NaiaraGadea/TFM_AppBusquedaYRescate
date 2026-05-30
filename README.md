@@ -1,5 +1,17 @@
-<image src="/Latex/img/us.jpg" align="left">
-<image src="/Latex/img/logoAlertRes.png" style="width: 50%;" align="right">
+
+<table>
+  <tr>
+    <td align="left">
+      <img src="/Latex/img/us.jpg" width="150">
+    </td>
+    <td align="center">
+      <img src="/Latex/img/logoAlertRes.png" width="400">
+    </td>
+    <td align="right">
+      <img src="https://www.mibsd.us.es/images/logo-sinletras-alto61.png" width="150">
+    </td>
+  </tr>
+</table>
 
 
 
