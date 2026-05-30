@@ -8,7 +8,7 @@
       <img src="/Latex/img/logoAlertRes.png" width="400">
     </td>
     <td align="right">
-      <img src="https://www.mibsd.us.es/images/logo-sinletras-alto61.png" width="150">
+      <img src="https://www.mibsd.us.es/images/logo-sinletras-alto61.png" width="170">
     </td>
   </tr>
 </table>
