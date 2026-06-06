@@ -38,21 +38,45 @@ export default function InformacionCaso({ route }) {
       )}
 
       {/* DATOS PERSONALES */}
+      <Text style={styles.sectionTitle}>Información básica</Text>
+
       <Text style={styles.label}>Nombre:</Text>
       <Text style={styles.text}>{persona.first_name} {persona.last_name}</Text>
 
       <Text style={styles.label}>Edad:</Text>
       <Text style={styles.text}>{persona.age} años</Text>
 
+      {persona.birth_date && <>
+        <Text style={styles.label}>Fecha de nacimiento:</Text>
+        <Text style={styles.text}>{persona.birth_date}</Text>
+      </>}
+
       <Text style={styles.label}>Nacionalidad:</Text>
       <Text style={styles.text}>{desaparecido.nationality}</Text>
+
+      {persona.dni && <>
+        <Text style={styles.label}>DNI:</Text>
+        <Text style={styles.text}>{persona.dni}</Text>
+      </>}
+
+      {persona.phone && <>
+        <Text style={styles.label}>Teléfono:</Text>
+        <Text style={styles.text}>{persona.phone}</Text>
+      </>}
+
+      {persona.email && <>
+        <Text style={styles.label}>Email:</Text>
+        <Text style={styles.text}>{persona.email}</Text>
+      </>}
 
       <Text style={styles.label}>Dirección habitual:</Text>
       <Text style={styles.text}>{desaparecido.habitual_address}</Text>
 
       {/* INFORMACIÓN DEL CASO */}
+      <Text style={styles.sectionTitle}>Información del incidente</Text>
+
       <Text style={styles.label}>Última vez visto:</Text>
-      <Text style={styles.text}>{item.last_seen_point}</Text>
+      <Text style={styles.text}>{item.last_seen_point || item.departure_point}</Text>
 
       <Text style={styles.label}>Fecha desaparición:</Text>
       <Text style={styles.text}>
@@ -63,6 +87,163 @@ export default function InformacionCaso({ route }) {
       <Text style={styles.text}>
         {item.case_status === "active" ? "Activo" : "Cerrado"}
       </Text>
+
+      {item.expected_return_point && <>
+        <Text style={styles.label}>Punto de retorno esperado:</Text>
+        <Text style={styles.text}>{item.expected_return_point}</Text>
+      </>}
+
+      {item.last_seen_at && <>
+        <Text style={styles.label}>Hora última vez visto:</Text>
+        <Text style={styles.text}>{item.last_seen_at}</Text>
+      </>}
+
+      {item.last_seen_by && <>
+        <Text style={styles.label}>Visto por:</Text>
+        <Text style={styles.text}>{item.last_seen_by}</Text>
+      </>}
+
+      {item.last_known_point && <>
+        <Text style={styles.label}>Último punto conocido:</Text>
+        <Text style={styles.text}>{item.last_known_point}</Text>
+      </>}
+
+      {item.last_known_at && <>
+        <Text style={styles.label}>Hora último punto conocido:</Text>
+        <Text style={styles.text}>{item.last_known_at}</Text>
+      </>}
+
+      {item.typology && <>
+        <Text style={styles.label}>Tipología:</Text>
+        <Text style={styles.text}>{item.typology}</Text>
+      </>}
+
+      {item.category && <>
+        <Text style={styles.label}>Categoría:</Text>
+        <Text style={styles.text}>{item.category}</Text>
+      </>}
+
+      {item.recurrence && <>
+        <Text style={styles.label}>Reincidencia:</Text>
+        <Text style={styles.text}>{item.recurrence}</Text>
+      </>}
+
+
+      {/** OTRA INFORMACIÓN DE LA PERSONA DESAPARECIDA */}
+      <Text style={styles.sectionTitle}>Descripción de la persona desaparecida</Text>
+
+      {desaparecido.nickname && <>
+        <Text style={styles.label}>Apodo:</Text>
+        <Text style={styles.text}>{desaparecido.nickname}</Text>
+      </>}
+
+      {desaparecido.languages && <>
+        <Text style={styles.label}>Idiomas:</Text>
+        <Text style={styles.text}>{desaparecido.languages}</Text>
+      </>}
+
+      {desaparecido.height && <>
+        <Text style={styles.label}>Altura:</Text>
+        <Text style={styles.text}>{desaparecido.height} cm</Text>
+      </>}
+
+      {desaparecido.weight && <>
+        <Text style={styles.label}>Peso:</Text>
+        <Text style={styles.text}>{desaparecido.weight} kg</Text>
+      </>}
+
+      {desaparecido.hair && <>
+        <Text style={styles.label}>Cabello:</Text>
+        <Text style={styles.text}>{desaparecido.hair}</Text>
+      </>}
+
+      {desaparecido.facial_hair && <>
+        <Text style={styles.label}>Vello facial:</Text>
+        <Text style={styles.text}>{desaparecido.facial_hair}</Text>
+      </>}
+
+      {desaparecido.eye_color && <>
+        <Text style={styles.label}>Color de ojos:</Text>
+        <Text style={styles.text}>{desaparecido.eye_color}</Text>
+      </>}
+
+      {desaparecido.last_clothing && <>
+        <Text style={styles.label}>Última ropa vista:</Text>
+        <Text style={styles.text}>{desaparecido.last_clothing}</Text>
+      </>}
+
+      <Text style={styles.sectionTitle}>Información médica y psicofísica</Text>
+
+      {desaparecido.physical_level && <>
+        <Text style={styles.label}>Nivel físico:</Text>
+        <Text style={styles.text}>{desaparecido.physical_level}</Text>
+      </>}
+
+      {desaparecido.physical_constitution && <>
+        <Text style={styles.label}>Constitución física:</Text>
+        <Text style={styles.text}>{desaparecido.physical_constitution}</Text>
+      </>}
+
+      {desaparecido.other_physical_features && <>
+        <Text style={styles.label}>Otros rasgos físicos:</Text>
+        <Text style={styles.text}>{desaparecido.other_physical_features}</Text>
+      </>}
+
+      {desaparecido.medical_conditions && <>
+        <Text style={styles.label}>Condiciones médicas:</Text>
+        <Text style={styles.text}>{desaparecido.medical_conditions}</Text>
+      </>}
+
+      {desaparecido.allergies && <>
+        <Text style={styles.label}>Alergias:</Text>
+        <Text style={styles.text}>{desaparecido.allergies}</Text>
+      </>}
+
+      {desaparecido.disability && <>
+        <Text style={styles.label}>Discapacidad:</Text>
+        <Text style={styles.text}>{desaparecido.disability}</Text>
+      </>}
+
+      {desaparecido.lack_of_autonomy && <>
+        <Text style={styles.label}>Falta de autonomía:</Text>
+        <Text style={styles.text}>{desaparecido.lack_of_autonomy}</Text>
+      </>}
+
+      {desaparecido.treatment && <>
+        <Text style={styles.label}>Tratamiento:</Text>
+        <Text style={styles.text}>{desaparecido.treatment}</Text>
+      </>}
+
+      {desaparecido.with_medication !== null && <>
+        <Text style={styles.label}>¿Lleva medicación?:</Text>
+        <Text style={styles.text}>{desaparecido.with_medication ? "Sí" : "No"}</Text>
+      </>}
+
+      {desaparecido.substance_abuse && <>
+        <Text style={styles.label}>Consumo de sustancias:</Text>
+        <Text style={styles.text}>{desaparecido.substance_abuse}</Text>
+      </>}
+
+      {desaparecido.visual_problems && <>
+        <Text style={styles.label}>Problemas visuales:</Text>
+        <Text style={styles.text}>{desaparecido.visual_problems}</Text>
+      </>}
+
+      {desaparecido.hearing_problems && <>
+        <Text style={styles.label}>Problemas auditivos:</Text>
+        <Text style={styles.text}>{desaparecido.hearing_problems}</Text>
+      </>}
+
+      {desaparecido.grade_of_deafness && <>
+        <Text style={styles.label}>Grado de sordera:</Text>
+        <Text style={styles.text}>{desaparecido.grade_of_deafness}</Text>
+      </>}
+
+      {desaparecido.gender_violence !== null && <>
+        <Text style={styles.label}>Violencia de género:</Text>
+        <Text style={styles.text}>{desaparecido.gender_violence ? "Sí" : "No"}</Text>
+      </>}
+
 
       {/* BOTONES */}
       {/* BOTÓN: Modificar datos */}
@@ -146,4 +327,13 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
   },
+  sectionTitle: {
+    fontSize: 18,
+    fontWeight: "700",
+    marginTop: 25,
+    marginBottom: 10,
+    paddingLeft: 10,
+    color: "#ac0b1b",
+  },
+
 });

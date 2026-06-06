@@ -80,11 +80,13 @@ export default function CasoPublico({ route, navigation }) {
         </Text>
 
         {/* INFO DEL CASO */}
+        <Text style={styles.sectionTitle}>Información del caso</Text>
+
         <Text style={styles.label}>Fecha de desaparición:</Text>
         <Text style={styles.text}>{item.disappearance_date}</Text>
 
         <Text style={styles.label}>Edad actual:</Text>
-        <Text style={styles.text}>{item.age || 'Desconocida'} años</Text>
+        <Text style={styles.text}>{item.person.age || 'Desconocida'} años</Text>
 
         <Text style={styles.label}>Última localización:</Text>
         <Text style={styles.text}>{item.last_seen_point}</Text>
@@ -137,6 +139,45 @@ export default function CasoPublico({ route, navigation }) {
             <Text style={styles.text}>{item.missing.final_notes}</Text>
           </>
         )}
+
+        {/* INFORMACIÓN DE LA ALERTA */}
+        {item.alert && (
+          <View style={styles.alertBox}>
+            <Text style={styles.sectionTitle}>Información de la alerta</Text>
+
+            {item.alert.message && (
+              <>
+                <Text style={styles.label}>Mensaje:</Text>
+                <Text style={styles.text}>{item.alert.message}</Text>
+              </>
+            )}
+
+            {item.alert.alert_type && (
+              <>
+                <Text style={styles.label}>Tipo de alerta:</Text>
+                <Text style={styles.text}>{item.alert.alert_type}</Text>
+              </>
+            )}
+
+            {item.alert.alert_zone && (
+              <>
+                <Text style={styles.label}>Zona de alerta:</Text>
+                <Text style={styles.text}>{item.alert.alert_zone}</Text>
+              </>
+            )}
+
+            {item.alert.created_at && (
+              <>
+                <Text style={styles.label}>Fecha de creación:</Text>
+                <Text style={styles.text}>
+                  {new Date(item.alert.created_at).toLocaleString("es-ES")}
+                </Text>
+              </>
+            )}
+          </View>
+        )}
+
+        <Text style={styles.sectionTitle}>Información de los responsables del caso</Text>
 
         {item.group_name && (
           <>
@@ -275,5 +316,13 @@ const styles = StyleSheet.create({
   tagText: {
     fontSize: 14,
     fontWeight: "500",
+  },
+  sectionTitle: {
+    fontSize: 18,
+    fontWeight: "700",
+    marginTop: 25,
+    marginBottom: 10,
+    paddingLeft: 10,
+    color: "#ac0b1b",
   },
 });

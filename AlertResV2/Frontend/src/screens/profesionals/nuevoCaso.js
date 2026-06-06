@@ -88,6 +88,13 @@ export default function RegisterCaseScreen({ navigation }) {
 
   const [loading, setLoading] = useState(false);
 
+  function calcAge(date) {
+    const diff = Date.now() - date.getTime();
+    const ageDate = new Date(diff);
+    return Math.abs(ageDate.getUTCFullYear() - 1970);
+  }
+
+
   const submit = async () => {
     // Validaciones mínimas
     if (!first_name.trim() || !last_name.trim()) {
@@ -260,7 +267,15 @@ export default function RegisterCaseScreen({ navigation }) {
         <View style={styles.row}>
           <View style={{ flex: 1, marginRight: 8 }}>
             <Text style={styles.label}>Fecha de nacimiento (YYYY-MM-DD)</Text>
-            <TextInput value={date_of_birth} onChangeText={setDob} style={styles.input} />
+            <TextInput
+              value={date_of_birth}
+              onChangeText={(text) => {
+                setDob(text);
+                const d = new Date(text);
+                if (!isNaN(d)) setAge(calcAge(d));
+              }}
+              style={styles.input}
+            />
           </View>
 
           <View style={{ width: 100 }}>
@@ -629,9 +644,14 @@ export default function RegisterCaseScreen({ navigation }) {
           <Text style={styles.label}>Fecha de nacimiento (YYYY-MM-DD)</Text>
           <TextInput
             value={rep_birth_date}
-            onChangeText={setRepBirthDate}
+            onChangeText={(text) => {
+              setRepBirthDate(text);
+              const d = new Date(text);
+              if (!isNaN(d)) setRepAge(calcAge(d));
+            }}
             style={styles.input}
           />
+
         </View>
 
         <View style={styles.inputContainer}>
