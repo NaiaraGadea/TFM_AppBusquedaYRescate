@@ -12,7 +12,7 @@ creadas en base a las distintas peticiones definidas en el Backedn.
 // Importaciones
 import axios from 'axios';
 
-const API_BASE = process.env.EXPO_PUBLIC_API_BASE || 'http://192.168.0.227:4000';
+const API_BASE = process.env.EXPO_PUBLIC_API_BASE || 'http://192.168.0.248:4000';
 
 export const api = axios.create({
   baseURL: API_BASE,
@@ -85,6 +85,9 @@ export const createGroup = (payload) => api.post('/rescue_groups', payload).then
 // Search Participants
 // GET con límite
 export const getSearchParticipants = (limit) => api.get(`/search_participants${limit ? `?limit=${limit}` : ''}`).then(r => r.data);
+
+export const checkSearchParticipant = (search_id, person_id) => api.get(`/search_participants/check?search_id=${search_id}&person_id=${person_id}`).then(r => r.data);
+
 // POST
 export const createSearchParticipant = (payload) => api.post('/search_participants', payload).then(r=>r.data);
 
