@@ -4,6 +4,7 @@ import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native'
 import { Ionicons } from '@expo/vector-icons'
 import { getUsers, getPeople, getGroupByPersonID, getPersonById , getUserById, getMemberByPersonId, getGroupById} from '../../../api';
 import { UserContext } from '../../../App';
+import defaultAvatar from '../../../assets/img/defaultAvatar.jpg';
 
 
 
@@ -76,7 +77,7 @@ export default function PerfilScreen () {
     <View style={styles.container}>
       {/* Imagen de perfil */}
       <Image
-        source={{ uri: 'https://copilot.microsoft.com/th/id/BCO.da83c73a-9926-4192-a9bf-3d7e2aea0f3e.png' }}
+        source={defaultAvatar}
         style={styles.avatar}
       />
 
