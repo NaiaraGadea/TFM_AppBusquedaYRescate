@@ -36,6 +36,23 @@ router.get('/', async (req, res) => {
     res.json(rows);
 });
 
+// GET: comprobar si un usuario ya participa en una búsqueda
+router.get('/check', async (req, res) => {
+    const { search_id, person_id } = req.query;
+
+    if (!search_id || !person_id) {
+        return res.status(400).json({ error: 'search_id y person_id son obligatorios' });
+    }
+
+    const [rows] = await pool.query(
+        `SELECT 1 FROM search_participants WHERE search_id = ? AND person_id = ? LIMIT 1`,
+        [search_id, person_id]
+    );
+
+    res.json({ exists: rows.length > 0 });
+});
+
+
 // POST: crear un nuevo participante y devolver la fila insertada
 router.post('/', async (req, res) => {
     const {

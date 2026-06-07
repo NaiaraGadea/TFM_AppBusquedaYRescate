@@ -104,4 +104,85 @@ router.post('/', async (req, res) => {
     res.json(rows[0]);
 });
 
+// PUT: actualizar una búsqueda completo excepto campos protegidos
+router.put('/:search_id', async (req, res) => {
+    const searchId = Number(req.params.search_id);
+
+    // Campos que NO se pueden modificar
+    const protectedFields = ['search_id', 'case_id', 'meeting_date', 'created_by'];
+
+    // Filtrar el body para evitar que actualicen campos protegidos
+    const updates = Object.fromEntries(
+        Object.entries(req.body).filter(([key]) => !protectedFields.includes(key))
+    );
+
+    if (Object.keys(updates).length === 0) {
+        return res.status(400).json({ error: 'No hay campos válidos para actualizar' });
+    }
+
+    // Construir SQL dinámico
+    const fields = Object.keys(updates).map(key => `${key} = ?`).join(', ');
+    const values = Object.values(updates);
+
+    await pool.query(
+      `UPDATE searches SET ${fields} WHERE search_id = ?`,
+      [...values, searchId]
+    );
+
+    const [rows] = await pool.query(
+      `SELECT * FROM searches WHERE search_id = ?`,
+      [searchId]
+    );
+
+    res.json(rows[0]);
+});
+
+
+// PUT: actualizar TODAS las búsquedas asociadas a un case_id
+router.put('/by-case/:case_id', async (req, res) => {
+    const caseId = Number(req.params.case_id);
+
+    // Campos que NO se pueden modificar
+    const protectedFields = ['search_id', 'case_id', 'meeting_date', 'created_by'];
+
+    // Filtrar el body
+    const updates = Object.fromEntries(
+        Object.entries(req.body).filter(([key]) => !protectedFields.includes(key))
+    );
+
+    if (Object.keys(updates).length === 0) {
+        return res.status(400).json({ error: 'No hay campos válidos para actualizar' });
+    }
+
+    // Verificar que existen búsquedas para ese case_id
+    const [existing] = await pool.query(
+        `SELECT search_id FROM searches WHERE case_id = ?`,
+        [caseId]
+    );
+
+    if (existing.length === 0) {
+        return res.status(404).json({ error: 'No existen búsquedas para este case_id' });
+    }
+
+    // Construir SQL dinámico
+    const fields = Object.keys(updates).map(key => `${key} = ?`).join(', ');
+    const values = Object.values(updates);
+
+    const [result] = await pool.query(
+        `UPDATE searches SET ${fields} WHERE case_id = ?`,
+        [...values, caseId]
+    );
+
+    // Obtener las búsquedas actualizadas
+    const [rows] = await pool.query(
+        `SELECT * FROM searches WHERE case_id = ?`,
+        [caseId]
+    );
+
+    res.json({
+        updated: result.affectedRows,
+        searches: rows
+    });
+});
+
 export default router;
