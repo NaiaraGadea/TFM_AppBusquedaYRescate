@@ -10,8 +10,9 @@ Descripción: Pantalla donde se muestran todas las búsquedas públicas y del gr
 
 // Importaciones
 import React, { useEffect, useState, useContext } from "react";
-import { View, Text, FlatList, TouchableOpacity, StyleSheet } from "react-native";
-import { getPersonById, getUserById, getGroupById, getMissingPersonById, getSearchesByVisibility, getCaseByCaseId} from "../../../api";
+import { View, Text, FlatList, TouchableOpacity, StyleSheet, Modal } from "react-native";
+import { getPersonById, getUserById, getGroupById, getMissingPersonById, 
+    getSearchesByVisibility, getCaseByCaseId, createSearchParticipant, checkSearchParticipant, getUserByPersonId, updateUser} from "../../../api";
 import { Ionicons } from '@expo/vector-icons';
 import { UserContext } from '../../../App';
 
@@ -29,6 +30,10 @@ export default function SearchList({ navigation }) {
     const [person, setPerson] = useState(null);
     const [groupData, setGroupData] = useState(null);
     const [searches, setSearches] = useState([]);
+
+    // Estado del modal
+    const [selectedSearch, setSelectedSearch] = useState(null);
+    const [modalVisible, setModalVisible] = useState(false);
 
     // Cargar datos iniciales
     useEffect(() => {
@@ -96,11 +101,56 @@ export default function SearchList({ navigation }) {
 
     if (!person) return <Text>Cargando...</Text>;
 
+    // Acción al pulsar una búsqueda
+    const handlePressSearch = async (item) => {
+        const check = await checkSearchParticipant(item.search_id, currentUser.person_id);
+        if (check.exists) {
+            // Si ya es participante de esa búsqueda
+            navigation.navigate("Búsqueda", { item });
+        } else {
+            // Si no es todavía participante de esa búsqueda
+            setSelectedSearch(item);
+            setModalVisible(true);
+        }
+    };
+
+    // Confirmar participación
+    const confirmParticipation = async () => {
+        try {
+            // 1. Registrar participación
+            await createSearchParticipant({
+                search_id: selectedSearch.search_id,
+                person_id: currentUser.person_id,
+                comments: null
+            });
+
+            // 2. Obtener el usuario real (tiene user_id y search_count)
+            const user = await getUserByPersonId(currentUser.person_id);
+            console.log('OK User in Lista Busquedas');
+
+            if (user) {
+                // 3. Incrementar contador
+                const newCount = (user.search_count ?? 0) + 1;
+
+                await updateUser(user.user_id, { search_count: newCount });
+
+                console.log("Nuevo search_count:", newCount);
+            }
+            
+            // 4. Cerrar modal y navegar
+            setModalVisible(false);
+            navigation.navigate("Búsqueda", { item: selectedSearch });
+
+        } catch (error) {
+            console.error("Error al unirse a la búsqueda:", error);
+        }
+    };
+
     // Vista del item donde se recogerá un resumen de la información de una búsqueda. Se mostrará una lista de items.
     const renderItem = ({ item }) => (
         <TouchableOpacity
             style={styles.button}
-            onPress={() => navigation.navigate("Búsqueda", { item })}
+            onPress={() => handlePressSearch(item)}
         >
             <InfoTag text={
                 item.is_public? `Pública · ${item.creatorGroup?.group_name || "Grupo desconocido"}` : `Privada · ${item.creatorGroup?.group_name || "Grupo desconocido"}`}
@@ -146,6 +196,34 @@ export default function SearchList({ navigation }) {
                     contentContainerStyle={{ paddingBottom: 40 }}
                 />
             )}
+
+            {/* Modal de confirmación */}
+            <Modal visible={modalVisible} transparent animationType="fade">
+                <View style={styles.modalOverlay}>
+                    <View style={styles.modalContainer}>
+                        <Text style={styles.modalTitle}>¿Quieres participar?</Text>
+                        <Text style={styles.modalText}>
+                            Te unirás a la búsqueda #{selectedSearch?.search_id} para ayudar en la localización de {selectedSearch?.person.first_name}.
+                        </Text>
+
+                        <View style={styles.modalButtons}>
+                            <TouchableOpacity
+                                style={[styles.modalButton, { backgroundColor: "#00318b" }]}
+                                onPress={confirmParticipation}
+                            >
+                                <Text style={styles.modalButtonText}>Sí, participar</Text>
+                            </TouchableOpacity>
+
+                            <TouchableOpacity
+                                style={[styles.modalButton, { backgroundColor: "#8B0000" }]}
+                                onPress={() => setModalVisible(false)}
+                            >
+                                <Text style={styles.modalButtonText}>Cancelar</Text>
+                            </TouchableOpacity>
+                        </View>
+                    </View>
+                </View>
+            </Modal>
         </View>
     );
 }
@@ -176,5 +254,51 @@ const styles = StyleSheet.create({
         alignSelf: 'flex-start',
         marginBottom: 8,
     },
-    tagText: { fontSize: 14, fontWeight: '500' },
+    tagText: { fontSize: 14, fontWeight: '500' 
+        
+    },
+    modalOverlay: {
+        flex: 1,
+        backgroundColor: "rgba(0,0,0,0.4)",
+        justifyContent: "center",
+        alignItems: "center",
+        padding: 20
+    },
+    modalContainer: {
+        backgroundColor: "#fff",
+        padding: 20,
+        borderRadius: 12,
+        width: "100%",
+        maxWidth: 380,
+        elevation: 5
+    },
+    modalTitle: {
+        fontSize: 20,
+        fontWeight: "700",
+        marginBottom: 10,
+        textAlign: "center"
+    },
+    modalText: {
+        fontSize: 16,
+        color: "#444",
+        marginBottom: 20,
+        textAlign: "center"
+    },
+    modalButtons: {
+        flexDirection: "row",
+        justifyContent: "space-between",
+        gap: 10
+    },
+    modalButton: {
+        flex: 1,
+        paddingVertical: 12,
+        borderRadius: 8,
+        alignItems: "center"
+    },
+    modalButtonText: {
+        color: "#fff",
+        fontSize: 16,
+        fontWeight: "600"
+    }
+    
 });
