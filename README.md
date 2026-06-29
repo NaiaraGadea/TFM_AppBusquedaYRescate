@@ -58,5 +58,6 @@ De acuerdo con ello, el **objetivo principal de este trabajo es el de diseñar u
 - **Carpeta Latex**: ficheros Latex utilizados para la creación del archivo de la memoria en PDF.
   - Carpeta img
   - Carpeta tex
-- **MemoriaTFM_NaiaraRodriguez.pdf**: documento final del trabajo.
+- **MemoriaTFM_NaiaraRodriguez.pdf**: documento final del trabajo. (No se pudo subr por superar los 25MB)
+- **ModeloPredictivo.ipynb**: Notebook Python con la experimentación realizada relativa al modelo predictivo propuesto en el trabajo.
 - **README.md**: fichero en Markdown de presentación del repositorio GitHub.
