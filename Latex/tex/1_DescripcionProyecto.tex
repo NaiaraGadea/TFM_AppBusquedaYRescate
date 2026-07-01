@@ -21,7 +21,7 @@
     
     La herramienta que se propone en este documento pretende complementar las operaciones actuales al mismo tiempo que cubrir los huecos operativos que se producen en casos de personas desaparecidas, por ejemplo, cuando la persona desaparecida no porta un dispositivo localizable. Además, se busca recoger la información de forma estructurada para que se puedan realizar análisis predictivos para futuros casos de desapariciones. 
         
-    En este trabajo se revisarán brevemente los sistemas actuales utilizados y se definirá una aplicación multiplataforma que permita gestionar incidentes y coordinar a las diferentes personas que participan en la búsqueda de una persona desaparecida, además de gestionar toda la información de una búsqueda y donde se recopilen datos para que se pueda trabajar en el futuro con algoritmos predictivos de localización de la persona desaparecida en base al resultado de otras búsquedas y la información de la propia persona, como su información personal o datos médicos. También se desarrollará un prototipo simple como prueba de concepto para mostrar cómo la ingeniería biomédica puede contribuir en ámbitos no tradicionalmente asociados, pero en donde la gestión de la información tanto del dispositivo de búsqueda como de la persona desaparecida contribuyera a mejorar la eficacia de los operativos de búsqueda y a reducir el sufrimiento de las familias afectadas.
+    En este trabajo se revisarán brevemente los sistemas actuales utilizados y se definirá una aplicación multiplataforma con componente innovadora que permita gestionar incidentes y coordinar a las diferentes personas que participan en la búsqueda de una persona desaparecida, además de gestionar toda la información de una búsqueda y donde se recopilen datos para que se pueda trabajar en el futuro con algoritmos predictivos de localización de la persona desaparecida en base al resultado de otras búsquedas y la información de la propia persona, como su información personal o datos médicos. También se realizará una experimentación del posible flujo del modelo predictivo y se desarrollará un prototipo simple como prueba de concepto para mostrar cómo la ingeniería biomédica puede contribuir en ámbitos no tradicionalmente asociados, pero en donde la gestión de la información tanto del dispositivo de búsqueda como de la persona desaparecida contribuyera a mejorar la eficacia de los operativos de búsqueda y a reducir el sufrimiento de las familias afectadas.
 
     
     \subsection{Motivación personal}
@@ -43,20 +43,20 @@
     \section{Objetivos}\label{obj}
     %\textcolor{red}{Objetivos generales y específicos: Define qué se pretende lograr con el desarrollo de la app, tanto a nivel funcional (gestión, búsqueda y coordinación) como en términos de impacto social.}
 
-    La problemática de las personas desaparecidas es un problema internacional y que supone un gran impacto a nivel social. Aunque existen multitud de herramientas que facilitan la labor de los buscadores e investigadores ante una desaparición, no tengo conocimiento de ninguna que integre todo el proceso de búsqueda y la colaboración activa entre FFCCS, otros grupos y ciudadanía, para encontrar a una persona desaparecida.
+    La problemática de las personas desaparecidas es un problema internacional y que supone un gran impacto a nivel social. Aunque existen multitud de herramientas que facilitan la labor de los buscadores e investigadores ante una desaparición, la autora de este trabajo no tiene conocimiento de ninguna que integre todo el proceso de búsqueda y la colaboración activa entre FFCCS, otros grupos y ciudadanía, para encontrar a una persona desaparecida.
     
-    De acuerdo con ello, el objetivo principal de este trabajo es el de diseñar una \textbf{aplicación de apoyo en la búsqueda y rescate de personas desaparecidas}. Para conseguir dicho fin, se han establecido una serie de sub objetivos a cumplir en este trabajo:
+    De acuerdo con ello, el objetivo principal de este trabajo es el de diseñar una \textbf{aplicación de apoyo en la búsqueda y rescate de personas desaparecidas}. Para conseguir dicho fin, se han establecido una serie de subobjetivos a cumplir en este trabajo:
     
     \begin{itemize}
-        \item \textbf{Subobjetivo 1. Estudio del contexto actual:} se va a investigar el contexto en torno a las personas desaparecidas y también se va a profundizar en el origen de nuestra orientación a nivel biológico, en concreto en el GPS Cerebral.
+        \item \textbf{Subobjetivo 1. Estudio del contexto actual:} se va a investigar el contexto en torno a las personas desaparecidas y también se va a profundizar en el origen de nuestra orientación a nivel biológico, en concreto en el Sistema de Posicionamiento Interno del Cerebro o ``GPS Cerebral''.
         
         \item \textbf{Subobjetivo 2. Estudio de herramientas actuales:} se van a investigar y explicar algunas de las herramientas que se utilizan actualmente en España en casos de personas desaparecidas, también se mencionarán algunas que no han sido específicamente creadas para los casos de personas desaparecidas, pero que su uso en este tipo de casos puede ser beneficioso. Además se realizará un pequeño análisis comparativo.
         
-        \item \textbf{Subobjetivo 3. Descripción y diseño de la aplicación:} se van a describir las características y definir una herramienta multiplataforma integral para el apoyo en la búsqueda y rescate de personas desaparecidas. Además, se definiran las funcionalidades más relevantes para el desarrollo inicial de la aplicación.
+        \item \textbf{Subobjetivo 3. Descripción y diseño de la aplicación:} se van a describir las características y definir una herramienta multiplataforma integral para el apoyo en la búsqueda y rescate de personas desaparecidas. Además, se definirán las funcionalidades más relevantes para el desarrollo inicial de la aplicación.
         
-        \item \textbf{Subobjetivo 4. Definición y obtención de un prototipo:} Se van a definir las características (requisitos, casos de uso, pantallas...) y se va a realizar un prototipo muy básico con alguna de las funcionalidades de la aplicación utilizando Visual Studio, Expo y MariaDB.
+        \item \textbf{Subobjetivo 4. Definición y obtención de un prototipo:} Se van a definir las características (requisitos, casos de uso, pantallas...) y se va a realizar un prototipo básico con alguna de las funcionalidades de la aplicación utilizando Visual Studio, Expo y MariaDB.
 
-        \item \textbf{Subobjetivo 5. Bases de un sistema de predicción:} se van a sentar las bases de un sistema básico de predicción de la localización de una persona desaparecida en base a enfermedades u otras características de la persona desaparecida.
+        \item \textbf{Subobjetivo 5. Bases de un sistema de predicción:} se van a sentar las bases de un sistema de predicción de la localización de una persona desaparecida en base a enfermedades u otras características de la persona desaparecida.
         
 
     \end{itemize}
@@ -260,7 +260,7 @@ En 2026, se ha publicando el II Plan Estratégico en Materia de Personas desapar
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%% CONOCIMIENTOS PREVIOS %%%%%%%%%%%%%%%%%%%%%%%%%
-    \section{Conocimientos previos II. GPS Cerebral.}\label{previos}
+    \section{Conocimientos previos II. ``GPS Cerebral''.}\label{previos}
 
     Antes de adentrarse en el el estado del arte y el desarrollo de la aplicación, se profundizará en los fundamentos biológicos y teóricos en los que también se apoyará el desarrollo del proyecto. De esta forma se podrá comprender cómo el cerebro representa el espacio y por qué ciertas enfermedades neurodegenerativas, trastornos psiquiátricos, o incluso estados emocionales intensos alteran la percepción del entorno y la capacidad de orientación. \cite{ManualDeBusquedayRescate}
     
@@ -268,9 +268,9 @@ En 2026, se ha publicando el II Plan Estratégico en Materia de Personas desapar
 
     
 %%%%%%%%%%% GENERAL DEL GPS CEREBRAL
-    \subsection{GPS cerebral y el hipocampo}
+    \subsection{El sistema de posicionamiento interno del cerebro}
 
-   El GPS interno humano fue identificado y descrito gracias al trabajo de John O'Keefe, May Britt Moser y Edvard Moser, los cuales recibieron el premio nobel en 2014\cite{PrensaNobel_GPSCerebral}. O'Keefe propuso en 1978 la teoría del mapa cognitivo\cite{MapaCognitivo_O_KEEFE,GPS_Cerebral_O_KEEFE}, que plantea que el cerebro construye una representación interna del espacio; años más tarde los Moser caracterizaron con más detalle las interacciones entre las células implicadas en ese sistema\cite{GPSCerebral_MOSER,TiposCelulas_GPSCerebral}.
+   El sistema de posicionamiento interno del cerebro, o más comunmente conocido como ``GPS interno o cerebral'' humano fue identificado y descrito gracias al trabajo de John O'Keefe, May Britt Moser y Edvard Moser, los cuales recibieron el premio nobel en 2014\cite{PrensaNobel_GPSCerebral}. O'Keefe propuso en 1978 la teoría del mapa cognitivo\cite{MapaCognitivo_O_KEEFE,GPS_Cerebral_O_KEEFE}, que plantea que el cerebro construye una representación interna del espacio; años más tarde los Moser caracterizaron con más detalle las interacciones entre las células implicadas en ese sistema\cite{GPSCerebral_MOSER,TiposCelulas_GPSCerebral}.
    
     El GPS interno es el sistema de posicionamiento cerebral e integra señales sensoriales (visuales, auditivas y somato sensoriales) y no sensoriales junto con procesos de memoria para generar un mapa cognitivo del entorno donde conocer las posiciones de la persona y de otros objetos o lugares. Las estructuras claves de este sistema son el hipocampo, donde se construyen y almacenan las representaciones espaciales, y la corteza entorrinal que actúa como el enlace entre el hipocampo y el resto del córtex y contribuyendo a la toma de decisiones.
 
@@ -280,13 +280,13 @@ En 2026, se ha publicando el II Plan Estratégico en Materia de Personas desapar
 
 \figura{0.8}{img/AnatomiaHipocampo.png}{Diagrama de la anatomía del hipocampo\cite{img_anatomiaHipocampo}.}{img_anatomiaHipocampo}{keepaspectratio}
     
-    Tanto en el hipocampo como en la corteza entorrinal media se observan agrupaciones de células que conforman la arquitectura funcional del GPS cerebral. Las principales clases celulares implicadas en el sistema de orientación son las células de lugar (place cells), las células de red (grid cells), las células de dirección (head direction cells) y las células de límite (limit cells). \cite{TiposCelulas_GPSCerebral}
+    Tanto en el hipocampo como en la corteza entorrinal media se observan agrupaciones de células que conforman la arquitectura funcional del ``GPS cerebral''. Las principales clases celulares implicadas en el sistema de orientación son las células de lugar (place cells), las células de red (grid cells), las células de dirección (head direction cells) y las células de límite (limit cells). \cite{TiposCelulas_GPSCerebral}
     
     La experiencia y el uso constante de la orientación modulan y refinan estas representaciones, de hecho, a mayor activación y mejor conectividad entre neuronas en las áreas implicadas, y por lo tanto más precisa y rápida será la identificación de un lugar.  Existen estudios en personas que usan habitualmente la navegación espacial (p.e. Taxistas) que muestran mayor activación y volumen de sustancia gris en zonas relacionadas, lo que sugiere una plasticidad dependiente del uso. Aunque todo este ámbito todavía se encuentra en estudio, se espera que la navegación espacial sea una de las primeras funciones cognitivas no sensoriales en ser comprendida a nivel de microcircuitos neuronales.
 
-    Las lesiones o alteraciones en el hipocampo y estructuras asociadas reducen la precisión de las representaciones espaciales y dificultan la recuperación y manipulación de la memoria. De hecho, si se produce un daño, los recuerdos más recientes suelen ser los más vulnerables, mientras que los más antiguos permanecen más resistentes. Esto ocurre porque ante una lesión o alteración el hipocampo será más selectivo a la hora de almacenar recuerdos nuevos. En este sentido existen múltiples condiciones fisiológicas, alteraciones y patologías que pueden ver afectada la funcionalidad del GPS cerebral.
+    Las lesiones o alteraciones en el hipocampo y estructuras asociadas reducen la precisión de las representaciones espaciales y dificultan la recuperación y manipulación de la memoria. De hecho, si se produce un daño, los recuerdos más recientes suelen ser los más vulnerables, mientras que los más antiguos permanecen más resistentes. Esto ocurre porque ante una lesión o alteración el hipocampo será más selectivo a la hora de almacenar recuerdos nuevos. En este sentido existen múltiples condiciones fisiológicas, alteraciones y patologías que pueden ver afectada la funcionalidad del ``GPS cerebral''.
 
-    En el contexto de personas desaparecidas, las alteraciones del GPS cerebral pueden influir en el comportamiento de la persona perdida, ya que pueden traducirse en comportamientos desorientados, dificultad para localizar puntos de referencia o protegerse, y en cambios en la capacidad de recordar rutas o situaciones recientes. Comprender estos mecanismos y sus vulnerabilidades es esencial al diseñar aplicaciones como la que se expone en este trabajo, porque permite anticipar patrones de comportamiento, adaptar estrategias de localización y priorizar intervenciones según el estado cognitivo y fisiológico de la persona desaparecida. \cite{ManualDeBusquedayRescate}
+    En el contexto de personas desaparecidas, las alteraciones del ``GPS cerebral'' pueden influir en el comportamiento de la persona perdida, ya que pueden traducirse en comportamientos desorientados, dificultad para localizar puntos de referencia o protegerse, y en cambios en la capacidad de recordar rutas o situaciones recientes. Comprender estos mecanismos y sus vulnerabilidades es esencial al diseñar aplicaciones como la que se expone en este trabajo, porque permite anticipar patrones de comportamiento, adaptar estrategias de localización y priorizar intervenciones según el estado cognitivo y fisiológico de la persona desaparecida. \cite{ManualDeBusquedayRescate}
 
     
 %%%%%%%%%% TIPOS DE CÉLULAS
@@ -323,9 +323,9 @@ En 2026, se ha publicando el II Plan Estratégico en Materia de Personas desapar
 
 
 
-    \subsection{Alteraciones en el GPS cerebral: Alzheimer}
+    \subsection{Alteraciones en el ``GPS cerebral'': Alzheimer}
     % Qué es?
-    El Alzheimer es una de las enfermedades donde más se puede observar una afectación significativa en el GPS Cerebral. Esta enfermedad es la principal causa de demencia en el mundo y se trata de una enfermedad neurodegenerativa progresiva caracterizada por pérdida de memoria, declive cognitivo y deterioro funcional. Actualmente no existe cura alguna. \cite{alzheimer}
+    El Alzheimer es una de las enfermedades donde más se puede observar una afectación significativa en el sistema de posicionamiento interno del cerebro. Esta enfermedad es la principal causa de demencia en el mundo y se trata de una enfermedad neurodegenerativa progresiva caracterizada por pérdida de memoria, declive cognitivo y deterioro funcional. Actualmente no existe cura alguna. \cite{alzheimer}
 
     En las primeras fases se van acumulando placas de proteína beta-amiloide que favorecen la hiperfosforilación de la proteína tau y forman ovillos, procesos que contribuyen a la degeneración neuronal y provocan poco a poco la desconexión entre neuronas. Una de las primeras regiones en verse afectadas la corteza entorrinal y la región CA1 del hipocampo, que explica los síntomas tempranos de pérdida de memoria a corto plazo y dificultades en la orientación, puesto que tienen tienen dificultad para calcular tiempos y distancias. Además, el campo visual suele estrecharse, produciendo una visión en túnel que favorece a que la persona avance en línea recta sin detenerse hasta quedar atascada.  Con la progresión de la enfermedad, el daño se va extendiendo a otras áreas corticales, lo que conduce a problemas en el lenguaje o las funciones ejecutivas.\cite{ManualDeBusquedayRescate}
 
@@ -337,7 +337,7 @@ En 2026, se ha publicando el II Plan Estratégico en Materia de Personas desapar
 
 
 
-    \subsection{Alteraciones en el GPS cerebral: Otras}
+    \subsection{Alteraciones en el ``GPS cerebral'': Otras}
 
     A parte del Alzheimer existen muchas otras condiciones que pueden reducir la capacidad para generar y usar mapas cognitivos. Entre ellas se incluyen otras demencias, discapacidad intelectual, trastornos del espectro autista, enfermedades mentales (por ejemplo esquizofrenia, trastornos afectivos o psicóticos), trastornos neuropsiquiátricos y alteraciones fisiológicas como hipoglucemia, hiperglucemia, hipoxia, hipotermia o hipertermia. Todas estas situaciones afectan a la irrigación, a la actividad neuronal o a la integridad estructural de las regiones implicadas en la representación espacial, por lo que pueden afectar a la capacidad de orientación.\cite{libroLostPersonBehavior, ManualDeBusquedayRescate}
     
@@ -428,7 +428,7 @@ En 2026, se ha publicando el II Plan Estratégico en Materia de Personas desapar
 
 
 \vspace{15cm}
-    \subsection{Alteraciones en el GPS cerebral: Emociones}
+    \subsection{Alteraciones en el ``GPS cerebral'': Emociones}
 
     Las emociones también modulan de forma importante el mapa cognitivo. Por ejemplo, estados de alta excitación aumentan la focalización perceptiva y por lo tanto perciben una menor cantidad de señales ambientales, de detalles. Por otro lado, estados de baja activación favorecen la dispersión atencional y el pensamiento difuso. Un equilibrio en el nivel de activación resulta óptimo para una orientación eficaz.
 

@@ -1,0 +1,337 @@
+\chapter{MODELO PREDICTIVO}\label{Resultados_pred}
+
+%%%%%%%%%%%%% RESULTADO: MODELO PREDICTIVO %%%%%%%%%%%
+Aunque actualmente se carece de acceso a datos reales ni a bases de datos policiales como PDyRH, en este apartado se expone un método de predicción que requerirá de mayor investigación futura, pero que podría integrarse en futuras versiones de la aplicación AlertRes. 
+
+Este método es uno de los pilares innovadores que ofrecería la aplicación y se fundamenta en el análisis de datos propios recogidos de la aplicación y fuentes geográficas para generar un mapa de probabilidad de localización de la persona desaparecida utilizando algoritmos de machine learning y estadísticos. 
+
+
+\section{Objetivos y pasos a seguir}
+
+Como se ha mencionado previamente, el objetivo final del modelo predictivo sería el de \textbf{obtener un sistema de apoyo a la búsqueda y rescate de personas desaparecidas que, a partir de datos históricos y contextuales, genere un mapa de probabilidad, donde se muestren las zonas con mayor probabilidad de localización de la persona desaparecida para poder priorizar recursos y áreas de búsqueda}.
+
+Por la complejidad y amplitud de este objetivo se ha subdividido el sistema en dos bloques que trabajan en cadena y que conformarían en un fin, un modelo predictivo híbrido:
+
+\begin{enumerate}
+    \item \textbf{Modelado predictivo (machine learning)} con el que obtener parámetros (distancia y elevación máximas, tiempo de movilidad y tipo de lugar de localización más probable) en función de las características del sujeto.
+    
+    \item \textbf{Modelado espacial y probabilístico (modelo basado en agentes + muestreo Monte Carlo)} cuyo objetivo sería el de utilizar esos datos obtenidos del primer modelado para calcular las probabilidades de localización en cada sección de un mapa a modo de mapa de calor.
+\end{enumerate}
+
+Sin embargo, se ha de tener en cuenta que existe un número muy limitado de estudios dónde los investigadores comparten este mismo objetivo y no se han encontrado artículos en los que se utilicen ambas técnicas, puesto que normalmente se han utilizado algoritmos estadísticos y la información recogida por Robert Koester en su libro 'Lost Person Behavior'\cite{libroLostPersonBehavior}, por lo que este planteamiento supone un reto innovador de dónde se podrían obtener nuevos patrones no conocidos hasta el momento. Cabe destacar los trabajos de \cite{Agent_based_pred1} y \cite{Agent_based_pred2} que han servido de base, junto con los conocimientos adquiridos a lo largo del máster para este planteamiento.
+
+Para conseguir este objetivo final se plantean los siguientes pasos:
+\begin{enumerate}
+\item Obtención y limpieza de los datos, y separación en conjunto de entrenamiento y de validación.
+\item Selección de los algoritmos para cada modelado.
+\item Entrenamiento y validación de distintos los modelos.
+\item Evaluación del conjunto y selección de los modelos más óptimos.
+\item Integración con la aplicación AlertRes.
+\end{enumerate}
+
+
+\section{Descripción de los datos}
+
+%Cuando se lleve a cabo el estudio de este posible método de predicción será necesario definir una hoja de ruta del estudio que incluya la selección de qué datos exactos son más interesante utilizar inicialmente, realizar un preprocesamiento de los datos con división en conjuntos de datos de entrenamiento y validación.
+Siguiendo el objetivo principal del modelo de predicción, se propone se propone trabajar principalmente con dos tipos de datos:
+\begin{itemize}
+    \item \textbf{Datos de casos de personas desaparecidas} recogidos y obtenidos a través de la base de datos de AlertRes. Esta base de datos se muestra en la figura \ref{diagrama_tablas} cuenta con once tablas diferentes, pero para el modelo de predicción interesan principalmente: people, missing people, cases, found cases, reporters, searches y alerts. Estas tablas incluyen entre otros, datos sociodemográficos del desaparecido (edad, sexo...), información clínica relevante (patologías, movilidad, tratamiento...) y características del incidente (última localización conocida, hora y fecha de desaparición, circunstancias reportadas...). Dentro de este grupo de datos se trabajará tanto con información de casos cerrados como aquella de casos abiertos dónde todavía no se ha localizado a la persona.
+    \item \textbf{Datos geográficos} obtenidos de fuentes como el Instituto Geográfico Nacional\cite{IGNPortal}: mapas, capas geográficas, red de caminos y senderos, hidrografía...
+\end{itemize}
+
+\figura{1.05}{img/DiagramaER_Tablas.png}{Diagrama de las tablas creadas en la base de datos de AlertRes. \textit{Fuente propia.}}{diagrama_tablas}{keepaspectratio}
+
+\vspace{3cm}
+
+\clearpage
+
+Es importante tener en cuenta que durante la duración del estudio del modelo de predicción toda la información sensible se trataría mediante anonimización para no exponer identidades.
+
+Una vez se seleccionen los datos, se les deberá realizar un preprocesamiento que podrá constar de tres fases:
+\begin{enumerate}
+    \item Limpieza de los datos: anonimización, corrección de coordenadas, eliminación de registros incompletos...
+    \item Agrupamiento opcional de los datos por distintas características (edad, estado físico de la persona desaparecida, discapacidades, clima del lugar...)
+    \item Preparación de los subconjuntos de entrenamiento con datos de casos cerrados y los subconjuntos de validación o pruebas que agruparía datos de casos cerrados y, si procede, datos de casos actualmente sin resolver.
+\end{enumerate}
+
+
+%Por otro lado, pese a que en un principio no se va a implementar el modelo, en caso de que se llegase a realizar se recomienda ir incorporando las variables de forma progresiva, realizando distintos análisis para evaluar su contribución. 
+
+%Además, en un futuro también sería interesante integrar en el sistema predictivo parámetros ya usados actualmente en las búsquedas, como la probabilidad de área (POA) consensuada entre los expertos del grupo de búsqueda, la probabilidad de detección (POD) o la probabilidad de éxito (POS); y, potencialmente, la integración de fuentes externas como bases de datos institucionales. \cite{ManualDeBusquedayRescate}
+
+\subsection{Dataset sintético para experimentación}
+Pese a que en un principio, en el trabajo no se iba a implementar el modelo predictivo por indisponibilidad de datos, finalmente, se ha realizado una implementación simple del modelo. Esta implementación permitirá establecer expectativas futuras a futuras investigaciones. La experimentación se realizará empleando un dataset sintético compuesto de 5.000 casos de personas desaparecidas creado con la inteligencia artificial de Copilot \cite{copilot2025}.
+
+Para su construcción se utilizaron exclusivamente las variables consideradas relevantes de las tablas \texttt{cases}, \texttt{missing people}, \texttt{people} y \texttt{found cases}. También, se evitó el uso de campos abiertos que requiriesen técnicas de procesamiento del lenguaje natural. Obteniendo finalmente un dataset con las siguientes columnas: \texttt{case id} , \texttt{person id}, \texttt{tipology}, \texttt{category}, \texttt{missing duration}, \texttt{departure point}, \texttt{expected return point}, \texttt{last seen point}, \texttt{found location}, \texttt{distance from ipp km}, \texttt{mobility hours}, \texttt{location type}, \texttt{ver- tical elevation m}, \texttt{scenario}, \texttt{subject status}, \texttt{climate type}, \texttt{disappearance zone}, \texttt{disappearance terrain}, \texttt{adult}, \texttt{sex}, \texttt{height}, \texttt{weight}, \texttt{physical level}, \texttt{physical cons- titution}, \texttt{disability}, \texttt{medical conditions}, \texttt{substance abuse}, \texttt{hearing problems}, \texttt{gen- der violence}, \texttt{visual problems}, \texttt{age} y \texttt{birth date}.
+
+El proceso de generación comenzó con una versión básica basada en distribuciones aleatorias y fue refinándose progresivamente mediante la incorporación de restricciones y relaciones lógicas entre variables, con el objetivo de obtener un dataset lo más realista posible. Se prestó especial atención a las categorías estudiadas previamente en este trabajo. Principalmente, personas con demencia tipo Alzheimer, trastorno del espectro autista (TEA), discapacidad intelectual, enfermedad mental y menores de diferentes rangos de edad.
+
+Las siguientes versiones del dataset sintético incorporaron un número creciente de reglas basadas en el conocimiento experto recogido en Lost Person Behavior de Robert J. Koester\cite{libroLostPersonBehavior}. Entre los aspectos considerados destaca la limitación de distancias y tiempos de movilidad según el perfil de la persona desaparecida, la asociación entre categorías y los lugares de localización más probables, la influencia de la edad en la capacidad de desplazamiento, la relación entre el nivel físico y la distancia recorrida, así como la modificación de la probabilidad de supervivencia en función del tiempo desaparecido. También se introdujeron mejoras en la coherencia demográfica y médica del conjunto de datos, ajustando altura y peso según sexo y edad, reduciendo la prevalencia de factores poco frecuentes como abuso de sustancias, problemas auditivos, violencia de género o determinadas patologías, y evitando combinaciones irreales (por ejemplo, menores de muy corta edad con consumo de drogas). Finalmente, se añadió coherencia entre el desnivel vertical recorrido, el tipo de terreno y las condiciones climáticas de la zona, reflejando tendencias observadas en la literatura, como el descenso altitudinal de personas con Alzheimer en entornos montañosos templados o la mayor dificultad de desplazamiento asociada a terrenos de montaña y desniveles pronunciados.
+
+\section{Técnicas propuestas}
+Para la selección del mejor modelo se decidió utilizar una metodología estándar\cite{ibm_model_selection}: 
+
+\begin{enumerate}
+    \item Establecer el desafío de machine learning.
+    \item Selección de diferentes modelos en función del tipo de desafío (regresión, clasificación o agrupamiento)
+    \item Selección de métricas de evaluación (curvas AUC-ROC, matriz de confusión...)
+    \item Entrenamiento y evaluación para elegir la mejor opción. 
+\end{enumerate}
+
+Finalmente como se ha mencionado previemente se proppone un \textbf{modelo híbrido} basado en distintos tipos y objetivos de modelado:
+\begin{itemize}
+    \item \textbf{Modelado basado en machine learning}.
+    \item \textbf{Modelado basado en estadística}.
+\end{itemize}
+
+
+\subsection{Primer modelado: ML de regresión y clasificación}
+Para este primer modelado, se busca predecir distintas variables (distancia máxima, elevación máxima, tiempo de movilidad y probabilidad de que se encontrar a una persona desaparecida en un tipo de localización u otro) a partir de la información propia de la persona y el incidente. Para realizar este tipo de predicción se pueden utilizar algoritmos de machine learning con los que identificar posibles relaciones entre las características de entrada para obtener unas variables de salida. En concreto, se plantea utilizar algoritmos de regresión multisalida para las distancias, elevación y el tiempo de movilidad; y de clasificación para el tipo de localización y estado del sujeto. 
+
+Existen multitud de algoritmos que se podrían utilizar, sin embargo, se han seleccionado cinco de regresión y tres de clasificación (implementables en Python\footnote{Se ha seleccionado Python porque ya se conoce, puesto que se ha utilizado para predicción a lo largo del máster en numerosas ocasiones.}):
+\begin{itemize}
+    \item \textbf{Regresión Lineal Múltiple}: modelo estadístico clásico que asume una relación lineal entre las variables de entrada y las variables objetivo. Busca ajustar un hiperplano que minimice el error cuadrático medio. Es sencillo, interpretable y eficiente, aunque su capacidad predictiva disminuye cuando las relaciones entre variables no son lineales \cite{sklearn_linear_regression}.
+
+    \item \textbf{Árboles de decisión}: modelos no paramétricos que dividen el espacio de características en regiones mediante reglas de decisión jerárquicas. Permiten capturar relaciones no lineales y manejar interacciones complejas entre variables. Además, pueden predecir múltiples variables objetivo de forma simultánea, lo que los hace adecuados para problemas multisalida. \cite{sklearn_DecisionTrees}.
+
+    \item \textbf{KNN (K-Nearest Neighbor)}: algoritmo basado en la similitud entre observaciones. Para predecir una salida, identifica los $k$ vecinos más cercanos en el espacio de características y calcula un promedio de sus valores objetivo. Es un algoritmo de aprendizaje perezoso (\textit{lazy learning}), ya que no construye un modelo durante el entrenamiento, sino que simplemente almacena los datos. La predicción se realiza comparando cada nueva observación con sus vecinos más cercanos en el conjunto de entrenamiento \cite{sklearn_knn,sklearn_knn_regressor}.
+
+    \item \textbf{SVR (Support Vector Regression) con MultiOutputRegressor}: SVR es un modelo robusto que busca ajustar una función que mantenga los errores dentro de un margen tolerable, maximizando a la vez la generalización. Es eficaz en espacios de alta dimensionalidad y permite el uso de kernels para capturar relaciones no lineales. Sin embargo, por defecto solo permite predecir una única variable objetivo, por lo que es necesario emplear un \textit{wrapper} como \textit{MultiOutputRegressor} para extenderlo a problemas multisalida \cite{sklearn_svr, sklearn_MultiOutputRegressor}.
+
+    \item \textbf{Red Neuronal Multilayer Perceptron (MLP)}: modelo inspirado en el funcionamiento de las neuronas biológicas, compuesto por varias capas densamente conectadas. Puede aprender relaciones altamente no lineales y complejas entre las variables de entrada y múltiples variables objetivo. Utiliza el algoritmo de \textit{backpropagation} para ajustar los pesos, y en el caso de regresión siempre emplea una función de activación lineal en la capa de salida \cite{sklearn_nn, sklearn_nn_mlp}.
+
+    \item \textbf{SVM (Support Vector Machine)}: modelo supervisado que buscan encontrar el hiperplano que maximiza el margen entre clases, utilizando únicamente un subconjunto de muestras denominadas vectores de soporte. En clasificación, el algoritmo SVC de scikit‑learn permite emplear distintos núcleos (lineal, polinómico, RBF) para capturar relaciones no lineales entre las características, lo que lo convierte en un método robusto y eficaz en espacios de alta dimensionalidad. Su rendimiento depende en gran medida de la correcta selección de hiperparámetros como \texttt{C} y \texttt{gamma}, y aunque puede ser computacionalmente costoso en conjuntos de datos grandes, en general ofrece buenos resultados\cite{sklearn_svm}.
+
+    \item \textbf{Random Forest}: método de ensemble basado en la construcción de múltiples árboles de decisión entrenados sobre subconjuntos aleatorios de datos y características, combinando sus predicciones mediante votación mayoritaria. Esto permite reducir la varianza y mitiga el sobreajuste, proporcionando un modelo estable y con buen rendimiento incluso en presencia de relaciones no lineales o interacciones complejas\cite{sklearn_random_forest}. 
+\end{itemize}
+
+\subsection{Segundo modelado: modelos basados en agentes}
+
+Para este segundo modelado, se sigue la idea propuesta por \cite{Agent_based_pred1} y \cite{Agent_based_pred2}, de utilizar un \textbf{modelo basado en agentes} para simular el comportamiento típico de una persona desaparecida en el terreno. La idea es crear agentes virtuales que, partiendo del último punto avistado, recorran el terreno siguiendo reglas simples y patrones de movimiento.
+
+En concreto, para obtener la probabilidad se utilizaría lo que se conoce en matemáticas como método Monte Carlo y modelos basados en agentes. Monte Carlo es un algoritmo que utiliza el muestreo aleatorio repetido para obtener una probabilidad de que ocurran ciertos resultados\cite{ibm_monte_carlo}. Mientras que los modelos basados en agentes son simulaciones en las que se utilizan múltiples agentes autónomos que interactúan entre sí en un entorno. Cada agente es un elemento individual e identificable, con un conjunto de características y reglas simples que rigen sus comportamiento y toma de decisiones. Estos modelos permiten ver patrones globales complejos y se utilizan en diversas áreas, como movilidad urbana o propagación de epidemias. \cite{MBA_Python}
+
+En los estudios \cite{Agent_based_pred1} y \cite{Agent_based_pred2} se utilizan dos enfoques diferentes de patrones de movimiento de los agentes. Por un lado, en el estudio \cite{Agent_based_pred1} utilizan los patrones de orientación que existen (Random Traveling, Route Traveling, Direction Traveling, Route Sampling, Direction Sampling, View Enchancing, Backtraking, Folk Wisdom, Staying Put, Doing Nothing)\cite{ManualDeBusquedayRescate}, mientras que en \cite{Agent_based_pred2} proponen utilizar los porcentajes de tipos de terrenos de localización que ofrece R. Koester para cada tipo de perfil obteniendo cuatro patrones generales de movimiento:
+\begin{itemize}
+    \item Tendencia a seguir caminos o senderos.
+    \item Tendencia a dirigirse a hacia masas de agua.
+    \item Búsqueda de refugio en edificios o estructuras.
+    \item Desplazamiento hacia zonas arboladas o cubiertas.
+\end{itemize}
+
+A diferencia de los trabajos \cite{Agent_based_pred1} y \cite{Agent_based_pred2}, donde los comportamientos de los agentes se construyen únicamente a partir de estadísticas generales obtenidas de estudios de comportamiento de personas desaparecidas, en la propuesta de AlertRes las simulaciones estarán condicionadas además por las predicciones obtenidas mediante los modelos de machine learning descritos anteriormente. De esta manera, las características particulares de cada incidente podrán influir directamente en el comportamiento de los agentes virtuales.
+
+El mapa o entorno de simulación se representará mediante un mapa de costes geográfico generado a partir de información cartográfica y topográfica. Es decir, cada celda del terreno tendrá asociado un coste de desplazamiento dependiente de factores como la pendiente, la vegetación, la proximidad a caminos o la presencia de obstáculos naturales. Los agentes tenderán a desplazarse hacia aquellas zonas con menor coste de tránsito.
+
+Formalmente, la probabilidad de que un agente seleccione una celda vecina $i$ durante una iteración puede expresarse como:
+
+\[
+P(i)=\frac{w_i}{\sum_{j=1}^{n} w_j}
+\]
+
+Donde $w_i$ representa el peso asignado a la celda candidata y $n$ es el número total de movimientos posibles. Dicho peso podrá depender de múltiples factores relacionados tanto con el terreno como con las características del perfil del desaparecido.
+
+En la experimentación propuesta, los pesos de movimiento estarán influenciados por varios factores:
+
+\begin{itemize}
+    \item \textbf{Orientación espacial}: capacidad del sujeto para dirigirse hacia un objetivo o mantener una dirección determinada.
+    \item \textbf{Seguimiento de caminos}: tendencia a utilizar carreteras, senderos o vías.
+    \item \textbf{Superación de obstáculos}: capacidad para atravesar zonas de difícil acceso.
+    \item \textbf{Movilidad}: predisposición general al desplazamiento.
+    \item \textbf{Persistencia direccional}: tendencia a mantener la misma dirección de movimiento durante varios pasos consecutivos.
+\end{itemize}
+
+Estos parámetros podrán variar para cada categoría de desaparecido, permitiendo representar diferencias de comportamiento entre perfiles como personas con Alzheimer, menores, excursionistas, corredores o personas con trastornos mentales.
+
+Una vez obtenidas las predicciones del primer modelado, especialmente la distancia máxima recorrida, las horas de movilidad y el tipo de localización más probable, se generarán miles de agentes con ligeras variaciones aleatorias alrededor de dichos valores. Cada agente recorrerá el mapa siguiendo las reglas descritas anteriormente, produciendo una trayectoria distinta pero compatible con las características estimadas para el caso analizado.
+
+Al finalizar las simulaciones, todas las trayectorias generadas se agregarán espacialmente para construir un mapa de densidad. Las zonas por las que transiten más agentes recibirán una mayor probabilidad de presencia, obteniéndose así una estimación de la Probabilidad de Área (POA). Posteriormente, dichas probabilidades podrán agruparse en sectores de búsqueda para facilitar la asignación de recursos operativos y apoyar la toma de decisiones durante una intervención real.
+
+
+%%%%%%%%%%%%%%% EXPERIMENTACIÓN %%%%%%%%%%%%%%%%%%%%%%
+\section{Experimentación}
+
+\subsection{Preprocesamiento de los datos}
+Tras la obtención del conjunto de datos sintético se empezó a trabajar con en el modelo predictivo utilizando un cuaderno de Python. Como paso previo al entrenamiento, se realizó un proceso básico de preprocesamiento orientado a seleccionar las variables relevantes y preparar los datos para su utilización en tareas de regresión y clasificación.
+
+En primer lugar, se eliminaron las variables que no aportaban valor directo al modelo y aquellas que requerían de técnicas adicionales para su explotación, no contempladas para una experimentación básica. Concretamente, se descartaron \texttt{case\_id} y \texttt{person\_id}, \texttt{departure\_point}, \texttt{expected\_return\_point}, \texttt{last\_seen\_point} y \texttt{found\_location}, la fecha de nacimiento y las variables \texttt{medical\_conditions} y \texttt{gender\_violence}. La exclusión de \texttt{medical\_conditions} se debió a la elevada variedad de valores posibles, que requerirían de técnicas de procesamiento del lenguaje natural, mientras que \texttt{gender\_violence} se eliminó por presentar una frecuencia reducida.
+
+Posteriormente, se definieron las variables de entrada del sistema predictivo y las variables objetivo, que se dividieron en dos grupos:
+\begin{itemize}
+    \item Variables objetivo para el problema de regresión multisalida, formado por la distancia recorrida desde el punto inicial de búsqueda (\texttt{distance\_from\_ipp\_km}), el desnivel vertical alcanzado (\texttt{vertical\_elevation\_m}) y las horas de movilidad estimadas (\texttt{mobility\_hours}). 
+    \item Variables objetivo para los problemas de clasificación, orientados a predecir el tipo de localización (\texttt{location\_type})  y el estado de la persona al ser encontrada (\texttt{subject\_status}).\footnote{El posible escenario no se pudo clasificar porque en el dataset sintético a todos los casos se les estableció como un escenario de pérdida.}
+\end{itemize} 
+
+Finalmente, el conjunto de datos fue dividido en subconjuntos de entrenamiento, validación y prueba. Se utilizó una partición del 80\,\% para entrenamiento, 15\,\% para validación y 5\,\% para pruebas. Además, para evitar desequilibrios entre los diferentes perfiles de personas desaparecidas, la primera partición se realizó mediante muestreo estratificado sobre la variable \texttt{category}, garantizando que la distribución de las categorías permaneciese aproximadamente constante entre los distintos subconjuntos. El conjunto de entrenamiento se empleó para el ajuste de los modelos y el de validación para la comparación de las alternativas y selección, y el de prueba para otras evaluaciones.
+
+
+\subsection{Modelo híbrido: modelado ML}
+
+Una vez preparados los conjuntos de entrenamiento, validación y prueba, se procedió al entrenamiento de los distintos modelos de machine learning propuestos previamente para los problemas de regresión multisalida y clasificación.
+
+Como paso previo al entrenamiento, las variables de entrada se separaron en dos grupos: variables numéricas y variables categóricas. Esto se realizó para transformar las variables categóricas en variables numéricas, empleando \textit{One-Hot Encoding}, y las variables numéricas se normalizaron con \textit{StandardScaler}. Este escalado se aplicó para favorecer el rendimiento de algoritmos sensibles a la magnitud de los datos, como KNN, SVM o redes neuronales. Todo el proceso de transformación se integró posteriormente con \textit{pipelines} de \textit{scikit-learn}.
+
+Para la regresión multisalida, cuyo objetivo era estimar simultáneamente la distancia recorrida, el desnivel vertical alcanzado y las horas de movilidad de la persona desaparecida, se entrenaron cinco modelos diferentes:
+\begin{itemize}
+    \item Regresión lineal múltiple mediante \textit{MultiOutputRegressor}.
+    \item Árbol de decisión de regresión con profundidad máxima de 10 niveles.
+    \item K-Nearest Neighbors (KNN) utilizando 15 vecinos.
+    \item Support Vector Regression (SVR) con núcleo (\textit{RBF}), implementado mediante \textit{MultiOutputRegressor}.
+    \item Red neuronal multicapa (\textit{MLP Regressor}) con dos capas ocultas de 100 y 50 neuronas respectivamente.
+\end{itemize}
+
+Cada modelo fue entrenado utilizando el mismo conjunto de entrenamiento y posteriormente evaluado sobre el conjunto de validación con el objetivo de comparar su capacidad predictiva.
+
+Respecto a la clasificación se han considerado dos variables objetivo independientes: el tipo de localización donde se podría encontrar a la persona desaparecida (\texttt{location\_type}) y el estado físico con el que se podría encontrar la persona desaparecida (\texttt{subject\_status})\footnote{Inicialmente también se iba a estudiar la clasificación del tipo de escenario de la desaparición, pero el dataset sintético, solo establece el tipo de escenario como perdido o 'lost'}. En ambos casos se evaluaron tres modelos de aprendizaje supervisado: máquinas de vectores soporte (SVM) con núcleo (\textit{RBF}), redes neuronales multicapa (MLP) con una arquitectura de dos capas ocultas de 100 y 50 neuronas, y Random Forest).
+
+Finalmente, todos los modelos se entrenaron. 
+
+\subsubsection{Evaluación de los modelos}
+% Insertar párrafos de las métricas y los resultados
+Una vez completado el entrenamiento de los distintos modelos, se procedió a su evaluación utilizando el conjunto de validación, con el objetivo de comparar el rendimiento de los diferentes algoritmos y seleccionar las alternativas más prometedoras para cada tarea.
+
+En el caso de la regresión multisalida, se emplearon tres métricas complementarias\cite{sklearn_metrics}:
+\begin{itemize}
+    \item El error absoluto medio (MAE) se utilizó para cuantificar la desviación media entre los valores predichos y reales en las mismas unidades de cada variable.
+
+    $$MAE=\frac1n \sum |y-\hat y|$$
+
+    \item El error cuadrático medio (RMSE) permitió analizar la sensibilidad de los modelos ante errores de gran magnitud, al penalizar más fuertemente las predicciones alejadas del valor real.
+
+    $$RMSE=\sqrt{\frac1n\sum(y-\hat y)^2}$$
+
+    \item El coeficiente de determinación ($R^2$) como medida de la capacidad explicativa de cada modelo respecto a la variabilidad observada en los datos.
+
+    $$R^2 = 1 - \frac{\sum (y - \hat{y})^2}{\sum (y - \bar{y})^2}$$
+
+\end{itemize}
+
+Las métricas se calcularon de forma independiente para cada una de las tres variables objetivo de la regresión: distancia recorrida desde el punto inicial de búsqueda, desnivel vertical alcanzado y horas de movilidad. Esto permitió analizar el comportamiento de cada algoritmo para cada magnitud concreta y detectar posibles diferencias en su capacidad predictiva.
+
+% Insertar imagen de la tabla obtenida en la regresión
+\figura{1}{img/Resultados/Model/Resultados_MLRegresion.jpeg}{Resultados de la evaluación de los modelos de regresión. \textit{Fuente propia.}}{EvaluacionRegresion}{keepaspectratio}
+
+Los resultados mostraron que ningún modelo sobresalía claramente en las tres variables de forma simultánea. Sin embargo, el algoritmo KNN presentó el comportamiento más equilibrado en conjunto, obteniendo resultados consistentes para distancia, elevación y movilidad. Por otra parte, SVR mostró su mejor desempeño en la predicción de las horas de movilidad, mientras que la regresión lineal presentó resultados razonables en la estimación de distancias. Cabe mencionar que la variable más difícil de modelar fue la elevación vertical, que presentó errores elevados y menores valores de $R^2$ en prácticamente todos los algoritmos evaluados.
+
+Estos resultados sugieren que las relaciones existentes entre las variables de entrada y la elevación vertical son más complejas de lo que permite capturar el conjunto de datos utilizado. Asimismo, ponen de manifiesto las limitaciones del empleo de un dataset sintético, donde algunas dependencias pueden no estar suficientemente representadas. Además, puede que estos resultados también se deban a la limitada fuente de información geográfica en el dataset utilizado. A pesar de ello, \textbf{las predicciones obtenidas para distancia y movilidad mostraron una calidad suficiente para considerar su integración en fases posteriores del modelo híbrido} propuesto.
+
+En las tareas de clasificación se emplearon también varias métricas\cite{sklearn_metrics}: la matriz de confusión que permite visualizar los patrones de error entre clases y detectar cuáles son las categorías con mayor nivel de confusión, la exactitud (\textit{accuracy}), la precisión (\textit{precision}), la sensibilidad (\textit{recall}) y la métrica F1, para evaluar de forma equilibrada todas las clases independientemente de su frecuencia.
+
+Estas métricas se aplicaron a los dos problemas de clasificación considerados durante la experimentación: la predicción del tipo de localización de la persona desaparecida y la predicción de su estado al ser localizada.
+
+% Insertar capturas de las matrices de confusión.
+\begin{figure}[h!]
+        \centering
+        % Primera imagen
+        \begin{subfigure}{1\textwidth}
+            \centering
+            \includegraphics[width=\linewidth]{img/Resultados/Model/MatricesConfusionLocType.png}
+        \end{subfigure}
+        \hfill
+        % Segunda imagen
+        \begin{subfigure}{1\textwidth}
+            \centering
+            \includegraphics[width=\linewidth]{img/Resultados/Model/MatricesConfusionStatus.png}
+        \end{subfigure}
+        \caption{Resultados de la evaluación de los modelos de clasificación. \textit{Fuente propia.}}
+        \label{confusionMatrixClasification}
+    \end{figure}
+
+
+Los resultados obtenidos mostraron que ninguno de los modelos alcanzó niveles elevados de capacidad discriminativa. Aunque, en el caso de la clasificación del estado del sujeto se obtuvieron valores de exactitud (\textit{accuracy}) aparentemente aceptables, pero con métricas de precisión, sensibilidad y F1-score que fueron significativamente inferiores, evidenciando dificultades para considerar correcta la clasificación. 
+
+Debido a este desequilibrio existente entre las clases del conjunto de datos sintético, especialmente en la predicción del tipo de localización, se incorporó la técnica de sobremuestreo SMOTE (\textit{Synthetic Minority Oversampling Technique}) dentro de los \textit{pipelines} de entrenamiento, para generar ejemplos sintéticos de las clases minoritarias e intentar reducir sesgo hacia las categorías más frecuentes y favoreciendo un aprendizaje más equilibrado. Por desgracia, incluso tras aplicar esta técnica de balanceo, los resultaros no cambiaron.
+
+La principal conclusión extraída de esta fase es que las limitaciones parecen estar más relacionadas con la calidad y estructura del conjunto de datos que con los algoritmos utilizados. El carácter sintético del dataset y la posible falta de relaciones discriminativas suficientemente fuertes entre las variables podrían estar impidiendo que los modelos aprendan patrones robustos de clasificación. Por ello, las futuras líneas de trabajo deberían centrarse en la obtención de datos reales o la incorporación de nuevas variables  antes de explorar arquitecturas de aprendizaje más complejas.
+
+\subsection{Modelo híbrido: modelado Monte Carlo}
+
+Una vez seleccionados los modelos de machine learning con mejor rendimiento para cada variable objetivo, se realizó una primera integración con el modelo de simulación basado en Monte Carlo. Para ello, se utilizó un sujeto de prueba perteneciente al conjunto de datos de pruebas, obteniendo sus predicciones de distancia máxima recorrida, tipo de localización más probable y estado esperado del sujeto, para luego utilizarlo.
+
+Adicionalmente, se definieron una serie de factores de comportamiento específicos para cada categoría de persona desaparecida, inspirados en las características descritas en la literatura y analizadas en este trabajo sobre comportamiento de personas desaparecidas. Estos factores representan aspectos como la capacidad de orientación espacial, la tendencia a seguir caminos, la capacidad para superar obstáculos, el nivel de movilidad o la persistencia direccional durante el desplazamiento. Cada perfil recibió valores normalizados entre 0 y 1, permitiendo modificar el comportamiento de los agentes simulados en función del tipo de desaparecido.
+
+% Insertar tabla de factores
+\figura{0.8}{img/Resultados/Model/TablaFactoresCategory.jpeg}{Tabla con los factores de comportamiento para cada categoria. \textit{Fuente propia.}}{tablaFactores}{keepaspectratio}
+
+\vspace{3cm}
+
+Para realizar las simulaciones, se utilizó un entorno geográfico real utilizando cartografía del Instituto Geográfico Nacional\cite{IGNPortal}. Ese entorno consistía un mapa ráster a escala 1:200.000 correspondiente a la provincia de Burgos que se recortó en base a unas coordenadas de referencia (\textit{Ver figura \ref{EvaluacionRegresion}}), obteniendo un área de aproximadamente \textit{40 km x 40 km}. Así, se obtuvo un escenario geográfico real en el que evaluar el comportamiento de los algoritmos.
+
+\figura{0.8}{img/Resultados/Model/recortemapaBurgos40km.png}{Recorte del mapa de Burgos 40km x 40km con escala 1:200.000. \textit{Fuente propia.}}{EvaluacionRegresion}{keepaspectratio}
+
+La primera aproximación consistió en un modelo Monte Carlo básico  donde en cada iteración, el agente evaluaba las celdas vecinas y seleccionaba su siguiente posición mediante una distribución de probabilidad inversamente proporcional al coste asociado a la elevación de cada celda de terreno. El procedimiento se repitió cientos de veces para generar múltiples trayectorias independientes y poder observar las zonas de mayor concentración de recorridos (\textit{Ver figura \ref{Simulacion_MCBasic}}).
+
+% Insertar mapa MC Básico
+\figura{0.6}{img/Resultados/Model/mapaCaminos_MCBásico.png}{Resultados de la simulación de agentes con Monte Carlo Básico. \textit{Fuente propia.}}{Simulacion_MCBasic}{keepaspectratio}
+
+Posteriormente, se desarrolló una versión más avanzada del algoritmo con el objetivo de incorporar características adicionales del entorno y del comportamiento humano (utilizando los factores por categoría definidos anteriormente). 
+
+En este caso, inicialmente, se generó una capa de costes geográficos compuesta por múltiples características derivadas del ráster: altitud, pendiente, proximidad a vías de comunicación, hidrología y vegetación. Estas capas se normalizaron y combinaron para obtener un mapa de costes final sobre el que realizar las simulaciones del algoritmo avanzado (\textit{Ver figura \ref{mapa_costes}}).
+
+% Insertar mapa costes
+%\figura{1}{img/Resultados/Model/coste_finalmapa.png}{Mapas con coste basado únicamente en altitud y otro en múltiples características del entorno geográfico. \textit{Fuente propia.}}{Mapa}{keepaspectratio}
+
+% Insertar capturas de las matrices de confusión.
+\begin{figure}[h!]
+        \centering
+        \includegraphics[width=1\linewidth]{img/Resultados/Model/coste_finalmapa.png}
+        \caption{Mapa de costes basados en altitud y mapa de costes basado en múltiples variables del ráster. \textit{Fuente propia.}}
+        \label{mapa_costes}
+\end{figure}
+
+\vspace{3cm}
+A continuación, se amplió el algoritmo de movimiento incorporando los factores específicos asociados a cada categoría de desaparecido, atracción hacia objetivos, capacidad para seguir caminos, capacidad para atravesar obstáculos y persistencia en la dirección de desplazamiento. De esta forma, cada agente simulado cuenta con comportamientos diferenciados según el perfil de la persona desaparecida.
+
+Para conocer el funcionamiento de esta nueva aproximación nuevamente se ejecutaron centenares de agentes independientes sobre un mismo escenario (\textit{Ver figura \ref{Simulacion_MCAdvance}}). 
+
+% Mapa MC Avanzado
+\figura{0.7}{img/Resultados/Model/mapaCaminos_MCAvanzado.png}{Resultados de la simulación de agentes con Monte Carlo Avanzado. \textit{Fuente propia.}}{Simulacion_MCAdvance}{keepaspectratio}
+
+Los resultados obtenidos mostraron que el modelo avanzado producía trayectorias significativamente más coherentes que la versión básica. Los agentes tendían a concentrar sus desplazamientos en áreas de menor coste, utilizaban con mayor frecuencia las vías de comunicación y evitaban zonas consideradas obstáculos, reproduciendo comportamientos esperables en escenarios reales de búsqueda y rescate. Asimismo, el realizar modificación de los parámetros asociados al perfil del desaparecido permite diferenciar los patrones de movimiento, por lo que se puede afirmar que el modelo es capaz de representar comportamientos diferenciados entre distintas categorías de sujetos.
+
+\subsection{Mapa de probabilidad}
+
+Una vez obtenidas las trayectorias simuladas mediante el algoritmo Monte Carlo, se procedió a transformar dichas simulaciones a un mapa de probabilidad de área (POA) que permitiera identificar las zonas con mayor interés operativo para las labores de búsqueda.
+
+El mapa de calor se construyó con una matriz acumuladora en la que cada celda almacenaba el número de veces que había sido visitada por algún agente simulado. Así se obtiene una probabilidad asociada a las zonas recorridas con mayor frecuencia. Posteriormente, se redujo el ruido para facilitar la interpretación visual de los resultados sometiendo a la matriz a un proceso de suavizado con un filtro gaussiano. Y seguidamente, se normalizaron los valores obtenidos para generar una representación continua de las POA.
+
+A partir de esta información se generó un mapa de calor, superpuesto sobre el mapa utilizado durante las simulaciones. En dicha representación, las áreas con colores más claros corresponden a zonas donde una mayor proporción de trayectorias simuladas convergen, mientras que las áreas con colores más oscuros o rojos corresponden con menores POA. De esta forma se obtuvo una identificación rápida de las zonas de concentración potencialmente relevantes para la planificación de la búsqueda.
+
+% Insertar mapa de calor
+\figura{0.7}{img/Resultados/Model/mapaCalor_MCAvanzado.png}{Mapa de calor resultado con Monte Carlo Avanzado. \textit{Fuente propia.}}{MapaCalor_MCAdvance}{keepaspectratio}
+
+Con el fin de adaptar esta información a un uso operativo por parte de los equipos de emergencia, el área de estudio fue dividida posteriormente en una cuadrícula. El número de divisiones se calculó en función de un número modificable de responsables de grupo disponibles para liderar equipos de búsqueda (formados por otros profesionales o civiles), empleando una partición aproximada de tamaño $\lceil\sqrt{n}\rceil \times \lceil\sqrt{n}\rceil$, donde $n$ representa el número de responsables.
+
+Además, para cada una de las celdas de la cuadrícula se calcularon diferentes parámetros de interés:
+\begin{itemize}
+    \item Probabilidad de área (POA) media asociada a la celda, obtenida a partir de las frecuencias acumuladas de las simulaciones.
+    \item Área de la celda en metros cuadrados y kilómetros cuadrados.
+    \item Coordenadas geográficas del centroide de la zona.
+\end{itemize}
+
+Una vez calculadas estas magnitudes, se implementó un algoritmo simple de asignación de recursos basado en la probabilidad de área. Las celdas se ordenaron según su valor de POA y los responsables de equipos disponibles se distribuyeron priorizando inicialmente las zonas con mayor probabilidad. En caso de existir más responsables que celdas, estos se repartirán proporcionalmente a la probabilidad relativa de cada sector.
+
+Finalmente, los resultados se representaron gráficamente mediante una cuadrícula superpuesta al mapa. En la siguiente figura se puede observar que cada celda muestra de forma simultánea su POA normalizada (P) y el número de responsables de equipos asignados (A).
+
+% Insertar imagen Celdas POA para 10 responsables de equipo.
+\figura{0.9}{img/Resultados/Model/MapaDivididoPOA.png}{Mapa dividido en celdas con POA y número de responsables asignados. Resultado calculado para 10 responsables. \textit{Fuente propia.}}{MapaPOA}{keepaspectratio}
+
+
+
+\section{Limitaciones a tener en cuenta}
+
+Como se ha mencionado previamente, se debe subrayar que lo aquí descrito constituye una propuesta de investigación y no existe todavía evidencia empírica suficiente que permita avalar la eficacia operativa de un sistema predictivo de estas características en escenarios reales de búsqueda y rescate.
+
+La principal limitación del modelo es la ausencia de un conjunto de datos real con el volumen y la calidad necesarios para entrenar y validar adecuadamente las opciones de ML planteadas. Debido a las restricciones de acceso a bases de datos institucionales y a la propia fase de desarrollo de AlertRes, la experimentación se ha realizado utilizando un conjunto de datos sintético generado a partir de la información recopilada para este proyecto. Aunque se han incorporado numerosas reglas para mejorar su realismo, estos datos no puede sustituir completamente la complejidad y variabilidad de los incidentes reales.
+
+Esta limitación se hizo especialmente evidente durante la evaluación de los modelos de clasificación. Los algoritmos entrenados obtuvieron resultados discretos independientemente de la técnica utilizada, sugiriendo que el conjunto de datos no contiene relaciones suficientemente discriminativas entre las variables consideradas. Por tanto, los resultados obtenidos no deben interpretarse como una medida del potencial real de los algoritmos, sino como una primera aproximación orientada a validar la viabilidad técnica de la arquitectura propuesta.
+
+Asimismo, los resultados obtenidos en regresión deben interpretarse con cautela. Aunque algunos modelos mostraron una capacidad razonable para estimar distancias recorridas y tiempos de movilidad, la predicción del desnivel vertical presentó errores elevados. Esto pone de manifiesto la necesidad de integrar datos topográficos más detallados en futuras versiones.
+
+Además, toda la experimentación geográfica se ha llevado a cabo sobre un único recorte cartográfico correspondiente a una zona concreta de la provincia de Burgos. Aunque los resultados obtenidos muestran patrones coherentes y permiten validar el funcionamiento general del sistema, sería necesario evaluar el modelo en diferentes entornos geográficos, con el fin de conocer su comportamiento real.
+
+Por otra parte, el sistema únicamente ha abordado la estimación de la Probabilidad de Área (POA). Sin embargo, en operaciones reales de búsqueda se tienen en cuenta otras probabilidades como la Probabilidad de Detección (POD) o la Probabilidad de Éxito (POS), que dependen tanto de las características del terreno como de los recursos desplegados y de las estrategias de búsqueda empleadas. La integración de estos factores queda fuera del alcance del presente trabajo y constituye una de las líneas de desarrollo futuro.
+
+A pesar de estas limitaciones, la experimentación realizada demuestra que la combinación de modelos predictivos, simulación Monte Carlo y mapas de probabilidad constituye una línea de investigación prometedora. Los resultados obtenidos sugieren que este enfoque podría evolucionar hacia una herramienta de apoyo capaz de estimar áreas prioritarias de búsqueda y optimizar la distribución de recursos.
+
+Finalmente, en caso de que los resultados obtenidos mediante investigaciones posteriores fueran satisfactorios, cualquier utilización real debería incorporar mecanismos de gobernanza de datos, protocolos robustos de anonimización, revisiones periódicas de los modelos de inteligencia artificial y pruebas piloto realizadas bajo la supervisión de las autoridades competentes. 
