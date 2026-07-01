@@ -1,58 +1,127 @@
-\chapter{Despliegue GitHub}
-%\section{Despliegue Github}
+\chapter{Código fuente en GitHub}
 
-\textcolor{red}{FINALIZAR Y REVISAR UNA VEZ FINALIZADO EL PROTOTIPO FINAL}
+Este anexo recoge de forma organizada todas las carpetas y ficheros que componen el repositorio de GitHub: \url{https://github.com/NaiaraGadea/TFM_AppBusquedaYRescate}. El objetivo es ofrecer una visión global de la estructura del proyecto, facilitando la localización de recursos y la navegación por los distintos componentes.
 
-Este anexo se recogen de forma organizada todas las carpetas y ficheros que componen el repositorio de GitHub: \url{https://github.com/NaiaraGadea/TFM_AppBusquedaYRescate}. El objetivo es ofrecer una visión global de la estructura del proyecto, facilitando la localización de recursos y la navegación por los distintos componentes.
 \begin{itemize}
-    \item \textbf{Carpeta AlertRes}: carpeta que contiene todos los fichero propios del prototipo de la aplicación AlertRes desarrollado a lo largo del trabajo.
+    \item \textbf{Carpeta AlertRes}: carpeta que contiene todos los ficheros propios del primer prototipo de la aplicación AlertRes desarrollado en el trabajo.
     \begin{itemize}
-        \item Carpeta Backend: carpeta que incluye todos los ficheros relativos al backend del prototipo, ficheros que sirven para gestionar el procesamiento interno de la aplicación y como conexión de la interfaz de usuario con la base de datos.
+        \item \textbf{Carpeta Backend}: carpeta que incluye todos los ficheros relativos al backend de este primer prototipo. Estos ficheros sirven para gestionar el procesamiento interno de la aplicación y como conexión de la interfaz de usuario con la base de datos.
         \begin{itemize}
-            \item Carpeta src:
+            \item \textbf{Carpeta src}:
             \begin{itemize}
-                \item Carpeta routes:
+                \item \textbf{Carpeta routes}: contiene cuatro ficheros, uno por cada tabla de la base de datos, y define los endpoints para trabajar con la base de datos.
                 \begin{itemize}
-                    \item alerts.js: fichero que ...
-                    \item cases.js: fichero que ...
-                    \item desaparecidos.js: fichero que ...
-                    \item searchs.js: fichero que ...
+                    \item \texttt{alerts.js}: rutas y controladores para gestionar las alertas; incluye endpoints para crear, listar, actualizar y eliminar alertas.
+                    \item \texttt{cases.js}: rutas para la gestión de casos; operaciones CRUD sobre los casos registrados.
+                    \item \texttt{desaparecidos.js}: rutas específicas para la entidad de personas desaparecidas; permite consultar y modificar datos de desaparecidos.
+                    \item \texttt{searchs.js}: rutas relacionadas con las búsquedas; creación y consulta de búsquedas asociadas a casos.
                 \end{itemize}
-                \item db.js: fichero que ...
-                \item server.js: fichero que ...
+                \item \texttt{db.js}: fichero de configuración de la conexión a la base de datos; exporta la instancia de conexión y funciones auxiliares para ejecutar consultas.
+                \item \texttt{server.js}: punto de entrada del servidor; configura el servidor Express, middleware (CORS, body-parser), registra las rutas y arranca la aplicación en el puerto configurado.
             \end{itemize}
-            \item package.json:
+            \item \texttt{package.json}: fichero que declara las dependencias del backend, scripts de ejecución y metadatos del proyecto.
         \end{itemize}
-        \item Carpeta Frontend: carpeta que incluye todos los ficheros relativos al frontend del prototipo, es decir, ficheros relacionados con la interfaz de usuario del prototipo. 
+        \item \textbf{Carpeta Frontend}: carpeta que incluye todos los ficheros relativos al frontend del primer prototipo, es decir, ficheros relacionados con la interfaz de usuario del prototipo. Entre los ficheros disponibles se encuentra \texttt{App.js} que es el núcleo de la aplicación y \texttt{api.js} que actúa como puente entre frontend y backend.
         \begin{itemize}
-            \item Carpeta assets:
-            \item Carpeta src:
-            \begin{itemize}
-                \item Carpeta screens:
-                \begin{itemize}
-                    \item Carpeta components:
-                    \item 
-                \end{itemize}
-                \item Carpeta styles:
-            \end{itemize}
-            \item App.js:
-            \item api.js:
-            \item app.json:
-            \item index.js:
-            \item package.json:
-        \end{itemize} 
-        \item package.json: es un fichero que incluye todas las dependencias con sus versiones para que la aplicación funcione correctamente.
+            \item \texttt{App.js}: componente raíz de la aplicación; configura la navegación básica y el renderizado inicial de pantallas.
+            \item \texttt{api.js}: módulo que centraliza las llamadas HTTP al backend; exporta funciones para consumir los endpoints definidos en el servidor.
+            \item Otros ficheros estáticos y de configuración propios del prototipo frontend.
+        \end{itemize}
+        \item \texttt{package.json}: fichero que incluye todas las dependencias con sus versiones para que la aplicación funcione correctamente.
     \end{itemize}
-    
-    \item  \textbf{Carpeta Latex}: carpeta que contiene todos los ficheros necesarios para la creación del documento de la memoria.
+
+    \item \textbf{Carpeta AlertResV2}: carpeta que contiene todos los ficheros propios del segundo prototipo de la aplicación AlertRes desarrollado en el trabajo. Esta versión amplía la estructura de datos y la funcionalidad respecto al primer prototipo.
     \begin{itemize}
-        \item Carpeta img: carpeta que contiene todas las imágenes de la memoria del trabajo.
-        \item Carpeta tex: carpeta que contiene todos los ficheros LaTeX correspondientes a cada capítulo y a los anexos de la memoria.
-        \item bibliografia.bib: fichero que recopila las referencias bibliográficas de todo el proyecto.
-        \item memoria.tex: fichero que constituye el documento principal del proyecto escrito en LaTeX. Desde él, se compila completamente la memoria y se genera el documento final en formato PDF.
-        \item pclass.cls: fichero que incluye la información relativa al estilo del documento de la memoria.
+        \item \textbf{Carpeta Backend}: carpeta que incluye todos los ficheros relativos al backend del segundo y último prototipo. Estos ficheros sirven para gestionar el procesamiento interno de la aplicación y como conexión de la interfaz de usuario con la base de datos.
+        \begin{itemize}
+            \item \textbf{Carpeta src}:
+            \begin{itemize}
+                \item \textbf{Carpeta routes2}: contiene múltiples ficheros, uno por cada tabla de la base de datos ampliada en el segundo prototipo, y define los endpoints para trabajar con la misma.
+                \begin{itemize}
+                    \item \texttt{alerts.js}: rutas y lógica para la gestión avanzada de alertas.
+                    \item \texttt{cases.js}: rutas para la gestión de casos con campos ampliados.
+                    \item \texttt{found\_cases.js}: rutas para registrar y consultar casos marcados como encontrados.
+                    \item \texttt{group\_members.js}: rutas para gestionar miembros de grupos de rescate.
+                    \item \texttt{missing\_people.js}: rutas para la entidad de personas desaparecidas con atributos detallados.
+                    \item \texttt{people.js}: rutas para la gestión de personas relacionadas con casos y búsquedas.
+                    \item \texttt{reporters.js}: rutas para gestionar los reportes realizados por usuarios o testigos.
+                    \item \texttt{rescue\_groups.js}: rutas para la gestión de grupos de rescate y sus metadatos.
+                    \item \texttt{search\_participants.js}: rutas para gestionar participantes en búsquedas concretas.
+                    \item \texttt{searches.js}: rutas para la gestión de búsquedas; incluye filtros y consultas públicas/privadas.
+                    \item \texttt{users.js}: rutas para la gestión de usuarios, autenticación básica y permisos.
+                \end{itemize}
+                \item \texttt{db.js}: fichero de configuración de la conexión a la base de datos; contiene la lógica de inicialización, pooling y exporta utilidades para realizar consultas parametrizadas.
+                \item \texttt{server.js}: punto de entrada del servidor; configura Express, middleware, autenticación básica, registro de rutas y arranque del servicio.
+            \end{itemize}
+            \item \texttt{package.json}: fichero que declara dependencias, scripts y metadatos del backend V2.
+            \item \texttt{.env}: fichero de variables de entorno que contiene parámetros sensibles y de configuración como la URL de la base de datos, credenciales y el puerto de ejecución. No debe subirse a repositorios públicos.
+        \end{itemize}
+        \item \textbf{Carpeta Frontend}: carpeta que incluye todos los ficheros relativos al frontend del segundo prototipo. Contiene la estructura de pantallas, componentes y recursos necesarios para la interfaz de usuario.
+        \begin{itemize}
+            \item \textbf{Carpeta assets}: recoge los ficheros relativos a imágenes, iconos y otros recursos estáticos utilizados por la aplicación.
+            \item \textbf{Carpeta src}: contiene las pantallas, componentes, contextos y estilos del prototipo.
+            \begin{itemize}
+                \item \textbf{Carpeta screens}: recoge todas las pantallas de la segunda versión del prototipo.
+                \begin{itemize}
+                    \item \textbf{Carpeta auth}:
+                    \begin{itemize}
+                        \item \texttt{CrearUsuario.js}: pantalla para crear un nuevo usuario en la aplicación; incluye formulario y validaciones básicas.
+                        \item \texttt{SeleccionUsuario.js}: pantalla de inicio de sesión; permite seleccionar o autenticar el usuario con el que se desea entrar.
+                    \end{itemize}
+                    \item \textbf{Carpeta components}:
+                    \begin{itemize}
+                        \item \texttt{CaseItem.js}: componente que muestra un resumen de un caso; se reutiliza en listados para representar alertas y casos.
+                    \end{itemize}
+                    \item \textbf{Carpeta home}:
+                    \begin{itemize}
+                        \item \texttt{Desaparecidos.js}: pantalla con la lista de personas desaparecidas para las que se ha lanzado una alerta; utiliza \texttt{CaseItem} para cada entrada.
+                        \item \texttt{PantallaCasoPublic.js}: pantalla que muestra la información básica de un caso público.
+                        \item \texttt{PantallaCasosGrupo.js}: pantalla que muestra todos los casos asociados al grupo logueado.
+                    \end{itemize}
+                    \item \textbf{Carpeta profesionales}:
+                    \begin{itemize}
+                        \item \texttt{MiembrosGrupo.js}: pantalla que muestra los miembros del grupo de rescate.
+                        \item \texttt{CasoCerrado.js}: pantalla para cerrar un caso; recoge la información final y ejecuta la acción de cierre.
+                        \item \texttt{NuevaAlerta.js}: pantalla para crear una nueva alerta asociada a un caso.
+                        \item \texttt{NuevaBusqueda.js}: pantalla para crear una nueva búsqueda operativa para un caso.
+                        \item \texttt{NuevoCaso.js}: pantalla para registrar un nuevo incidente de persona desaparecida.
+                        \item \texttt{PantallaCasoActivo.js}: pantalla que muestra la información detallada de un caso activo.
+                    \end{itemize}
+                    \item \textbf{Carpeta profile}:
+                    \begin{itemize}
+                        \item \texttt{Perfil.js}: pantalla de perfil de usuario con opciones de edición y visualización de datos personales.
+                    \end{itemize}
+                    \item \textbf{Carpeta search}:
+                    \begin{itemize}
+                        \item \texttt{PantallaBusqueda.js}: pantalla que muestra la información de una búsqueda seleccionada.
+                        \item \texttt{PantallaListaBusqueda.js}: pantalla que lista todas las búsquedas públicas y las del grupo.
+                    \end{itemize}
+                    \item \textbf{Carpeta settings}:
+                    \begin{itemize}
+                        \item \texttt{Ajustes.js}: pantalla de ajustes de la aplicación; permite configurar parámetros y cerrar sesión.
+                    \end{itemize}
+                \end{itemize}
+                \item \textbf{Carpeta styles}: recoge los estilos globales y temas visuales reutilizables por la aplicación.
+            \end{itemize}
+            \item \texttt{App.js}: fichero que es el núcleo de la aplicación. Aquí se inicializan los contextos globales, se configura la navegación principal mediante stacks y tabs según el tipo de usuario, y se aplica el tema visual global.
+            \item \texttt{api.js}: fichero donde se centralizan las funciones que consumen el backend; exporta utilidades para realizar peticiones a los endpoints del servidor V2.
+            \item \texttt{app.json}: fichero de configuración de la aplicación (metadatos para el entorno de ejecución, iconos y ajustes de empaquetado).
+            \item \texttt{index.js}: punto de entrada del frontend; registra el componente raíz y arranca la aplicación en el entorno elegido.
+            \item \texttt{package.json}: fichero que declara las dependencias del frontend V2, scripts de desarrollo y producción, y metadatos del proyecto.
+        \end{itemize}
+        \item \texttt{package.json}: fichero que incluye todas las dependencias con sus versiones para que la aplicación funcione correctamente.
     \end{itemize}
     
-    \item \textbf{MemoriaTFM\_NaiaraRodríguez.pdf}: fichero pdf con el documento final de la memoria del trabajo.
-    \item README.md: fichero que contiene la presentación del repositorio de Github en Markdown.
+    \item \textbf{Carpeta Latex}: carpeta que contiene todos los ficheros necesarios para la creación del documento de la memoria.
+    \begin{itemize}
+        \item \textbf{Carpeta img}: carpeta que contiene todas las imágenes de la memoria del trabajo.
+        \item \textbf{Carpeta tex}: carpeta que contiene todos los ficheros LaTeX correspondientes a cada capítulo y a los anexos de la memoria.
+        \item \texttt{bibliografia.bib}: fichero que recopila las referencias bibliográficas de todo el proyecto.
+        \item \texttt{memoria.tex}: fichero que constituye el documento principal del proyecto escrito en LaTeX. Desde él se compila completamente la memoria y se genera el documento final en formato PDF.
+        \item \texttt{pclass.cls}: fichero que incluye la información relativa al estilo del documento de la memoria.
+    \end{itemize}
+    
+    \item \textbf{MemoriaTFM\_NaiaraRodríguez.pdf}: fichero PDF con el documento final de la memoria del trabajo.
+    \item \textbf{ModeloPredictivo.ipynb}: Notebook Python con la experimentación realizada relativa al modelo predictivo propuesto en el trabajo.
+    \item \textbf{README.md}: fichero que contiene la presentación del repositorio de GitHub en Markdown, instrucciones de instalación y uso básico.
 \end{itemize}

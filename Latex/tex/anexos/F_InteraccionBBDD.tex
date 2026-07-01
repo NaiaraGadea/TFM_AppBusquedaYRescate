@@ -1,0 +1,116 @@
+\chapter{Interacción con la base de datos} \label{Anexo:InteraccionBBDD}
+%\section{Cuestionario de usabilidad}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% INTERACCIONES %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%        
+    Como se ha mencionado previamente, en el proyecto se utiliza el sistema de gestión de base de datos MariaDB (\textit{Ver Figura \ref{diagrama_tablas}}) para gestionar toda la información relacionada con usuarios, personas, casos de desaparición, alertas y grupos de rescate. En ella se han creado las tablas necesarias para le funcionamiento del sistema: `users', `people', `missing people', `reporters', `cases', `found cases', `alerts', `searches', `search participants', `rescue groups' y `group members'. En las figuras \ref{tabla_users}--\ref{tabla_group_members} se muestran capturas de cada una de estas tablas creadas.
+
+    La comunicación entre la aplicación y la base de datos se ha realizado mediante consultas SQL ejecutadas desde el servidor (Node.js + Express). Las operaciones principales implementadas siguen el patrón CRUD (Create, Read, Update, Delete) y se exponen mediante endpoints HTTP: \textbf{GET} para lectura, \textbf{POST} para creación, \textbf{PUT/PATCH} para actualización y \textbf{DELETE} para eliminación.
+
+    A continuación se describen las consultas implementadas para cada tabla:
+
+    \subsubsection{Tabla Users}
+    Esta tabla registra la infomración de los usuarios que están asociados a una persona.
+    \begin{itemize}
+            \item GET que devuelve lista de usuarios con un límite opcional.
+            \item GET que obtiene el usuario asociado a un person id.
+            \item GET que selecciona un usuario en base a su user id. 
+            \item POST que crea un nuevo usuario y devuelve la fila insertada. 
+            \item PUT que permite actualizar los campos del usuario indicado, excepto los campos protegidos (user id, person id y created at).   
+    \end{itemize}
+    \figura{0.7}{img/Resultados/alertresDB/tablaBBDD_Users.jpeg}{Tabla donde se almacena información de los usuarios registrados en la aplicación. \textit{Fuente propia.}}{tabla_users}{keepaspectratio}
+
+    \subsubsection{Tabla People}
+        Esta tabla contiene los datos básicos de cualquier persona.
+        \begin{itemize}
+            \item GET que devuelve la lista de personas con límite opcional.
+            \item GET que selecciona una persona en base a su person id.
+            \item GET que selecciona a una persona en base a su dni.
+            \item POST para crear una nueva persona y devolvuelve la fila insertada.
+        \end{itemize}
+        \figura{0.7}{img/Resultados/alertresDB/tablaBBDD_People.jpeg}{Tabla donde se almacena información básica de una persona. \textit{Fuente propia.}}{tabla_people}{keepaspectratio}
+        
+    \subsubsection{Tabla Missing People}
+        Que almacena datos más específicos de las personas desaparecidas.
+        \begin{itemize}
+            \item GET que devuelve la lista de personas desaparecidas con límite opcional.
+            \item GET que selecciona una persona desaparecida en base a su missing id.
+            \item POST para crear a una nueva persona desaparecida y devuelve la fila insertada.
+        \end{itemize}
+        \figura{0.7}{img/Resultados/alertresDB/tablaBBDD_MissingPeople.jpeg}{Tabla donde se almacena información específica de las personas desaparecidas. \textit{Fuente propia.}}{tabla_missing_people}{keepaspectratio}
+        
+    \subsubsection{Tabla Reporters}
+        Esta tabla registra a los denunciantes de cada caso de desaparición.
+        \begin{itemize}
+            \item GET que devuelve la lista de denunciantes con límite opcional.
+            \item POST para crear un nuevo denunciante y devolvuelve la fila insertada.
+        \end{itemize}
+        \figura{0.7}{img/Resultados/alertresDB/tablaBBDD_Reporters.jpeg}{Tabla donde se almacena información de las personas denunciantes. \textit{Fuente propia.}}{tabla_reporters}{keepaspectratio}
+
+    \subsubsection{Tabla Cases}
+        Esta tabla recoge la información principal de cada caso de desaparición.
+        \begin{itemize}
+            \item GET que devuelve la lista de casos con límite opcional.
+            \item GET que devuelve la lista de casos con alertas públicas con límite opcional.
+            \item GET que obteniene todos los casos de un grupo de rescate.
+            \item GET que devuelve los casos en base al estado del caso.
+            \item GET que selecciona un caso por su case id.
+            \item POST para crear un nuevo caso y devuelve la fila insertada.
+            \item PUT que permite actualizar un caso completo excepto los campos protegidos.
+        \end{itemize}
+        \figura{0.7}{img/Resultados/alertresDB/tablaBBDD_Cases.jpeg}{Tabla donde se almacena información  básica del caso. \textit{Fuente propia.}}{tabla_cases}{keepaspectratio}
+
+    \subsubsection{Tabla Found Cases}
+        Esta tabla registra la información post-intervención de un incidente.
+        \begin{itemize}
+            \item GET que devuelve la lista de casos finalizados con límite opcional.
+            \item POST para crear un nuevo caso cerrado y devuelve la fila insertada.
+        \end{itemize}
+        \figura{0.7}{img/Resultados/alertresDB/tablaBBDD_FoundCases.jpeg}{Tabla donde se almacena la información post-intervención de un caso. \textit{Fuente propia.}}{tabla_found_cases}{keepaspectratio}
+
+    \subsubsection{Tabla Alerts}
+        Esta tabla recoge las alertas que se han activado para casos de desaparición.
+        \begin{itemize}
+            \item GET que devuelve la lista de alertas con límite opcional.
+            \item GET que devuelve las alertas públicas y aquellas alertas privadas de un grupo de rescate.
+            \item POST para crear una nueva alerta y devuelve la fila insertada.  
+        \end{itemize}
+        \figura{0.7}{img/Resultados/alertresDB/tablaBBDD_Alerts.jpeg}{Tabla de registro de las alertas activadas. \textit{Fuente propia.}}{tabla_alerts}{keepaspectratio}
+        
+    \subsubsection{Tabla Searches}
+        Esta tabla registra la información de las búsquedas sobre el terreno organizadas para encontrar a una persona desaparecida.
+        \begin{itemize}
+            \item GET que devuelve la lista de búsquedas con límite opcional.
+            \item GET que devuelve las búsquedas que son públicas y aquellas búsquedas privadas de un grupo de rescate.
+            \item POST para crear una nueva búsqueda y devuelve la fila insertada.
+            \item PUT que permite actualizar los campos de una búsqueda excepto aquellos campos que son protegidos.
+        \end{itemize}
+        \figura{0.7}{img/Resultados/alertresDB/tablaBBDD_Searches.jpeg}{Tabla de registro de las búsquedas organizadas entorno a un caso. \textit{Fuente propia.}}{tabla_searches}{keepaspectratio}
+  
+    \subsubsection{Tabla Search Participants}
+        Esta tabla agrupa la información de los participantes para cada búsqueda.
+        \begin{itemize}
+            \item GET que devuelve la lista de participantes con límite opcional.
+            \item GET que comprueba si un usuario ya participa en una búsqueda en base al search id y el person id.
+            \item POST para crear a un nuevo participante y devuelve la fila insertada.
+        \end{itemize}
+        \figura{0.7}{img/Resultados/alertresDB/tablaBBDD_SearchParticipants.jpeg}{Tabla donde se almacena información de las personas participantes en una búsqueda específica. \textit{Fuente propia.}}{tabla_search_participants}{keepaspectratio}
+
+    \subsubsection{Tabla Rescue Groups}
+        Esta tabla recopila la información de los grupos de rescate.
+        \begin{itemize}
+            \item GET que devuelve la lista de grupos de rescate con límite opcional.
+            \item GET que obtiene el grupo al que pertenece una persona en base a person id. 
+            \item GET que selecciona un grupo en base a su group id.
+            \item POST para crear un nuevo grupo de rescate y devuelve la fila insertada.
+        \end{itemize}
+        \figura{0.7}{img/Resultados/alertresDB/tablaBBDD_RescueGroups.jpeg}{Tabla donde se almacena información de los grupos especializados. \textit{Fuente propia.}}{tabla_rescue_groups}{keepaspectratio}
+
+    \subsubsection{Tabla Group Members}
+        Esta tabla registra la información de los miembros de cada grupo de rescate.
+        \begin{itemize}
+            \item GET que devuelve la lista de miembros de grupos de rescate con límite opcional.
+            \item GET que obtiene los miembros de un grupo en base a su grupo id.
+            \item GET que obtiene la información de un miembro en base a su person id.
+            \item POST para crear a un nuevo miembro de un grupo y devuelve la fila insertada.
+        \end{itemize}
+        \figura{0.7}{img/Resultados/alertresDB/tablaBBDD_GroupMembers.jpeg}{Tabla donde se almacena información de los miembros de un grupo. \textit{Fuente propia.}}{tabla_group_members}{keepaspectratio}
