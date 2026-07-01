@@ -96,7 +96,7 @@
 
 %%%%%%%%%%%%%%%%%%%%% BIBLIOGRAF{\'I}A%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\usepackage{apacite}
+%\usepackage{apacite}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% CABECERAS DE P{\'A}GINAS %%%%%%%%%%%%%%%%%%%
 \usepackage{fancyhdr}
