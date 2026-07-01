@@ -60,4 +60,5 @@ De acuerdo con ello, el **objetivo principal de este trabajo es el de diseñar u
   - Carpeta tex
 - **MemoriaTFM_NaiaraRodriguez.pdf**: documento final del trabajo. (No se pudo subr por superar los 25MB)
 - **ModeloPredictivo.ipynb**: Notebook Python con la experimentación realizada relativa al modelo predictivo propuesto en el trabajo.
+- **dataset_sar_5000_casos_v6.csv**: Dataset creado con la inteligencia artificial de Copilot para el entrenamiento del modelo propuesto en el trabajo.
 - **README.md**: fichero en Markdown de presentación del repositorio GitHub.
